@@ -2417,3 +2417,129 @@ h3 {
   }
 }
 
+/* Final second section layout: each row is one complete split card */
+.sticky-feature-section {
+  margin-top: 14px;
+  padding-top: 18px;
+  padding-bottom: 72px;
+}
+
+.sticky-feature-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  width: min(1452px, 100%);
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 8px;
+  background: transparent;
+}
+
+.feature-story-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(420px, 0.9fr);
+  min-height: clamp(420px, 52vw, 600px);
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.feature-story-card + .feature-story-card {
+  margin-top: 0;
+  border-top: 1px solid rgba(35, 37, 41, 0.08);
+}
+
+.sticky-feature-block {
+  display: flex;
+  min-height: 0;
+  padding: clamp(38px, 4vw, 62px) clamp(42px, 4.8vw, 68px);
+  border-bottom: 0;
+  flex-direction: column;
+}
+
+.feature-card-heading {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(20px, 2.8vw, 34px);
+}
+
+.sticky-feature-count {
+  flex: 0 0 auto;
+  font-size: clamp(19px, 1.35vw, 25px);
+  gap: 12px;
+}
+
+.sticky-feature-count + h3,
+.sticky-feature-block h3 {
+  position: static;
+  display: block;
+  margin: 0;
+  font-size: clamp(19px, 1.35vw, 25px);
+  line-height: 1.2;
+}
+
+.sticky-feature-block p {
+  max-width: 720px;
+  margin: auto 0 0;
+  font-size: clamp(23px, 2.2vw, 34px);
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+}
+
+.sticky-feature-cta {
+  min-height: 56px;
+  margin-top: 28px;
+  padding: 0 28px;
+  font-size: 16px;
+}
+
+.sticky-media-pane {
+  position: relative;
+  top: auto;
+  height: auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.sticky-media-frame {
+  height: 100%;
+  min-height: clamp(420px, 52vw, 600px);
+  border-radius: 0;
+}
+
+.sticky-image-placeholder {
+  width: min(82%, 460px);
+  height: min(72%, 440px);
+  min-height: 300px;
+}
+
+@media (max-width: 1020px) {
+  .feature-story-card {
+    grid-template-columns: 1fr;
+  }
+
+  .sticky-media-frame {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 640px) {
+  .sticky-feature-section {
+    margin-top: 10px;
+    padding: 14px 12px 48px;
+  }
+
+  .sticky-feature-block {
+    padding: 30px 24px;
+  }
+
+  .feature-card-heading {
+    display: grid;
+    gap: 12px;
+  }
+
+  .sticky-feature-block p {
+    margin-top: 72px;
+    font-size: clamp(24px, 7vw, 31px);
+  }
+}
+

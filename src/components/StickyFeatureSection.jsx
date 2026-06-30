@@ -2,7 +2,6 @@ import React from "react";
 import { BarChart3, Bot, Globe2, Layers3 } from "lucide-react";
 import { ContentBlock } from "./ContentBlock";
 import { MediaPane } from "./MediaPane";
-import { useScrollSpy } from "./useScrollSpy";
 
 const stickyFeatures = [
   {
@@ -45,25 +44,19 @@ const stickyFeatures = [
 ];
 
 export function StickyFeatureSection() {
-  const { activeIndex, itemRefs } = useScrollSpy(stickyFeatures.length);
-
   return (
     <section className="sticky-feature-section reveal-section" aria-label="How Jadeed Solutions builds digital systems">
       <div className="sticky-feature-layout">
-        <div className="sticky-feature-content">
-          {stickyFeatures.map((feature, index) => (
+        {stickyFeatures.map((feature, index) => (
+          <div className="feature-story-card" key={feature.title}>
             <ContentBlock
-              key={feature.title}
               feature={feature}
               index={index}
               total={stickyFeatures.length}
-              active={activeIndex === index}
-              itemRefs={itemRefs}
             />
-          ))}
-        </div>
-
-        <MediaPane feature={stickyFeatures[activeIndex]} />
+            <MediaPane feature={feature} />
+          </div>
+        ))}
       </div>
     </section>
   );
