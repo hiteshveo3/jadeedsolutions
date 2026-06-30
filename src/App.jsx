@@ -20,9 +20,29 @@ import {
   Zap
 } from "lucide-react";
 import { StickyFeatureSection } from "./components/StickyFeatureSection";
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  AiBrain03Icon as HugeAiBrain03Icon,
+  Chart01Icon as HugeChart01Icon,
+  DashboardBrowsingIcon as HugeDashboardBrowsingIcon,
+  MarketingIcon as HugeMarketingIcon,
+  MobileProgramming01Icon as HugeMobileProgramming01Icon,
+  SeoIcon as HugeSeoIcon,
+  SparklesIcon as HugeSparklesIcon,
+  WebDesign01Icon as HugeWebDesign01Icon,
+  WorkflowCircle03Icon as HugeWorkflowCircle03Icon
+} from "@hugeicons/core-free-icons";
 
 const siteUrl = "https://jadeedsolutions.com";
 const faviconPath = "/assets/Jadeed%20Solutions%20favicon.png";
+
+function HugeIcon({ icon, size = 28, strokeWidth = 1.55 }) {
+  return <HugeiconsIcon icon={icon} size={size} color="currentColor" strokeWidth={strokeWidth} />;
+}
+
+const createHugeIcon = (icon) => function JadeedHugeIcon(props) {
+  return <HugeIcon icon={icon} {...props} />;
+};
 
 const services = [
   {
@@ -32,7 +52,7 @@ const services = [
     description:
       "Custom websites, landing pages, CMS builds, and performance-focused digital platforms engineered for speed, clarity, and long-term SEO value.",
     keywords: "web development agency, custom website development, performance websites",
-    icon: Code2
+    icon: createHugeIcon(HugeWebDesign01Icon)
   },
   {
     slug: "seo",
@@ -41,7 +61,7 @@ const services = [
     description:
       "Technical SEO, content architecture, keyword strategy, internal linking, structured data, and ongoing optimization for sustainable organic growth.",
     keywords: "SEO services, technical SEO agency, organic growth strategy",
-    icon: Search
+    icon: createHugeIcon(HugeSeoIcon)
   },
   {
     slug: "app-development",
@@ -50,7 +70,7 @@ const services = [
     description:
       "Mobile and web app planning, MVP interfaces, product workflows, dashboards, and scalable front-end systems for modern businesses.",
     keywords: "app development agency, MVP development, web app development",
-    icon: LayoutGrid
+    icon: createHugeIcon(HugeMobileProgramming01Icon)
   },
   {
     slug: "digital-marketing",
@@ -59,7 +79,7 @@ const services = [
     description:
       "Paid media strategy, landing page optimization, conversion tracking, funnel design, and campaign reporting tied to business outcomes.",
     keywords: "digital marketing agency, paid media strategy, conversion campaigns",
-    icon: BarChart3
+    icon: createHugeIcon(HugeMarketingIcon)
   },
   {
     slug: "ui-ux-design",
@@ -68,7 +88,7 @@ const services = [
     description:
       "Premium interface systems, conversion-focused layouts, research-informed flows, and responsive design built for trust and usability.",
     keywords: "UI UX design agency, product design, conversion design",
-    icon: Sparkles
+    icon: createHugeIcon(HugeSparklesIcon)
   },
   {
     slug: "ai-automation",
@@ -77,7 +97,7 @@ const services = [
     description:
       "AI-assisted workflows, lead routing, internal dashboards, content systems, and automation plans that remove repetitive work.",
     keywords: "AI automation agency, business automation, workflow automation",
-    icon: Zap
+    icon: createHugeIcon(HugeAiBrain03Icon)
   }
 ];
 
@@ -573,12 +593,12 @@ function HomePage() {
         </SectionHeader>
         <div className="home-card-grid three">
           {[
-            ["Complete Ecosystem", "Your website, SEO structure, content plan, campaign tracking, and automation workflows are designed as one connected system."],
-            ["Long-Term Growth Focus", "We build foundations that can expand through service pages, case studies, blog clusters, reporting, and optimization cycles."],
-            ["Proven Results", "Every layout, page, and interaction is shaped around measurable outcomes: better visibility, clearer trust, and stronger enquiries."]
-          ].map(([title, text]) => (
+            ["Complete Ecosystem", "Your website, SEO structure, content plan, campaign tracking, and automation workflows are designed as one connected system.", HugeWorkflowCircle03Icon],
+            ["Long-Term Growth Focus", "We build foundations that can expand through service pages, case studies, blog clusters, reporting, and optimization cycles.", HugeDashboardBrowsingIcon],
+            ["Proven Results", "Every layout, page, and interaction is shaped around measurable outcomes: better visibility, clearer trust, and stronger enquiries.", HugeChart01Icon]
+          ].map(([title, text, icon]) => (
             <article className="home-card" key={title}>
-              <ShieldCheck size={28} />
+              <HugeIcon icon={icon} size={30} />
               <h3>{title}</h3>
               <p>{text}</p>
             </article>
@@ -620,15 +640,15 @@ function HomePage() {
         </SectionHeader>
         <div className="home-card-grid three">
           {[
-            ["SEO & Local Search Optimization", "Technical SEO, page structure, internal links, Google visibility, content planning, and local search improvements."],
-            ["Website Development & Design", "Fast, responsive, conversion-focused websites with clean navigation, polished UI, and scalable page systems."],
-            ["Mobile App Development", "MVP planning, app interfaces, dashboards, workflows, and product experiences built for practical use."],
-            ["Google Business Profile Management", "Profile optimization, service positioning, review signals, posting strategy, and local trust-building."],
-            ["AI Automation & Workflows", "Lead routing, reporting flows, content support, internal systems, and repetitive task automation."],
-            ["Digital Marketing & Growth Strategy", "Campaign planning, landing pages, conversion tracking, funnel improvement, and performance reporting."]
-          ].map(([title, text]) => (
+            ["SEO & Local Search Optimization", "Technical SEO, page structure, internal links, Google visibility, content planning, and local search improvements.", HugeSeoIcon],
+            ["Website Development & Design", "Fast, responsive, conversion-focused websites with clean navigation, polished UI, and scalable page systems.", HugeWebDesign01Icon],
+            ["Mobile App Development", "MVP planning, app interfaces, dashboards, workflows, and product experiences built for practical use.", HugeMobileProgramming01Icon],
+            ["Google Business Profile Management", "Profile optimization, service positioning, review signals, posting strategy, and local trust-building.", HugeDashboardBrowsingIcon],
+            ["AI Automation & Workflows", "Lead routing, reporting flows, content support, internal systems, and repetitive task automation.", HugeAiBrain03Icon],
+            ["Digital Marketing & Growth Strategy", "Campaign planning, landing pages, conversion tracking, funnel improvement, and performance reporting.", HugeMarketingIcon]
+          ].map(([title, text, icon]) => (
             <article className="home-card service-home-card" key={title}>
-              <Sparkles size={28} />
+              <HugeIcon icon={icon} size={30} />
               <h3>{title}</h3>
               <p>{text}</p>
               <Link to="/services/">Learn more <ArrowRight size={16} /></Link>
