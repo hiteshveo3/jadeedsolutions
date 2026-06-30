@@ -288,7 +288,7 @@ function SeoManager() {
     setMeta("keywords", meta.keywords);
     setMeta("robots", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
     setMeta("author", "Jadeed Solutions");
-    setMeta("theme-color", "#ff6b35");
+    setMeta("theme-color", "#FAF9F7");
     setMeta("og:type", "website", true);
     setMeta("og:site_name", "Jadeed Solutions", true);
     setMeta("og:title", meta.title, true);

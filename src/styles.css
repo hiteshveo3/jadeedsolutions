@@ -1452,11 +1452,11 @@ h3 {
 
 @media (max-width: 1020px) {
   .page {
-    padding-top: 16px;
+    padding-top: 24px;
   }
 
   .site-header {
-    top: 12px;
+    top: 14px;
   }
 
   .nav-shell {
@@ -3216,9 +3216,7 @@ h3 {
   overflow: hidden;
   border-radius: 8px;
   background: #ffffff;
-  transition:
-    opacity 520ms cubic-bezier(.22,.61,.36,1),
-    transform 520ms cubic-bezier(.22,.61,.36,1);
+  transition: none;
 }
 
 .mockup-feature-card:nth-child(1) {
@@ -3533,13 +3531,13 @@ h3 {
     position: sticky;
     top: 88px;
     grid-template-columns: 1fr;
-    opacity: 0.62;
-    transform: translateY(14px) scale(0.985);
+    opacity: 1;
+    transform: none;
   }
 
   .mockup-feature-card.is-active {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: none;
   }
 
   .mockup-copy {
@@ -3552,15 +3550,13 @@ h3 {
   }
 
   .mockup-media img {
-    transform: scale(0.97);
-    opacity: 0.78;
-    transition:
-      opacity 560ms cubic-bezier(.22,.61,.36,1),
-      transform 560ms cubic-bezier(.22,.61,.36,1);
+    transform: none;
+    opacity: 1;
+    transition: none;
   }
 
   .mockup-feature-card.is-active .mockup-media img {
-    transform: scale(1);
+    transform: none;
     opacity: 1;
   }
 
