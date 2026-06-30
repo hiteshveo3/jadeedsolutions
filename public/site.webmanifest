@@ -1,0 +1,17 @@
+{
+  "name": "Jadeed Solutions",
+  "short_name": "Jadeed",
+  "description": "Web development, SEO, digital marketing, UI/UX design, and automation agency.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF9F7",
+  "theme_color": "#ff6b35",
+  "icons": [
+    {
+      "src": "/assets/Jadeed%20Solutions%20favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
