@@ -386,6 +386,10 @@ function Header() {
       <nav className="nav-shell" aria-label="Main navigation">
         <LogoMark />
 
+        <Link className="mobile-header-cta" to="/contact/">
+          Start Project
+        </Link>
+
         <button
           className="mobile-menu-button icon-button"
           type="button"
