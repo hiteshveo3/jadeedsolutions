@@ -1003,6 +1003,155 @@ h3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.industry-section {
+  padding: clamp(52px, 7vw, 86px) clamp(22px, 5vw, 60px);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(34, 201, 255, 0.12), transparent 28%),
+    rgba(255, 255, 255, 0.54);
+}
+
+.industry-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.industry-grid a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 58px;
+  padding: 12px 16px;
+  border: 1px solid rgba(35, 37, 41, 0.12);
+  border-radius: 999px;
+  color: var(--charcoal);
+  background: rgba(255, 255, 255, 0.72);
+  font-size: 15px;
+  font-weight: 500;
+  transition: transform 180ms var(--ease-standard), background 180ms var(--ease-standard), border-color 180ms var(--ease-standard);
+}
+
+.industry-grid a:hover {
+  border-color: rgba(255, 107, 53, 0.32);
+  background: #ffffff;
+  transform: translateY(-2px);
+}
+
+.case-visual {
+  position: relative;
+  min-height: 188px;
+  margin-bottom: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(35, 37, 41, 0.1);
+  border-radius: 22px;
+  background:
+    linear-gradient(135deg, rgba(255, 107, 53, 0.14), rgba(34, 201, 255, 0.14)),
+    #faf9f7;
+}
+
+.case-visual-leads {
+  background:
+    linear-gradient(135deg, rgba(251, 180, 57, 0.22), rgba(255, 107, 53, 0.16)),
+    #faf9f7;
+}
+
+.case-visual-visibility {
+  background:
+    linear-gradient(135deg, rgba(204, 231, 233, 0.62), rgba(240, 197, 236, 0.24)),
+    #faf9f7;
+}
+
+.case-window-bar {
+  display: flex;
+  gap: 7px;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(35, 37, 41, 0.1);
+}
+
+.case-window-bar span {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(35, 37, 41, 0.24);
+}
+
+.case-metric-card {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  left: 18px;
+  padding: 18px;
+  border: 1px solid rgba(35, 37, 41, 0.1);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.76);
+  backdrop-filter: blur(16px);
+}
+
+.case-metric-card small {
+  display: block;
+  color: var(--muted);
+}
+
+.case-metric-card strong {
+  display: block;
+  margin: 6px 0 14px;
+  color: var(--charcoal);
+  font-size: 20px;
+}
+
+.case-metric-card div {
+  display: grid;
+  gap: 7px;
+}
+
+.case-metric-card span {
+  display: block;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(255, 107, 53, 0.24);
+}
+
+.case-metric-card span:nth-child(2) {
+  width: 72%;
+}
+
+.case-metric-card span:nth-child(3) {
+  width: 48%;
+}
+
+.proof-strip-section {
+  margin-top: clamp(54px, 6vw, 86px);
+  padding: 0;
+}
+
+.proof-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid rgba(35, 37, 41, 0.1);
+  border-radius: 28px;
+  background: rgba(35, 37, 41, 0.1);
+}
+
+.proof-strip article {
+  padding: clamp(26px, 3vw, 42px);
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.proof-strip h3 {
+  margin: 0 0 10px;
+  font-family: var(--font-heading);
+  font-size: 22px;
+}
+
+.proof-strip p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
 .service-home-card a,
 .result-card a {
   display: inline-flex;
@@ -1980,6 +2129,14 @@ h3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .industry-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .proof-strip {
+    grid-template-columns: 1fr;
+  }
+
   .home-section,
   .home-final-cta {
     padding: clamp(36px, 5vw, 56px) 0;
@@ -2040,8 +2197,40 @@ h3 {
 
   .system-flow,
   .foundation-grid,
-  .support-grid {
+  .support-grid,
+  .industry-grid {
     grid-template-columns: 1fr;
+  }
+
+  .industry-section {
+    padding: 34px 18px;
+    border-radius: 22px;
+  }
+
+  .industry-grid {
+    gap: 10px;
+  }
+
+  .industry-grid a {
+    min-height: 48px;
+    font-size: 14px;
+  }
+
+  .case-visual {
+    min-height: 164px;
+    border-radius: 18px;
+  }
+
+  .case-metric-card {
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .case-metric-card strong {
+    font-size: 18px;
   }
 
   .system-flow {

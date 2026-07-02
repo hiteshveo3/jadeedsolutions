@@ -576,6 +576,25 @@ function HomePage() {
     ["Secure Launch", "Hosting direction, tracking setup, backups, and maintenance planning."]
   ];
 
+  const industries = [
+    "Law Firms",
+    "Accounting",
+    "Medical Clinics",
+    "Construction",
+    "Real Estate",
+    "Moving",
+    "Cleaning",
+    "Education",
+    "Restaurants",
+    "Beauty"
+  ];
+
+  const proofPoints = [
+    ["Strategy First", "Every project starts with offer, audience, search intent, and conversion path before design begins."],
+    ["Built To Expand", "Service pages, case studies, blog clusters, automation, and reporting can grow from the same foundation."],
+    ["Owner Friendly", "We explain systems in business language, so non-technical teams understand what is being built and why."]
+  ];
+
   return (
     <main>
       <section className="hero legacy-hero">
@@ -701,7 +720,7 @@ function HomePage() {
         <div className="split-intro">
           <h2>Launch On A Strong Foundation</h2>
           <p>
-            Wix highlights speed, accessibility, security, and reliability because users need confidence after creation.
+            Strong websites need speed, accessibility, security, and reliability because users need confidence after launch.
             For Jadeed, this becomes a launch foundation that makes the site easier to find, use, track, and improve.
           </p>
         </div>
@@ -716,20 +735,53 @@ function HomePage() {
         </div>
       </section>
 
+      <section className="home-section industry-section reveal-section">
+        <div className="split-intro">
+          <h2>Built For Service-Based Businesses</h2>
+          <p>
+            The same growth system can be adapted for firms, clinics, trades, local service teams, and appointment-led
+            businesses. The offer changes, but the job stays the same: explain clearly, capture demand, and follow up faster.
+          </p>
+        </div>
+        <div className="industry-grid">
+          {industries.map((industry) => (
+            <Link to="/contact/" key={industry}>{industry}</Link>
+          ))}
+        </div>
+      </section>
+
       <section className="home-section reveal-section">
         <SectionHeader title="Results That Speak For Themselves">
-          These are summary frames for linked case studies. Final screenshots, graphs, or client photos can be placed into the frames in Phase 2.
+          Case-study frames are ready for final screenshots, graphs, or client assets in the next visual pass.
         </SectionHeader>
         <div className="home-card-grid three">
           {[
-            ["Alpha Movers", "Moving", "20-25 confirmed bookings", "Search-ready service pages and local SEO improvements helped increase enquiry quality."],
-            ["Beta Relocation", "Relocation", "31% lower cost per lead", "Cleaner landing pages and better tracking made campaign decisions easier."],
-            ["IHR Dream Cleaning", "Cleaning", "Higher local visibility", "Google Business Profile structure and service messaging improved trust signals."]
-          ].map(([name, industry, metric, copy]) => (
+            ["Alpha Movers", "Moving", "20-25 confirmed bookings", "Search-ready service pages and local SEO improvements helped increase enquiry quality.", "bookings"],
+            ["Beta Relocation", "Relocation", "31% lower cost per lead", "Cleaner landing pages and better tracking made campaign decisions easier.", "leads"],
+            ["IHR Dream Cleaning", "Cleaning", "Higher local visibility", "Google Business Profile structure and service messaging improved trust signals.", "visibility"]
+          ].map(([name, industry, metric, copy, variant]) => (
             <article className="result-card" key={name}>
-              <div className="asset-frame">Image / chart frame</div>
+              <div className={"case-visual case-visual-" + variant} aria-label={name + " case study visual frame"}>
+                <div className="case-window-bar"><span></span><span></span><span></span></div>
+                <div className="case-metric-card">
+                  <small>{industry}</small>
+                  <strong>{metric}</strong>
+                  <div><span></span><span></span><span></span></div>
+                </div>
+              </div>
               <small>{industry}</small><h3>{name}</h3><strong>{metric}</strong><p>{copy}</p>
               <Link to="/portfolio/">View case study <ArrowRight size={16} /></Link>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="home-section proof-strip-section reveal-section">
+        <div className="proof-strip">
+          {proofPoints.map(([title, copy]) => (
+            <article key={title}>
+              <h3>{title}</h3>
+              <p>{copy}</p>
             </article>
           ))}
         </div>
