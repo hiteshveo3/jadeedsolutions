@@ -562,6 +562,20 @@ function VisualBlock({ label, variant = "blue" }) {
 }
 
 function HomePage() {
+  const businessTools = [
+    ["Lead Capture", "Forms, chat prompts, landing pages, and tracking paths designed to turn interest into real enquiries.", HugeWorkflowCircle03Icon],
+    ["CRM & Follow-Up", "Simple customer pipelines, automated reminders, and handoff points so no opportunity disappears after first contact.", HugeDashboardBrowsingIcon],
+    ["Automation Flows", "Repeat tasks like routing, reporting, content support, booking updates, and internal notifications can run with less manual effort.", HugeAiBrain03Icon],
+    ["Reporting View", "Dashboards and analytics connect website, SEO, campaign, and enquiry data into decisions owners can understand.", HugeChart01Icon]
+  ];
+
+  const foundations = [
+    ["Fast Pages", "Responsive layouts, clean assets, and performance-aware builds."],
+    ["Search Structure", "Metadata, headings, schema, sitemap, and internal links planned early."],
+    ["Mobile Clarity", "Touch-friendly navigation, readable sections, and clear CTAs."],
+    ["Secure Launch", "Hosting direction, tracking setup, backups, and maintenance planning."]
+  ];
+
   return (
     <main>
       <section className="hero legacy-hero">
@@ -586,56 +600,62 @@ function HomePage() {
       <StickyFeatureSection />
 
       <section className="home-section home-why reveal-section">
-        <SectionHeader eyebrow="Why Jadeed Solutions" title="Why Partner With Jadeed Solutions">
-          We connect design, development, SEO, marketing, and automation into one practical growth system. Instead of
-          treating each service separately, we plan how your website, search visibility, campaigns, analytics, and
-          customer journey work together over time.
+        <SectionHeader title="Why Partner With Jadeed Solutions">
+          We connect design, development, SEO, marketing, and automation into one practical growth system. Your website,
+          content, campaigns, analytics, and customer journey should work together instead of sitting in separate silos.
         </SectionHeader>
         <div className="home-card-grid three">
           {[
             ["Complete Ecosystem", "Your website, SEO structure, content plan, campaign tracking, and automation workflows are designed as one connected system.", HugeWorkflowCircle03Icon],
             ["Long-Term Growth Focus", "We build foundations that can expand through service pages, case studies, blog clusters, reporting, and optimization cycles.", HugeDashboardBrowsingIcon],
             ["Proven Results", "Every layout, page, and interaction is shaped around measurable outcomes: better visibility, clearer trust, and stronger enquiries.", HugeChart01Icon]
-          ].map(([title, text, icon]) => (
+          ].map(([title, copy, icon]) => (
             <article className="home-card" key={title}>
               <HugeIcon icon={icon} size={30} />
               <h3>{title}</h3>
-              <p>{text}</p>
-            </article>
-          ))}
-        </div>
-        <p className="home-text-block">
-          Our methodology starts with structure before decoration. We review the offer, audience intent, competitor
-          gaps, search demand, page hierarchy, internal links, performance requirements, and conversion path. Then we
-          design and build a digital presence that is easier for users to understand and easier for search engines to
-          crawl. The result is a website that supports marketing, content, and automation rather than sitting apart from
-          them.
-        </p>
-      </section>
-
-      <section className="home-section reveal-section">
-        <SectionHeader eyebrow="Process" title="Our Proven Process">
-          A clear process keeps every decision tied to outcomes. These are the core steps we use to move from idea to
-          launch-ready growth system.
-        </SectionHeader>
-        <div className="process-timeline">
-          {[
-            ["Discovery & Audit", "Week 1", "We review your current website, search visibility, analytics, competitors, offers, and conversion blockers."],
-            ["Strategy & Architecture", "Week 1-2", "We map URL structure, service pages, keyword targets, content priorities, and internal linking paths."],
-            ["Design & Messaging", "Week 2-3", "We design user journeys, page sections, CTAs, and trust signals around how customers make decisions."],
-            ["Development & SEO Setup", "Week 3-5", "We build responsive pages, metadata, schema, sitemap, performance basics, and tracking foundations."],
-            ["Launch & Improve", "Ongoing", "We monitor analytics, refine content, improve technical health, and expand based on search opportunities."]
-          ].map(([title, time, text], index) => (
-            <article className="process-step" key={title}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <div><h3>{title}</h3><small>{time}</small><p>{text}</p></div>
+              <p>{copy}</p>
             </article>
           ))}
         </div>
       </section>
 
+      <section className="home-section home-system-section reveal-section">
+        <div className="split-intro">
+          <h2>Build The Business System Behind The Website</h2>
+          <p>
+            A modern site should do more than look polished. It should capture demand, explain your offer, route leads,
+            support follow-up, and show what is working. We design the website and the operating layer around it.
+          </p>
+        </div>
+        <div className="business-system-layout">
+          <div className="system-panel" aria-label="Business system visual frame">
+            <div className="system-window-top"><span></span><span></span><span></span></div>
+            <div className="system-flow">
+              {businessTools.map(([title, copy, icon]) => (
+                <div className="system-node" key={title}>
+                  <HugeIcon icon={icon} size={24} />
+                  <strong>{title}</strong>
+                  <small>{copy}</small>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="system-copy-list">
+            {businessTools.map(([title, copy, icon]) => (
+              <article key={title}>
+                <HugeIcon icon={icon} size={26} />
+                <div>
+                  <h3>{title}</h3>
+                  <p>{copy}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="home-section reveal-section">
-        <SectionHeader eyebrow="Services" title="Services We Deliver">
+        <SectionHeader title="Services We Deliver">
           These services can be used individually, but they work best when planned as one growth stack.
         </SectionHeader>
         <div className="home-card-grid three">
@@ -646,11 +666,11 @@ function HomePage() {
             ["Google Business Profile Management", "Profile optimization, service positioning, review signals, posting strategy, and local trust-building.", HugeDashboardBrowsingIcon],
             ["AI Automation & Workflows", "Lead routing, reporting flows, content support, internal systems, and repetitive task automation.", HugeAiBrain03Icon],
             ["Digital Marketing & Growth Strategy", "Campaign planning, landing pages, conversion tracking, funnel improvement, and performance reporting.", HugeMarketingIcon]
-          ].map(([title, text, icon]) => (
+          ].map(([title, copy, icon]) => (
             <article className="home-card service-home-card" key={title}>
               <HugeIcon icon={icon} size={30} />
               <h3>{title}</h3>
-              <p>{text}</p>
+              <p>{copy}</p>
               <Link to="/services/">Learn more <ArrowRight size={16} /></Link>
             </article>
           ))}
@@ -658,42 +678,83 @@ function HomePage() {
       </section>
 
       <section className="home-section reveal-section">
-        <SectionHeader eyebrow="Results" title="Results That Speak For Themselves">
-          These cards are summary frames for linked case studies. Provide final screenshots, graphs, or client photos and I will place them into the frames.
+        <SectionHeader title="Our Proven Process">
+          A clear process keeps every decision tied to outcomes, from the first audit to launch and ongoing improvement.
         </SectionHeader>
-        <div className="home-card-grid three">
+        <div className="process-timeline">
           {[
-            ["Alpha Movers", "Moving", "20-25 confirmed bookings", "Search-ready service pages and local SEO improvements helped increase enquiry quality."],
-            ["Beta Relocation", "Relocation", "31% lower cost per lead", "Cleaner landing pages and better tracking made campaign decisions easier."],
-            ["IHR Dream Cleaning", "Cleaning", "Higher local visibility", "Google Business Profile structure and service messaging improved trust signals."]
-          ].map(([name, industry, metric, text]) => (
-            <article className="result-card" key={name}>
-              <div className="asset-frame">Image / chart frame</div>
-              <small>{industry}</small><h3>{name}</h3><strong>{metric}</strong><p>{text}</p>
-              <Link to="/portfolio/">View case study <ArrowRight size={16} /></Link>
+            ["Discovery & Audit", "Week 1", "We review your current website, search visibility, analytics, competitors, offers, and conversion blockers."],
+            ["Strategy & Architecture", "Week 1-2", "We map URL structure, service pages, keyword targets, content priorities, and internal linking paths."],
+            ["Design & Messaging", "Week 2-3", "We design user journeys, page sections, CTAs, and trust signals around how customers make decisions."],
+            ["Development & SEO Setup", "Week 3-5", "We build responsive pages, metadata, schema, sitemap, performance basics, and tracking foundations."],
+            ["Launch & Improve", "Ongoing", "We monitor analytics, refine content, improve technical health, and expand based on search opportunities."]
+          ].map(([title, time, copy], index) => (
+            <article className="process-step" key={title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <div><h3>{title}</h3><small>{time}</small><p>{copy}</p></div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="home-section foundation-section reveal-section">
+        <div className="split-intro">
+          <h2>Launch On A Strong Foundation</h2>
+          <p>
+            Wix highlights speed, accessibility, security, and reliability because users need confidence after creation.
+            For Jadeed, this becomes a launch foundation that makes the site easier to find, use, track, and improve.
+          </p>
+        </div>
+        <div className="foundation-grid">
+          {foundations.map(([title, copy]) => (
+            <article key={title}>
+              <CheckCircle2 size={22} />
+              <h3>{title}</h3>
+              <p>{copy}</p>
             </article>
           ))}
         </div>
       </section>
 
       <section className="home-section reveal-section">
-        <SectionHeader eyebrow="Testimonials" title="What Our Clients Say" />
-        <div className="testimonial-home-grid">
+        <SectionHeader title="Results That Speak For Themselves">
+          These are summary frames for linked case studies. Final screenshots, graphs, or client photos can be placed into the frames in Phase 2.
+        </SectionHeader>
+        <div className="home-card-grid three">
           {[
-            ["The team clarified our website structure and helped us understand what each page needed to achieve.", "Client Partner", "Service Business"],
-            ["Their SEO-first approach made the project feel strategic, not just visual.", "Growth Lead", "Relocation Brand"],
-            ["We finally had a clear system for website, content, and reporting decisions.", "Founder", "Local Services"]
-          ].map(([quote, name, role]) => (
-            <blockquote className="testimonial-home-card" key={quote}>
-              <div className="stars">?????</div><p>“{quote}”</p>
-              <footer><span className="avatar-frame">Photo</span><span><strong>{name}</strong><small>{role}</small></span></footer>
-            </blockquote>
+            ["Alpha Movers", "Moving", "20-25 confirmed bookings", "Search-ready service pages and local SEO improvements helped increase enquiry quality."],
+            ["Beta Relocation", "Relocation", "31% lower cost per lead", "Cleaner landing pages and better tracking made campaign decisions easier."],
+            ["IHR Dream Cleaning", "Cleaning", "Higher local visibility", "Google Business Profile structure and service messaging improved trust signals."]
+          ].map(([name, industry, metric, copy]) => (
+            <article className="result-card" key={name}>
+              <div className="asset-frame">Image / chart frame</div>
+              <small>{industry}</small><h3>{name}</h3><strong>{metric}</strong><p>{copy}</p>
+              <Link to="/portfolio/">View case study <ArrowRight size={16} /></Link>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="home-section support-section reveal-section">
+        <SectionHeader title="Support After The Site Goes Live">
+          A launch is not the finish line. We keep the system useful with reporting, improvements, content support, and technical care.
+        </SectionHeader>
+        <div className="support-grid">
+          {[
+            ["Monthly Improvements", "Review analytics, search queries, conversion paths, and technical health."],
+            ["Content Expansion", "Add service pages, blog clusters, case studies, and supporting assets as demand grows."],
+            ["Automation Care", "Refine workflows, lead routing, notifications, and reports as operations evolve."]
+          ].map(([title, copy]) => (
+            <article key={title}>
+              <h3>{title}</h3>
+              <p>{copy}</p>
+            </article>
           ))}
         </div>
       </section>
 
       <section className="home-section reveal-section">
-        <SectionHeader eyebrow="FAQ" title="Frequently Asked Questions" />
+        <SectionHeader title="Frequently Asked Questions" />
         <div className="home-faq-list">
           {[
             ["Do you build full websites or only landing pages?", "We can build both, but for long-term SEO we recommend a complete site structure with services, portfolio, blog, contact, and FAQ pages."],
@@ -708,59 +769,12 @@ function HomePage() {
 
       <section className="home-final-cta reveal-section">
         <h2>Ready To Grow Your Business?</h2>
-        <p>Start with a clear website structure, a stronger SEO foundation, and a practical plan for turning visitors into qualified enquiries. Send your goals, and we will shape the next step.</p>
+        <p>Book a free consultation and we will map the clearest next step for your website, SEO, automation, or digital growth system.</p>
         <div><Link className="cta-button" to="/contact/">Book Free Consultation</Link><Link className="secondary-button" to="/portfolio/">View Case Studies</Link></div>
       </section>
+
+      <Footer />
     </main>
-  );
-}
-
-function PromptComposer() {
-  return (
-    <section className="composer" aria-label="Prompt composer">
-      <p>Tell us about your website, SEO, marketing, or automation goals</p>
-      <div className="composer-controls">
-        <button className="composer-icon" type="button" aria-label="Add">
-          <Plus size={27} />
-        </button>
-        <label className="toggle-label">
-          <input type="checkbox" aria-label="Enable plan mode" />
-          <span className="toggle-track" aria-hidden="true" />
-          <span>Plan</span>
-        </label>
-        <button className="composer-icon mic-button" type="button" aria-label="Use microphone">
-          <Mic size={24} />
-        </button>
-        <button className="send-button" type="button" aria-label="Send">
-          <ArrowUp size={27} />
-        </button>
-      </div>
-    </section>
-  );
-}
-
-function PricingPreview() {
-  const plans = [
-    ["Foundation", "Website and SEO basics for teams that need a clean, credible digital presence."],
-    ["Growth", "Service pages, content strategy, campaign support, analytics, and conversion optimization."],
-    ["Scale", "Full website systems, automation, content clusters, reporting, and ongoing strategic improvement."]
-  ];
-
-  return (
-    <section className="content-section section-cream">
-      <SectionHeader eyebrow="Pricing" title="Simple Packages For Different Growth Stages">
-        Pricing is scoped around outcomes, page count, content depth, integrations, and reporting needs.
-      </SectionHeader>
-      <div className="pricing-grid">
-        {plans.map(([name, text]) => (
-          <article className="pricing-card" key={name}>
-            <h3>{name}</h3>
-            <p>{text}</p>
-            <Link to="/pricing/">View Pricing</Link>
-          </article>
-        ))}
-      </div>
-    </section>
   );
 }
 
