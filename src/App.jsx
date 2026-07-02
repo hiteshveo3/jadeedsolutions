@@ -573,6 +573,30 @@ function VisualBlock({ label, variant = "blue" }) {
   );
 }
 
+function PromptComposer() {
+  return (
+    <div className="composer" aria-label="Project prompt composer">
+      <p>Tell us about your website, SEO, marketing, or automation goals</p>
+      <div className="composer-controls">
+        <button className="composer-icon" type="button" aria-label="Add project details">
+          <Plus size={30} strokeWidth={1.8} />
+        </button>
+        <label className="toggle-label">
+          <input type="checkbox" aria-label="Plan before building" />
+          <span className="toggle-track" aria-hidden="true" />
+          <span>Plan</span>
+        </label>
+        <button className="composer-icon mic-button" type="button" aria-label="Use voice input">
+          <Mic size={24} strokeWidth={1.9} />
+        </button>
+        <button className="send-button" type="button" aria-label="Send project prompt">
+          <ArrowUp size={28} strokeWidth={2} />
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function HomePage() {
   const businessTools = [
     ["Lead Capture", "Forms, chat prompts, landing pages, and tracking paths designed to turn interest into real enquiries.", HugeWorkflowCircle03Icon],
