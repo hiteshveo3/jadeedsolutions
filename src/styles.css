@@ -1152,6 +1152,79 @@ h3 {
   line-height: 1.65;
 }
 
+.resource-section {
+  padding: clamp(52px, 7vw, 86px) clamp(22px, 5vw, 60px);
+  border: 1px solid rgba(35, 37, 41, 0.1);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.resource-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
+  padding: clamp(24px, 2.5vw, 34px);
+  border: 1px solid rgba(35, 37, 41, 0.1);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.resource-card small {
+  color: var(--orange-dark);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.resource-card h3 {
+  margin: 18px 0 12px;
+  font-family: var(--font-heading);
+  font-size: clamp(22px, 2vw, 28px);
+  line-height: 1.16;
+}
+
+.resource-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.resource-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  margin-top: auto;
+  padding-top: 24px;
+  color: var(--orange-dark);
+  font-weight: 600;
+}
+
+.resource-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.resource-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 18px;
+  border: 1px solid rgba(35, 37, 41, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.62);
+  color: var(--charcoal);
+  font-size: 14px;
+  font-weight: 500;
+}
+
 .service-home-card a,
 .result-card a {
   display: inline-flex;
@@ -1720,7 +1793,7 @@ h3 {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 0.8fr));
+  grid-template-columns: minmax(0, 1.35fr) repeat(4, minmax(0, 0.78fr));
   gap: 32px;
   padding-top: 48px;
   border-top: 1px solid var(--border);
@@ -2133,6 +2206,10 @@ h3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .resource-grid {
+    grid-template-columns: 1fr;
+  }
+
   .proof-strip {
     grid-template-columns: 1fr;
   }
@@ -2205,6 +2282,25 @@ h3 {
   .industry-section {
     padding: 34px 18px;
     border-radius: 22px;
+  }
+
+  .resource-section {
+    padding: 34px 18px;
+    border-radius: 22px;
+  }
+
+  .resource-card {
+    min-height: auto;
+  }
+
+  .resource-links {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+  }
+
+  .resource-links a {
+    white-space: nowrap;
   }
 
   .industry-grid {

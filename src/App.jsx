@@ -486,12 +486,13 @@ function Footer() {
         </div>
         <FooterGroup title="Services" links={serviceLinks} />
         <FooterGroup
-          title="Company"
+          title="Industries"
           links={[
-            { label: "About", to: "/about/" },
-            { label: "Pricing", to: "/pricing/" },
-            { label: "FAQ", to: "/faq/" },
-            { label: "Contact", to: "/contact/" }
+            { label: "Law Firms", to: "/contact/" },
+            { label: "Medical Clinics", to: "/contact/" },
+            { label: "Moving Companies", to: "/portfolio/" },
+            { label: "Cleaning Services", to: "/portfolio/" },
+            { label: "Real Estate", to: "/contact/" }
           ]}
         />
         <FooterGroup
@@ -500,10 +501,21 @@ function Footer() {
             { label: "Blog", to: "/blog/" },
             { label: "Portfolio", to: "/portfolio/" },
             { label: "SEO Guide", to: "/blog/technical-seo-foundation-for-agency-websites/" },
-            { label: "Web Playbook", to: "/blog/web-development-playbook-for-growing-brands/" }
+            { label: "Web Playbook", to: "/blog/web-development-playbook-for-growing-brands/" },
+            { label: "Automation Guide", to: "/blog/ai-automation-opportunities-for-service-businesses/" }
           ]}
-        /></div>
-      <p className="footer-bottom">© 2026 Jadeed Solutions. Built for global digital growth.</p>
+        />
+        <FooterGroup
+          title="Company"
+          links={[
+            { label: "About", to: "/about/" },
+            { label: "Pricing", to: "/pricing/" },
+            { label: "FAQ", to: "/faq/" },
+            { label: "Contact", to: "/contact/" }
+          ]}
+        />
+      </div>
+      <p className="footer-bottom">Copyright 2026 Jadeed Solutions. Built for global digital growth.</p>
     </footer>
   );
 }
@@ -802,6 +814,32 @@ function HomePage() {
               <p>{copy}</p>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="home-section resource-section reveal-section">
+        <div className="split-intro">
+          <h2>Growth Resources For Better Decisions</h2>
+          <p>
+            Explore practical guides on SEO foundations, website planning, and automation opportunities before you start a project.
+            These resources connect directly to the services we deliver.
+          </p>
+        </div>
+        <div className="resource-grid">
+          {blogPosts.slice(0, 3).map((post) => (
+            <article className="resource-card" key={post.slug}>
+              <small>{post.category}</small>
+              <h3>{post.title}</h3>
+              <p>{post.description}</p>
+              <Link to={"/blog/" + post.slug + "/"}>Read guide <ArrowRight size={16} /></Link>
+            </article>
+          ))}
+        </div>
+        <div className="resource-links" aria-label="Related service links">
+          <Link to="/services/seo/">SEO Services</Link>
+          <Link to="/services/web-development/">Web Development</Link>
+          <Link to="/services/ai-automation/">AI Automation</Link>
+          <Link to="/blog/">All Resources</Link>
         </div>
       </section>
 
