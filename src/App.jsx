@@ -1,25 +1,13 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Link, NavLink, Route, Routes, useLocation } from "react-router-dom";
 import {
   ArrowRight,
-  ArrowUp,
-  BarChart3,
   CheckCircle2,
   ChevronDown,
-  Code2,
-  Globe2,
-  LayoutGrid,
   Menu,
   MessageCircle,
-  Mic,
-  Search,
-  ShieldCheck,
-  Sparkles,
-  Plus,
-  X,
-  Zap
+  X
 } from "lucide-react";
-import { StickyFeatureSection } from "./components/StickyFeatureSection";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   AiBrain03Icon as HugeAiBrain03Icon,
@@ -35,6 +23,21 @@ import {
 
 const siteUrl = "https://jadeedsolutions.com";
 const faviconPath = "/assets/Jadeed%20Solutions%20favicon.png";
+
+/** Replace with the live WhatsApp number in international format, digits only. */
+const WHATSAPP_E164 = "10000000000";
+const WHATSAPP_MESSAGE =
+  "Hi Jadeed Solutions — I want a full growth system for my local service business.";
+const whatsappHref = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+
+function WhatsAppButton({ className = "cta-button", children = "Chat on WhatsApp" }) {
+  return (
+    <a className={className} href={whatsappHref} target="_blank" rel="noreferrer">
+      <MessageCircle size={18} strokeWidth={2} />
+      <span>{children}</span>
+    </a>
+  );
+}
 
 function HugeIcon({ icon, size = 28, strokeWidth = 1.55 }) {
   return <HugeiconsIcon icon={icon} size={size} color="currentColor" strokeWidth={strokeWidth} />;
@@ -173,11 +176,11 @@ const serviceLinks = services.map((service) => ({
 }));
 
 const mainNav = [
-  { label: "Studio", to: "/services/", children: serviceLinks },
-  { label: "Solutions", to: "/portfolio/", children: caseStudies.map((item) => ({ label: item.title, to: `/portfolio/${item.slug}/` })) },
-  { label: "Library", to: "/blog/", children: blogPosts.slice(0, 4).map((item) => ({ label: item.title, to: `/blog/${item.slug}/` })) },
-  { label: "Plans", to: "/pricing/" },
-  { label: "Company", to: "/about/" }
+  { label: "Services", to: "/services/", children: serviceLinks },
+  { label: "Work", to: "/portfolio/", children: caseStudies.map((item) => ({ label: item.title, to: `/portfolio/${item.slug}/` })) },
+  { label: "Insights", to: "/blog/", children: blogPosts.slice(0, 4).map((item) => ({ label: item.title, to: `/blog/${item.slug}/` })) },
+  { label: "Pricing", to: "/pricing/" },
+  { label: "About", to: "/about/" }
 ];
 
 function absoluteUrl(pathname) {
@@ -406,9 +409,9 @@ function Header() {
       <nav className="nav-shell" aria-label="Main navigation">
         <LogoMark />
 
-        <Link className="mobile-header-cta" to="/contact/">
-          Start Project
-        </Link>
+        <a className="mobile-header-cta" href={whatsappHref} target="_blank" rel="noreferrer">
+          WhatsApp
+        </a>
 
         <button
           className="mobile-menu-button icon-button"
@@ -437,12 +440,7 @@ function Header() {
           </div>
 
           <div className="nav-actions">
-            <button className="icon-button language-button" type="button" aria-label="Global agency">
-              <Globe2 size={26} strokeWidth={1.8} />
-            </button>
-            <Link className="cta-button" to="/contact/">
-              Start Project
-            </Link>
+            <WhatsAppButton className="cta-button whatsapp-cta">Chat on WhatsApp</WhatsAppButton>
           </div>
         </div>
       </nav>
@@ -573,318 +571,289 @@ function VisualBlock({ label, variant = "blue" }) {
   );
 }
 
-function PromptComposer() {
-  return (
-    <div className="composer" aria-label="Project prompt composer">
-      <p>Tell us about your website, SEO, marketing, or automation goals</p>
-      <div className="composer-controls">
-        <button className="composer-icon" type="button" aria-label="Add project details">
-          <Plus size={30} strokeWidth={1.8} />
-        </button>
-        <label className="toggle-label">
-          <input type="checkbox" aria-label="Plan before building" />
-          <span className="toggle-track" aria-hidden="true" />
-          <span>Plan</span>
-        </label>
-        <button className="composer-icon mic-button" type="button" aria-label="Use voice input">
-          <Mic size={24} strokeWidth={1.9} />
-        </button>
-        <button className="send-button" type="button" aria-label="Send project prompt">
-          <ArrowUp size={28} strokeWidth={2} />
-        </button>
-      </div>
-    </div>
-  );
-}
-
 function HomePage() {
-  const businessTools = [
-    ["Lead Capture", "Forms, chat prompts, landing pages, and tracking paths designed to turn interest into real enquiries.", HugeWorkflowCircle03Icon],
-    ["CRM & Follow-Up", "Simple customer pipelines, automated reminders, and handoff points so no opportunity disappears after first contact.", HugeDashboardBrowsingIcon],
-    ["Automation Flows", "Repeat tasks like routing, reporting, content support, booking updates, and internal notifications can run with less manual effort.", HugeAiBrain03Icon],
-    ["Reporting View", "Dashboards and analytics connect website, SEO, campaign, and enquiry data into decisions owners can understand.", HugeChart01Icon]
-  ];
-
-  const foundations = [
-    ["Fast Pages", "Responsive layouts, clean assets, and performance-aware builds."],
-    ["Search Structure", "Metadata, headings, schema, sitemap, and internal links planned early."],
-    ["Mobile Clarity", "Touch-friendly navigation, readable sections, and clear CTAs."],
-    ["Secure Launch", "Hosting direction, tracking setup, backups, and maintenance planning."]
+  const systemLayers = [
+    {
+      title: "Website",
+      copy: "Clear service pages that explain the offer, build trust, and turn visitors into enquiries.",
+      icon: HugeWebDesign01Icon
+    },
+    {
+      title: "Search",
+      copy: "SEO structure so local customers can find you when they are ready to book.",
+      icon: HugeSeoIcon
+    },
+    {
+      title: "Campaigns",
+      copy: "Landing paths and tracking that make paid traffic measurable and profitable.",
+      icon: HugeMarketingIcon
+    },
+    {
+      title: "Follow-up",
+      copy: "WhatsApp-ready routing, reminders, and workflows so leads do not go cold.",
+      icon: HugeWorkflowCircle03Icon
+    }
   ];
 
   const industries = [
-    "Law Firms",
-    "Accounting",
-    "Medical Clinics",
-    "Construction",
-    "Real Estate",
-    "Moving",
+    "Movers",
+    "Clinics",
+    "Law firms",
     "Cleaning",
-    "Education",
-    "Restaurants",
-    "Beauty"
+    "Trades",
+    "Real estate",
+    "Salons",
+    "Home services"
   ];
 
-  const proofPoints = [
-    ["Strategy First", "Every project starts with offer, audience, search intent, and conversion path before design begins."],
-    ["Built To Expand", "Service pages, case studies, blog clusters, automation, and reporting can grow from the same foundation."],
-    ["Owner Friendly", "We explain systems in business language, so non-technical teams understand what is being built and why."]
+  const steps = [
+    ["01", "Audit", "We review your offer, search demand, website gaps, and where enquiries are lost."],
+    ["02", "Build", "We design and ship the site, SEO structure, and conversion paths as one system."],
+    ["03", "Connect", "We connect tracking, WhatsApp follow-up, and reporting around real bookings."],
+    ["04", "Grow", "We improve pages, content, and campaigns using what the data shows each month."]
+  ];
+
+  const proofs = [
+    {
+      name: "Alpha Movers",
+      industry: "Moving",
+      metric: "42% more qualified enquiries",
+      copy: "Search-ready service pages and clearer CTAs improved enquiry quality."
+    },
+    {
+      name: "Beta Relocation",
+      industry: "Relocation",
+      metric: "31% lower cost per lead",
+      copy: "Tighter landing hierarchy and tracking made campaign spend clearer."
+    },
+    {
+      name: "Local Clinic Group",
+      industry: "Healthcare",
+      metric: "Faster WhatsApp response",
+      copy: "Enquiry routing and follow-up reduced missed appointment requests."
+    }
+  ];
+
+  const plans = [
+    {
+      name: "Launch",
+      price: "From $2,500",
+      detail: "For local service brands that need a conversion-ready website foundation.",
+      items: ["Service-led website", "On-page SEO setup", "WhatsApp enquiry path", "Launch analytics"]
+    },
+    {
+      name: "Growth",
+      price: "From $4,800",
+      detail: "For teams ready to turn the website into a full local acquisition system.",
+      items: ["Everything in Launch", "Local SEO expansion", "Campaign landing paths", "Monthly improvement loop"],
+      featured: true
+    },
+    {
+      name: "Scale",
+      price: "From $8,500",
+      detail: "For multi-location or high-volume operators that need systemized growth.",
+      items: ["Everything in Growth", "Automation workflows", "Reporting dashboard", "Priority support"]
+    },
+    {
+      name: "Custom",
+      price: "Global quote",
+      detail: "For complex stacks, multi-brand setups, or advanced automation needs.",
+      items: ["Scoped discovery", "Custom architecture", "Integrations", "Dedicated roadmap"]
+    }
+  ];
+
+  const faqs = [
+    [
+      "Do you only work with local service businesses?",
+      "Yes. Movers, clinics, law firms, cleaning companies, trades, and similar service brands are our focus — worldwide."
+    ],
+    [
+      "Is this a website project or a full growth system?",
+      "A full growth system. Website, search, campaigns, and WhatsApp follow-up are planned together — not as separate one-off tasks."
+    ],
+    [
+      "Can we start on WhatsApp?",
+      "Yes. WhatsApp is the fastest way to share your business type, goals, and current site so we can recommend the right plan."
+    ],
+    [
+      "Are prices global?",
+      "Yes. Packages are structured for global clients. Final scope depends on pages, locations, content depth, and integrations."
+    ],
+    [
+      "How fast can we launch?",
+      "A focused Launch build can start quickly. Growth and Scale timelines depend on content, locations, and automation needs."
+    ]
   ];
 
   return (
-    <main>
-      <section className="hero legacy-hero">
-        <div className="hero-copy">
-          <h1>Build A Digital Growth Engine</h1>
-          <p className="hero-subtitle">
-            Jadeed Solutions creates fast websites, search-ready content structures, and conversion-focused digital experiences for ambitious brands.
+    <main className="lp">
+      <section className="lp-hero">
+        <div className="lp-hero-copy">
+          <p className="lp-brand">Jadeed Solutions</p>
+          <h1>The growth system for local service businesses.</h1>
+          <p className="lp-hero-support">
+            Websites, search, campaigns, and WhatsApp follow-up — built as one system that turns demand into booked jobs.
           </p>
-        </div>
-
-        <PromptComposer />
-
-        <div className="suggestions" aria-label="Prompt suggestions">
-          {["SEO strategy", "Website redesign", "Automation plan"].map((chip) => (
-            <button type="button" key={chip}>
-              {chip}
-            </button>
-          ))}
-        </div>
-      </section>
-
-      <StickyFeatureSection />
-
-      <section className="home-section home-why reveal-section">
-        <SectionHeader title="Why Partner With Jadeed Solutions">
-          We connect design, development, SEO, marketing, and automation into one practical growth system. Your website,
-          content, campaigns, analytics, and customer journey should work together instead of sitting in separate silos.
-        </SectionHeader>
-        <div className="home-card-grid three">
-          {[
-            ["Complete Ecosystem", "Your website, SEO structure, content plan, campaign tracking, and automation workflows are designed as one connected system.", HugeWorkflowCircle03Icon],
-            ["Long-Term Growth Focus", "We build foundations that can expand through service pages, case studies, blog clusters, reporting, and optimization cycles.", HugeDashboardBrowsingIcon],
-            ["Proven Results", "Every layout, page, and interaction is shaped around measurable outcomes: better visibility, clearer trust, and stronger enquiries.", HugeChart01Icon]
-          ].map(([title, copy, icon]) => (
-            <article className="home-card" key={title}>
-              <HugeIcon icon={icon} size={30} />
-              <h3>{title}</h3>
-              <p>{copy}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="home-section home-system-section reveal-section">
-        <div className="split-intro">
-          <h2>Build The Business System Behind The Website</h2>
-          <p>
-            A modern site should do more than look polished. It should capture demand, explain your offer, route leads,
-            support follow-up, and show what is working. We design the website and the operating layer around it.
-          </p>
-        </div>
-        <div className="business-system-layout">
-          <div className="system-panel" aria-label="Business system visual frame">
-            <div className="system-window-top"><span></span><span></span><span></span></div>
-            <div className="system-flow">
-              {businessTools.map(([title, copy, icon]) => (
-                <div className="system-node" key={title}>
-                  <HugeIcon icon={icon} size={24} />
-                  <strong>{title}</strong>
-                  <small>{copy}</small>
-                </div>
-              ))}
-            </div>
+          <div className="lp-hero-actions">
+            <WhatsAppButton className="cta-button whatsapp-cta">Chat on WhatsApp</WhatsAppButton>
+            <a className="secondary-button" href="#system">
+              See the system
+            </a>
           </div>
-          <div className="system-copy-list">
-            {businessTools.map(([title, copy, icon]) => (
-              <article key={title}>
-                <HugeIcon icon={icon} size={26} />
-                <div>
-                  <h3>{title}</h3>
-                  <p>{copy}</p>
-                </div>
-              </article>
-            ))}
+        </div>
+
+        <div className="lp-hero-media" aria-label="Product visual placeholder">
+          <div className="lp-media-frame">
+            <span className="lp-media-label">IMAGE / VIDEO PLACEHOLDER</span>
+            <strong>Local service growth dashboard</strong>
+            <small>Replace with real product UI, site screenshots, or short demo video.</small>
           </div>
         </div>
       </section>
 
-      <section className="home-section reveal-section">
-        <SectionHeader title="Services We Deliver">
-          These services can be used individually, but they work best when planned as one growth stack.
-        </SectionHeader>
-        <div className="home-card-grid three">
-          {[
-            ["SEO & Local Search Optimization", "Technical SEO, page structure, internal links, Google visibility, content planning, and local search improvements.", HugeSeoIcon],
-            ["Website Development & Design", "Fast, responsive, conversion-focused websites with clean navigation, polished UI, and scalable page systems.", HugeWebDesign01Icon],
-            ["Mobile App Development", "MVP planning, app interfaces, dashboards, workflows, and product experiences built for practical use.", HugeMobileProgramming01Icon],
-            ["Google Business Profile Management", "Profile optimization, service positioning, review signals, posting strategy, and local trust-building.", HugeDashboardBrowsingIcon],
-            ["AI Automation & Workflows", "Lead routing, reporting flows, content support, internal systems, and repetitive task automation.", HugeAiBrain03Icon],
-            ["Digital Marketing & Growth Strategy", "Campaign planning, landing pages, conversion tracking, funnel improvement, and performance reporting.", HugeMarketingIcon]
-          ].map(([title, copy, icon]) => (
-            <article className="home-card service-home-card" key={title}>
-              <HugeIcon icon={icon} size={30} />
-              <h3>{title}</h3>
-              <p>{copy}</p>
-              <Link to="/services/">Learn more <ArrowRight size={16} /></Link>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="home-section reveal-section">
-        <SectionHeader title="Our Proven Process">
-          A clear process keeps every decision tied to outcomes, from the first audit to launch and ongoing improvement.
-        </SectionHeader>
-        <div className="process-timeline">
-          {[
-            ["Discovery & Audit", "Week 1", "We review your current website, search visibility, analytics, competitors, offers, and conversion blockers."],
-            ["Strategy & Architecture", "Week 1-2", "We map URL structure, service pages, keyword targets, content priorities, and internal linking paths."],
-            ["Design & Messaging", "Week 2-3", "We design user journeys, page sections, CTAs, and trust signals around how customers make decisions."],
-            ["Development & SEO Setup", "Week 3-5", "We build responsive pages, metadata, schema, sitemap, performance basics, and tracking foundations."],
-            ["Launch & Improve", "Ongoing", "We monitor analytics, refine content, improve technical health, and expand based on search opportunities."]
-          ].map(([title, time, copy], index) => (
-            <article className="process-step" key={title}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <div><h3>{title}</h3><small>{time}</small><p>{copy}</p></div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="home-section foundation-section reveal-section">
-        <div className="split-intro">
-          <h2>Launch On A Strong Foundation</h2>
-          <p>
-            Strong websites need speed, accessibility, security, and reliability because users need confidence after launch.
-            For Jadeed, this becomes a launch foundation that makes the site easier to find, use, track, and improve.
-          </p>
-        </div>
-        <div className="foundation-grid">
-          {foundations.map(([title, copy]) => (
-            <article key={title}>
-              <CheckCircle2 size={22} />
-              <h3>{title}</h3>
-              <p>{copy}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="home-section industry-section reveal-section">
-        <div className="split-intro">
-          <h2>Built For Service-Based Businesses</h2>
-          <p>
-            The same growth system can be adapted for firms, clinics, trades, local service teams, and appointment-led
-            businesses. The offer changes, but the job stays the same: explain clearly, capture demand, and follow up faster.
-          </p>
-        </div>
-        <div className="industry-grid">
+      <section className="lp-section lp-industries" aria-label="Industries we serve">
+        <p className="lp-kicker">Built for local service brands worldwide</p>
+        <div className="lp-industry-row">
           {industries.map((industry) => (
-            <Link to="/contact/" key={industry}>{industry}</Link>
+            <span key={industry}>{industry}</span>
           ))}
         </div>
       </section>
 
-      <section className="home-section reveal-section">
-        <SectionHeader title="Results That Speak For Themselves">
-          Case-study frames are ready for final screenshots, graphs, or client assets in the next visual pass.
-        </SectionHeader>
-        <div className="home-card-grid three">
-          {[
-            ["Alpha Movers", "Moving", "20-25 confirmed bookings", "Search-ready service pages and local SEO improvements helped increase enquiry quality.", "bookings"],
-            ["Beta Relocation", "Relocation", "31% lower cost per lead", "Cleaner landing pages and better tracking made campaign decisions easier.", "leads"],
-            ["IHR Dream Cleaning", "Cleaning", "Higher local visibility", "Google Business Profile structure and service messaging improved trust signals.", "visibility"]
-          ].map(([name, industry, metric, copy, variant]) => (
-            <article className="result-card" key={name}>
-              <div className={"case-visual case-visual-" + variant} aria-label={name + " case study visual frame"}>
-                <div className="case-window-bar"><span></span><span></span><span></span></div>
-                <div className="case-metric-card">
-                  <small>{industry}</small>
-                  <strong>{metric}</strong>
-                  <div><span></span><span></span><span></span></div>
-                </div>
-              </div>
-              <small>{industry}</small><h3>{name}</h3><strong>{metric}</strong><p>{copy}</p>
-              <Link to="/portfolio/">View case study <ArrowRight size={16} /></Link>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="home-section proof-strip-section reveal-section">
-        <div className="proof-strip">
-          {proofPoints.map(([title, copy]) => (
-            <article key={title}>
-              <h3>{title}</h3>
-              <p>{copy}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="home-section support-section reveal-section">
-        <SectionHeader title="Support After The Site Goes Live">
-          A launch is not the finish line. We keep the system useful with reporting, improvements, content support, and technical care.
-        </SectionHeader>
-        <div className="support-grid">
-          {[
-            ["Monthly Improvements", "Review analytics, search queries, conversion paths, and technical health."],
-            ["Content Expansion", "Add service pages, blog clusters, case studies, and supporting assets as demand grows."],
-            ["Automation Care", "Refine workflows, lead routing, notifications, and reports as operations evolve."]
-          ].map(([title, copy]) => (
-            <article key={title}>
-              <h3>{title}</h3>
-              <p>{copy}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="home-section resource-section reveal-section">
-        <div className="split-intro">
-          <h2>Growth Resources For Better Decisions</h2>
+      <section className="lp-section" id="system">
+        <div className="lp-section-head">
+          <h2>One system. Not scattered tools.</h2>
           <p>
-            Explore practical guides on SEO foundations, website planning, and automation opportunities before you start a project.
-            These resources connect directly to the services we deliver.
+            Most local service businesses already have pieces — a site, some ads, a WhatsApp number. We connect them so
+            every click has a clear path to a booked job.
           </p>
         </div>
-        <div className="resource-grid">
-          {blogPosts.slice(0, 3).map((post) => (
-            <article className="resource-card" key={post.slug}>
-              <small>{post.category}</small>
-              <h3>{post.title}</h3>
-              <p>{post.description}</p>
-              <Link to={"/blog/" + post.slug + "/"}>Read guide <ArrowRight size={16} /></Link>
+        <div className="lp-system-grid">
+          {systemLayers.map((layer, index) => (
+            <article className="lp-system-item" key={layer.title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <HugeIcon icon={layer.icon} size={28} />
+              <h3>{layer.title}</h3>
+              <p>{layer.copy}</p>
             </article>
           ))}
         </div>
-        <div className="resource-links" aria-label="Related service links">
-          <Link to="/services/seo/">SEO Services</Link>
-          <Link to="/services/web-development/">Web Development</Link>
-          <Link to="/services/ai-automation/">AI Automation</Link>
-          <Link to="/blog/">All Resources</Link>
-        </div>
       </section>
 
-      <section className="home-section reveal-section">
-        <SectionHeader title="Frequently Asked Questions" />
-        <div className="home-faq-list">
+      <section className="lp-section lp-split-section">
+        <div className="lp-section-head left">
+          <h2>From first search to booked job.</h2>
+          <p>
+            We do not sell isolated pages or random campaigns. We install a growth operating system around how local
+            customers actually buy.
+          </p>
+        </div>
+        <ul className="lp-check-list">
           {[
-            ["Do you build full websites or only landing pages?", "We can build both, but for long-term SEO we recommend a complete site structure with services, portfolio, blog, contact, and FAQ pages."],
-            ["Can you help with SEO from the beginning?", "Yes. We plan metadata, headings, internal links, schema, sitemap structure, page speed, and content architecture during the build."],
-            ["Do you provide images, animation, or video?", "We can create frames and placements. If you provide brand photos, client screenshots, videos, or motion references, we can integrate them properly."],
-            ["How long does a project take?", "A focused website can start in a few weeks. Larger SEO, content, and automation systems depend on page count, integrations, and content depth."],
-            ["Can you manage Google Business Profile?", "Yes. We can optimize profile structure, services, descriptions, posts, and local trust signals."],
-            ["What happens after launch?", "We can monitor analytics, improve content, fix technical issues, expand service pages, and create ongoing growth assets."]
-          ].map(([question, answer]) => (<details key={question}><summary>{question}</summary><p>{answer}</p></details>))}
+            "Service pages that answer buyer questions fast",
+            "Local SEO structure for findability",
+            "Campaign paths with clear conversion tracking",
+            "WhatsApp follow-up that protects every lead",
+            "Reporting owners can understand without jargon"
+          ].map((item) => (
+            <li key={item}>
+              <CheckCircle2 size={20} />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="lp-section">
+        <div className="lp-section-head">
+          <h2>How it works</h2>
+          <p>A simple path from audit to ongoing growth — built for operators, not tech teams.</p>
+        </div>
+        <div className="lp-steps">
+          {steps.map(([num, title, copy]) => (
+            <article key={title}>
+              <span>{num}</span>
+              <h3>{title}</h3>
+              <p>{copy}</p>
+            </article>
+          ))}
         </div>
       </section>
 
-      <section className="home-final-cta reveal-section">
-        <h2>Ready To Grow Your Business?</h2>
-        <p>Book a free consultation and we will map the clearest next step for your website, SEO, automation, or digital growth system.</p>
-        <div><Link className="cta-button" to="/contact/">Book Free Consultation</Link><Link className="secondary-button" to="/portfolio/">View Case Studies</Link></div>
+      <section className="lp-section">
+        <div className="lp-section-head">
+          <h2>Proof that converts</h2>
+          <p>Real-result frames ready for final screenshots, metrics graphics, and client quotes.</p>
+        </div>
+        <div className="lp-proof-grid">
+          {proofs.map((item) => (
+            <article key={item.name}>
+              <div className="lp-proof-media" aria-hidden="true">
+                <span>CASE STUDY MEDIA PLACEHOLDER</span>
+              </div>
+              <small>{item.industry}</small>
+              <h3>{item.name}</h3>
+              <strong>{item.metric}</strong>
+              <p>{item.copy}</p>
+              <Link to="/portfolio/">
+                View work <ArrowRight size={16} />
+              </Link>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="lp-section" id="pricing">
+        <div className="lp-section-head">
+          <h2>Global pricing for every stage</h2>
+          <p>Clear packages for launch, growth, and scale. WhatsApp us and we will map the right fit.</p>
+        </div>
+        <div className="lp-pricing-grid">
+          {plans.map((plan) => (
+            <article className={`lp-plan${plan.featured ? " is-featured" : ""}`} key={plan.name}>
+              <p className="lp-plan-name">{plan.name}</p>
+              <h3>{plan.price}</h3>
+              <p>{plan.detail}</p>
+              <ul>
+                {plan.items.map((item) => (
+                  <li key={item}>
+                    <CheckCircle2 size={17} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <WhatsAppButton className="cta-button whatsapp-cta lp-plan-cta">
+                Get this plan
+              </WhatsAppButton>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="lp-section">
+        <div className="lp-section-head">
+          <h2>Questions before you start</h2>
+        </div>
+        <div className="lp-faq">
+          {faqs.map(([question, answer]) => (
+            <details key={question}>
+              <summary>{question}</summary>
+              <p>{answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <section className="lp-final-cta">
+        <p className="lp-brand">Jadeed Solutions</p>
+        <h2>Ready to install your growth system?</h2>
+        <p>Tell us your business type and goal on WhatsApp. We will reply with the clearest next step.</p>
+        <div className="lp-hero-actions">
+          <WhatsAppButton className="cta-button whatsapp-cta">Start on WhatsApp</WhatsAppButton>
+          <Link className="secondary-button" to="/portfolio/">
+            See case studies
+          </Link>
+        </div>
       </section>
 
       <Footer />
@@ -1056,7 +1025,25 @@ function CompanyPage({ page }) {
 
   return (
     <StandardPage eyebrow="Company" title={`${page.title} Jadeed Solutions`} intro={map[page.title]}>
-      {page.title === "Pricing" ? <PricingPreview /> : null}
+      {page.title === "Pricing" ? (
+        <section className="lp-section" style={{ marginTop: 0 }}>
+          <div className="lp-pricing-grid">
+            {[
+              ["Launch", "From $2,500", "Conversion-ready website foundation for local service brands."],
+              ["Growth", "From $4,800", "Website, local SEO, campaign paths, and monthly improvement."],
+              ["Scale", "From $8,500", "Multi-location systems, automation, and priority support."],
+              ["Custom", "Global quote", "Scoped architecture for complex or multi-brand operations."]
+            ].map(([name, price, detail]) => (
+              <article className="lp-plan" key={name}>
+                <p className="lp-plan-name">{name}</p>
+                <h3>{price}</h3>
+                <p>{detail}</p>
+                <WhatsAppButton className="cta-button whatsapp-cta lp-plan-cta">Discuss on WhatsApp</WhatsAppButton>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
       {page.title === "FAQ" ? <FaqPreview /> : null}
       {page.title === "Contact" ? <ContactForm /> : null}
       {page.title === "About" ? (
