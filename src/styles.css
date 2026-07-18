@@ -1917,10 +1917,10 @@ h3 {
     min-height: 42px;
     margin-left: auto;
     padding: 0 15px;
-    border: 1px solid var(--charcoal);
+    border: 1px solid #128c7e;
     border-radius: 999px;
     color: #ffffff;
-    background: var(--orange);
+    background: #25d366;
     font-size: 15px;
     font-weight: 500;
     line-height: 1;
