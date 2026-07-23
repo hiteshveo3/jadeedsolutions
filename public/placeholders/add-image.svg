@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800">
+  <rect width="1280" height="800" fill="#f1f5f9"/>
+  <rect x="40" y="40" width="1200" height="720" rx="24" fill="#fff" stroke="#ff6b35" stroke-width="3" stroke-dasharray="14 10"/>
+  <text x="640" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="700" fill="#0f172a">add kro bhai</text>
+  <text x="640" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#64748b">Real image placeholder  replace later</text>
+</svg>
