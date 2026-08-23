@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { PricingContent } from "@/components/pricing/PricingContent";
 
 export const metadata: Metadata = {
-  title: "Pricing — pay 10% of the bookings we generate",
+  title: "Pricing — 10% of Bookings or Fixed SEO & Website Fees",
   description:
-    "Simple, global pricing. Our flagship Growth Partnership costs just 10% of the bookings we generate — no setup fees or minimums. SEO from £100/mo and business websites from £100 also available.",
+    "Growth Partnership: pay 10% of the bookings we generate — no setup fees or retainers. Or choose fixed SEO from £100/mo and business websites from £199.",
 };
 
 export default function PricingPage() {

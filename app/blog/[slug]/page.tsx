@@ -20,7 +20,14 @@ import { ReadingProgress } from "@/components/blog/ReadingProgress";
 import { BackToTop } from "@/components/blog/BackToTop";
 import { ShareRow } from "@/components/blog/ShareRow";
 import { BlogToc } from "@/components/blog/BlogToc";
+import { RichText } from "@/components/blog/RichText";
 import { AccordionItem } from "@/components/Accordion";
+import { LocalSeoAuditCalculator } from "@/components/blog/LocalSeoAuditCalculator";
+import { InteractiveRoadmap } from "@/components/blog/InteractiveRoadmap";
+import { ArchitectureVisualizer } from "@/components/blog/ArchitectureVisualizer";
+import { KeywordClusterExplorer } from "@/components/blog/KeywordClusterExplorer";
+import { CoreWebVitalsMeter } from "@/components/blog/CoreWebVitalsMeter";
+import { MythVsRealityCard } from "@/components/blog/MythVsRealityCard";
 import {
   posts,
   getPost,
@@ -63,6 +70,8 @@ function categoryIcon(category: string): IconSvgElement {
     case "SEO":
       return TrendingUpIcon;
     case "Web Development":
+      return CodeIcon;
+    case "App Development":
       return CodeIcon;
     case "Digital Advertising":
       return MegaphoneIcon;
@@ -161,7 +170,7 @@ export default function BlogPostPage({
                     <span className="font-semibold text-ink">{author.name}</span>
                   </Link>
                   <Link
-                    href={`/blog/archive/${post.date.slice(0, 7)}`}
+                    href={`/blog/archive/${post.date.slice(0, 4)}/${post.date.slice(5, 7)}`}
                     className="inline-flex items-center gap-1.5 transition-colors hover:text-brand-500"
                   >
                     <HugeiconsIcon icon={CalendarIcon} size={16} />
@@ -206,7 +215,7 @@ export default function BlogPostPage({
                     <div className="mt-4 space-y-3">
                       {post.faqs.map((f) => (
                         <AccordionItem key={f.q} title={f.q}>
-                          {f.a}
+                          <RichText text={f.a} />
                         </AccordionItem>
                       ))}
                     </div>
@@ -396,7 +405,7 @@ function ContentBlockRenderer({ block }: { block: ContentBlock }) {
     case "paragraph":
       return (
         <p className="text-[15px] leading-relaxed text-slate-700">
-          {block.text}
+          <RichText text={block.text} />
         </p>
       );
 
@@ -411,7 +420,7 @@ function ContentBlockRenderer({ block }: { block: ContentBlock }) {
                 strokeWidth={2.4}
                 className="mt-0.5 shrink-0 text-brand-500"
               />
-              {item}
+              <RichText text={item} />
             </li>
           ))}
         </ul>
@@ -425,7 +434,7 @@ function ContentBlockRenderer({ block }: { block: ContentBlock }) {
               <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-brand-500 text-xs font-bold text-white">
                 {i + 1}
               </span>
-              {item}
+              <RichText text={item} />
             </li>
           ))}
         </ol>
@@ -438,7 +447,7 @@ function ContentBlockRenderer({ block }: { block: ContentBlock }) {
             <HugeiconsIcon icon={QuoteIcon} size={20} />
           </span>
           <p className="text-[15px] italic leading-relaxed text-slate-700">
-            {block.text}
+            <RichText text={block.text} />
           </p>
         </blockquote>
       );
@@ -459,7 +468,9 @@ function ContentBlockRenderer({ block }: { block: ContentBlock }) {
                   strokeWidth={2.4}
                   className="mt-0.5 shrink-0"
                 />
-                <span className="font-medium">{item}</span>
+                <span className="font-medium">
+                  <RichText text={item} variant="onBrand" />
+                </span>
               </li>
             ))}
           </ul>
@@ -513,7 +524,7 @@ function ContentBlockRenderer({ block }: { block: ContentBlock }) {
                           : "text-center text-slate-700"
                       }`}
                     >
-                      {cell}
+                      <RichText text={cell} />
                     </td>
                   ))}
                 </tr>
@@ -523,13 +534,29 @@ function ContentBlockRenderer({ block }: { block: ContentBlock }) {
         </div>
       );
 
+    case "code":
+      return (
+        <div className="my-4 overflow-hidden rounded-2xl border border-slate-200 bg-slate-900">
+          {block.language && (
+            <div className="border-b border-white/10 px-4 py-2 text-[11px] font-bold uppercase tracking-wider text-white/50">
+              {block.language}
+            </div>
+          )}
+          <pre className="overflow-x-auto p-4 text-[13px] leading-relaxed text-slate-100">
+            <code>{block.code}</code>
+          </pre>
+        </div>
+      );
+
     case "cta":
       return (
-        <div             className="my-6 flex flex-col items-start justify-between gap-4 rounded-3xl bg-brand-500 p-6 text-white sm:flex-row sm:items-center">
+        <div className="my-6 flex flex-col items-start justify-between gap-4 rounded-3xl bg-brand-500 p-6 text-white sm:flex-row sm:items-center">
           <div>
             <p className="font-display text-lg font-semibold">{block.title}</p>
             {block.text && (
-              <p className="mt-1 text-sm text-white/80">{block.text}</p>
+              <p className="mt-1 text-sm text-white/80">
+                <RichText text={block.text} variant="onBrand" />
+              </p>
             )}
           </div>
           <Link
@@ -541,6 +568,105 @@ function ContentBlockRenderer({ block }: { block: ContentBlock }) {
           </Link>
         </div>
       );
+
+    case "dialogue":
+      return (
+        <div className="my-6 overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
+          {block.title && (
+            <div className="border-b border-slate-200 bg-white px-4 py-3 sm:px-5">
+              <p className="text-xs font-bold uppercase tracking-wider text-brand-500">
+                Conversation
+              </p>
+              <p className="mt-1 font-display text-base font-semibold text-ink sm:text-lg">
+                {block.title}
+              </p>
+            </div>
+          )}
+          <div className="space-y-4 p-4 sm:p-5">
+            {block.turns.map((turn, i) => {
+              const isUs = turn.speaker === "us";
+              return (
+                <div
+                  key={i}
+                  className={`flex ${isUs ? "justify-end" : "justify-start"}`}
+                >
+                  <div
+                    className={`max-w-[92%] rounded-2xl px-4 py-3 sm:max-w-[85%] ${
+                      isUs
+                        ? "rounded-br-md bg-brand-500 text-white"
+                        : "rounded-bl-md border border-slate-200 bg-white text-ink"
+                    }`}
+                  >
+                    <p
+                      className={`text-[11px] font-bold uppercase tracking-wider ${
+                        isUs ? "text-white/80" : "text-slate-500"
+                      }`}
+                    >
+                      {turn.name}
+                      <span className="ml-1.5 font-medium opacity-80">
+                        · {isUs ? "Jadeed" : "Client"}
+                      </span>
+                    </p>
+                    {turn.text.split("\n\n").map((para, pi) => (
+                      <p
+                        key={pi}
+                        className={`mt-1.5 whitespace-pre-line text-[14px] leading-relaxed ${
+                          isUs ? "text-white" : "text-slate-700"
+                        }`}
+                      >
+                        <RichText
+                          text={para}
+                          variant={isUs ? "onBrand" : "default"}
+                        />
+                      </p>
+                    ))}
+                    {turn.bullets && turn.bullets.length > 0 && (
+                      <ul className="mt-2 space-y-1.5">
+                        {turn.bullets.map((item, bi) => (
+                          <li
+                            key={bi}
+                            className={`flex items-start gap-2 text-[13px] leading-snug ${
+                              isUs ? "text-white/95" : "text-slate-700"
+                            }`}
+                          >
+                            <span
+                              className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${
+                                isUs ? "bg-white" : "bg-brand-500"
+                              }`}
+                            />
+                            <RichText
+                              text={item}
+                              variant={isUs ? "onBrand" : "default"}
+                            />
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      );
+
+    case "seo-audit":
+      return <LocalSeoAuditCalculator />;
+
+    case "interactive-roadmap":
+      return <InteractiveRoadmap />;
+
+    case "architecture-visualizer":
+      return <ArchitectureVisualizer />;
+
+    case "keyword-cluster-explorer":
+      return <KeywordClusterExplorer />;
+
+    case "core-web-vitals-meter":
+      return <CoreWebVitalsMeter />;
+
+    case "myth-vs-reality":
+      return <MythVsRealityCard />;
 
     default:
       return null;

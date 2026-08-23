@@ -103,6 +103,17 @@ export default function AuthorPage({
               <p className="mt-1 font-semibold text-brand-500">{author.role}</p>
               <p className="mt-4 max-w-2xl text-slate-600">{author.longBio}</p>
 
+              {author.highlights && author.highlights.length > 0 && (
+                <ul className="mt-5 grid gap-2 text-left text-sm text-slate-700 sm:grid-cols-2">
+                  {author.highlights.map((h) => (
+                    <li key={h} className="flex items-start gap-2">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" />
+                      {h}
+                    </li>
+                  ))}
+                </ul>
+              )}
+
               {author.socials && author.socials.length > 0 && (
                 <div className="mt-5 flex flex-wrap justify-center gap-2 md:justify-start">
                   {author.socials.map((s) => (

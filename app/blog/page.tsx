@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { CTASection } from "@/components/CTASection";
 import { BlogList, type BlogListItem } from "@/components/blog/BlogList";
 import { HeroBackground } from "@/components/HeroBackground";
@@ -39,6 +40,14 @@ export default function BlogPage() {
               Practical guides and insights on SEO, development, app development
               and paid advertising — no fluff, just what actually works for local
               businesses.
+            </p>
+            <p className="mt-4">
+              <Link
+                href="/blog/archive"
+                className="text-sm font-semibold text-brand-500 hover:underline"
+              >
+                Browse archive by date →
+              </Link>
             </p>
           </header>
         </div>

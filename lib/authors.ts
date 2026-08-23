@@ -5,6 +5,9 @@ export type Author = {
   avatar: string;
   bio: string;
   longBio: string;
+  /** Short facts for About / profile layout */
+  highlights?: string[];
+  location?: string;
   socials?: { label: string; href: string }[];
 };
 
@@ -14,12 +17,24 @@ export const authors: Record<string, Author> = {
     name: "Sameer Ahmad Basra",
     role: "Founder & CEO, Jadeed Solutions",
     avatar: "/team/sameer-ahmad-basra.jpg",
-    bio: "Founder & CEO of Jadeed Solutions. I help local service businesses grow online with SEO, high-converting websites, apps and profitable ad campaigns.",
+    location: "Lahore, Pakistan",
+    bio: "Founder & CEO of Jadeed Solutions. I help UK & USA local service businesses grow with SEO, high-converting websites, apps — and a 10% after-bookings model when it fits.",
     longBio:
-      "Sameer Ahmad Basra is the founder and CEO of Jadeed Solutions, a growth partner for local service-based businesses. He works hands-on with SEO, web and app development, and paid advertising — turning marketing into measurable revenue. On this blog he shares practical, no-nonsense playbooks drawn from real client work.",
+      "Sameer founded Jadeed Solutions in Lahore and works hands-on with UK and USA local service businesses — SEO, websites, apps and ads when needed. The team stays small (around 10 active clients) so delivery stays senior. Flagship work includes Alpha Movers in London on a 10% after-booking model.",
+    highlights: [
+      "Founder of Jadeed Solutions (Lahore → UK & USA clients)",
+      "Hands-on SEO, websites, apps and optional ads",
+      "Performance option: 10% of bookings generated",
+      "~10 active clients — small team, senior delivery",
+      "5.0 on Google · 35 reviews",
+    ],
     socials: [
-      { label: "Email", href: "mailto:hello@jadeedsolutions.com" },
-      { label: "LinkedIn", href: "https://www.linkedin.com" },
+      { label: "Email", href: "mailto:info@jadeedsolutions.com" },
+      { label: "WhatsApp", href: "https://wa.me/923167669343" },
+      {
+        label: "LinkedIn",
+        href: "https://pk.linkedin.com/company/jadeed-solutions",
+      },
     ],
   },
 };

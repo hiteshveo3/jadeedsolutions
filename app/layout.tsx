@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CommandSearch } from "@/components/CommandSearch";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
+import { StickyWhatsApp } from "@/components/StickyWhatsApp";
 import { siteConfig } from "@/lib/site";
 
 const dmSans = DM_Sans({
@@ -27,13 +28,13 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: [
-    "digital marketing agency",
-    "SEO services",
-    "web development",
-    "app development",
-    "Google Ads",
-    "PPC management",
-    "social media marketing",
+    "SEO for local service businesses",
+    "SEO for UK removals",
+    "Google Ads for local businesses",
+    "website for cleaning company",
+    "digital marketing for movers",
+    "local SEO UK USA",
+    "performance marketing 10% bookings",
   ],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
@@ -83,6 +84,7 @@ export default function RootLayout({
         <Footer />
         <div className="h-16 lg:hidden" aria-hidden="true" />
         <MobileBottomNav />
+        <StickyWhatsApp />
       </body>
     </html>
   );

@@ -103,7 +103,7 @@ export function BlogList({
         <div className="mt-8">
           <Link
             href={`/blog/${featured.slug}`}
-            className="group grid overflow-hidden rounded-3xl border border-slate-200 bg-white transition-colors hover:border-brand-200 md:grid-cols-2"
+            className="group grid overflow-hidden rounded-3xl border border-slate-200 bg-white md:grid-cols-2"
           >
             <div className="relative aspect-[16/10] md:aspect-auto md:min-h-[280px]">
               <Image
@@ -156,7 +156,7 @@ export function BlogList({
                 <Link
                   key={post.slug}
                   href={`/blog/${post.slug}`}
-                  className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-colors hover:border-transparent hover:bg-brand-50"
+                  className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white"
                 >
                   <div className="relative aspect-[16/9] overflow-hidden">
                     <Image

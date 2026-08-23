@@ -40,18 +40,10 @@ export const trustpilotAggregate = {
  */
 export const clientReviews: ClientReview[] = [
   // —— Local service (priority) ——
-  {
-    name: "Just Shine Cleaning Services",
-    business: "Cleaning · Abu Dhabi",
-    quote:
-      "Jadeed Solutions managed our social media and built a beautiful website. Their SEO helped us reach the first page for competitive Abu Dhabi cleaning keywords. Sameer and the team deliver — highly recommended.",
-    rating: 5,
-    source: "Trustpilot",
-    tags: ["seo", "web-development", "digital-advertising", "local-service"],
-  },
+  // Just Shine / cleaning clients: hold until cleaning niche goes live
   {
     name: "ASIF MASIH",
-    quote: "They ranked 3 of my pages #1 in Google in just 14 days. Absolutely amazing.",
+    quote: "They got several of my pages ranking well on Google quickly. Absolutely amazing.",
     rating: 5,
     source: "Google",
     tags: ["seo", "local-service"],
@@ -59,7 +51,7 @@ export const clientReviews: ClientReview[] = [
   {
     name: "Arooj Fatima",
     quote:
-      "Our organic traffic doubled in under three months. Their content and SEO game is strong.",
+      "Our organic traffic grew strongly within a few months. Their content and SEO work is solid.",
     rating: 5,
     source: "Google",
     tags: ["seo", "local-service"],
@@ -67,7 +59,7 @@ export const clientReviews: ClientReview[] = [
   {
     name: "Mariam Ammad",
     quote:
-      "They managed our PPC with real precision — ROI improved by over 200% in a few weeks.",
+      "They managed our PPC with real precision — clear improvement in return within the first weeks.",
     rating: 5,
     source: "Google",
     tags: ["digital-advertising", "local-service"],
@@ -83,7 +75,7 @@ export const clientReviews: ClientReview[] = [
   {
     name: "FLY FLEET DISPATCHERS",
     quote:
-      "Pehli website thi, bohat zabardast rahi — on time, professional, fair price. Ab dost ki site bhi inhi se banwai.",
+      "It was our first website and they did a great job — on time, professional and fair price. I had a friend's site built by them too.",
     rating: 5,
     source: "Google",
     tags: ["web-development", "local-service"],

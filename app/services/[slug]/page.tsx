@@ -41,13 +41,13 @@ export function generateMetadata({
   const service = getService(params.slug);
   if (!service) return {};
   return {
-    title: `${service.title} for local businesses`,
-    description: service.summary,
+    title: service.seoTitle,
+    description: service.seoDescription,
     alternates: { canonical: `${siteConfig.url}/services/${service.slug}` },
     openGraph: {
-      title: `${service.title} | ${siteConfig.name}`,
-      description: service.summary,
-      images: [{ url: service.heroImage, width: 640, height: 400, alt: service.title }],
+      title: `${service.seoTitle} | ${siteConfig.name}`,
+      description: service.seoDescription,
+      images: [{ url: service.heroImage, width: 640, height: 400, alt: service.h1 }],
     },
   };
 }
@@ -58,7 +58,7 @@ function CheckList({ items }: { items: string[] }) {
       {items.map((item) => (
         <li
           key={item}
-          className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-3.5 transition-colors hover:border-transparent hover:bg-brand-50"
+          className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-3.5"
         >
           <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-brand-500 text-white">
             <HugeiconsIcon icon={CheckIcon} size={14} className="h-3.5 w-3.5" strokeWidth={3} />
@@ -157,7 +157,7 @@ function CaseStudyTeaser({ study }: { study: CaseStudy }) {
   return (
     <Link
       href={`/case-studies/${study.id}`}
-      className="group flex flex-col rounded-2xl border border-slate-200 bg-white p-5 transition-colors hover:border-transparent hover:bg-brand-50 sm:flex-row sm:items-center sm:gap-5"
+      className="group flex flex-col rounded-2xl border border-slate-200 bg-white p-5 sm:flex-row sm:items-center sm:gap-5"
     >
       <div className="min-w-0 flex-1">
         <p className="text-xs font-semibold uppercase tracking-wide text-brand-500">
@@ -307,7 +307,7 @@ export default function ServiceDetailPage({
                 {service.category}
               </span>
               <h1 className="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight text-ink md:text-5xl">
-                {service.title}
+                {service.h1}
               </h1>
               <p className="mt-4 max-w-xl text-base text-slate-600 md:text-lg">
                 {service.description}
@@ -532,7 +532,7 @@ export default function ServiceDetailPage({
                   </a>
                   <a
                     href={TEL}
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-brand-500 transition-colors hover:bg-white/90"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-brand-500"
                   >
                     <HugeiconsIcon icon={PhoneIcon} size={16} className="h-4 w-4" />
                     Call us
@@ -605,7 +605,7 @@ export default function ServiceDetailPage({
                 </a>
                 <a
                   href={TEL}
-                  className="mt-3 flex w-full items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-brand-500 transition-colors hover:bg-white/90"
+                  className="mt-3 flex w-full items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-brand-500"
                 >
                   <HugeiconsIcon icon={PhoneIcon} size={16} className="h-4 w-4" />
                   {siteConfig.phone}
@@ -700,7 +700,7 @@ export default function ServiceDetailPage({
             </a>
             <a
               href={TEL}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-brand-500 transition-colors hover:bg-white/90 sm:w-auto"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-brand-500 sm:w-auto"
             >
               <HugeiconsIcon icon={PhoneIcon} size={16} className="h-4 w-4" />
               {siteConfig.phone}

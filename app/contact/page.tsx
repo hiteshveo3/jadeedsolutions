@@ -6,9 +6,9 @@ import { HeroBackground } from "@/components/HeroBackground";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Contact — Free Proposal for Local Service Growth",
   description:
-    "Get in touch with Jadeed Solutions in Lahore, Pakistan — SEO, websites, apps and ads for local service businesses in the UK, USA and worldwide.",
+    "Get a free proposal from Jadeed Solutions in Lahore — SEO, websites, apps and Google Ads for UK & USA local service businesses. We reply within one business day.",
 };
 
 const highlights = [
@@ -25,7 +25,7 @@ export default function ContactPage() {
         <Reveal className="flex flex-col">
           <span className="eyebrow">Contact</span>
           <h1 className="mt-5 font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
-            Let&rsquo;s grow your business
+            Get a free proposal for more bookings
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-slate-600">
             Tell us about your goals and we&rsquo;ll put together a tailored plan

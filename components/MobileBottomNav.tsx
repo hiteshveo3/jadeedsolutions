@@ -29,8 +29,12 @@ const primary: NavItem[] = [
 ];
 
 const moreItems: NavItem[] = [
+  { label: "Industries", href: "/industries", icon: BriefcaseIcon },
   { label: "Pricing", href: "/pricing", icon: TagIcon },
-  { label: "Blog", href: "/blog", icon: NewsIcon },
+  { label: "Tools", href: "/tools", icon: GridIcon },
+  { label: "Guides", href: "/guides", icon: NewsIcon },
+  { label: "Compare", href: "/compare", icon: TagIcon },
+  { label: "How it works", href: "/how-it-works", icon: InfoIcon },
   { label: "About", href: "/about", icon: InfoIcon },
   { label: "Contact", href: "/contact", icon: MailIcon },
 ];

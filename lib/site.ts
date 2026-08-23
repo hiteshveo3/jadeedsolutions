@@ -1,13 +1,15 @@
 export const siteConfig = {
   name: "Jadeed Solutions",
   shortName: "Jadeed",
-  tagline: "Digital growth for local service businesses",
+  tagline: "More booked jobs for local service businesses",
   description:
-    "Jadeed Solutions helps local service businesses in the UK, USA and worldwide grow with SEO, websites, apps and paid ads — based in Lahore, Pakistan.",
+    "Jadeed Solutions helps UK & USA local service businesses win more bookings with SEO, websites, apps and Google Ads. Pay fixed fees or 10% of the bookings we generate.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   email: "info@jadeedsolutions.com",
   phone: "+92 316 7669343",
   phoneHref: "+923167669343",
+  /** WhatsApp chat link (same number, no +) */
+  whatsappHref: "https://wa.me/923167669343",
   address: "Lahore, Pakistan",
   addressLine: "Lahore, Pakistan · Serving UK, USA & worldwide",
   googleBusinessUrl: "https://share.google/sM4TWgJGFe1bkMcjA",
@@ -26,6 +28,7 @@ export const siteConfig = {
 export const navLinks = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
+  { label: "Industries", href: "/industries" },
   { label: "Pricing", href: "/pricing" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "About", href: "/about" },
@@ -36,7 +39,7 @@ export const navLinks = [
 /** Honest homepage / about stats — no inflated client counts */
 export const stats = [
   { value: 5, suffix: ".0", label: "Google rating (35 reviews)" },
-  { value: 4, suffix: ".0", label: "Trustpilot score" },
+  { value: 10, suffix: "", label: "Active clients (approx.)" },
   { value: 10, suffix: "%", label: "Of bookings we generate" },
-  { value: 100, suffix: "%", label: "Local service focus" },
+  { value: 6, suffix: " mo", label: "Minimum on SEO plans" },
 ] as const;

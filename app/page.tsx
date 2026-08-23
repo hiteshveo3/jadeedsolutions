@@ -15,13 +15,12 @@ export default function HomePage() {
     <>
       <Hero />
 
-      {/* Services */}
       <section className="section">
         <div className="container">
           <SectionHeading
             eyebrow="What we do"
-            title="Everything you need to grow online"
-            description="Four core services that work together as one integrated growth engine for your business."
+            title="Four ways to get more bookings"
+            description="SEO, websites, apps and ads — for plumbers, cleaners, movers and other local services in the UK and USA. Take what you need."
           />
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((service, i) => (
@@ -33,20 +32,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Why us */}
       <section className="section">
         <div className="container grid gap-14 lg:grid-cols-2 lg:items-center">
           <SectionHeading
             align="left"
             eyebrow="Why Jadeed"
-            title="A growth partner that actually moves the needle"
-            description="We combine strategy, creativity, and engineering to deliver results you can measure — and revenue you can bank."
+            title="Built for owners who sell jobs, not clicks"
+            description="We’re a small team. We focus on calls and bookings — with clear pricing and no fluff."
             className="lg:sticky lg:top-28"
           />
           <div className="grid gap-6 sm:grid-cols-2">
             {whyUs.map((item, i) => (
               <Reveal key={item.title} delay={i * 0.08}>
-                <div className="h-full rounded-2xl border border-slate-200 bg-slate-50 p-6 transition-colors hover:border-transparent hover:bg-brand-50">
+                <div className="h-full rounded-2xl border border-slate-200 bg-slate-50 p-6">
                   <HugeiconsIcon icon={CheckCircleIcon} size={28} className="text-brand-500" />
                   <h3 className="mt-4 font-display text-lg font-semibold text-ink">
                     {item.title}
@@ -61,14 +59,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials */}
       <section className="section bg-slate-50">
         <div className="container">
           <SectionHeading
-            eyebrow="Client love"
-            title="Results our clients rave about"
+            eyebrow="What clients say"
+            title="Real feedback from real work"
           />
-          <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          <div className="mt-14 grid gap-6 lg:grid-cols-2">
             {testimonials.map((t, i) => (
               <Reveal key={t.name} delay={i * 0.08}>
                 <TestimonialCard testimonial={t} />
@@ -77,20 +74,19 @@ export default function HomePage() {
           </div>
           <div className="mt-10 text-center">
             <LinkButton href="/portfolio" variant="secondary">
-              See our case studies
+              See case studies
               <HugeiconsIcon icon={ArrowRightIcon} size={16} />
             </LinkButton>
           </div>
         </div>
       </section>
 
-      {/* FAQs */}
       <section className="section">
         <div className="container max-w-3xl">
           <SectionHeading
             eyebrow="FAQs"
-            title="Frequently asked questions"
-            description="Straight answers about how we work with local service businesses."
+            title="Common questions"
+            description="Short answers before you message us."
           />
           <div className="mt-10 space-y-3">
             {homeFaqs.map((f, i) => (

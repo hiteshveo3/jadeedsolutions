@@ -10,12 +10,12 @@ import {
 import { LinkButton } from "./Button";
 import { HugeiconsIcon, ArrowRightIcon } from "./icons";
 import { HeroBackground } from "./HeroBackground";
-import { stats } from "@/lib/site";
+import { stats, siteConfig } from "@/lib/site";
 
 const rotatingWords = [
-  "Search Engine Optimization",
-  "high-converting websites",
-  "powerful apps",
+  "SEO",
+  "websites that convert",
+  "mobile apps",
   "Google Ads",
 ];
 
@@ -61,9 +61,9 @@ export function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="eyebrow"
+          className="eyebrow self-center"
         >
-          Growth partner for UK & USA local services
+          For UK &amp; USA local service businesses
         </motion.span>
 
         <motion.h1
@@ -72,7 +72,7 @@ export function Hero() {
           transition={{ duration: 0.55, delay: 0.05 }}
           className="mt-6 max-w-4xl font-display text-4xl font-semibold leading-[1.1] tracking-tight text-ink sm:text-5xl lg:text-5xl xl:text-6xl"
         >
-          We grow local businesses with
+          Get more booked jobs with
           <span className="mt-2 flex min-h-[1.15em] items-start justify-center">
             <AnimatePresence mode="wait">
               <motion.span
@@ -95,10 +95,9 @@ export function Hero() {
           transition={{ duration: 0.55, delay: 0.12 }}
           className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600"
         >
-          We help local service businesses in the UK, USA and worldwide win more
-          customers — better search rankings, high-converting websites, apps, and
-          profitable ad campaigns, all from one dedicated growth partner in
-          Lahore.
+          Jadeed Solutions helps plumbers, cleaners, movers and other local
+          services show up on Google and turn visits into calls. Pay fixed fees —
+          or 10% of the bookings we generate.
         </motion.p>
 
         <motion.div
@@ -107,12 +106,12 @@ export function Hero() {
           transition={{ duration: 0.55, delay: 0.19 }}
           className="mt-9 flex flex-col gap-3 sm:flex-row"
         >
-          <LinkButton href="/contact" size="lg">
-            Get a free proposal
+          <LinkButton href={siteConfig.whatsappHref} size="lg">
+            WhatsApp us
             <HugeiconsIcon icon={ArrowRightIcon} size={18} />
           </LinkButton>
-          <LinkButton href="/services" size="lg" variant="secondary">
-            Explore services
+          <LinkButton href="/pricing" size="lg" variant="secondary">
+            See pricing
           </LinkButton>
         </motion.div>
 
@@ -122,21 +121,21 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.26 }}
           className="mt-4 text-sm text-slate-500"
         >
-          Free consultation · No obligation · We reply within 24 hours
+          Free plan outline · No setup fee · We reply within 24 hours
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-12 grid w-full max-w-3xl grid-cols-2 gap-8 border-t border-slate-200 pt-8 sm:grid-cols-4"
+          transition={{ duration: 0.5, delay: 0.32 }}
+          className="mt-14 grid w-full max-w-3xl grid-cols-2 gap-8 sm:grid-cols-4"
         >
           {stats.map((s) => (
-            <div key={s.label}>
-              <div className="font-display text-3xl font-semibold text-ink">
+            <div key={s.label} className="text-center">
+              <p className="font-display text-2xl font-semibold text-ink sm:text-3xl">
                 <CountUp value={s.value} suffix={s.suffix} />
-              </div>
-              <div className="mt-1 text-xs text-slate-500">{s.label}</div>
+              </p>
+              <p className="mt-1 text-xs text-slate-500 sm:text-sm">{s.label}</p>
             </div>
           ))}
         </motion.div>

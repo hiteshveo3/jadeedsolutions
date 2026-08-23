@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { navLinks, siteConfig } from "@/lib/site";
 import { services } from "@/lib/services";
+import { intentPages } from "@/lib/intent-pages";
+import { niches } from "@/lib/niches";
 import { AccordionItem } from "./Accordion";
 import {
   HugeiconsIcon,
@@ -46,6 +48,31 @@ export function Footer() {
     </ul>
   );
 
+  const industryLinks = (
+    <ul className="space-y-3 text-sm">
+      {niches.map((page) => (
+        <li key={page.slug}>
+          <Link
+            href={`/industries/${page.slug}`}
+            className="text-slate-600 transition-colors hover:text-brand-500"
+          >
+            {page.navLabel}
+          </Link>
+        </li>
+      ))}
+      {intentPages.map((page) => (
+        <li key={page.slug}>
+          <Link
+            href={`/industries/${page.slug}`}
+            className="text-slate-600 transition-colors hover:text-brand-500"
+          >
+            {page.navLabel}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+
   const contactInfo = (
     <ul className="space-y-3 text-sm text-slate-600">
       <li className="flex items-center gap-3">
@@ -76,7 +103,10 @@ export function Footer() {
       <div className="container py-16">
         <div className="grid gap-12 lg:grid-cols-4">
           <div className="lg:pr-8">
-            <Link href="/" className="flex items-center gap-2.5 font-display text-lg font-semibold">
+            <Link
+              href="/"
+              className="flex items-center gap-2.5 font-display text-lg font-semibold"
+            >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/logo.png"
@@ -106,7 +136,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Desktop columns */}
           <div className="hidden lg:col-span-3 lg:grid lg:grid-cols-3 lg:gap-8">
             <div>
               <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-500">
@@ -122,19 +151,25 @@ export function Footer() {
             </div>
             <div>
               <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-500">
+                Who we help
+              </h4>
+              <div className="mt-4">{industryLinks}</div>
+              <h4 className="mt-8 text-sm font-semibold uppercase tracking-wider text-slate-500">
                 Get in touch
               </h4>
               <div className="mt-4">{contactInfo}</div>
             </div>
           </div>
 
-          {/* Mobile accordions */}
           <div className="lg:hidden">
             <AccordionItem variant="plain" title="Company">
               {companyLinks}
             </AccordionItem>
             <AccordionItem variant="plain" title="Services">
               {serviceLinks}
+            </AccordionItem>
+            <AccordionItem variant="plain" title="Who we help">
+              {industryLinks}
             </AccordionItem>
             <AccordionItem variant="plain" title="Get in touch">
               {contactInfo}
@@ -144,10 +179,57 @@ export function Footer() {
       </div>
 
       <div className="border-t border-slate-200">
-        <div className="container flex flex-col items-center justify-between gap-2 py-6 text-sm text-slate-500 sm:flex-row">
+        <div className="container flex flex-col items-center justify-between gap-3 py-6 text-sm text-slate-500 sm:flex-row">
           <p>
             &copy; {year} {siteConfig.name}. All rights reserved.
           </p>
+          <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+            <li>
+              <Link href="/tools" className="hover:text-brand-500">
+                Tools
+              </Link>
+            </li>
+            <li>
+              <Link href="/guides" className="hover:text-brand-500">
+                Guides
+              </Link>
+            </li>
+            <li>
+              <Link href="/compare" className="hover:text-brand-500">
+                Compare
+              </Link>
+            </li>
+            <li>
+              <Link href="/how-it-works" className="hover:text-brand-500">
+                How it works
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog" className="hover:text-brand-500">
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog/archive" className="hover:text-brand-500">
+                Archive
+              </Link>
+            </li>
+            <li>
+              <Link href="/industries" className="hover:text-brand-500">
+                Industries
+              </Link>
+            </li>
+            <li>
+              <Link href="/privacy" className="hover:text-brand-500">
+                Privacy
+              </Link>
+            </li>
+            <li>
+              <Link href="/terms" className="hover:text-brand-500">
+                Terms
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
     </footer>

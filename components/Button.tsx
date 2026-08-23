@@ -18,7 +18,7 @@ const variants: Record<Variant, string> = {
   secondary:
     "border border-slate-200 bg-slate-100 text-ink hover:bg-slate-200",
   ghost: "text-ink hover:bg-slate-100",
-  white: "bg-white text-brand-500 hover:bg-white/90",
+  white: "bg-white text-brand-500",
   outlineWhite: "border border-white/60 text-white hover:bg-white/10",
   glass: "bg-white/15 text-white backdrop-blur-md hover:bg-white/25",
 };
@@ -51,8 +51,28 @@ export function LinkButton({
   children,
   ...props
 }: LinkButtonProps) {
+  const classNames = classes({ variant, size, className });
+  const external =
+    href.startsWith("http") ||
+    href.startsWith("tel:") ||
+    href.startsWith("mailto:");
+
+  if (external) {
+    return (
+      <a
+        href={href}
+        className={classNames}
+        {...(href.startsWith("http")
+          ? { target: "_blank", rel: "noopener noreferrer" }
+          : {})}
+      >
+        {children}
+      </a>
+    );
+  }
+
   return (
-    <Link href={href} className={classes({ variant, size, className })} {...props}>
+    <Link href={href} className={classNames} {...props}>
       {children}
     </Link>
   );

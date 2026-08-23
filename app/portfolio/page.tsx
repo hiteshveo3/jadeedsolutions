@@ -5,12 +5,12 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { CTASection } from "@/components/CTASection";
 import { Reveal } from "@/components/Reveal";
 import { HeroBackground } from "@/components/HeroBackground";
-import { caseStudies } from "@/lib/case-studies";
+import { publishedCaseStudies } from "@/lib/case-studies";
 
 export const metadata: Metadata = {
-  title: "Portfolio",
+  title: "Case Studies — SEO & Growth Results for Local Services",
   description:
-    "Real case studies from Jadeed Solutions — SEO, websites, apps and ads for local service businesses.",
+    "Real results from Jadeed Solutions: SEO, websites and ads for UK & USA local service businesses — including Alpha Movers and more.",
 };
 
 export default function PortfolioPage() {
@@ -21,19 +21,19 @@ export default function PortfolioPage() {
         <div className="container relative z-10">
           <SectionHeading
             eyebrow="Our work"
-            title="Results that speak for themselves"
-            description="Real local-service case studies — not stock portfolios. Open any project for full metrics and proof."
+            title="Case studies from UK & USA local services"
+            description="Real SEO and growth results for movers, cleaners and more — open any project for full metrics and proof."
           />
         </div>
       </section>
 
       <section className="bg-slate-50 py-16 sm:py-20 lg:py-24">
         <div className="container grid gap-6 md:grid-cols-2">
-          {caseStudies.map((study, i) => (
+          {publishedCaseStudies().map((study, i) => (
             <Reveal key={study.id} delay={(i % 2) * 0.08}>
               <Link
                 href={`/case-studies/${study.id}`}
-                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-colors hover:border-transparent hover:bg-brand-50"
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white"
               >
                 <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -75,8 +75,8 @@ export default function PortfolioPage() {
       </section>
 
       <CTASection
-        title="Want results like these?"
-        description="Let's build your next success story together."
+        title="Want more booked jobs like these?"
+        description="WhatsApp or call — tell us your city and trade. We'll show you how we'd grow your bookings."
       />
     </>
   );

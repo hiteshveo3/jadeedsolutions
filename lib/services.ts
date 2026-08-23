@@ -25,6 +25,12 @@ export type Service = {
   slug: string;
   icon: IconSvgElement;
   title: string;
+  /** Visible H1 on the service page — buyer-language */
+  h1: string;
+  /** <title> / OG title without brand suffix */
+  seoTitle: string;
+  /** Meta description */
+  seoDescription: string;
   tagline: string;
   summary: string;
   description: string;
@@ -54,11 +60,15 @@ export const services: Service[] = [
     slug: "seo",
     icon: SearchIcon,
     title: "Search Engine Optimization",
-    tagline: "Rank higher. Get found. Grow organically.",
+    h1: "SEO for local service businesses in the UK & USA",
+    seoTitle: "SEO for Local Service Businesses (UK & USA)",
+    seoDescription:
+      "Local SEO for UK & USA service businesses — show up on Google Maps and in search, get more calls and bookings. From £100/mo or 10% of bookings.",
+    tagline: "Show up on Google. Get more bookings.",
     summary:
-      "Data-driven SEO that turns search intent into qualified traffic and revenue.",
+      "Local SEO for movers, cleaners, trades and clinics — more calls and booked jobs from Google.",
     description:
-      "Get found by customers who are already searching for what you offer. Our SEO turns your website into a steady, compounding source of qualified leads.",
+      "Get found by customers already searching for your service. We specialise in local SEO for UK & USA service businesses so you win the click — and the booking — before competitors do.",
     category: "Organic growth & local SEO",
     heroImage: "/placeholders/add-image.svg",
     priceLabel: "From £100/month · or 10% on bookings",
@@ -68,19 +78,18 @@ export const services: Service[] = [
       { icon: ClockIcon, label: "6-month minimum" },
     ],
     rating: { score: "5.0", count: "from 35 Google reviews" },
-    trustBadges: ["5.0 on Google", "White-hat only", "10% performance model"],
+    trustBadges: ["5.0 on Google", "Honest SEO", "10% performance model"],
     overview: {
       heading: "SEO that turns search into customers",
       paragraphs: [
-        "Most people looking for a local service start with a search. If you're not showing up on the first page, those customers are calling your competitors instead. Our SEO service fixes that — we get your business ranking for the terms your ideal customers actually type in, so you win the click before anyone else does.",
-        "We specialise in local, service-based businesses (movers, cleaners, trades, clinics and more) in markets like the UK and USA. That means a fast website, a strong Google Business Profile, intent-led content, and the local authority signals that push you into the map pack and organic results.",
-        "We also offer a performance option: a 10% commission on the bookings and sales our SEO generates — so our incentives stay aligned with yours. Either way, you get clear reporting on impressions, clicks, rankings and real enquiries — not vanity charts.",
+        "Most people looking for a local service start on Google. If you're not showing up, those customers call your competitors instead. We get you ranking for the terms people actually search — your Google listing, local map results, and website pages that turn clicks into calls and bookings.",
+        "Fixed SEO from £100/mo, or 10% of the bookings we generate on our Growth Partnership. Either way, you get clear monthly reporting on impressions, clicks and real enquiries — not vanity charts.",
       ],
     },
     stats: [
       { value: "5.0", label: "Google (35 reviews)" },
-      { value: "43.1K", label: "Impressions · Alpha (3 mo)" },
-      { value: "~21", label: "Bookings est. (10% clicks)" },
+      { value: "44.3K", label: "Impressions · Alpha (3 mo)" },
+      { value: "216", label: "Clicks · Alpha (3 mo)" },
       { value: "10%", label: "Performance model" },
     ],
     included: [
@@ -90,7 +99,7 @@ export const services: Service[] = [
       "Google Business Profile setup and optimisation",
       "Local citations and directory consistency",
       "High-quality, search-optimised content",
-      "Authority link building (white-hat only)",
+      "Quality link building — no risky shortcuts",
       "Transparent monthly reporting and a call",
     ],
     idealFor: [
@@ -128,16 +137,14 @@ export const services: Service[] = [
     ],
     cost: {
       paragraphs: [
-        "SEO is usually a monthly service because ranking is an ongoing process — not a one-time switch. We keep pricing simple: fixed monthly plans, or a performance model where we take 10% of the bookings and sales our work generates (ideal for local service businesses).",
-        "As a guide, here's how our core SEO options break down. Monthly plans include technical work, on-page optimisation, local SEO and reporting. Higher tiers move faster with more content and authority building.",
+        "SEO is ongoing work, not a one-time switch. We keep pricing simple: SEO Starter from £100/mo, or 10% of the bookings we generate on our Growth Partnership.",
+        "Larger sites, multiple locations or heavier content needs are quoted individually — we'll give you a fixed price before we start.",
       ],
       rows: [
         { label: "SEO Starter", value: "From £100/month" },
-        { label: "SEO Growth", value: "From £250/month" },
-        { label: "SEO Premium", value: "From £500/month" },
-        { label: "Performance SEO", value: "10% of generated bookings" },
+        { label: "Larger / multi-location SEO", value: "Custom quote" },
+        { label: "Performance SEO (Growth Partnership)", value: "10% of generated bookings" },
         { label: "One-off SEO audit", value: "From £150" },
-        { label: "Local SEO add-on", value: "From £75/month" },
       ],
       note: "Monthly plans have a 6-month minimum so the work has time to compound. The 10% model is available for qualifying local service businesses.",
     },
@@ -152,7 +159,7 @@ export const services: Service[] = [
     keyTakeaways: [
       "SEO from £100/month, or 10% of the bookings we generate — for every local service business.",
       "UK & USA first, then worldwide. Based in Lahore, Pakistan.",
-      "Alpha Movers: 213 organic clicks in 3 months ≈ ~21 bookings at a 10% click-to-book rate.",
+      "Alpha Movers: 216 organic clicks in 3 months ≈ ~22 bookings at a 10% click-to-book rate.",
       "Real proof from cleaning and removals brands ranking on competitive local keywords.",
     ],
     sections: [
@@ -160,7 +167,7 @@ export const services: Service[] = [
         id: "local-seo",
         heading: "Local SEO & Google Business Profile",
         paragraphs: [
-          "For a local service business, the Google Map Pack is prime real estate. We fully optimise your Google Business Profile, keep your business information consistent across the web, and build the local signals that help you appear when nearby customers search — often the difference between a busy diary and a quiet one.",
+          "For local services, showing up on Google Maps and in local search is often the difference between a busy diary and a quiet one. We optimise your Google listing, keep your business details consistent online, and build the pages that help you appear when nearby customers search.",
         ],
       },
       {
@@ -192,9 +199,9 @@ export const services: Service[] = [
           "We focus on local, service-based businesses, so we know exactly what ranks in your world.",
       },
       {
-        title: "White-hat only",
+        title: "Honest SEO",
         description:
-          "No risky shortcuts — just sustainable tactics that keep you safe from Google penalties.",
+          "No risky shortcuts — sustainable work that keeps you safe from Google penalties.",
       },
       {
         title: "Revenue-focused",
@@ -234,12 +241,12 @@ export const services: Service[] = [
       {
         question: "Do you guarantee #1 rankings?",
         answer:
-          "No reputable agency can guarantee exact positions — anyone who does is a red flag. We guarantee a proven, white-hat process, full transparency, and measurable improvements in traffic, calls and conversions.",
+          "No reputable agency can guarantee exact positions — anyone who does is a red flag. We guarantee honest work, full transparency, and measurable improvements in traffic, calls and conversions.",
       },
       {
         question: "What's included in the £100/month plan?",
         answer:
-          "Even our starter plan includes technical SEO, on-page optimisation of your key pages, Google Business Profile optimisation and monthly reporting. Higher tiers simply move faster with more content and link building.",
+          "Technical SEO, on-page work on your key pages, Google Business Profile optimisation and monthly reporting. Larger scopes — more locations, more content — are quoted individually.",
       },
     ],
   },
@@ -247,16 +254,20 @@ export const services: Service[] = [
     slug: "web-development",
     icon: CodeIcon,
     title: "Web Development",
-    tagline: "Fast, beautiful, conversion-focused websites.",
+    h1: "Business websites for local service companies",
+    seoTitle: "Business Websites for Local Service Companies",
+    seoDescription:
+      "Fast, mobile-first websites built to convert quotes and bookings for UK & USA local service businesses. From £199 — SEO-ready and conversion-focused.",
+    tagline: "Websites that get the phone ringing.",
     summary:
-      "High-performance business websites built to be found and built to convert.",
+      "Fast websites for local service businesses — built to turn visitors into quotes and bookings.",
     description:
-      "A fast, modern website that looks the part and turns visitors into enquiries — built for local businesses and ready to grow with you.",
+      "A clean, fast website that makes it easy for UK & USA customers to request a quote or book. Built for local service businesses — not bloated corporate templates.",
     category: "Business websites & web apps",
     heroImage: "/placeholders/add-image.svg",
-    priceLabel: "From £100 one-time",
+    priceLabel: "From £199 one-time",
     highlights: [
-      { icon: TagIcon, label: "From £100 one-time" },
+      { icon: TagIcon, label: "From £199 one-time" },
       { icon: RocketIcon, label: "SEO-ready" },
       { icon: CheckCircleIcon, label: "Fully managed build" },
     ],
@@ -265,13 +276,12 @@ export const services: Service[] = [
     overview: {
       heading: "Websites that win you customers",
       paragraphs: [
-        "Your website is often the first impression a customer gets — and a slow, dated or confusing site sends them straight to a competitor. We design and build fast, modern, mobile-first websites that build trust in seconds and make it effortless for visitors to call, message or book.",
-        "Every site we build is created with the essentials baked in from day one: clean design, SEO-ready structure, a services section, blog, and clear calls to action. So whether you need a simple brochure site or a full multi-page business site, it's ready to be found and ready to sell.",
-        "Starting from just £100, we handle the whole build for you — design, development, content structure and launch — so you get a professional online presence without the agency price tag or the tech headaches.",
+        "A slow or confusing site sends customers to a competitor. We build fast, mobile-first websites with clear services, trust signals and quote buttons — so visitors know what you do and how to book in seconds.",
+        "From £199 one-time, we handle design, build and launch. Every site ships SEO-ready with services pages, blog and contact built in.",
       ],
     },
     stats: [
-      { value: "£100", label: "Starting price" },
+      { value: "£199", label: "Starting price" },
       { value: "5.0", label: "Google reviews" },
       { value: "1–3 wks", label: "Typical timeline" },
       { value: "100%", label: "Mobile-friendly" },
@@ -316,17 +326,17 @@ export const services: Service[] = [
     ],
     cost: {
       paragraphs: [
-        "We keep website pricing refreshingly simple. Business websites start from a one-time fee of £100, which includes everything you need to get online with a professional, conversion-ready site.",
+        "We keep website pricing refreshingly simple. Business websites start from a one-time fee of £199, which includes everything you need to get online with a professional, conversion-ready site.",
         "Larger sites with more pages, custom features, e-commerce or integrations are quoted individually — but you'll always get a clear, fixed price before we start, with no surprises later.",
       ],
       rows: [
-        { label: "Starter business website", value: "From £100 (one-time)" },
+        { label: "Starter business website", value: "From £199 (one-time)" },
         { label: "Multi-page business site", value: "Custom quote" },
         { label: "E-commerce / online store", value: "Custom quote" },
         { label: "Web app / custom features", value: "Custom quote" },
         { label: "Care & maintenance plan", value: "Optional monthly" },
       ],
-      note: "The £100 build is a one-time fee — no hidden monthly charges to simply have your site online.",
+      note: "The £199 build is a one-time fee — no hidden monthly charges to simply have your site online.",
     },
     priceFactors: [
       "The number of pages and their complexity",
@@ -337,7 +347,7 @@ export const services: Service[] = [
       "Copywriting and photography requirements",
     ],
     keyTakeaways: [
-      "Business websites start from a one-time fee of £100.",
+      "Business websites start from a one-time fee of £199.",
       "Every build is fast, mobile-first and SEO-ready.",
       "Services, blog and contact features are included as standard.",
       "Bigger or custom builds get a clear, fixed quote up front.",
@@ -376,7 +386,7 @@ export const services: Service[] = [
       {
         title: "Honest pricing",
         description:
-          "Professional websites from a one-time £100 — no inflated agency fees or hidden costs.",
+          "Professional websites from a one-time £199 — no inflated agency fees or hidden costs.",
       },
       {
         title: "Fast & modern",
@@ -406,7 +416,7 @@ export const services: Service[] = [
     ],
     reviews: [],
     atAGlance: [
-      { label: "Pricing", value: "From £100 (one-time)" },
+      { label: "Pricing", value: "From £199 (one-time)" },
       { label: "Timeline", value: "1–3 weeks" },
       { label: "Includes", value: "Services + blog + contact" },
       { label: "Google rating", value: "5.0 · 35 reviews" },
@@ -414,9 +424,9 @@ export const services: Service[] = [
     ],
     faqs: [
       {
-        question: "Is £100 really the full price?",
+        question: "Is £199 really the full price?",
         answer:
-          "Yes — a starter business website is a one-time fee of £100 with no hidden monthly charges just to keep it online. Larger or custom sites are quoted individually, but you'll always get a fixed price before we begin.",
+          "Yes — a starter business website is a one-time fee of £199 with no hidden monthly charges just to keep it online. Larger or custom sites are quoted individually, but you'll always get a fixed price before we begin.",
       },
       {
         question: "Can you redesign my existing website?",
@@ -434,11 +444,15 @@ export const services: Service[] = [
     slug: "app-development",
     icon: SmartphoneIcon,
     title: "App Development",
-    tagline: "Mobile apps users love, built to scale.",
+    h1: "Mobile apps for local service businesses",
+    seoTitle: "Mobile Apps for Local Service Businesses",
+    seoDescription:
+      "iOS & Android apps for booking, quotes and customer management — built for movers, cleaners and other local service companies.",
+    tagline: "Apps for bookings and repeat business.",
     summary:
-      "Native-quality iOS & Android apps designed, built and launched for you.",
+      "Custom iOS and Android apps for local services — quotes, scheduling and customer management.",
     description:
-      "From idea to App Store — we design and build fast, reliable mobile apps that customers love and that grow with your business.",
+      "Give your customers a simple way to book and manage jobs on their phone. We build iOS & Android apps tailored to local service workflows — quotes, scheduling and repeat business.",
     category: "iOS & Android apps",
     heroImage: "/placeholders/add-image.svg",
     priceLabel: "Custom quote",
@@ -452,9 +466,8 @@ export const services: Service[] = [
     overview: {
       heading: "Mobile apps that grow your business",
       paragraphs: [
-        "A great app puts your business right in your customers' pockets — driving repeat bookings, loyalty and a direct line of communication no website can match. Whether you're launching a brand-new idea or adding an app to an established business, we design and build mobile experiences people genuinely enjoy using.",
-        "We handle the entire journey: product strategy, UI/UX design, development for both iOS and Android, backend and API work, and submission to the App Store and Google Play. You get a polished, store-ready app without having to manage a technical team.",
-        "Because every app is different, app projects are quoted individually. We'll sit down with you, understand your goals, define the right first version, and give you a clear, fixed proposal before any work begins.",
+        "An app puts your business in your customers' pockets — repeat bookings, job updates and a direct line no website alone can match. We design and build iOS and Android apps for local service workflows.",
+        "Every app is quoted individually after a short discovery call. You get a fixed proposal before any work starts — strategy, design, build and App Store launch included.",
       ],
     },
     stats: [
@@ -621,11 +634,15 @@ export const services: Service[] = [
     slug: "digital-advertising",
     icon: MegaphoneIcon,
     title: "Digital Advertising",
-    tagline: "Profitable paid campaigns across every channel.",
+    h1: "Google Ads for local service businesses",
+    seoTitle: "Google Ads for Local Service Businesses (UK & USA)",
+    seoDescription:
+      "Profitable Google Ads and paid campaigns for movers, cleaners and trades — more booked jobs, clear ROI tracking. Or pay 10% of bookings we generate.",
+    tagline: "Google Ads that book jobs, not waste budget.",
     summary:
-      "Google Ads and paid social campaigns engineered for real return on spend.",
+      "Paid search and social for local services — tracked to calls, quotes and booked jobs.",
     description:
-      "Get in front of ready-to-buy customers today. We build and manage paid campaigns that turn ad spend into measurable calls, leads and sales.",
+      "Reach customers the moment they search for your service. We run Google Ads and paid campaigns for UK & USA local businesses with tight tracking so you see cost per booking — not vanity clicks.",
     category: "Google Ads & paid social",
     heroImage: "/placeholders/add-image.svg",
     priceLabel: "Custom quote",
@@ -639,9 +656,8 @@ export const services: Service[] = [
     overview: {
       heading: "Paid ads that pay for themselves",
       paragraphs: [
-        "When you need customers now, paid advertising is the fastest lever you can pull. The problem is that most businesses quietly waste money on poorly targeted campaigns. We fix that — building tightly focused Google and Meta campaigns that put your business in front of people actively looking to buy, at the exact moment they're ready.",
-        "From Google Search and Maps to Meta and Instagram, we handle everything: strategy, targeting, ad creative and copy, landing pages, conversion tracking and daily optimisation. Every pound is accounted for and pointed at one goal — profitable growth.",
-        "We obsess over the numbers that matter: cost per lead, cost per acquisition and return on ad spend. You'll get clear reporting that ties your spend directly to enquiries and revenue, so you always know your ads are working.",
+        "When you need customers now, paid ads are the fastest lever. We build focused Google and Meta campaigns around your service area — with call tracking and landing pages that convert, so you see cost per booking, not vanity clicks.",
+        "You always fund ad spend directly to Google or Meta. Management is included on our Growth Partnership, or quoted separately for standalone campaigns. Clear reporting either way.",
       ],
     },
     stats: [
@@ -690,17 +706,17 @@ export const services: Service[] = [
     ],
     cost: {
       paragraphs: [
-        "Advertising has two parts: your ad budget (paid to Google or Meta) and our management fee. We quote management individually based on your channels, budget and complexity, and we're completely transparent about both.",
-        "As a guide, here's how paid advertising engagements are typically structured. We'll recommend a sensible starting ad budget for your market so campaigns have enough data to perform.",
+        "Your ad budget goes straight to Google or Meta — we never touch it. On our Growth Partnership, campaign management is included in the 10% model while you fund spend.",
+        "For standalone ad work, we quote management based on channels and complexity. We'll recommend a sensible starting budget so campaigns have enough data to perform.",
       ],
       rows: [
-        { label: "Account audit", value: "Custom quote" },
-        { label: "Google Ads management", value: "Custom quote" },
-        { label: "Meta / Instagram management", value: "Custom quote" },
+        { label: "Growth Partnership (includes ad management)", value: "10% of bookings · you fund ad spend" },
+        { label: "Standalone Google Ads management", value: "Custom quote" },
+        { label: "Standalone Meta / Instagram management", value: "Custom quote" },
         { label: "Landing page build", value: "From £100" },
         { label: "Ad budget (to platforms)", value: "You set, we advise" },
       ],
-      note: "Your ad spend goes straight to Google or Meta — our fee only covers strategy, management and optimisation.",
+      note: "Ad spend is always yours. Management is included on the Growth Partnership, or quoted separately for other plans.",
     },
     priceFactors: [
       "The channels you advertise on",
@@ -711,10 +727,9 @@ export const services: Service[] = [
       "How aggressively you want to scale",
     ],
     keyTakeaways: [
-      "We run profitable Google and Meta campaigns focused on ROI.",
-      "Management is quoted individually and fully transparently.",
-      "Your ad budget goes straight to the platforms, not to us.",
-      "You get clear reporting on leads, cost per lead and ROAS.",
+      "Google and Meta campaigns focused on booked jobs and ROI.",
+      "You fund ad spend; management included on Growth Partnership or quoted separately.",
+      "Clear reporting on calls, cost per lead and return on spend.",
     ],
     sections: [
       {
@@ -780,7 +795,7 @@ export const services: Service[] = [
     ],
     reviews: [],
     atAGlance: [
-      { label: "Management", value: "Custom quote" },
+      { label: "Management", value: "Included on 10% · or quoted" },
       { label: "Channels", value: "Google & Meta" },
       { label: "Go live", value: "24–48 hours" },
       { label: "Google rating", value: "5.0 · 35 reviews" },
@@ -798,9 +813,9 @@ export const services: Service[] = [
           "We focus on the metrics tied to revenue — cost per lead, cost per acquisition and return on ad spend — not vanity metrics like impressions or clicks alone.",
       },
       {
-        question: "How quickly can campaigns go live?",
+        question: "Is there a separate management fee?",
         answer:
-          "Once we have access and tracking in place, we can typically have well-structured campaigns live within 24–48 hours, then optimise from there.",
+          "Ad spend is always yours — paid directly to Google or Meta. On our Growth Partnership, campaign management is included in the 10% model. For standalone ad work, we quote management separately before we start.",
       },
     ],
   },

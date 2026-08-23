@@ -18,7 +18,11 @@ export function SectionHeading({
 
   return (
     <Reveal className={`flex max-w-2xl flex-col gap-4 ${alignment} ${className}`}>
-      {eyebrow && <span className="eyebrow">{eyebrow}</span>}
+      {eyebrow && (
+        <span className={`eyebrow ${align === "center" ? "self-center" : ""}`}>
+          {eyebrow}
+        </span>
+      )}
       <h2 className="font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
         {title}
       </h2>

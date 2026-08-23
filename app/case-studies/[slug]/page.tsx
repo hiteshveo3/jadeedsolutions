@@ -4,11 +4,11 @@ import { notFound } from "next/navigation";
 import { HugeiconsIcon, ArrowRightIcon, CheckIcon } from "@/components/icons";
 import { HeroBackground } from "@/components/HeroBackground";
 import { CTASection } from "@/components/CTASection";
-import { caseStudies } from "@/lib/case-studies";
+import { publishedCaseStudies, getCaseStudy } from "@/lib/case-studies";
 import { siteConfig } from "@/lib/site";
 
 export function generateStaticParams() {
-  return caseStudies.map((c) => ({ slug: c.id }));
+  return publishedCaseStudies().map((c) => ({ slug: c.id }));
 }
 
 export function generateMetadata({
@@ -16,16 +16,19 @@ export function generateMetadata({
 }: {
   params: { slug: string };
 }): Metadata {
-  const study = caseStudies.find((c) => c.id === params.slug);
+  const study = getCaseStudy(params.slug);
   if (!study) return {};
   return {
-    title: `${study.client} case study`,
+    title: `${study.client} Case Study — SEO & Growth Results`,
     description: study.summary,
+    alternates: {
+      canonical: `${siteConfig.url}/case-studies/${study.id}`,
+    },
   };
 }
 
 export default function CaseStudyPage({ params }: { params: { slug: string } }) {
-  const study = caseStudies.find((c) => c.id === params.slug);
+  const study = getCaseStudy(params.slug);
   if (!study) notFound();
 
   return (
@@ -53,12 +56,27 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
             </ol>
           </nav>
           <span className="eyebrow mt-6">Case study</span>
-          <h1 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink md:text-5xl">
-            {study.client}
-          </h1>
-          <p className="mt-3 text-slate-600">
-            {study.industry} · {study.location}
-          </p>
+          <div className="mt-4 flex flex-wrap items-center gap-4">
+            {study.logo && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={study.logo}
+                alt={`${study.client} logo`}
+                width={72}
+                height={72}
+                className="h-16 w-16 rounded-2xl object-cover ring-1 ring-slate-200"
+              />
+            )}
+            <div>
+              <h1 className="font-display text-3xl font-semibold tracking-tight text-ink md:text-5xl">
+                {study.client}
+              </h1>
+              <p className="mt-2 text-slate-600">
+                {study.industry} · {study.location}
+                {study.contactName ? ` · ${study.contactName}` : ""}
+              </p>
+            </div>
+          </div>
           <p className="mt-5 text-lg leading-relaxed text-slate-600">{study.summary}</p>
         </div>
       </section>
@@ -87,13 +105,43 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
               <dt className="text-xs text-slate-500">Engagement</dt>
               <dd className="mt-1 text-sm font-semibold text-ink">{study.engagementModel}</dd>
             </div>
+            {study.launched && (
+              <div className="rounded-xl border border-slate-200 bg-white p-4">
+                <dt className="text-xs text-slate-500">Launched</dt>
+                <dd className="mt-1 text-sm font-semibold text-ink">{study.launched}</dd>
+              </div>
+            )}
             {study.siteAge && (
-              <div className="rounded-xl border border-slate-200 bg-white p-4 sm:col-span-2">
+              <div className="rounded-xl border border-slate-200 bg-white p-4">
                 <dt className="text-xs text-slate-500">Site age</dt>
                 <dd className="mt-1 text-sm font-semibold text-ink">{study.siteAge}</dd>
               </div>
             )}
           </dl>
+
+          {study.story && study.story.length > 0 && (
+            <div>
+              <h2 className="font-display text-xl font-semibold text-ink">The story</h2>
+              <div className="mt-4 space-y-4 text-[15px] leading-relaxed text-slate-600">
+                {study.story.map((p) => (
+                  <p key={p.slice(0, 48)}>{p}</p>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {study.testimonial && (
+            <blockquote className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
+              <p className="font-display text-lg font-semibold leading-relaxed text-ink">
+                &ldquo;{study.testimonial.quote}&rdquo;
+              </p>
+              <footer className="mt-4 text-sm text-slate-500">
+                <span className="font-semibold text-ink">{study.testimonial.name}</span>
+                {" · "}
+                {study.testimonial.role}
+              </footer>
+            </blockquote>
+          )}
 
           <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 sm:grid-cols-3">
             {study.metrics.map((m) => (

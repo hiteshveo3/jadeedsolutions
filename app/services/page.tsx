@@ -7,9 +7,9 @@ import { HeroBackground } from "@/components/HeroBackground";
 import { services } from "@/lib/services";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "SEO, Websites, Apps & Google Ads for Local Services",
   description:
-    "Explore our digital marketing services: SEO, web development, app development, and paid digital advertising including Google Ads.",
+    "Explore Jadeed Solutions services for UK & USA local businesses: local SEO, conversion websites, mobile apps and Google Ads — or pay 10% of bookings we generate.",
 };
 
 export default function ServicesPage() {
@@ -20,8 +20,8 @@ export default function ServicesPage() {
         <div className="container relative z-10">
           <SectionHeading
             eyebrow="Our services"
-            title="Full-service digital growth, under one roof"
-            description="Whether you need to rank higher, launch a website or app, or run profitable ad campaigns — we've got a team of specialists ready to help."
+            title="Growth services for local service businesses"
+            description="SEO, websites, apps and Google Ads — built for movers, cleaners, trades and other UK & USA local service companies that need more bookings."
           />
         </div>
       </section>

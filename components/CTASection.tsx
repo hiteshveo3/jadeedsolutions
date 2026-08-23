@@ -1,13 +1,14 @@
 import { LinkButton } from "./Button";
 import { Reveal } from "./Reveal";
+import { siteConfig } from "@/lib/site";
 
 export function CTASection({
-  title = "Ready to grow your business?",
-  description = "Let's talk about your goals. Get a free, no-obligation proposal tailored to your business.",
-  primaryLabel = "Get a free proposal",
-  primaryHref = "/contact",
-  secondaryLabel = "View our work",
-  secondaryHref = "/portfolio",
+  title = "Ready for more booked jobs?",
+  description = "Tell us your city and what you sell. We’ll outline a free plan — website, Google growth, app or 10% partnership.",
+  primaryLabel = "WhatsApp us",
+  primaryHref = siteConfig.whatsappHref,
+  secondaryLabel = "See pricing",
+  secondaryHref = "/pricing",
 }: {
   title?: string;
   description?: string;

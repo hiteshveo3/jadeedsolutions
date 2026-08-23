@@ -22,6 +22,7 @@ import {
 import { CurrencyProvider } from "./CurrencyProvider";
 import { CurrencySwitcher } from "./CurrencySwitcher";
 import { Price } from "./Price";
+import { PartnershipCalculator } from "./PartnershipCalculator";
 
 const included = [
   "Full digital marketing management",
@@ -31,17 +32,17 @@ const included = [
   "AI video content (see note)",
   "Social media & content",
   "Business website & landing pages",
-  "Mobile app development — iOS & Android",
-  "Dedicated account manager",
+  "Mobile app development — iOS & Android (when you need it)",
+  "Direct access to our team",
   "Monthly performance reporting",
 ];
 
 const highlights = [
   "No setup fee",
-  "No minimum spend",
-  "No monthly retainer",
-  "You pay only for real bookings",
-  "Cancel anytime",
+  "6-month minimum on SEO",
+  "No monthly retainer on 10% model",
+  "You pay only for real bookings (10% model)",
+  "Ads spend paid by you — we manage at no extra fee",
 ];
 
 const steps: { icon: IconSvgElement; title: string; text: string }[] = [
@@ -91,7 +92,7 @@ const servicesList: ServiceCard[] = [
   {
     name: "Business Website",
     price: (
-      <Price gbp={100} period="one-time" periodClassName="text-slate-500 text-base" />
+      <Price gbp={199} period="one-time" periodClassName="text-slate-500 text-base" />
     ),
     tag: "Starting from",
     features: [
@@ -152,7 +153,7 @@ const faqs: { q: string; a: string }[] = [
   },
   {
     q: "Are there any setup fees or minimums?",
-    a: "No. For the Growth Partnership there's no setup fee, no minimum ad spend and no monthly retainer. You only pay a percentage of the bookings we deliver.",
+    a: "No setup fee on any plan. Fixed SEO has a 6-month minimum because results compound over time. The Growth Partnership also has a 6-month commitment — no monthly retainer, and you only pay 10% of the bookings we deliver. There is no cancel-anytime option.",
   },
   {
     q: "Can I buy just one service instead?",
@@ -163,7 +164,7 @@ const faqs: { q: string; a: string }[] = [
     a: "Technical and on-page SEO, content optimization, local SEO and monthly reporting. We ask for a 6-month minimum because SEO results compound over time.",
   },
   {
-    q: "What do I get with the £100 website?",
+    q: "What do I get with the £199 website?",
     a: "A complete multi-page business website — home, services listing and single service pages, blog and single blog pages, and a contact form. It's mobile-first and SEO-ready from day one.",
   },
   {
@@ -195,7 +196,7 @@ const comparisonRows: {
     partnership: "None",
     individual: (
       <>
-        From <Price gbp={100} />
+        From <Price gbp={199} />
       </>
     ),
   },
@@ -210,17 +211,17 @@ const comparisonRows: {
     partnership: <Yes />,
     individual: (
       <>
-        From <Price gbp={100} />
+        From <Price gbp={199} />
       </>
     ),
   },
   { feature: "Mobile app (iOS & Android)", partnership: <Yes />, individual: "Custom" },
   { feature: "AI marketing images", partnership: <Yes />, individual: <No /> },
   { feature: "AI videos", partnership: "Limited*", individual: <No /> },
-  { feature: "Dedicated account manager", partnership: <Yes />, individual: <No /> },
+  { feature: "Direct access to our team", partnership: <Yes />, individual: <No /> },
   {
     feature: "Minimum commitment",
-    partnership: "None",
+    partnership: "6 months",
     individual: "SEO: 6 months",
   },
 ];
@@ -235,15 +236,17 @@ export function PricingContent() {
           <Reveal className="mx-auto flex max-w-3xl flex-col items-center gap-5">
             <span className="eyebrow">Pricing</span>
             <h1 className="font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
-              Pricing built around your growth
+              Pay 10% of bookings — or pick a fixed plan
             </h1>
             <p className="text-lg leading-relaxed text-slate-600">
               Our main model is simple: we only win when you win. Pay just{" "}
               <span className="font-semibold text-brand-500">
                 10% of the bookings we generate
               </span>{" "}
-              — no setup fees, no minimums, no retainers. Prefer a single fixed
-              service? Those are available too.
+              — no setup fees and no monthly retainers. Fixed SEO has a
+              6-month minimum; the Growth Partnership has a 6-month
+              commitment. Prefer a single fixed service? Those are available
+              too.
             </p>
           </Reveal>
         </div>
@@ -264,7 +267,7 @@ export function PricingContent() {
             <div className="grid lg:grid-cols-[1.6fr_1fr]">
               <div className="p-8 sm:p-10">
                 <span className="inline-flex items-center gap-2 rounded-full bg-brand-500 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white">
-                  Flagship · 99% of our clients
+                  Most popular · Growth Partnership
                 </span>
                 <h2 className="mt-4 font-display text-2xl font-semibold text-ink sm:text-3xl">
                   Growth Partnership
@@ -278,9 +281,9 @@ export function PricingContent() {
                   </span>
                 </div>
                 <p className="mt-4 max-w-xl leading-relaxed text-slate-600">
-                  A full-service growth engine for local businesses. We handle
-                  everything — marketing, SEO, ads, AI content, your website and
-                  even your mobile app — and you only pay when we deliver real
+                  One team handles your marketing — SEO, Google Ads, your
+                  website, content and more. Apps are available when your
+                  business needs them. You only pay 10% when we bring you real
                   bookings.
                 </p>
 
@@ -355,6 +358,20 @@ export function PricingContent() {
               </p>
             </div>
           </Reveal>
+
+          <div className="mt-10">
+            <PartnershipCalculator />
+            <p className="mt-6 text-center text-sm text-slate-500">
+              Not sure what you need?{" "}
+              <a
+                href="/tools/growth-check"
+                className="font-semibold text-brand-500 hover:underline"
+              >
+                Take the free Growth Check
+              </a>{" "}
+              — website, Google, app, ads or 10% partnership.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -454,7 +471,7 @@ export function PricingContent() {
           <SectionHeading
             eyebrow="Compare"
             title="Partnership vs individual services"
-            description="Both are great — it just depends on whether you want a full growth engine or a single fixed service."
+            description="Both work — it depends on whether you want the full partnership or one fixed service."
           />
           <Reveal className="mx-auto mt-12 max-w-4xl overflow-hidden rounded-2xl border border-slate-200">
             <div className="overflow-x-auto">
