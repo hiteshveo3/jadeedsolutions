@@ -1,259 +1,204 @@
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
-import { navLinks, siteConfig } from "@/lib/site";
-import { services } from "@/lib/services";
-import { intentPages } from "@/lib/intent-pages";
-import { niches } from "@/lib/niches";
-import { AccordionItem } from "./Accordion";
-import {
-  HugeiconsIcon,
-  MailIcon,
-  PhoneIcon,
-  LocationIcon,
-  LinkedinIcon,
-  InstagramIcon,
-  FacebookIcon,
-  YoutubeIcon,
-} from "./icons";
+import Image from "next/image";
+import { siteConfig } from "@/lib/site";
+import { HugeiconsIcon, MailIcon, PhoneIcon, ArrowDownIcon } from "./icons";
+
+const footerSections = [
+  {
+    title: "Solutions",
+    links: [
+      { label: "Local SEO & 3-Pack", href: "/services/seo" },
+      { label: "Google Ads & PPC", href: "/services/digital-advertising" },
+      { label: "Conversion Websites", href: "/services/web-development" },
+      { label: "Mobile Applications", href: "/services/app-development" },
+      { label: "All Services", href: "/services" },
+    ],
+  },
+  {
+    title: "Industries",
+    links: [
+      { label: "Plumbing & Heating", href: "/industries/seo-for-plumbers" },
+      { label: "Cleaning Companies", href: "/industries/seo-for-cleaners" },
+      { label: "Moving & Removals", href: "/industries/seo-for-uk-removals" },
+      { label: "Contractors & Trades", href: "/industries/seo-for-local-service-businesses" },
+      { label: "All Industries", href: "/industries" },
+    ],
+  },
+  {
+    title: "Resources",
+    links: [
+      { label: "Growth Guides", href: "/guides" },
+      { label: "Case Studies & Proof", href: "/portfolio" },
+      { label: "Pricing & Models", href: "/pricing" },
+      { label: "Free Growth Check", href: "/tools/growth-check" },
+      { label: "Blog & Research", href: "/blog" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "About Team Jadeed", href: "/about" },
+      { label: "How It Works", href: "/how-it-works" },
+      { label: "Model Comparison", href: "/compare/jadeed-vs-marketing-agency" },
+      { label: "Contact Us", href: "/contact" },
+    ],
+  },
+];
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const [openSection, setOpenSection] = useState<string | null>(null);
 
-  const companyLinks = (
-    <ul className="space-y-3 text-sm">
-      {navLinks.map((link) => (
-        <li key={link.href}>
-          <Link
-            href={link.href}
-            className="text-slate-600 transition-colors hover:text-brand-500"
-          >
-            {link.label}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  );
-
-  const serviceLinks = (
-    <ul className="space-y-3 text-sm">
-      {services.map((service) => (
-        <li key={service.slug}>
-          <Link
-            href={`/services/${service.slug}`}
-            className="text-slate-600 transition-colors hover:text-brand-500"
-          >
-            {service.title}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  );
-
-  const industryLinks = (
-    <ul className="space-y-3 text-sm">
-      {niches.map((page) => (
-        <li key={page.slug}>
-          <Link
-            href={`/industries/${page.slug}`}
-            className="text-slate-600 transition-colors hover:text-brand-500"
-          >
-            {page.navLabel}
-          </Link>
-        </li>
-      ))}
-      {intentPages.map((page) => (
-        <li key={page.slug}>
-          <Link
-            href={`/industries/${page.slug}`}
-            className="text-slate-600 transition-colors hover:text-brand-500"
-          >
-            {page.navLabel}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  );
-
-  const contactInfo = (
-    <ul className="space-y-3 text-sm text-slate-600">
-      <li className="flex items-center gap-3">
-        <HugeiconsIcon icon={MailIcon} size={16} className="text-brand-500" />
-        <a href={`mailto:${siteConfig.email}`} className="hover:text-brand-500">
-          {siteConfig.email}
-        </a>
-      </li>
-      <li className="flex items-center gap-3">
-        <HugeiconsIcon icon={PhoneIcon} size={16} className="text-brand-500" />
-        <a href={`tel:${siteConfig.phoneHref}`} className="hover:text-brand-500">
-          {siteConfig.phone}
-        </a>
-      </li>
-      <li className="flex items-start gap-3">
-        <HugeiconsIcon
-          icon={LocationIcon}
-          size={16}
-          className="mt-0.5 text-brand-500"
-        />
-        <span>{siteConfig.addressLine}</span>
-      </li>
-    </ul>
-  );
+  const toggleSection = (title: string) => {
+    setOpenSection(openSection === title ? null : title);
+  };
 
   return (
-    <footer className="border-t border-slate-200 bg-slate-50">
-      <div className="container py-16">
-        <div className="grid gap-12 lg:grid-cols-4">
-          <div className="lg:pr-8">
+    <footer className="w-full bg-surface-canvas border-t border-black/[0.08] text-ink">
+      <div className="max-w-[1340px] mx-auto px-6 py-16 lg:py-20">
+        
+        {/* Desktop & Tablet Top Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+          
+          {/* Brand Info Column (4 Cols Desktop) */}
+          <div className="lg:col-span-4 flex flex-col justify-between">
+            <div>
+              <Link
+                href="/"
+                className="font-bold text-2xl tracking-tight text-ink flex items-center gap-2 mb-4 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
+              >
+                <Image src="/logo.png" alt="Jadeed Solutions" width={30} height={30} className="rounded-lg" />
+                <span>Jadeed Solutions<span className="text-brand">.</span></span>
+              </Link>
+              <p className="text-ink/65 text-sm leading-relaxed max-w-[340px] mb-6 font-normal">
+                Connected customer acquisition systems and performance-aligned commercial models for UK & US local service businesses.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-2.5 text-sm text-ink/75">
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className="hover:text-brand transition-colors flex items-center gap-2 font-medium rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+              >
+                <span aria-hidden="true">
+                  <HugeiconsIcon icon={MailIcon} size={15} />
+                </span>
+                <span>{siteConfig.email}</span>
+              </a>
+              <a
+                href={`tel:${siteConfig.phoneHref}`}
+                className="hover:text-brand transition-colors flex items-center gap-2 font-medium rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+              >
+                <span aria-hidden="true">
+                  <HugeiconsIcon icon={PhoneIcon} size={15} />
+                </span>
+                <span>{siteConfig.phone}</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Desktop 4-Column Navigation (Hidden on Mobile) */}
+          <div className="hidden md:grid md:grid-cols-4 lg:col-span-8 gap-8">
+            {footerSections.map((sec) => (
+              <div key={sec.title}>
+                <h4 className="font-bold tracking-wider uppercase text-ink mb-4 text-xs">
+                  {sec.title}
+                </h4>
+                <ul className="space-y-2.5 text-sm text-ink/70 font-medium">
+                  {sec.links.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="hover:text-brand transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile Accordion Navigation (< 768px with full accessibility and aria-controls) */}
+          <div className="md:hidden divide-y divide-black/[0.08] border-y border-black/[0.08] my-2">
+            {footerSections.map((sec) => {
+              const panelId = `footer-panel-${sec.title.toLowerCase()}`;
+              const isExpanded = openSection === sec.title;
+              return (
+                <div key={sec.title}>
+                  <button
+                    type="button"
+                    aria-expanded={isExpanded}
+                    aria-controls={panelId}
+                    onClick={() => toggleSection(sec.title)}
+                    className="w-full min-h-[48px] py-3 flex items-center justify-between text-left font-bold text-sm text-ink cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded-sm"
+                  >
+                    <span>{sec.title}</span>
+                    <HugeiconsIcon
+                      icon={ArrowDownIcon}
+                      size={16}
+                      aria-hidden="true"
+                      className={`transition-transform duration-200 ${
+                        isExpanded ? "rotate-180 text-brand" : "text-ink/40"
+                      }`}
+                    />
+                  </button>
+
+                  {isExpanded && (
+                    <div id={panelId} role="region" aria-label={sec.title}>
+                      <ul className="pb-4 space-y-2.5 text-sm text-ink/70 font-medium pl-1">
+                        {sec.links.map((link) => (
+                          <li key={link.href}>
+                            <Link
+                              href={link.href}
+                              className="block py-1 hover:text-brand transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+                            >
+                              {link.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+        </div>
+
+        {/* Bottom Legal & Copyright Bar */}
+        <div className="pt-8 mt-12 border-t border-black/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ink/55">
+          <div>
+            © {year} Jadeed Solutions Ltd. All rights reserved.
+          </div>
+          <div className="flex items-center gap-6">
             <Link
-              href="/"
-              className="flex items-center gap-2.5 font-display text-lg font-semibold"
+              href="/privacy"
+              className="hover:text-brand transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/logo.png"
-                alt={`${siteConfig.name} logo`}
-                width={36}
-                height={36}
-                className="h-9 w-9 rounded-lg object-cover"
-              />
-              {siteConfig.name}
+              Privacy Policy
             </Link>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-600">
-              {siteConfig.description}
-            </p>
-            <div className="mt-6 flex gap-3">
-              <SocialLink href={siteConfig.social.facebook} label="Facebook">
-                <HugeiconsIcon icon={FacebookIcon} size={16} />
-              </SocialLink>
-              <SocialLink href={siteConfig.social.instagram} label="Instagram">
-                <HugeiconsIcon icon={InstagramIcon} size={16} />
-              </SocialLink>
-              <SocialLink href={siteConfig.social.linkedin} label="LinkedIn">
-                <HugeiconsIcon icon={LinkedinIcon} size={16} />
-              </SocialLink>
-              <SocialLink href={siteConfig.social.youtube} label="YouTube">
-                <HugeiconsIcon icon={YoutubeIcon} size={16} />
-              </SocialLink>
-            </div>
-          </div>
-
-          <div className="hidden lg:col-span-3 lg:grid lg:grid-cols-3 lg:gap-8">
-            <div>
-              <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-500">
-                Company
-              </h4>
-              <div className="mt-4">{companyLinks}</div>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-500">
-                Services
-              </h4>
-              <div className="mt-4">{serviceLinks}</div>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-500">
-                Who we help
-              </h4>
-              <div className="mt-4">{industryLinks}</div>
-              <h4 className="mt-8 text-sm font-semibold uppercase tracking-wider text-slate-500">
-                Get in touch
-              </h4>
-              <div className="mt-4">{contactInfo}</div>
-            </div>
-          </div>
-
-          <div className="lg:hidden">
-            <AccordionItem variant="plain" title="Company">
-              {companyLinks}
-            </AccordionItem>
-            <AccordionItem variant="plain" title="Services">
-              {serviceLinks}
-            </AccordionItem>
-            <AccordionItem variant="plain" title="Who we help">
-              {industryLinks}
-            </AccordionItem>
-            <AccordionItem variant="plain" title="Get in touch">
-              {contactInfo}
-            </AccordionItem>
+            <Link
+              href="/terms"
+              className="hover:text-brand transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+            >
+              Terms of Service
+            </Link>
+            <Link
+              href="/sitemap.xml"
+              className="hover:text-brand transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+            >
+              Sitemap
+            </Link>
           </div>
         </div>
-      </div>
 
-      <div className="border-t border-slate-200">
-        <div className="container flex flex-col items-center justify-between gap-3 py-6 text-sm text-slate-500 sm:flex-row">
-          <p>
-            &copy; {year} {siteConfig.name}. All rights reserved.
-          </p>
-          <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
-            <li>
-              <Link href="/tools" className="hover:text-brand-500">
-                Tools
-              </Link>
-            </li>
-            <li>
-              <Link href="/guides" className="hover:text-brand-500">
-                Guides
-              </Link>
-            </li>
-            <li>
-              <Link href="/compare" className="hover:text-brand-500">
-                Compare
-              </Link>
-            </li>
-            <li>
-              <Link href="/how-it-works" className="hover:text-brand-500">
-                How it works
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog" className="hover:text-brand-500">
-                Blog
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog/archive" className="hover:text-brand-500">
-                Archive
-              </Link>
-            </li>
-            <li>
-              <Link href="/industries" className="hover:text-brand-500">
-                Industries
-              </Link>
-            </li>
-            <li>
-              <Link href="/privacy" className="hover:text-brand-500">
-                Privacy
-              </Link>
-            </li>
-            <li>
-              <Link href="/terms" className="hover:text-brand-500">
-                Terms
-              </Link>
-            </li>
-          </ul>
-        </div>
       </div>
     </footer>
-  );
-}
-
-function SocialLink({
-  href,
-  label,
-  children,
-}: {
-  href: string;
-  label: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={label}
-      className="grid h-9 w-9 place-items-center rounded-full border border-slate-200 bg-white text-slate-600 transition-colors hover:border-brand-400 hover:text-brand-500"
-    >
-      {children}
-    </a>
   );
 }

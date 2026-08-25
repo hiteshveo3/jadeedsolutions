@@ -13,12 +13,12 @@
   }
 
   body {
-    @apply bg-white text-ink antialiased;
+    @apply bg-js-bg text-js-dark antialiased;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
   ::selection {
-    @apply bg-brand-500/20 text-ink;
+    @apply bg-js-dark text-white;
   }
 }
 
@@ -47,6 +47,25 @@
 
   .link-underline {
     @apply relative after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full;
+  }
+
+  /* Custom Sleek Scrollbar */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(1, 95, 69, 0.25) transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 5px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(1, 95, 69, 0.25);
+    border-radius: 9999px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(1, 95, 69, 0.55);
   }
 }
 

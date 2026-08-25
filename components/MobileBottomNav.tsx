@@ -61,9 +61,11 @@ export function MobileBottomNav() {
   const openSearch = () =>
     window.dispatchEvent(new Event("open-command-search"));
 
+  if (pathname === "/pricing") return null;
+
   return (
     <>
-      <nav className="fixed inset-x-0 bottom-0 z-[70] border-t border-slate-200 bg-white lg:hidden">
+      <nav className="fixed inset-x-0 bottom-0 z-[70] border-t border-js-dark/10 bg-js-bg lg:hidden">
         <div className="mx-auto grid max-w-lg grid-cols-5">
           {primary.map((item) => {
             const active = isActive(pathname, item.href);
@@ -72,7 +74,7 @@ export function MobileBottomNav() {
                 key={item.href}
                 href={item.href}
                 className={`flex flex-col items-center gap-1 py-2.5 text-[11px] font-medium transition-colors ${
-                  active ? "text-brand-500" : "text-slate-500"
+                  active ? "text-js-dark" : "text-js-dark/60"
                 }`}
               >
                 <HugeiconsIcon
@@ -87,7 +89,7 @@ export function MobileBottomNav() {
           <button
             type="button"
             onClick={openSearch}
-            className="flex flex-col items-center gap-1 py-2.5 text-[11px] font-medium text-slate-500"
+            className="flex flex-col items-center gap-1 py-2.5 text-[11px] font-medium text-js-dark/60"
             aria-label="Search"
           >
             <HugeiconsIcon icon={SearchIcon} size={22} strokeWidth={1.8} />
@@ -97,7 +99,7 @@ export function MobileBottomNav() {
             type="button"
             onClick={() => setOpen(true)}
             className={`flex flex-col items-center gap-1 py-2.5 text-[11px] font-medium transition-colors ${
-              open ? "text-brand-500" : "text-slate-500"
+              open ? "text-js-dark" : "text-js-dark/60"
             }`}
             aria-label="More"
           >
@@ -123,7 +125,7 @@ export function MobileBottomNav() {
               animate={{ y: 0 }}
               exit={{ y: "100%" }}
               transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
-              className="absolute inset-x-0 bottom-0 rounded-t-3xl border-t border-slate-200 bg-white p-5 pb-24"
+              className="absolute inset-x-0 bottom-0 rounded-t-3xl border-t border-js-dark/10 bg-js-bg p-5 pb-24"
             >
               <div className="mx-auto mb-4 h-1.5 w-12 rounded-full bg-slate-200" />
               <div className="mb-4 flex items-center justify-between">
@@ -131,7 +133,7 @@ export function MobileBottomNav() {
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
-                  className="grid h-9 w-9 place-items-center rounded-full border border-slate-200 text-slate-600"
+                  className="grid h-9 w-9 place-items-center rounded-full border border-js-dark/10 text-slate-600"
                   aria-label="Close"
                 >
                   <HugeiconsIcon icon={CloseIcon} size={18} />
@@ -147,8 +149,8 @@ export function MobileBottomNav() {
                       href={item.href}
                       className={`flex flex-col items-center gap-2 rounded-2xl border p-4 text-xs font-medium transition-colors ${
                         active
-                          ? "border-brand-200 bg-brand-50 text-brand-500"
-                          : "border-slate-200 text-slate-600"
+                          ? "border-brand-200 bg-brand-50 text-js-dark"
+                          : "border-js-dark/10 text-slate-600"
                       }`}
                     >
                       <HugeiconsIcon icon={item.icon} size={24} />
@@ -158,7 +160,7 @@ export function MobileBottomNav() {
                 })}
               </div>
 
-              <p className="mt-5 text-center text-xs text-slate-500">
+              <p className="mt-5 text-center text-xs text-js-dark/60">
                 {siteConfig.email}
               </p>
             </motion.div>

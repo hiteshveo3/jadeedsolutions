@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { CommandSearch } from "@/components/CommandSearch";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
 import { StickyWhatsApp } from "@/components/StickyWhatsApp";
+import { BackToTop } from "@/components/BackToTop";
 import { siteConfig } from "@/lib/site";
 
 const dmSans = DM_Sans({
@@ -27,15 +28,6 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  keywords: [
-    "SEO for local service businesses",
-    "SEO for UK removals",
-    "Google Ads for local businesses",
-    "website for cleaning company",
-    "digital marketing for movers",
-    "local SEO UK USA",
-    "performance marketing 10% bookings",
-  ],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
   openGraph: {
@@ -84,7 +76,7 @@ export default function RootLayout({
         <Footer />
         <div className="h-16 lg:hidden" aria-hidden="true" />
         <MobileBottomNav />
-        <StickyWhatsApp />
+        <BackToTop />
       </body>
     </html>
   );
