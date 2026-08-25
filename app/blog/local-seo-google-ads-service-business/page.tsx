@@ -2,15 +2,9 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { Open_Sans } from "next/font/google";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { articlePart1, articleFaqs, articlePart2 } from "./articleContent";
-
-const openSans = Open_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-});
 
 const SlidingArrow = ({ colorClass = "text-black" }) => (
   <div className="relative w-4 h-4 overflow-hidden flex items-center justify-center -mr-1">
@@ -210,7 +204,7 @@ const BlogSidebar = () => {
 
 export default function SingleBlogPage() {
   return (
-    <main className={"min-h-screen " + openSans.className + " bg-[#f9f9f9]"}>
+    <main className="min-h-screen bg-[#f9f9f9]">
       <section className="relative w-full pb-24 bg-[#f9f9f9]">
         
         {/* Header */}

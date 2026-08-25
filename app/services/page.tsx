@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import { Open_Sans } from "next/font/google";
 import {
   HugeiconsIcon,
   LocationIcon,
@@ -8,11 +7,6 @@ import {
   ZapIcon,
   SmartphoneIcon,
 } from "@/components/icons";
-
-const openSans = Open_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-});
 
 // Helper: Edge-to-Edge Dark Green Textured Hero Background
 const BgWithTexture = () => (
@@ -100,7 +94,7 @@ const servicesList = [
 
 export default function ServicePage() {
   return (
-    <main className={"min-h-screen " + openSans.className + " bg-[#f9f9f9]"}>
+    <main className="min-h-screen bg-[#f9f9f9]">
       
       {/* HERO SECTION */}
       <section className="relative w-full overflow-hidden px-6 pt-[160px] pb-[100px] border-b border-black/10">

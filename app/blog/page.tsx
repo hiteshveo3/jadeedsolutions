@@ -1,11 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import { Open_Sans } from "next/font/google";
-
-const openSans = Open_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
 
 // --- HELPER COMPONENTS ---
 
@@ -68,7 +62,7 @@ const BlogCard = ({ post }: { post: any }) => (
 
 export default function BlogPage() {
   return (
-    <main className={"min-h-screen " + openSans.className + " bg-[#f9f9f9]"}>
+    <main className="min-h-screen bg-[#f9f9f9]">
       
       {/* PAGE HEADER */}
       <div className="w-full bg-white border-b border-black/5 pt-[120px] pb-[60px] text-center">

@@ -16,7 +16,7 @@ export function generateMetadata({
   const service = getService(params.slug);
   if (!service) return {};
   return {
-    title: `${service.name} | Jadeed Solutions`,
+    title: `${service.title} | Jadeed Solutions`,
     description: service.seoDescription,
     alternates: { canonical: `${siteConfig.url}/services/${service.slug}` },
   };
@@ -34,8 +34,8 @@ export default function ServiceSlugPage({
     <ContentPlaceholder
       badge="Service Overview"
       category="Services"
-      title={service.name}
-      subtitle={`Our comprehensive 2026 service framework, deliverables, and transparent pricing structures for ${service.name} are currently being finalized.`}
+      title={service.title}
+      subtitle={`Our comprehensive 2026 service framework, deliverables, and transparent pricing structures for ${service.title} are currently being finalized.`}
       parentPath="/services"
       parentLabel="All Services"
     />

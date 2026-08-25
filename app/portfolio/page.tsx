@@ -1,11 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Open_Sans } from "next/font/google";
-
-const openSans = Open_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-});
 
 export const metadata: Metadata = {
   title: "Case Studies & Client Results | Jadeed Solutions",
@@ -72,7 +66,7 @@ const caseStudiesData = [
 
 export default function PortfolioPage() {
   return (
-    <main className={"min-h-screen " + openSans.className + " bg-[#f9f9f9]"}>
+    <main className="min-h-screen bg-[#f9f9f9]">
       
       {/* Header */}
       <section className="w-full bg-white border-b border-black/10 pt-[160px] pb-20 px-6 relative overflow-hidden">

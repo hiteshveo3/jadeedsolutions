@@ -1,11 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import { Open_Sans } from "next/font/google";
-
-const openSans = Open_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-});
 
 interface PlaceholderProps {
   badge?: string;
@@ -25,7 +19,7 @@ export function ContentPlaceholder({
   parentLabel = "Return Home",
 }: PlaceholderProps) {
   return (
-    <main className={"min-h-screen " + openSans.className + " bg-[#f9f9f9] flex flex-col justify-between"}>
+    <main className="min-h-screen bg-[#f9f9f9] flex flex-col justify-between">
       <section className="relative w-full pt-[160px] pb-24 px-6 flex items-center justify-center">
         {/* Subtle Noise Texture */}
         <div

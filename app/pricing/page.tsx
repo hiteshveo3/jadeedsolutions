@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, useId } from "react";
 import Link from "next/link";
-import { Open_Sans } from "next/font/google";
 import {
   HugeiconsIcon,
   ZapIcon,
@@ -23,11 +22,6 @@ import {
   CTAButton,
   StatCard,
 } from "@/components/pricing/PricingComponents";
-
-const openSans = Open_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-});
 
 /* -------------------------------------------------------------------------- */
 /* DATA STRUCTURES                                                            */
@@ -327,7 +321,7 @@ export default function PricingPage() {
   const recResult = getRecommendationResult();
 
   return (
-    <main className={`min-h-screen ${openSans.className} bg-surface-canvas text-ink antialiased`}>
+    <main className="min-h-screen bg-surface-canvas text-ink antialiased">
       
       {/* ------------------------------------------------------------- */}
       {/* 1. EDITORIAL PRICING HERO (LIGHT, LEFT-ALIGNED 2-COLUMN) */}

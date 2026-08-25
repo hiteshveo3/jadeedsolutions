@@ -16,7 +16,7 @@ export function generateMetadata({
   const guide = getGuide(params.slug);
   if (!guide) return {};
   return {
-    title: `${guide.h1} | Jadeed Solutions`,
+    title: `${guide.title} | Jadeed Solutions`,
     description: guide.seoDescription,
     alternates: { canonical: `${siteConfig.url}/guides/${guide.slug}` },
   };
@@ -30,7 +30,7 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
     <ContentPlaceholder
       badge="Comprehensive Guide"
       category="Guides & Playbooks"
-      title={guide.h1}
+      title={guide.title}
       subtitle={`Our comprehensive step-by-step 2026 playbook and actionable growth frameworks for ${guide.eyebrow} are currently being finalized.`}
       parentPath="/guides"
       parentLabel="All Guides"
