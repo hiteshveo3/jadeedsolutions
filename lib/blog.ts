@@ -44,6 +44,44 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "download-public-instagram-photos-without-login",
+    title: "How to Bulk Download Public Instagram Photos Without Login: 2026 Guide",
+    excerpt:
+      "Learn how to bulk download photos and videos from a public Instagram profile without logging in using Python and Instaloader, then organize, convert and optimize the images for website SEO.",
+    date: "2026-08-28",
+    readingTime: "20 min read",
+    category: "Development & SEO",
+    authorSlug: "sameer-ahmad-basra",
+    featured: true,
+    cover:
+      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1600&q=80",
+    content: [
+      {
+        type: "paragraph",
+        text: "Building a website is not always a clean process. Sometimes the client gives you a perfectly organized Google Drive folder. Sometimes they do not. And yet hundreds of genuine business photographs may already be publicly available on their Instagram profile.",
+      },
+    ],
+  },
+  {
+    slug: "local-seo-google-ads-service-business",
+    title: "Local SEO & Google Ads for Service Businesses: 2026 Guide",
+    excerpt:
+      "Learn how to scale your local service business using precision marketing. Discover the 2026 playbook for local SEO, Google Ads, and conversion optimization.",
+    date: "2026-08-24",
+    readingTime: "18 min read",
+    category: "Local SEO",
+    authorSlug: "sameer-ahmad-basra",
+    featured: true,
+    cover:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
+    content: [
+      {
+        type: "paragraph",
+        text: "Learn how to scale your local service business using precision marketing and search intent funnels.",
+      },
+    ],
+  },
+  {
     slug: "modern-local-seo-roadmap-service-business",
     title: "Modern Local SEO Roadmap for a Service-Based Business",
     excerpt:
