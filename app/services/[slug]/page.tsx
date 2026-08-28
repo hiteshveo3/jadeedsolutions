@@ -16,7 +16,7 @@ export function generateMetadata({
   const service = getService(params.slug);
   if (!service) return {};
   return {
-    title: `${service.title} | Jadeed Solutions`,
+    title: service.title,
     description: service.seoDescription,
     alternates: { canonical: `${siteConfig.url}/services/${service.slug}` },
   };

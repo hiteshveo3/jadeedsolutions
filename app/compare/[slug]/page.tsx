@@ -16,7 +16,7 @@ export function generateMetadata({
   const page = getComparison(params.slug);
   if (!page) return {};
   return {
-    title: `${page.h1} | Jadeed Solutions`,
+    title: page.h1,
     description: page.seoDescription,
     alternates: { canonical: `${siteConfig.url}/compare/${page.slug}` },
   };

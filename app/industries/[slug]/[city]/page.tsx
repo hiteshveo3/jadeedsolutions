@@ -16,8 +16,8 @@ export function generateMetadata({
   const data = getNicheCity(params.slug, params.city);
   if (!data) return {};
   return {
-    title: `${data.niche.navLabel} SEO in ${data.city.name} | Jadeed Solutions`,
-    description: `Local SEO and growth services for ${data.niche.tradePlural} in ${data.city.name}.`,
+    title: `${data.niche.navLabel} SEO in ${data.city.name}`,
+    description: `Targeted SEO, Google Maps visibility, and conversion-focused web architecture for ${data.niche.navLabel.toLowerCase()} in ${data.city.name}.`,
     alternates: {
       canonical: `${siteConfig.url}/industries/${params.slug}/${params.city}`,
     },

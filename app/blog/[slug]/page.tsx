@@ -5,7 +5,13 @@ import { siteConfig } from "@/lib/site";
 import { ContentPlaceholder } from "@/components/ContentPlaceholder";
 
 export function generateStaticParams() {
-  return posts.map((p) => ({ slug: p.slug }));
+  return posts
+    .filter(
+      (p) =>
+        p.slug !== "local-seo-google-ads-service-business" &&
+        p.slug !== "download-public-instagram-photos-without-login"
+    )
+    .map((p) => ({ slug: p.slug }));
 }
 
 export function generateMetadata({
@@ -16,7 +22,7 @@ export function generateMetadata({
   const post = getPost(params.slug);
   if (!post) return {};
   return {
-    title: `${post.title} | Jadeed Solutions`,
+    title: post.title,
     description: post.excerpt,
     alternates: { canonical: `${siteConfig.url}/blog/${post.slug}` },
   };
@@ -27,9 +33,12 @@ export default function BlogSlugPage({
 }: {
   params: { slug: string };
 }) {
-  // If user navigates to the new featured slug under [slug], redirect to the dedicated route
+  // If user navigates to a slug that has a dedicated custom route, redirect to it
   if (params.slug === "local-seo-google-ads-service-business") {
     redirect("/blog/local-seo-google-ads-service-business");
+  }
+  if (params.slug === "download-public-instagram-photos-without-login") {
+    redirect("/blog/download-public-instagram-photos-without-login");
   }
 
   const post = getPost(params.slug);

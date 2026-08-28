@@ -16,7 +16,7 @@ export function generateMetadata({
   const guide = getGuide(params.slug);
   if (!guide) return {};
   return {
-    title: `${guide.title} | Jadeed Solutions`,
+    title: guide.title,
     description: guide.seoDescription,
     alternates: { canonical: `${siteConfig.url}/guides/${guide.slug}` },
   };

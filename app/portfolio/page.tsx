@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Case Studies & Client Results | Jadeed Solutions",
-  description: "Explore audited case studies and verified growth metrics for local service businesses across the UK & USA.",
+  title: "Case Studies & Client Results",
+  description:
+    "Explore how Jadeed Solutions helps local service companies in the UK and USA scale bookings through custom Next.js websites, local SEO, mobile apps, and performance-based marketing.",
 };
 
 const SlidingArrow = ({ colorClass = "text-white" }) => (

@@ -24,7 +24,7 @@ export function generateMetadata({
   const niche = getNiche(params.slug);
   if (niche) {
     return {
-      title: `${niche.h1} | Jadeed Solutions`,
+      title: niche.h1,
       description: niche.seoDescription,
       alternates: { canonical: `${siteConfig.url}/industries/${niche.slug}` },
     };
@@ -33,7 +33,7 @@ export function generateMetadata({
   const page = getIntentPage(params.slug);
   if (!page) return {};
   return {
-    title: `${page.h1} | Jadeed Solutions`,
+    title: page.h1,
     description: page.seoDescription,
     alternates: { canonical: `${siteConfig.url}/industries/${page.slug}` },
   };
