@@ -1,490 +1,788 @@
-import React from "react";
-import type { Metadata } from "next";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   HugeiconsIcon,
-  ArrowRightIcon,
-  CheckCircleIcon,
   LocationIcon,
-  ZapIcon,
-  CodeIcon,
-  TargetIcon,
-  UsersIcon,
-  TrendingUpIcon,
-  BriefcaseIcon,
-  SparklesIcon,
   RocketIcon,
+  CheckCircleIcon,
+  TrendingUpIcon,
+  CodeIcon,
+  ZapIcon,
+  TargetIcon,
+  SparklesIcon,
+  LayersIcon,
+  GlobeIcon,
+  ArrowRightIcon,
+  BriefcaseIcon,
 } from "@/components/icons";
 import { siteConfig } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Sameer Ahmad Basra — Founder Profile & Story",
-  description:
-    "Sameer Ahmad Basra is the founder of Jadeed Solutions, helping local service-based businesses generate more bookings through high-performing websites, SEO, software, AI, and custom automation.",
-  alternates: {
-    canonical: `${siteConfig.url}/sameer-ahmad-basra`,
-  },
-  openGraph: {
-    title: "Sameer Ahmad Basra — Founder of Jadeed Solutions",
-    description:
-      "Helping local service businesses get more customers by combining high-performing websites, SEO, software, AI, and custom automation.",
-    url: `${siteConfig.url}/sameer-ahmad-basra`,
-    images: [
-      {
-        url: "/sameer-ahmad-basra.jpg",
-        width: 1080,
-        height: 1080,
-        alt: "Sameer Ahmad Basra — Founder of Jadeed Solutions",
-      },
-    ],
-  },
-};
+const acts = [
+  { id: "act-1", number: "01", name: "Authority", label: "Positioning" },
+  { id: "act-2", number: "02", name: "Struggle", label: "The Realization" },
+  { id: "act-3", number: "03", name: "Breakthrough", label: "I Continued" },
+  { id: "act-4", number: "04", name: "Vision", label: "Live Systems" },
+  { id: "act-5", number: "05", name: "Alignment", label: "Your Story" },
+];
 
-const SlidingArrow = ({ colorClass = "text-black" }) => (
-  <div className="relative w-4 h-4 overflow-hidden flex items-center justify-center -mr-1">
-    <svg
-      className={
-        "absolute w-4 h-4 " +
-        colorClass +
-        " -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"
-      }
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M5 12h14"></path>
-      <path d="m12 5 7 7-7 7"></path>
-    </svg>
-    <svg
-      className={
-        "absolute w-4 h-4 " +
-        colorClass +
-        " translate-x-0 group-hover:translate-x-full transition-transform duration-300 ease-in-out"
-      }
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M5 12h14"></path>
-      <path d="m12 5 7 7-7 7"></path>
-    </svg>
-  </div>
-);
+export default function SameerFounderStoryPage() {
+  const [activeAct, setActiveAct] = useState("act-1");
+  const [justShineTab, setJustShineTab] = useState<"before" | "after">("after");
+  const [alphaMoversTab, setAlphaMoversTab] = useState<"before" | "after">("after");
+  const [activeSkillCategory, setActiveSkillCategory] = useState<"frameworks" | "ai" | "growth">("frameworks");
 
-export default function FounderPage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    "@id": `${siteConfig.url}/sameer-ahmad-basra/#profile`,
-    url: `${siteConfig.url}/sameer-ahmad-basra`,
-    name: "Sameer Ahmad Basra — Founder Profile & Story",
-    mainEntity: {
-      "@type": "Person",
-      "@id": `${siteConfig.url}/sameer-ahmad-basra/#person`,
-      name: "Sameer Ahmad Basra",
-      jobTitle: "Founder & Lead Architect",
-      worksFor: {
-        "@type": "Organization",
-        name: "Jadeed Solutions",
-        url: siteConfig.url,
-      },
-      image: `${siteConfig.url}/sameer-ahmad-basra.jpg`,
-      description:
-        "Sameer Ahmad Basra is the founder of Jadeed Solutions, helping local service-based businesses generate more bookings by combining high-performing websites, SEO, software, AI, and custom-built automation.",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "House No. 5, Street No. 1, New Lahore Road, Pejowali Kalan",
-        addressLocality: "Narowal",
-        postalCode: "51600",
-        addressRegion: "Punjab",
-        addressCountry: "PK",
-      },
-      sameAs: [
-        "https://pk.linkedin.com/in/sameer-ahmad-basra",
-        "https://github.com/hiteshveo3",
-      ],
-      knowsAbout: [
-        "Web Development",
-        "Next.js & React",
-        "Technical SEO",
-        "Local Search Optimization",
-        "AI Workflow Automation",
-        "Custom Business Software",
-        "Conversion Rate Optimization",
-      ],
-    },
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPos = window.scrollY + 280;
+      for (const act of acts) {
+        const el = document.getElementById(act.id);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + height) {
+            setActiveAct(act.id);
+            break;
+          }
+        }
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.pageYOffset - 90;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
   };
 
   return (
-    <main className="min-h-screen bg-[#f9f9f9]">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+    <main className="min-h-screen bg-[#111413] text-[#FAF9F6] selection:bg-[#cbd810] selection:text-[#111]">
+      
+      {/* SKIP LINK FOR ACCESSIBILITY */}
+      <a
+        href="#main-story-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-[#cbd810] focus:text-[#111] focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold"
+      >
+        Skip to main content
+      </a>
 
-      {/* HERO SECTION */}
-      <section className="relative w-full overflow-hidden bg-[#015f45] px-6 pt-[150px] pb-20 text-white border-b border-black/10">
-        <div
-          className="absolute inset-0 z-0 pointer-events-none opacity-30 mix-blend-overlay"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-            backgroundRepeat: "repeat",
-          }}
-        />
+      {/* FLOATING INTERACTIVE TIMELINE SPINE (Desktop / Tablet) */}
+      <aside
+        aria-label="Story Timeline Navigation"
+        className="hidden lg:flex fixed left-6 top-1/2 -translate-y-1/2 z-40 flex-col items-start gap-4 p-3 rounded-2xl bg-[#161a18]/85 backdrop-blur-md border border-white/10 shadow-2xl"
+      >
+        <span className="text-[10px] font-mono tracking-widest text-[#cbd810] uppercase px-2">Story Arc</span>
+        <div className="flex flex-col gap-2 relative">
+          <div className="absolute left-[15px] top-3 bottom-3 w-[2px] bg-white/10 pointer-events-none" />
+          {acts.map((act) => {
+            const isActive = activeAct === act.id;
+            return (
+              <button
+                key={act.id}
+                onClick={() => scrollToSection(act.id)}
+                aria-label={`Jump to ${act.name}`}
+                className="group relative flex items-center gap-3 px-2 py-1.5 rounded-xl transition-colors text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cbd810]"
+              >
+                <span
+                  className={`relative z-10 flex items-center justify-center w-6 h-6 rounded-full text-[11px] font-bold font-mono transition-all duration-300 ${
+                    isActive
+                      ? "bg-[#cbd810] text-[#111] scale-110 shadow-[0_0_12px_rgba(203,216,16,0.6)]"
+                      : "bg-[#222825] text-white/50 group-hover:text-white group-hover:bg-white/20"
+                  }`}
+                >
+                  {act.number}
+                </span>
+                <span
+                  className={`text-xs font-semibold tracking-wide transition-colors ${
+                    isActive ? "text-white" : "text-white/40 group-hover:text-white/80"
+                  }`}
+                >
+                  {act.name}
+                  <span className="block text-[10px] text-white/30 font-normal">{act.label}</span>
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </aside>
 
-        <div className="relative z-10 max-w-[1240px] mx-auto">
-          {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" className="text-xs text-white/60 mb-8 font-medium">
-            <ol className="flex items-center gap-2">
-              <li>
-                <Link href="/" className="hover:text-white transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li aria-hidden="true">/</li>
-              <li className="text-[#cbd810]" aria-current="page">
-                Sameer Ahmad Basra
-              </li>
-            </ol>
-          </nav>
+      {/* MOBILE HORIZONTAL TIMELINE BAR (Sticky at Top) */}
+      <div className="lg:hidden sticky top-[68px] z-30 w-full bg-[#161a18]/95 backdrop-blur-md border-b border-white/10 px-4 py-2 flex items-center gap-2 overflow-x-auto no-scrollbar">
+        {acts.map((act) => (
+          <button
+            key={act.id}
+            onClick={() => scrollToSection(act.id)}
+            className={`whitespace-nowrap px-3 py-1 rounded-full text-xs font-bold transition-colors shrink-0 ${
+              activeAct === act.id
+                ? "bg-[#cbd810] text-[#111]"
+                : "bg-white/10 text-white/70 hover:bg-white/15"
+            }`}
+          >
+            {act.number}. {act.name}
+          </button>
+        ))}
+      </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left Col: Headshot Card */}
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="relative w-full max-w-[420px] aspect-square rounded-[28px] overflow-hidden border-2 border-white/20 shadow-2xl bg-[#f28a16]">
-                <Image
-                  src="/sameer-ahmad-basra.jpg"
-                  alt="Sameer Ahmad Basra — Founder of Jadeed Solutions"
-                  fill
-                  priority
-                  className="object-cover object-center"
+      <div id="main-story-content">
+        
+        {/* ========================================================================= */}
+        {/* ACT 1: POSITIONING & AUTHORITY (HERO SECTION) */}
+        {/* ========================================================================= */}
+        <section
+          id="act-1"
+          className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#015f45] px-6 pt-[140px] pb-24 border-b border-white/10"
+        >
+          {/* Noise Texture Overlay */}
+          <div
+            className="absolute inset-0 z-0 pointer-events-none opacity-35 mix-blend-overlay"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+              backgroundRepeat: "repeat",
+            }}
+          />
+
+          {/* Glowing Aura */}
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#cbd810]/15 blur-[140px] pointer-events-none" />
+
+          <div className="relative z-10 max-w-[1100px] mx-auto w-full flex flex-col items-center text-center">
+            
+            {/* Act Badge */}
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#cbd810]/40 bg-[#014f39]/80 px-4 py-1 text-xs font-mono font-bold tracking-widest text-[#cbd810] uppercase mb-8 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-[#cbd810] animate-pulse" />
+              Act I · Positioning &amp; Authority
+            </div>
+
+            {/* Founder Portrait Visual */}
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl mb-8 bg-[#f28a16] ring-8 ring-[#cbd810]/20"
+            >
+              <Image
+                src="/sameer-ahmad-basra.jpg"
+                alt="Sameer Ahmad Basra — Founder of Jadeed Solutions"
+                fill
+                priority
+                className="object-cover object-center"
+              />
+            </motion.div>
+
+            {/* Main Name Headline */}
+            <motion.h1
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-[42px] sm:text-[60px] lg:text-[72px] font-bold tracking-tight text-white leading-[1.08] mb-6"
+            >
+              Sameer Ahmad Basra
+            </motion.h1>
+
+            {/* Subtitle / Core Positioning (Refined conversational lead) */}
+            <motion.p
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-[20px] sm:text-[24px] lg:text-[26px] font-medium text-[#eaf25a] max-w-[850px] leading-snug mb-6"
+            >
+              I help local service businesses get booked when they get found.
+            </motion.p>
+
+            <motion.p
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-[16px] sm:text-[18px] text-white/80 max-w-[760px] leading-relaxed font-normal mb-10"
+            >
+              Through high-performing websites, technical SEO, AI-assisted automation, and a commercial model where Jadeed Solutions only charges when you get an actual booking.
+            </motion.p>
+
+            {/* Proof Metric Strip */}
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="w-full max-w-[820px] grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12 p-4 rounded-2xl bg-[#014f39]/90 border border-white/15 backdrop-blur-md"
+            >
+              <div className="flex flex-col items-center text-center p-2 border-b sm:border-b-0 sm:border-r border-white/10">
+                <span className="text-2xl sm:text-3xl font-extrabold text-[#cbd810] font-mono">160K+</span>
+                <span className="text-xs text-white/70 font-medium">Verified Impressions Delivered</span>
+              </div>
+              <div className="flex flex-col items-center text-center p-2 border-b sm:border-b-0 sm:border-r border-white/10">
+                <span className="text-2xl sm:text-3xl font-extrabold text-white font-mono">Dec 2024</span>
+                <span className="text-xs text-white/70 font-medium">Founded in Narowal, Pakistan</span>
+              </div>
+              <div className="flex flex-col items-center text-center p-2">
+                <span className="text-2xl sm:text-3xl font-extrabold text-[#cbd810] font-mono">100%</span>
+                <span className="text-xs text-white/70 font-medium">Performance-Aligned Model</span>
+              </div>
+            </motion.div>
+
+            {/* Direct Action Buttons */}
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="flex flex-wrap items-center justify-center gap-4"
+            >
+              <Link
+                href="/contact"
+                className="group bg-[#cbd810] text-[#111] font-bold text-base h-14 px-8 rounded-xl flex items-center justify-center gap-3 transition-transform hover:scale-[1.02] active:scale-[0.98] shadow-lg"
+              >
+                Book a Growth Consultation
+                <HugeiconsIcon
+                  icon={ArrowRightIcon}
+                  size={18}
+                  className="transition-transform duration-300 group-hover:translate-x-1 text-[#111]"
                 />
-                <div className="absolute bottom-4 left-4 right-4 bg-[#111614]/85 backdrop-blur-md border border-white/15 rounded-xl py-2.5 px-4 flex items-center justify-between text-white shadow-lg">
-                  <div>
-                    <div className="text-xs font-bold uppercase tracking-wider text-[#cbd810]">
-                      Founder &amp; Lead Architect
+              </Link>
+              <a
+                href="https://wa.me/923167669343"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white/10 hover:bg-white/20 border border-white/25 text-white font-semibold text-base h-14 px-7 rounded-xl flex items-center justify-center gap-2 transition-colors"
+              >
+                WhatsApp Directly
+              </a>
+            </motion.div>
+
+          </div>
+        </section>
+
+        {/* ========================================================================= */}
+        {/* ACT 2: THE STRUGGLE (WORDPRESS → FREELANCE CRISIS) */}
+        {/* ========================================================================= */}
+        <section
+          id="act-2"
+          className="relative py-28 px-6 bg-[#1a1e1c] text-[#e0e0e0] border-b border-white/10 overflow-hidden"
+        >
+          {/* Subtle Red/Tension Ambient Glow */}
+          <div className="absolute top-1/4 right-0 w-[450px] h-[450px] rounded-full bg-[#8b0000]/10 blur-[130px] pointer-events-none" />
+
+          <div className="max-w-[800px] mx-auto">
+            
+            <div className="inline-flex items-center gap-2 font-mono text-xs text-[#d0d0d0]/60 uppercase tracking-widest mb-4">
+              <span className="w-2 h-2 rounded-full bg-[#ff5252]" />
+              Act II · The Struggle &amp; Market Realities
+            </div>
+
+            <h2 className="text-[28px] sm:text-[36px] font-bold text-white leading-tight mb-8">
+              From Marketplace Dependencies to Direct Ownership
+            </h2>
+
+            <div className="space-y-6 text-[16px] sm:text-[17px] leading-[1.65] text-[#d0d0d0] font-normal">
+              <p>
+                My professional journey originally started with <strong>WordPress website development</strong>, working through platforms such as Fiverr to gain client experience, understand requirements, and deliver technical solutions.
+              </p>
+              
+              <p>
+                Over time, however, I realized that freelance marketplaces were not the model I wanted to depend on permanently. Between platform commission cuts and withdrawal fees, a heavy toll was taken on every transaction.
+              </p>
+
+              {/* The Tension Pull Quote */}
+              <div className="my-10 p-6 sm:p-8 rounded-2xl bg-[#222825] border-l-4 border-[#ff5252] border-y border-r border-white/5 relative">
+                <p className="text-[19px] sm:text-[22px] font-medium text-white leading-snug">
+                  &ldquo;Between platform commissions and payment-withdrawal fees, 20–25% of every project&apos;s value effectively disappeared before it reached me.&rdquo;
+                </p>
+                <span className="block mt-3 text-xs font-mono text-[#ff5252] uppercase tracking-wider font-bold">
+                  The Breaking Point · Why Marketplace Mediocrity Had to End
+                </span>
+              </div>
+
+              <p>
+                More importantly, I wanted to build direct, accountable, and long-term relationships with businesses instead of having a marketplace permanently sitting between the client and me. That realization became the turning point to build independently.
+              </p>
+            </div>
+
+          </div>
+        </section>
+
+        {/* ========================================================================= */}
+        {/* ACT 3: THE BREAKTHROUGH (CLIMAX — "I CONTINUED") */}
+        {/* ========================================================================= */}
+        <section
+          id="act-3"
+          className="relative py-32 px-6 bg-gradient-to-b from-[#1a1e1c] via-[#014f39] to-[#015f45] text-white border-b border-white/10 overflow-hidden"
+        >
+          {/* Radiant Climax Atmosphere */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[#cbd810]/15 blur-[160px] pointer-events-none" />
+          
+          <div
+            className="absolute inset-0 z-0 pointer-events-none opacity-25 mix-blend-overlay"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+              backgroundRepeat: "repeat",
+            }}
+          />
+
+          <div className="relative z-10 max-w-[960px] mx-auto text-center flex flex-col items-center">
+            
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#cbd810]/50 bg-[#cbd810]/10 px-5 py-1.5 text-xs font-mono font-bold tracking-widest text-[#cbd810] uppercase mb-8 shadow-sm">
+              <HugeiconsIcon icon={SparklesIcon} size={14} className="text-[#cbd810]" />
+              Act III · The Climax
+            </div>
+
+            {/* Giant Title: I Continued */}
+            <motion.h2
+              initial={{ scale: 0.95, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="text-[48px] sm:text-[68px] lg:text-[84px] font-extrabold tracking-tight text-white leading-none mb-8"
+            >
+              I Continued<span className="text-[#cbd810]">.</span>
+            </motion.h2>
+
+            <div className="w-24 h-1.5 bg-[#cbd810] rounded-full mb-12" />
+
+            {/* 3 Punchy Narrative Paragraphs */}
+            <div className="space-y-8 text-[18px] sm:text-[21px] leading-[1.7] text-white/90 font-normal max-w-[820px] text-left sm:text-center">
+              <p>
+                I founded <strong>Jadeed Solutions in December 2024</strong>. No co-founder, no external funding. Just the idea and the conviction that consistency outlasts inspiration.
+              </p>
+
+              <p className="text-white/75">
+                At first, several friends joined the conversation. We created a group and talked about building something together. Some stayed briefly, but gradually their interest faded. They moved on. The momentum evaporated.
+              </p>
+
+              <p className="text-white font-medium text-[20px] sm:text-[23px] bg-black/20 p-6 sm:p-8 rounded-2xl border border-white/15">
+                <strong>I continued.</strong> That single decision became the defining moment. Not because everything was easy, but because I chose consistency over comfort. Ideas are common. Everyone has them. Showing up when others quit — that is what creates the difference.
+              </p>
+            </div>
+
+            {/* Standalone Memorable Quote Callout */}
+            <div className="mt-14 inline-block p-6 sm:p-8 rounded-3xl bg-[#014f39]/90 border-2 border-[#cbd810]/40 shadow-2xl">
+              <blockquote className="text-[22px] sm:text-[28px] font-bold text-[#eaf25a] tracking-tight">
+                &ldquo;Consistency is what creates the difference.&rdquo;
+              </blockquote>
+              <span className="block mt-2 text-xs font-mono text-white/60 uppercase tracking-widest">
+                — Sameer Ahmad Basra · Founded December 2024
+              </span>
+            </div>
+
+          </div>
+        </section>
+
+        {/* ========================================================================= */}
+        {/* ACT 4: VISION REALIZED (INTERACTIVE CASE STUDIES & CAPABILITY TREE) */}
+        {/* ========================================================================= */}
+        <section
+          id="act-4"
+          className="relative py-28 px-6 bg-[#FAF9F6] text-[#151515] border-b border-black/10 overflow-hidden"
+        >
+          <div className="max-w-[1140px] mx-auto">
+            
+            <div className="flex flex-col items-center text-center mb-16">
+              <div className="inline-flex items-center gap-2 font-mono text-xs font-bold text-[#015f45] uppercase tracking-widest mb-3">
+                <HugeiconsIcon icon={RocketIcon} size={16} />
+                Act IV · Vision Realized &amp; Proof Systems
+              </div>
+              <h2 className="text-[32px] sm:text-[44px] font-bold tracking-tight text-[#151515] mb-4">
+                Where Engineering &amp; Search Deliver Measurable Bookings
+              </h2>
+              <p className="text-[17px] text-black/65 max-w-[720px] leading-relaxed">
+                SEO is not abstract marketing. It is software engineering connected to human search intent.
+              </p>
+            </div>
+
+            {/* INTERACTIVE CASE STUDY CARDS (Side-by-Side / Before-After Toggle) */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
+              
+              {/* CARD 1: Just Shine Cleaning Services */}
+              <div className="bg-white border border-black/10 rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between gap-4 mb-6">
+                    <div>
+                      <span className="text-[11px] font-mono uppercase tracking-widest text-[#015f45] font-extrabold block">
+                        Abu Dhabi, UAE · Cleaning Industry
+                      </span>
+                      <h3 className="text-[22px] sm:text-[24px] font-bold text-[#151515]">
+                        Just Shine Cleaning Services
+                      </h3>
                     </div>
-                    <div className="text-sm font-semibold text-white/90">Jadeed Solutions</div>
+                    {/* Toggle Button */}
+                    <div className="flex items-center rounded-xl bg-black/5 p-1 text-xs font-bold">
+                      <button
+                        onClick={() => setJustShineTab("before")}
+                        className={`px-3 py-1.5 rounded-lg transition-all ${
+                          justShineTab === "before" ? "bg-[#151515] text-white" : "text-black/60 hover:text-black"
+                        }`}
+                      >
+                        Before
+                      </button>
+                      <button
+                        onClick={() => setJustShineTab("after")}
+                        className={`px-3 py-1.5 rounded-lg transition-all ${
+                          justShineTab === "after" ? "bg-[#015f45] text-white" : "text-black/60 hover:text-black"
+                        }`}
+                      >
+                        After SEO
+                      </button>
+                    </div>
                   </div>
-                  <span className="flex h-2.5 w-2.5 relative">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#cbd810] opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#cbd810]"></span>
-                  </span>
+
+                  <AnimatePresence mode="wait">
+                    {justShineTab === "before" ? (
+                      <motion.div
+                        key="before-js"
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        className="space-y-4 text-sm text-black/75"
+                      >
+                        <div className="p-4 rounded-xl bg-rose-50/80 border border-rose-200">
+                          <span className="font-bold text-rose-900 block mb-1">The Challenge:</span>
+                          Basic WordPress site with zero search engine visibility in a hyper-competitive Abu Dhabi territory.
+                        </div>
+                        <p className="leading-relaxed">
+                          Owner <strong>Waheedullah</strong> asked if search optimization could bring real inquiries. It became the testing ground that sparked my obsession with understanding search algorithms.
+                        </p>
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="after-js"
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        className="space-y-4 text-sm text-black/75"
+                      >
+                        <div className="p-4 rounded-xl bg-emerald-50/80 border border-emerald-200">
+                          <span className="font-bold text-[#015f45] block mb-1">The Breakthrough:</span>
+                          Deep technical audit, local service-area architecture, and commercial keyword alignment.
+                        </div>
+                        <div className="grid grid-cols-2 gap-3 pt-2">
+                          <div className="p-3 rounded-xl bg-[#015f45]/5 border border-[#015f45]/10 text-center">
+                            <div className="text-xl font-bold text-[#015f45] font-mono">Top 3</div>
+                            <div className="text-[11px] text-black/60 font-medium">Abu Dhabi Google Rankings</div>
+                          </div>
+                          <div className="p-3 rounded-xl bg-[#015f45]/5 border border-[#015f45]/10 text-center">
+                            <div className="text-xl font-bold text-[#015f45] font-mono">100% Organic</div>
+                            <div className="text-[11px] text-black/60 font-medium">Daily Direct WhatsApp Leads</div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
+
+                <div className="mt-8 pt-4 border-t border-black/5 flex items-center justify-between text-xs text-black/50 font-medium">
+                  <span>Verified 5.0 Trustpilot Review</span>
+                  <Link href="/blog/local-seo-google-ads-service-business" className="text-[#015f45] font-bold hover:underline">
+                    Read strategy →
+                  </Link>
+                </div>
+              </div>
+
+              {/* CARD 2: Alpha Movers */}
+              <div className="bg-white border border-black/10 rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between gap-4 mb-6">
+                    <div>
+                      <span className="text-[11px] font-mono uppercase tracking-widest text-[#015f45] font-extrabold block">
+                        London, UK · Moving &amp; Removals
+                      </span>
+                      <h3 className="text-[22px] sm:text-[24px] font-bold text-[#151515]">
+                        Alpha Movers London
+                      </h3>
+                    </div>
+                    {/* Toggle Button */}
+                    <div className="flex items-center rounded-xl bg-black/5 p-1 text-xs font-bold">
+                      <button
+                        onClick={() => setAlphaMoversTab("before")}
+                        className={`px-3 py-1.5 rounded-lg transition-all ${
+                          alphaMoversTab === "before" ? "bg-[#151515] text-white" : "text-black/60 hover:text-black"
+                        }`}
+                      >
+                        Before
+                      </button>
+                      <button
+                        onClick={() => setAlphaMoversTab("after")}
+                        className={`px-3 py-1.5 rounded-lg transition-all ${
+                          alphaMoversTab === "after" ? "bg-[#015f45] text-white" : "text-black/60 hover:text-black"
+                        }`}
+                      >
+                        After Next.js
+                      </button>
+                    </div>
+                  </div>
+
+                  <AnimatePresence mode="wait">
+                    {alphaMoversTab === "before" ? (
+                      <motion.div
+                        key="before-am"
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        className="space-y-4 text-sm text-black/75"
+                      >
+                        <div className="p-4 rounded-xl bg-rose-50/80 border border-rose-200">
+                          <span className="font-bold text-rose-900 block mb-1">The Bottleneck:</span>
+                          Original WordPress build struggled with slow mobile page speed and disconnected quote journeys.
+                        </div>
+                        <p className="leading-relaxed">
+                          Owner <strong>Abdullah</strong> needed London search visibility and instant quote requests that converted without manual friction.
+                        </p>
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="after-am"
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        className="space-y-4 text-sm text-black/75"
+                      >
+                        <div className="p-4 rounded-xl bg-emerald-50/80 border border-emerald-200">
+                          <span className="font-bold text-[#015f45] block mb-1">Next.js &amp; AI Overhaul:</span>
+                          Rebuilt from ground up in Next.js + AI content pipeline + sub-second Core Web Vitals.
+                        </div>
+                        <div className="grid grid-cols-2 gap-3 pt-2">
+                          <div className="p-3 rounded-xl bg-[#015f45]/5 border border-[#015f45]/10 text-center">
+                            <div className="text-xl font-bold text-[#015f45] font-mono">160,903</div>
+                            <div className="text-[11px] text-black/60 font-medium">Search Impressions (GSC)</div>
+                          </div>
+                          <div className="p-3 rounded-xl bg-[#015f45]/5 border border-[#015f45]/10 text-center">
+                            <div className="text-xl font-bold text-[#015f45] font-mono">+35%</div>
+                            <div className="text-[11px] text-black/60 font-medium">Conversion Booking Uplift</div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                <div className="mt-8 pt-4 border-t border-black/5 flex items-center justify-between text-xs text-black/50 font-medium">
+                  <span>Google Search Console Verified</span>
+                  <Link href="/portfolio" className="text-[#015f45] font-bold hover:underline">
+                    View full case study →
+                  </Link>
+                </div>
+              </div>
+
+            </div>
+
+            {/* SKILLS & CAPABILITY TREE */}
+            <div className="bg-white border border-black/10 rounded-3xl p-8 sm:p-12 shadow-sm">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-10 pb-6 border-b border-black/10">
+                <div>
+                  <span className="text-xs font-mono uppercase tracking-widest text-[#015f45] font-extrabold block mb-1">
+                    System Architecture
+                  </span>
+                  <h3 className="text-[24px] sm:text-[28px] font-bold text-[#151515]">
+                    Full-Stack Systems: Where Technology Serves Outcomes
+                  </h3>
+                </div>
+
+                {/* Category Filter Pills */}
+                <div className="flex items-center gap-2 bg-black/5 p-1 rounded-xl self-start sm:self-auto">
+                  <button
+                    onClick={() => setActiveSkillCategory("frameworks")}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
+                      activeSkillCategory === "frameworks"
+                        ? "bg-[#015f45] text-white shadow-sm"
+                        : "text-black/60 hover:text-black"
+                    }`}
+                  >
+                    Frameworks
+                  </button>
+                  <button
+                    onClick={() => setActiveSkillCategory("ai")}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
+                      activeSkillCategory === "ai"
+                        ? "bg-[#015f45] text-white shadow-sm"
+                        : "text-black/60 hover:text-black"
+                    }`}
+                  >
+                    AI &amp; Automation
+                  </button>
+                  <button
+                    onClick={() => setActiveSkillCategory("growth")}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
+                      activeSkillCategory === "growth"
+                        ? "bg-[#015f45] text-white shadow-sm"
+                        : "text-black/60 hover:text-black"
+                    }`}
+                  >
+                    SEO &amp; Growth
+                  </button>
+                </div>
+              </div>
+
+              {/* Capability Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {[
+                  {
+                    cat: "frameworks",
+                    title: "Next.js, React & TypeScript",
+                    desc: "Sub-second mobile loading speeds, SEO pre-rendering, and enterprise reliability.",
+                    icon: CodeIcon,
+                  },
+                  {
+                    cat: "frameworks",
+                    title: "Flutter & Mobile Apps",
+                    desc: "Cross-platform booking, dispatch, and driver communication apps.",
+                    icon: ZapIcon,
+                  },
+                  {
+                    cat: "frameworks",
+                    title: "WordPress & Headless CMS",
+                    desc: "Deep legacy mastery with modern headless decoupled integration.",
+                    icon: LayersIcon,
+                  },
+                  {
+                    cat: "ai",
+                    title: "Agentic AI & Antigravity",
+                    desc: "Accelerating research, manifests, code refactoring, and content pipelines.",
+                    icon: SparklesIcon,
+                  },
+                  {
+                    cat: "ai",
+                    title: "Custom In-House Automation",
+                    desc: "Building custom automation tools over bloated third-party monthly SaaS subscriptions.",
+                    icon: RocketIcon,
+                  },
+                  {
+                    cat: "ai",
+                    title: "Lead Capture & Instant Dispatch",
+                    desc: "One-tap calling engines, automated WhatsApp confirmations, and CRM sync.",
+                    icon: BriefcaseIcon,
+                  },
+                  {
+                    cat: "growth",
+                    title: "Technical SEO & Schema",
+                    desc: "Intent clustering, JSON-LD schemas, internal link equity, and indexing dominance.",
+                    icon: TargetIcon,
+                  },
+                  {
+                    cat: "growth",
+                    title: "Google 3-Pack & Local Maps",
+                    desc: "Geo-grid dominance when ready-to-book homeowners search for local help.",
+                    icon: LocationIcon,
+                  },
+                  {
+                    cat: "growth",
+                    title: "Conversion Architecture",
+                    desc: "Transforming raw impressions into phone calls, quote requests, and booked jobs.",
+                    icon: TrendingUpIcon,
+                  },
+                ]
+                  .filter((item) => item.cat === activeSkillCategory)
+                  .map((skill, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.2 }}
+                      className="p-5 rounded-2xl bg-[#FAF9F6] border border-black/5 hover:border-[#015f45]/30 transition-all group"
+                    >
+                      <div className="w-10 h-10 rounded-xl bg-[#015f45]/10 text-[#015f45] flex items-center justify-center mb-4 group-hover:bg-[#015f45] group-hover:text-white transition-colors">
+                        <HugeiconsIcon icon={skill.icon} size={20} />
+                      </div>
+                      <h4 className="text-[17px] font-bold text-[#151515] mb-2">{skill.title}</h4>
+                      <p className="text-xs text-black/65 leading-relaxed">{skill.desc}</p>
+                    </motion.div>
+                  ))}
+              </div>
+
+              {/* Meta Commentary Box */}
+              <div className="mt-10 p-6 rounded-2xl bg-[#015f45]/5 border border-[#015f45]/15 text-center">
+                <p className="text-[16px] sm:text-[17px] font-medium text-[#015f45] italic leading-relaxed">
+                  &ldquo;This is where I learned that SEO isn&apos;t marketing — it&apos;s engineering. And engineering without business outcomes is just code.&rdquo;
+                </p>
               </div>
             </div>
 
-            {/* Right Col: Bio & Core Positioning */}
-            <div className="lg:col-span-7 flex flex-col items-start">
-              <span className="inline-flex items-center justify-center bg-[#cbd810] text-[#111111] text-[12px] font-extrabold px-3.5 py-1.5 rounded-xl uppercase tracking-[0.14em] mb-5 shadow-sm">
-                Founder Profile &amp; Story
-              </span>
+          </div>
+        </section>
 
-              <h1 className="text-[36px] sm:text-[48px] lg:text-[54px] font-semibold leading-[1.12] tracking-tight mb-6">
-                Sameer Ahmad Basra
-              </h1>
+        {/* ========================================================================= */}
+        {/* ACT 5: FUTURE & ALIGNMENT (COMMERCIAL MODEL & TEAM) */}
+        {/* ========================================================================= */}
+        <section
+          id="act-5"
+          className="relative py-32 px-6 bg-gradient-to-br from-[#015f45] via-[#014f39] to-[#111614] text-white border-b border-white/10 overflow-hidden"
+        >
+          {/* Ambient Glow */}
+          <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full bg-[#cbd810]/15 blur-[160px] pointer-events-none" />
 
-              <p className="text-[17px] sm:text-[19px] text-white/90 leading-relaxed font-normal mb-6">
-                Helping local service-based businesses generate more bookings by combining high-performing websites, SEO, software, AI, and custom-built automation — with a model where Jadeed Solutions only charges when the business gets an actual booking.
+          <div className="max-w-[920px] mx-auto text-center flex flex-col items-center">
+            
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#cbd810]/40 bg-[#cbd810]/10 px-4 py-1.5 text-xs font-mono font-bold tracking-widest text-[#cbd810] uppercase mb-8">
+              Act V · Future &amp; Commercial Alignment
+            </div>
+
+            <h2 className="text-[36px] sm:text-[50px] lg:text-[58px] font-bold tracking-tight text-white leading-[1.12] mb-6">
+              We Don&apos;t Charge for Activity.<br />
+              <span className="text-[#cbd810]">We Charge for Results.</span>
+            </h2>
+
+            <div className="space-y-6 text-[17px] sm:text-[19px] leading-relaxed text-white/90 max-w-[780px] font-normal mb-12">
+              <p>
+                Performance-aligned pricing (such as 5% to 10% per booking or verified growth milestones) means I only win when you win. No retainers. No vague promises. Just real bookings and measurable business growth.
               </p>
+              <p className="text-white/70 text-base">
+                I am not interested in agencies that operate at a distant, detached level. I remain hands-on, directly invested in your growth because my commercial model connects our outcomes.
+              </p>
+            </div>
 
-              {/* Verified Quick Meta Grid */}
-              <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 bg-[#014f39]/70 border border-white/15 rounded-2xl p-4 sm:p-5 text-sm">
-                <div className="flex items-start gap-2.5">
-                  <HugeiconsIcon icon={LocationIcon} size={18} className="text-[#cbd810] shrink-0 mt-0.5" />
-                  <div>
-                    <span className="block text-xs uppercase tracking-wider text-white/60 font-semibold">Location</span>
-                    <span className="text-white/90 font-medium">Narowal, Punjab, Pakistan</span>
-                  </div>
+            {/* Team Integration Badge */}
+            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md mb-14 text-sm text-white/90">
+              <div className="flex -space-x-2">
+                <div className="w-8 h-8 rounded-full bg-[#cbd810] text-[#111] font-bold text-xs flex items-center justify-center border-2 border-[#014f39]">
+                  SB
                 </div>
-                <div className="flex items-start gap-2.5">
-                  <HugeiconsIcon icon={RocketIcon} size={18} className="text-[#cbd810] shrink-0 mt-0.5" />
-                  <div>
-                    <span className="block text-xs uppercase tracking-wider text-white/60 font-semibold">Founded</span>
-                    <span className="text-white/90 font-medium">December 2024</span>
-                  </div>
-                </div>
-                <div className="flex items-start gap-2.5 sm:col-span-2">
-                  <HugeiconsIcon icon={TargetIcon} size={18} className="text-[#cbd810] shrink-0 mt-0.5" />
-                  <div>
-                    <span className="block text-xs uppercase tracking-wider text-white/60 font-semibold">Official Business Address</span>
-                    <span className="text-white/90 font-medium text-xs sm:text-sm">
-                      House No. 5, Street No. 1, New Lahore Road, Pejowali Kalan, Narowal 51600, Pakistan
-                    </span>
-                  </div>
+                <div className="w-8 h-8 rounded-full bg-white text-[#111] font-bold text-xs flex items-center justify-center border-2 border-[#014f39]">
+                  AW
                 </div>
               </div>
+              <span>
+                Built by <strong>Sameer Ahmad Basra</strong> and <strong>Asad Waqas</strong>. Scaled for your success.
+              </span>
+            </div>
 
-              {/* Action CTAs */}
-              <div className="flex flex-wrap items-center gap-3">
+            {/* Final Emotional Call to Action */}
+            <div className="w-full bg-[#111614]/90 border border-white/15 rounded-3xl p-8 sm:p-12 shadow-2xl flex flex-col items-center">
+              <span className="text-xs font-mono uppercase tracking-widest text-[#cbd810] font-bold mb-3">
+                Your Next Chapter
+              </span>
+              <h3 className="text-[28px] sm:text-[36px] font-bold text-white mb-4">
+                Your Story Starts Here
+              </h3>
+              <p className="text-white/70 text-base max-w-[560px] mb-8">
+                Let&apos;s build a measurable growth engine for your local service business. Book a free consultation or message directly.
+              </p>
+
+              <div className="flex flex-wrap items-center justify-center gap-4 w-full sm:w-auto">
                 <Link
                   href="/contact"
-                  className="group bg-[#cbd810] text-[#111111] font-bold text-[14px] sm:text-[15px] h-12 px-6 rounded-xl flex items-center justify-center gap-2 transition-colors hover:bg-[#b8c50e] shadow-sm"
+                  className="group bg-[#cbd810] text-[#111] font-bold text-base h-14 px-8 rounded-xl flex items-center justify-center gap-3 transition-transform hover:scale-[1.02] shadow-lg w-full sm:w-auto"
                 >
-                  Book a Growth Consultation
-                  <SlidingArrow colorClass="text-[#111111]" />
+                  Book a Consultation
+                  <HugeiconsIcon
+                    icon={ArrowRightIcon}
+                    size={18}
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  />
                 </Link>
                 <a
-                  href="https://wa.me/923167669343"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-white/10 text-white hover:bg-white/20 border border-white/20 font-semibold text-[14px] sm:text-[15px] h-12 px-5 rounded-xl flex items-center justify-center gap-2 transition-colors"
+                  href="mailto:info@jadeedsolutions.com"
+                  className="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold text-base h-14 px-6 rounded-xl flex items-center justify-center gap-2 transition-colors w-full sm:w-auto"
                 >
-                  WhatsApp Directly
+                  info@jadeedsolutions.com
                 </a>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* CORE STATS BAR */}
-      <section className="border-b border-black/10 bg-white py-10 px-6">
-        <div className="max-w-[1240px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="border-l-2 border-[#015f45] pl-4">
-            <div className="text-[28px] md:text-[34px] font-bold text-[#151515] leading-none mb-1">Dec 2024</div>
-            <div className="text-xs text-black/60 font-semibold uppercase tracking-wider">Founded Jadeed</div>
           </div>
-          <div className="border-l-2 border-[#cbd810] pl-4">
-            <div className="text-[28px] md:text-[34px] font-bold text-[#015f45] leading-none mb-1">100%</div>
-            <div className="text-xs text-black/60 font-semibold uppercase tracking-wider">Performance-Aligned</div>
-          </div>
-          <div className="border-l-2 border-[#015f45] pl-4">
-            <div className="text-[28px] md:text-[34px] font-bold text-[#151515] leading-none mb-1">Full-Stack</div>
-            <div className="text-xs text-black/60 font-semibold uppercase tracking-wider">Web, SEO &amp; AI</div>
-          </div>
-          <div className="border-l-2 border-[#cbd810] pl-4">
-            <div className="text-[28px] md:text-[34px] font-bold text-[#015f45] leading-none mb-1">Global</div>
-            <div className="text-xs text-black/60 font-semibold uppercase tracking-wider">UK, UAE, US &amp; PK</div>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* MAIN PROFILE STORY NARRATIVE */}
-      <section className="py-20 px-6 max-w-[1000px] mx-auto">
-        <div className="space-y-16">
-          
-          {/* Section 1: Professional Positioning */}
-          <div className="bg-white border border-black/10 rounded-2xl p-8 sm:p-10 shadow-sm">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#015f45] mb-2 block">
-              01 · Professional Positioning
-            </span>
-            <h2 className="text-[26px] sm:text-[30px] font-bold text-[#151515] mb-5">
-              Technology in Service of Real Business Outcomes
-            </h2>
-            <p className="text-[16.5px] leading-relaxed text-black/75 mb-4">
-              My work is not limited to one narrow technical discipline. I started with website development, but over time my work expanded into search engine optimization, frontend and backend development, app development, artificial intelligence, custom business automation, and complete digital systems for service-based businesses.
-            </p>
-            <p className="text-[16.5px] leading-relaxed text-black/75 mb-4">
-              The purpose behind all of these technologies is simple: <strong>help a business get found, make it easier for customers to trust and contact that business, and turn that attention into actual bookings.</strong>
-            </p>
-            <div className="mt-6 p-5 bg-[#015f45]/[0.04] border-l-4 border-[#015f45] rounded-r-xl text-[16px] italic text-[#151515]">
-              &ldquo;Technology should never become the main story. The business outcome is the story. A local business owner needs to know that we understand their business, build the right system, improve their visibility, and help turn customer demand into actual work.&rdquo;
-            </div>
-          </div>
-
-          {/* Section 2: Origin & Fiverr Realities */}
-          <div className="bg-white border border-black/10 rounded-2xl p-8 sm:p-10 shadow-sm">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#015f45] mb-2 block">
-              02 · The Journey Begins
-            </span>
-            <h2 className="text-[26px] sm:text-[30px] font-bold text-[#151515] mb-5">
-              From WordPress Freelancing to Direct Partnerships
-            </h2>
-            <p className="text-[16.5px] leading-relaxed text-black/75 mb-4">
-              My professional journey originally started with <strong>WordPress website development</strong>. At the beginning, my focus was mainly on building websites for clients. I also worked through platforms such as Fiverr, where I gained practical experience dealing with clients and delivering web development services.
-            </p>
-            <p className="text-[16.5px] leading-relaxed text-black/75 mb-4">
-              Over time, however, I realized that freelance marketplaces were not the business model I wanted to depend on permanently. Between platform commissions and payment-withdrawal fees, sometimes around <strong>20–25% of the project&apos;s value</strong> could effectively disappear before reaching me.
-            </p>
-            <p className="text-[16.5px] leading-relaxed text-black/75">
-              More importantly, I wanted to build direct, accountable, and long-term relationships with businesses instead of having a marketplace permanently sitting between the client and me. That became the catalyst to build independently.
-            </p>
-          </div>
-
-          {/* Section 3: Founding Jadeed & Consistency */}
-          <div className="bg-white border border-black/10 rounded-2xl p-8 sm:p-10 shadow-sm">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#015f45] mb-2 block">
-              03 · Founding Story
-            </span>
-            <h2 className="text-[26px] sm:text-[30px] font-bold text-[#151515] mb-5">
-              Founding Jadeed Solutions in December 2024
-            </h2>
-            <p className="text-[16.5px] leading-relaxed text-black/75 mb-4">
-              I founded <strong>Jadeed Solutions in December 2024</strong>. There was no co-founder.
-            </p>
-            <p className="text-[16.5px] leading-relaxed text-black/75 mb-4">
-              In the beginning, I encouraged several friends and people around me to join the journey. We created a group around the idea and initially tried to build something together. Some joined at first, but gradually their interest faded and several moved on.
-            </p>
-            <p className="text-[16.5px] leading-relaxed text-black/75 mb-4">
-              <strong>I continued.</strong>
-            </p>
-            <p className="text-[16.5px] leading-relaxed text-black/75">
-              That period became a defining chapter because it taught me that ideas are common, but <strong>consistency is what creates the difference</strong>. Today, Jadeed Solutions is the result of continuous learning, building, experimenting, and delivering when others gradually lost momentum.
-            </p>
-          </div>
-
-          {/* Section 4: Why "Jadeed"? */}
-          <div className="bg-white border border-black/10 rounded-2xl p-8 sm:p-10 shadow-sm">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#015f45] mb-2 block">
-              04 · The Vision
-            </span>
-            <h2 className="text-[26px] sm:text-[30px] font-bold text-[#151515] mb-5">
-              Why the Name &ldquo;Jadeed&rdquo;?
-            </h2>
-            <p className="text-[16.5px] leading-relaxed text-black/75 mb-4">
-              The word <strong>Jadeed</strong> represents being modern, new, and innovative. Jadeed Solutions was initially conceived like a modern marketing and digital services company.
-            </p>
-            <p className="text-[16.5px] leading-relaxed text-black/75 mb-4">
-              However, as my skill set expanded and the problems we were solving became more technical, the direction evolved. Instead of remaining purely a marketing agency, Jadeed Solutions transitioned into a <strong>technology and software-driven growth company</strong>.
-            </p>
-            <p className="text-[16.5px] leading-relaxed text-black/75">
-              Today, marketing remains part of what we solve, but our work increasingly combines websites, technical SEO, frontend and backend development, custom mobile applications, AI systems, workflow automation, and business infrastructure.
-            </p>
-          </div>
-
-          {/* Section 5: The Turning Points (Just Shine & Alpha Movers) */}
-          <div className="bg-white border border-black/10 rounded-2xl p-8 sm:p-10 shadow-sm">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#015f45] mb-2 block">
-              05 · Turning Points
-            </span>
-            <h2 className="text-[26px] sm:text-[30px] font-bold text-[#151515] mb-5">
-              How SEO and Modern Engineering Took Center Stage
-            </h2>
-            <div className="space-y-6">
-              <div className="border-l-2 border-[#015f45] pl-4">
-                <h3 className="text-[18px] font-bold text-[#151515] mb-1">
-                  Just Shine Cleaning Services (UAE) — The Spark
-                </h3>
-                <p className="text-[15.5px] leading-relaxed text-black/75">
-                  The owner, <strong>Waheedullah</strong>, asked me to work on the SEO of his website. Initially, I had not thought deeply about SEO as a primary career focus. But when the website began showing early ranking jumps and real inquiries in Abu Dhabi, curiosity pushed me to study search algorithms deeply and understand exactly why results happen.
-                </p>
-              </div>
-
-              <div className="border-l-2 border-[#cbd810] pl-4">
-                <h3 className="text-[18px] font-bold text-[#151515] mb-1">
-                  Alpha Movers (London, UK) — Full Next.js &amp; AI Scale
-                </h3>
-                <p className="text-[15.5px] leading-relaxed text-black/75">
-                  Working with <strong>Abdullah</strong>, who was building his London removal business, became an invaluable live laboratory. I initially built the site on WordPress, and as traffic surged, rebuilt the entire architecture in <strong>Next.js</strong> with AI-assisted workflows. GSC recorded over 160K impressions, proving that SEO is exponentially more powerful when the practitioner understands the underlying software engineering.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Section 6: Full Tech Stack & AI Philosophy */}
-          <div className="bg-white border border-black/10 rounded-2xl p-8 sm:p-10 shadow-sm">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#015f45] mb-2 block">
-              06 · Engineering &amp; AI Stack
-            </span>
-            <h2 className="text-[26px] sm:text-[30px] font-bold text-[#151515] mb-5">
-              Full Digital Systems, Custom Automation &amp; AI
-            </h2>
-            <p className="text-[16.5px] leading-relaxed text-black/75 mb-6">
-              Depending on the business requirement, our technical capabilities span modern web frameworks, mobile applications, and backend systems:
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-              {[
-                "Next.js, React & TypeScript",
-                "WordPress & Headless CMS",
-                "Flutter & Cross-Platform Mobile Apps",
-                "Technical SEO & Intent Architecture",
-                "AI-Assisted Workflows (ChatGPT, Antigravity)",
-                "Custom Automation (Internal tools over bloated SaaS)",
-                "Custom Dashboards & Lead Management",
-                "Frictionless Booking & One-Tap Calling Engines",
-              ].map((skill, idx) => (
-                <div key={idx} className="flex items-center gap-2.5 text-[15px] font-medium text-black/80">
-                  <HugeiconsIcon icon={CheckCircleIcon} size={18} className="text-[#015f45] shrink-0" />
-                  <span>{skill}</span>
-                </div>
-              ))}
-            </div>
-            <p className="text-[15.5px] leading-relaxed text-black/70 italic">
-              We prefer building custom automation tools ourselves to maintain full control over business logic, workflows, data security, and long-term operating costs rather than making clients dependent on costly third-party subscriptions.
-            </p>
-          </div>
-
-          {/* Section 7: The Performance-Based Promise */}
-          <div className="bg-gradient-to-br from-[#015f45] to-[#014f39] text-white rounded-2xl p-8 sm:p-10 shadow-lg relative overflow-hidden">
-            <div
-              className="absolute inset-0 z-0 pointer-events-none opacity-25 mix-blend-overlay"
-              style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-                backgroundRepeat: "repeat",
-              }}
-            />
-            <div className="relative z-10">
-              <span className="text-xs font-extrabold uppercase tracking-widest text-[#cbd810] mb-2 block">
-                07 · Commercial Alignment
-              </span>
-              <h2 className="text-[26px] sm:text-[32px] font-bold text-white mb-4">
-                &ldquo;We Only Charge When You Get an Actual Booking&rdquo;
-              </h2>
-              <p className="text-[16.5px] leading-relaxed text-white/90 mb-4">
-                One of our strongest commercial principles is aligning our revenue directly with client success. Instead of asking local service business owners to pay indefinite retainers for vague marketing activity, we offer arrangements tied directly to booked jobs and verified customer revenue (such as 5% to 10% performance models or structured fixed milestones).
-              </p>
-              <p className="text-[16.5px] leading-relaxed text-white/80">
-                If the client grows, we grow together.
-              </p>
-            </div>
-          </div>
-
-          {/* Section 8: Team & Sister Brands */}
-          <div className="bg-white border border-black/10 rounded-2xl p-8 sm:p-10 shadow-sm">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#015f45] mb-2 block">
-              08 · Team &amp; Brand Ecosystem
-            </span>
-            <h2 className="text-[26px] sm:text-[30px] font-bold text-[#151515] mb-5">
-              Focused Team &amp; The Jadeed Ecosystem
-            </h2>
-            <p className="text-[16.5px] leading-relaxed text-black/75 mb-4">
-              Jadeed Solutions operates with a <strong>small and highly capable team</strong>. I remain directly involved in strategy, development, technical SEO, AI systems, automation, and overall quality. <strong>Asad Waqas</strong> works closely alongside me as one of the primary pillars of the business.
-            </p>
-            <p className="text-[16.5px] leading-relaxed text-black/75">
-              Alongside Jadeed Solutions, we are developing <strong>Jadeed Marketing</strong> as a sister brand focused specifically on marketing campaigns, while Jadeed Solutions focuses on technology, software, full-stack development, SEO, and business infrastructure.
-            </p>
-          </div>
-
-        </div>
-      </section>
-
-      {/* FINAL FOUNDER CTA BANNER */}
-      <section className="w-full bg-[#111614] text-white py-20 px-6 border-t border-black/10 relative overflow-hidden">
-        <div className="max-w-[1000px] mx-auto text-center flex flex-col items-center">
-          <span className="bg-[#cbd810] text-[#111111] text-[11px] font-extrabold px-3.5 py-1.5 rounded-xl uppercase tracking-widest mb-6">
-            Direct Partnership
-          </span>
-          <h2 className="text-[32px] sm:text-[44px] font-bold leading-tight mb-5 max-w-[800px]">
-            Ready to Build a Measurable Growth Engine for Your Business?
-          </h2>
-          <p className="text-[17px] text-white/70 max-w-[680px] leading-relaxed mb-8">
-            Let&apos;s discuss your services, target cities, and growth goals. Book a free consultation or message directly on WhatsApp.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link
-              href="/contact"
-              className="group bg-[#cbd810] text-[#111111] font-bold text-[15px] h-12 px-7 rounded-xl flex items-center justify-center gap-2 transition-colors hover:bg-[#b8c50e] shadow-sm"
-            >
-              Get Free Growth Plan
-              <SlidingArrow colorClass="text-[#111111]" />
-            </Link>
-            <a
-              href="mailto:info@jadeedsolutions.com"
-              className="bg-white/10 text-white hover:bg-white/20 border border-white/20 font-semibold text-[15px] h-12 px-6 rounded-xl flex items-center justify-center gap-2 transition-colors"
-            >
-              info@jadeedsolutions.com
-            </a>
-          </div>
-        </div>
-      </section>
+      </div>
     </main>
   );
 }
