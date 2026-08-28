@@ -23,21 +23,14 @@ export function Navbar() {
     <header
       className={`${
         !isHomepage
-          ? "fixed top-0 inset-x-0 z-50 py-3.5 border-b border-white/10 shadow-lg text-white"
+          ? "fixed top-0 inset-x-0 z-50 py-3.5 bg-[#015f45] text-white shadow-sm"
           : "absolute top-0 inset-x-0 z-50 pt-5 text-white"
       } px-4 sm:px-6 lg:px-10 transition-all duration-300`}
-      style={
-        !isHomepage
-          ? {
-              background: "linear-gradient(to bottom, #027354 0%, #015f45 70%, #014f39 100%)",
-            }
-          : undefined
-      }
     >
-      {/* Noise Texture Overlay for Inner Pages Header to match Services Hero */}
+      {/* Noise Texture Overlay matching the hero section exactly */}
       {!isHomepage && (
         <div
-          className="absolute inset-0 z-0 pointer-events-none opacity-30 mix-blend-overlay"
+          className="absolute inset-0 z-0 pointer-events-none opacity-40 mix-blend-overlay"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
             backgroundRepeat: "repeat",
@@ -66,7 +59,7 @@ export function Navbar() {
           </span>
         </Link>
 
-        <div className="hidden items-center gap-7 rounded-xl border border-white/25 bg-[#014f39]/80 backdrop-blur-sm px-7 py-3.5 text-sm font-semibold shadow-sm lg:flex">
+        <div className="hidden items-center gap-7 rounded-xl border border-white/20 bg-[#014f39]/80 backdrop-blur-sm px-7 py-3.5 text-sm font-semibold shadow-sm lg:flex">
           {links.map(([label, href]) => (
             <Link
               key={label}
