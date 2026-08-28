@@ -46,6 +46,7 @@ const sections = [
   {
     title: "Company",
     links: [
+      ["Founder Profile", "/sameer-ahmad-basra"],
       ["About Team Jadeed", "/about"],
       ["How It Works", "/how-it-works"],
       ["Model Comparison", "/compare/jadeed-vs-marketing-agency"],

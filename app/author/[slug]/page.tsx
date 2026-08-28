@@ -124,24 +124,28 @@ export default function AuthorPage({
                 </ul>
               )}
 
-              {author.socials && author.socials.length > 0 && (
-                <div className="mt-5 flex flex-wrap justify-center gap-2 md:justify-start">
-                  {author.socials.map((s) => (
-                    <a
-                      key={s.href}
-                      href={s.href}
-                        target={s.label === "LinkedIn" ? "_blank" : undefined}
-                        rel={s.label === "LinkedIn" ? "noreferrer" : undefined}
-                        className="inline-flex items-center gap-1.5 rounded-xl border border-white/15 bg-white/10 px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-white hover:text-[#015f45]"
-                    >
-                      {s.label === "Email" && (
-                        <HugeiconsIcon icon={MailIcon} size={15} />
-                      )}
-                      {s.label}
-                    </a>
-                  ))}
-                </div>
-              )}
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                <Link
+                  href="/sameer-ahmad-basra"
+                  className="inline-flex items-center gap-1.5 rounded-xl bg-[#cbd810] px-4 py-2 text-sm font-bold text-[#111111] transition-colors hover:bg-[#b8c50e]"
+                >
+                  Read Full Founder Story →
+                </Link>
+                {author.socials && author.socials.length > 0 && author.socials.map((s) => (
+                  <a
+                    key={s.href}
+                    href={s.href}
+                    target={s.label === "LinkedIn" ? "_blank" : undefined}
+                    rel={s.label === "LinkedIn" ? "noreferrer" : undefined}
+                    className="inline-flex items-center gap-1.5 rounded-xl border border-white/15 bg-white/10 px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-white hover:text-[#015f45]"
+                  >
+                    {s.label === "Email" && (
+                      <HugeiconsIcon icon={MailIcon} size={15} />
+                    )}
+                    {s.label}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 

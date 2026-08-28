@@ -8,6 +8,7 @@ export type Author = {
   /** Short facts for About / profile layout */
   highlights?: string[];
   location?: string;
+  address?: string;
   socials?: { label: string; href: string }[];
 };
 
@@ -15,18 +16,19 @@ export const authors: Record<string, Author> = {
   "sameer-ahmad-basra": {
     slug: "sameer-ahmad-basra",
     name: "Sameer Ahmad Basra",
-    role: "Founder & CEO, Jadeed Solutions",
+    role: "Founder & Lead Architect, Jadeed Solutions",
     avatar: "/team/sameer-ahmad-basra.jpg",
     location: "Narowal, Punjab, Pakistan",
-    bio: "Founder and CEO of Jadeed Solutions, working hands-on across technical SEO, local search strategy, conversion websites and performance-aligned growth for service businesses.",
+    address: "House No. 5, Street No. 1, New Lahore Road, Pejowali Kalan, Narowal, 51600, Pakistan",
+    bio: "Founder of Jadeed Solutions, helping local service-based businesses generate more bookings by combining high-performing websites, SEO, software, AI, and custom-built automation — with a model where Jadeed Solutions only charges when the business gets an actual booking.",
     longBio:
-      "Sameer Ahmad Basra founded Jadeed Solutions in 2024 and leads strategy and delivery from Narowal, Punjab. His work connects technical SEO, search-intent architecture, conversion-focused websites, paid acquisition and measurement for local service businesses. He remains directly involved in research, information architecture, implementation and performance review. The Alpha Movers engagement is a documented example: Google Search Console recorded 630 organic clicks and 160,903 impressions from 24 February to 23 August 2026, while the final 28 days generated 272 clicks and 96,301 impressions.",
+      "Sameer Ahmad Basra founded Jadeed Solutions in December 2024 and leads strategy, software architecture, technical SEO, and automation from Narowal, Punjab. Starting originally in WordPress web development, he expanded into modern Next.js/React engineering, search-intent architecture, AI integration, and performance-based growth systems. His core philosophy connects real business demand to measurable bookings rather than abstract marketing metrics.",
     highlights: [
-      "Founder of Jadeed Solutions (established 2024)",
-      "Hands-on technical SEO, local search, websites and acquisition strategy",
-      "Performance option: 10% of bookings generated",
-      "Works with service businesses in the UK, US, UAE and Pakistan",
-      "Author of evidence-led SEO research and client case studies",
+      "Founder of Jadeed Solutions (Founded December 2024)",
+      "Hands-on full-stack development, technical SEO, AI systems & custom automation",
+      "Performance-aligned model: We only charge when you get an actual booking",
+      "Proven international portfolio across UK, UAE, Pakistan and US service businesses",
+      "Official Location: Pejowali Kalan, Narowal, Punjab, Pakistan",
     ],
     socials: [
       { label: "Email", href: "mailto:info@jadeedsolutions.com" },
