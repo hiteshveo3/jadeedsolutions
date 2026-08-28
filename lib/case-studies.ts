@@ -53,11 +53,11 @@ export const caseStudies: CaseStudy[] = [
       "digital-advertising",
     ],
     summary:
-      "We built and run Alpha Movers end-to-end — website, app, SEO, social and paid ads — on a 10% performance model that the client proposed. Since launch on 18 Dec 2025, the brand-new London removals site has grown to 55.9K impressions and 339 organic clicks in 6 months, with visibility climbing sharply since June. Roughly 1 in 10 organic clicks becomes a booking.",
+      "We built and support Alpha Movers across website, app, SEO, social and paid acquisition. Google Search Console recorded 630 organic clicks and 160,903 impressions from 24 February to 23 August 2026. The final 28 days produced 272 clicks and 96,301 impressions, showing a sharp expansion in search visibility.",
     story: [
       "Abdullah Bin Mustafa wanted growth but a classic monthly SEO retainer was tough on cash flow. We’d offered a monthly plan — he suggested something better: pay 10% after each booking our work generates. That model unlocked a full partnership instead of a slow drip of retainers.",
       "We didn’t only “do SEO”. We built the website, proposed and shipped a mobile app, ran social and ads, and pushed into services Alpha hadn’t focused on before — including sofa / furniture hoisting — so the site could rank for (and win) higher-value specialist jobs.",
-      "Results compound in Search Console: 216 clicks · 44.3K impressions in the last 3 months; 122 clicks · 22K impressions in the last 28 days alone.",
+      "Results compound in Search Console: 486 clicks and 142,133 impressions in the final three months; 272 clicks and 96,301 impressions in the final 28 days alone.",
     ],
     testimonial: {
       quote:
@@ -66,19 +66,19 @@ export const caseStudies: CaseStudy[] = [
       role: "Alpha Movers · London",
     },
     metrics: [
-      { value: "55.9K", label: "Impressions (last 6 months)" },
-      { value: "339", label: "Clicks (last 6 months)" },
-      { value: "~34", label: "Bookings est. (10% of clicks · 6 mo)" },
-      { value: "44.3K", label: "Impressions (last 3 months)" },
-      { value: "216", label: "Clicks (last 3 months)" },
-      { value: "122", label: "Clicks (last 28 days)" },
+      { value: "160,903", label: "Impressions (24 Feb–23 Aug 2026)" },
+      { value: "630", label: "Clicks (24 Feb–23 Aug 2026)" },
+      { value: "+312%", label: "Clicks: first vs final 28 days" },
+      { value: "142,133", label: "Impressions (last 3 months)" },
+      { value: "486", label: "Clicks (last 3 months)" },
+      { value: "272", label: "Clicks (last 28 days)" },
     ],
     highlights: [
       "Client-led 10% after-booking model — better fit than a monthly SEO retainer.",
       "Full stack from Jadeed: website, mobile app, SEO, social and paid ads.",
       "Expanded into sofa / furniture hoisting SEO even though it wasn’t an early focus for the client.",
-      "6-month GSC: 339 clicks · 55.9K impressions · strong ramp since June 2026.",
-      "~10% of organic clicks become bookings — incentives stay aligned.",
+      "6-month GSC export: 630 clicks · 160,903 impressions · strong ramp since June 2026.",
+      "Booking and revenue attribution are deliberately excluded until reconciled with lead data.",
     ],
     topQueries: [
       { query: "alpha movers", note: "Brand — ranking & getting clicks" },

@@ -10,13 +10,18 @@ export const siteConfig = {
   phoneHref: "+923167669343",
   /** WhatsApp chat link (same number, no +) */
   whatsappHref: "https://wa.me/923167669343",
-  address: "Lahore, Pakistan",
-  addressLine: "Lahore, Pakistan · Serving UK, USA & worldwide",
-  googleBusinessUrl: "https://share.google/sM4TWgJGFe1bkMcjA",
+  address: "House No. 5, Street No. 1, New Lahore Road, Pejowali Kalan, Narowal 51600, Pakistan",
+  addressLine: "Pejowali Kalan, Narowal 51600, Pakistan · Serving clients worldwide",
+  googleBusinessUrl: "https://g.page/r/CR8o8gDknX_AEBM/review",
   /** Embed for contact page map */
   googleMapsEmbedUrl:
-    "https://maps.google.com/maps?q=Lahore%2C%20Pakistan&z=11&output=embed",
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3381.8138231574435!2d74.81080087425822!3d32.047230420925814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39195300c6b42b1b%3A0xc07f9de400f2281f!2sJadeed%20Solutions!5e0!3m2!1sen!2s!4v1787677187097!5m2!1sen!2s",
   trustpilotUrl: "https://www.trustpilot.com/review/jadeedsolutions.com",
+  clutchUrl: "https://clutch.co/profile/jadeed-solutions",
+  goodfirmsUrl: "https://www.goodfirms.co/company/jadeed-solutions",
+  facebookReviewsUrl: "https://web.facebook.com/jadeedsolution/reviews",
+  founded: "2024",
+  geo: { latitude: 32.047230420925814, longitude: 74.81080087425822 },
   social: {
     facebook: "https://web.facebook.com/jadeedsolution",
     instagram: "https://www.instagram.com/jadeedsolution/",

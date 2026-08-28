@@ -27,6 +27,7 @@ export function generateMetadata({
   return {
     title: `${author.name} — ${author.role}`,
     description: author.bio,
+    alternates: { canonical: `${siteConfig.url}/author/${author.slug}` },
     openGraph: {
       type: "profile",
       title: author.name,
@@ -49,11 +50,16 @@ export default function AuthorPage({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": `${siteConfig.url}/author/${author.slug}/#person`,
     name: author.name,
+    url: `${siteConfig.url}/author/${author.slug}`,
     jobTitle: author.role,
     image: `${siteConfig.url}${author.avatar}`,
     description: author.longBio,
-    worksFor: { "@type": "Organization", name: siteConfig.name },
+    sameAs: author.socials?.filter((social) => social.label === "LinkedIn").map((social) => social.href),
+    knowsAbout: ["Technical SEO", "Local SEO", "Google Search Console", "Conversion websites", "AI-first content strategy"],
+    homeLocation: { "@type": "Place", name: author.location },
+    worksFor: { "@id": `${siteConfig.url}/#organization`, name: siteConfig.name },
   };
 
   return (
@@ -63,9 +69,9 @@ export default function AuthorPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="bg-slate-50">
+      <div className="bg-[#f7f5ef] pb-20 pt-28 text-[#111]">
         <div className="container py-10 md:py-14">
-          <nav aria-label="Breadcrumb" className="text-xs text-slate-500">
+          <nav aria-label="Breadcrumb" className="text-xs text-black/50">
             <ol className="flex items-center gap-1.5">
               <li>
                 <Link href="/" className="hover:text-brand-500">
@@ -86,28 +92,32 @@ export default function AuthorPage({
           </nav>
 
           {/* Profile header */}
-          <div className="mt-6 flex flex-col items-center gap-6 rounded-3xl border border-slate-200 bg-white p-8 text-center md:flex-row md:items-center md:gap-8 md:p-10 md:text-left">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+          <div className="mt-6 grid overflow-hidden rounded-[30px] bg-[#015f45] text-white lg:grid-cols-[.7fr_1.3fr]">
+            <div className="relative min-h-[380px] bg-[#f28a16]">
+            <Image
               src={author.avatar}
-              alt={author.name}
-              className="h-28 w-28 shrink-0 rounded-full object-cover ring-4 ring-brand-100 md:h-32 md:w-32"
+              alt={`${author.name}, Founder and CEO of Jadeed Solutions`}
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              className="object-cover object-top"
             />
-            <div className="flex-1">
-              <span className="inline-flex items-center rounded-full bg-brand-500 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
-                Author
+            </div>
+            <div className="p-7 sm:p-10 lg:p-12">
+              <span className="inline-flex items-center rounded-full bg-[#cbd810] px-3 py-1 text-xs font-bold uppercase tracking-wider text-black">
+                Founder profile
               </span>
-              <h1 className="mt-3 font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl">
+              <h1 className="mt-4 font-sans text-4xl font-semibold tracking-[-.045em] md:text-6xl">
                 {author.name}
               </h1>
-              <p className="mt-1 font-semibold text-brand-500">{author.role}</p>
-              <p className="mt-4 max-w-2xl text-slate-600">{author.longBio}</p>
+              <p className="mt-2 font-semibold text-[#eaf25a]">{author.role}</p>
+              <p className="mt-5 max-w-2xl leading-7 text-white/70">{author.longBio}</p>
 
               {author.highlights && author.highlights.length > 0 && (
-                <ul className="mt-5 grid gap-2 text-left text-sm text-slate-700 sm:grid-cols-2">
+                <ul className="mt-6 grid gap-3 text-left text-sm text-white/75 sm:grid-cols-2">
                   {author.highlights.map((h) => (
                     <li key={h} className="flex items-start gap-2">
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" />
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#cbd810]" />
                       {h}
                     </li>
                   ))}
@@ -120,7 +130,9 @@ export default function AuthorPage({
                     <a
                       key={s.href}
                       href={s.href}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-1.5 text-sm font-medium text-slate-700 transition-colors hover:border-brand-400 hover:text-brand-500"
+                        target={s.label === "LinkedIn" ? "_blank" : undefined}
+                        rel={s.label === "LinkedIn" ? "noreferrer" : undefined}
+                        className="inline-flex items-center gap-1.5 rounded-xl border border-white/15 bg-white/10 px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-white hover:text-[#015f45]"
                     >
                       {s.label === "Email" && (
                         <HugeiconsIcon icon={MailIcon} size={15} />
@@ -136,7 +148,7 @@ export default function AuthorPage({
           {/* Posts */}
           <section className="mt-12">
             <div className="mb-6 flex items-end justify-between">
-              <h2 className="font-display text-2xl font-semibold tracking-tight text-ink">
+              <h2 className="font-sans text-3xl font-semibold tracking-[-.035em] text-[#111]">
                 Articles by {author.name.split(" ")[0]}
               </h2>
               <span className="text-sm text-slate-500">

@@ -1,204 +1,200 @@
 "use client";
 
-import React, { useState } from "react";
-import Link from "next/link";
+import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { siteConfig } from "@/lib/site";
-import { HugeiconsIcon, MailIcon, PhoneIcon, ArrowDownIcon } from "./icons";
+import {
+  HugeiconsIcon,
+  ArrowDownIcon,
+  ArrowRightIcon,
+  MailIcon,
+  PhoneIcon,
+} from "./icons";
 
-const footerSections = [
+const sections = [
   {
     title: "Solutions",
     links: [
-      { label: "Local SEO & 3-Pack", href: "/services/seo" },
-      { label: "Google Ads & PPC", href: "/services/digital-advertising" },
-      { label: "Conversion Websites", href: "/services/web-development" },
-      { label: "Mobile Applications", href: "/services/app-development" },
-      { label: "All Services", href: "/services" },
+      ["Local SEO & 3-Pack", "/services/seo"],
+      ["Google Ads & PPC", "/services/digital-advertising"],
+      ["Conversion Websites", "/services/web-development"],
+      ["Mobile Applications", "/services/app-development"],
+      ["All Services", "/services"],
     ],
   },
   {
     title: "Industries",
     links: [
-      { label: "Plumbing & Heating", href: "/industries/seo-for-plumbers" },
-      { label: "Cleaning Companies", href: "/industries/seo-for-cleaners" },
-      { label: "Moving & Removals", href: "/industries/seo-for-uk-removals" },
-      { label: "Contractors & Trades", href: "/industries/seo-for-local-service-businesses" },
-      { label: "All Industries", href: "/industries" },
+      ["Plumbing & Heating", "/industries/seo-for-plumbers"],
+      ["Cleaning Companies", "/industries/seo-for-cleaners"],
+      ["Moving & Removals", "/industries/seo-for-uk-removals"],
+      ["Contractors & Trades", "/industries/seo-for-local-service-businesses"],
+      ["All Industries", "/industries"],
     ],
   },
   {
     title: "Resources",
     links: [
-      { label: "Growth Guides", href: "/guides" },
-      { label: "Case Studies & Proof", href: "/portfolio" },
-      { label: "Pricing & Models", href: "/pricing" },
-      { label: "Free Growth Check", href: "/tools/growth-check" },
-      { label: "Blog & Research", href: "/blog" },
+      ["Growth Guides", "/guides"],
+      ["Case Studies & Proof", "/portfolio"],
+      ["Pricing & Models", "/pricing"],
+      ["Free Growth Check", "/tools/growth-check"],
+      ["Blog & Research", "/blog"],
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "About Team Jadeed", href: "/about" },
-      { label: "How It Works", href: "/how-it-works" },
-      { label: "Model Comparison", href: "/compare/jadeed-vs-marketing-agency" },
-      { label: "Contact Us", href: "/contact" },
+      ["About Team Jadeed", "/about"],
+      ["How It Works", "/how-it-works"],
+      ["Model Comparison", "/compare/jadeed-vs-marketing-agency"],
+      ["Contact Us", "/contact"],
     ],
   },
-];
+] as const;
 
 export function Footer() {
-  const year = new Date().getFullYear();
-  const [openSection, setOpenSection] = useState<string | null>(null);
-
-  const toggleSection = (title: string) => {
-    setOpenSection(openSection === title ? null : title);
-  };
+  const [open, setOpen] = useState<string | null>(null);
 
   return (
-    <footer className="w-full bg-surface-canvas border-t border-black/[0.08] text-ink">
-      <div className="max-w-[1340px] mx-auto px-6 py-16 lg:py-20">
-        
-        {/* Desktop & Tablet Top Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
-          
-          {/* Brand Info Column (4 Cols Desktop) */}
-          <div className="lg:col-span-4 flex flex-col justify-between">
-            <div>
-              <Link
-                href="/"
-                className="font-bold text-2xl tracking-tight text-ink flex items-center gap-2 mb-4 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
-              >
-                <Image src="/logo.png" alt="Jadeed Solutions" width={30} height={30} className="rounded-lg" />
-                <span>Jadeed Solutions<span className="text-brand">.</span></span>
-              </Link>
-              <p className="text-ink/65 text-sm leading-relaxed max-w-[340px] mb-6 font-normal">
-                Connected customer acquisition systems and performance-aligned commercial models for UK & US local service businesses.
-              </p>
-            </div>
+    <footer className="border-t border-white/10 bg-[#014f39] text-white">
+      <div className="mx-auto max-w-[1340px] px-6 py-10 sm:py-14 lg:py-16">
+        <div className="relative mb-14 overflow-hidden rounded-[28px] bg-[#dceee8] px-6 py-9 text-[#063d30] sm:px-10 lg:flex lg:items-center lg:justify-between lg:px-12">
+          <div className="absolute -bottom-20 right-12 h-48 w-48 rounded-full bg-[#cbd810]/45 blur-3xl" />
+          <div className="relative max-w-2xl">
+            <p className="text-xs font-extrabold uppercase tracking-[.14em] text-[#015f45]">
+              Build your next growth system
+            </p>
+            <h2 className="mt-3 font-sans text-3xl font-semibold tracking-[-.04em] sm:text-4xl">
+              Turn more local demand into booked work.
+            </h2>
+          </div>
+          <Link
+            href="/contact"
+            className="group relative mt-7 inline-flex h-12 items-center gap-2 rounded-xl bg-[#cbd810] px-6 text-sm font-bold text-[#111111] transition-colors hover:bg-[#b8c50e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#015f45] focus-visible:ring-offset-2 lg:mt-0"
+          >
+            Get a free growth plan
+            <HugeiconsIcon
+              icon={ArrowRightIcon}
+              size={17}
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            />
+          </Link>
+        </div>
 
-            <div className="flex flex-col gap-2.5 text-sm text-ink/75">
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_2fr] lg:gap-16">
+          <div>
+            <Link
+              href="/"
+              className="inline-flex items-center gap-3 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cbd810]"
+            >
+              <Image
+                src="/jadeed-favicon.webp"
+                alt="Jadeed Solutions"
+                width={46}
+                height={46}
+                className="rounded-xl"
+              />
+              <span className="text-2xl font-bold tracking-tight">
+                Jadeed Solutions<span className="text-[#cbd810]">.</span>
+              </span>
+            </Link>
+            <p className="mt-5 max-w-sm text-sm leading-6 text-white/65">
+              Connected customer acquisition systems for UK and US local service businesses.
+            </p>
+            <div className="mt-7 space-y-3 text-sm text-white/75">
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="hover:text-brand transition-colors flex items-center gap-2 font-medium rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+                className="flex items-center gap-2 rounded-md transition-colors hover:text-[#eaf25a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cbd810]"
               >
-                <span aria-hidden="true">
-                  <HugeiconsIcon icon={MailIcon} size={15} />
-                </span>
-                <span>{siteConfig.email}</span>
+                <HugeiconsIcon icon={MailIcon} size={17} />
+                {siteConfig.email}
               </a>
               <a
                 href={`tel:${siteConfig.phoneHref}`}
-                className="hover:text-brand transition-colors flex items-center gap-2 font-medium rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+                className="flex items-center gap-2 rounded-md transition-colors hover:text-[#eaf25a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cbd810]"
               >
-                <span aria-hidden="true">
-                  <HugeiconsIcon icon={PhoneIcon} size={15} />
-                </span>
-                <span>{siteConfig.phone}</span>
+                <HugeiconsIcon icon={PhoneIcon} size={17} />
+                {siteConfig.phone}
               </a>
             </div>
           </div>
 
-          {/* Desktop 4-Column Navigation (Hidden on Mobile) */}
-          <div className="hidden md:grid md:grid-cols-4 lg:col-span-8 gap-8">
-            {footerSections.map((sec) => (
-              <div key={sec.title}>
-                <h4 className="font-bold tracking-wider uppercase text-ink mb-4 text-xs">
-                  {sec.title}
-                </h4>
-                <ul className="space-y-2.5 text-sm text-ink/70 font-medium">
-                  {sec.links.map((link) => (
-                    <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        className="hover:text-brand transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          <div className="hidden grid-cols-4 gap-8 md:grid">
+            {sections.map((section) => (
+              <FooterSection key={section.title} section={section} />
             ))}
           </div>
 
-          {/* Mobile Accordion Navigation (< 768px with full accessibility and aria-controls) */}
-          <div className="md:hidden divide-y divide-black/[0.08] border-y border-black/[0.08] my-2">
-            {footerSections.map((sec) => {
-              const panelId = `footer-panel-${sec.title.toLowerCase()}`;
-              const isExpanded = openSection === sec.title;
+          <div className="divide-y divide-white/10 border-y border-white/10 md:hidden">
+            {sections.map((section) => {
+              const expanded = open === section.title;
+              const panelId = `footer-${section.title.toLowerCase()}`;
+
               return (
-                <div key={sec.title}>
+                <div key={section.title}>
                   <button
                     type="button"
-                    aria-expanded={isExpanded}
+                    onClick={() => setOpen(expanded ? null : section.title)}
+                    aria-expanded={expanded}
                     aria-controls={panelId}
-                    onClick={() => toggleSection(sec.title)}
-                    className="w-full min-h-[48px] py-3 flex items-center justify-between text-left font-bold text-sm text-ink cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded-sm"
+                    className="flex min-h-12 w-full items-center justify-between py-3 text-left text-sm font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cbd810]"
                   >
-                    <span>{sec.title}</span>
+                    {section.title}
                     <HugeiconsIcon
                       icon={ArrowDownIcon}
                       size={16}
-                      aria-hidden="true"
-                      className={`transition-transform duration-200 ${
-                        isExpanded ? "rotate-180 text-brand" : "text-ink/40"
+                      className={`transition-transform ${
+                        expanded ? "rotate-180 text-[#eaf25a]" : "text-white/50"
                       }`}
                     />
                   </button>
-
-                  {isExpanded && (
-                    <div id={panelId} role="region" aria-label={sec.title}>
-                      <ul className="pb-4 space-y-2.5 text-sm text-ink/70 font-medium pl-1">
-                        {sec.links.map((link) => (
-                          <li key={link.href}>
-                            <Link
-                              href={link.href}
-                              className="block py-1 hover:text-brand transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
-                            >
-                              {link.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                  {expanded && (
+                    <ul id={panelId} className="space-y-2 pb-4 text-sm text-white/65">
+                      {section.links.map(([label, href]) => (
+                        <li key={href}>
+                          <Link href={href} className="block py-1 hover:text-[#eaf25a]">
+                            {label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
                   )}
                 </div>
               );
             })}
           </div>
-
         </div>
 
-        {/* Bottom Legal & Copyright Bar */}
-        <div className="pt-8 mt-12 border-t border-black/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ink/55">
-          <div>
-            © {year} Jadeed Solutions Ltd. All rights reserved.
-          </div>
-          <div className="flex items-center gap-6">
-            <Link
-              href="/privacy"
-              className="hover:text-brand transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/terms"
-              className="hover:text-brand transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
-            >
-              Terms of Service
-            </Link>
-            <Link
-              href="/sitemap.xml"
-              className="hover:text-brand transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
-            >
-              Sitemap
-            </Link>
+        <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-7 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
+          <span>© {new Date().getFullYear()} Jadeed Solutions Ltd. All rights reserved.</span>
+          <div className="flex gap-6">
+            <Link href="/privacy" className="hover:text-white">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white">Terms of Service</Link>
+            <Link href="/sitemap.xml" className="hover:text-white">Sitemap</Link>
           </div>
         </div>
-
       </div>
     </footer>
+  );
+}
+
+function FooterSection({ section }: { section: (typeof sections)[number] }) {
+  return (
+    <div>
+      <h3 className="mb-4 text-xs font-extrabold uppercase tracking-[.14em] text-[#eaf25a]">
+        {section.title}
+      </h3>
+      <ul className="space-y-2.5 text-sm text-white/65">
+        {section.links.map(([label, href]) => (
+          <li key={href}>
+            <Link href={href} className="transition-colors hover:text-white">
+              {label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

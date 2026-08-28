@@ -23,6 +23,10 @@ const bricolage = Bricolage_Grotesque({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
+  icons: {
+    icon: [{ url: "/jadeed-favicon.webp", type: "image/webp" }],
+    shortcut: "/jadeed-favicon.webp",
+  },
   title: {
     default: `${siteConfig.name} | ${siteConfig.tagline}`,
     template: `%s | ${siteConfig.name}`,
@@ -54,13 +58,31 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["Organization", "ProfessionalService"],
+    "@id": `${siteConfig.url}/#organization`,
     name: siteConfig.name,
     url: siteConfig.url,
+    logo: `${siteConfig.url}/jadeed-favicon.webp`,
     description: siteConfig.description,
     email: siteConfig.email,
     telephone: siteConfig.phone,
-    sameAs: Object.values(siteConfig.social),
+    foundingDate: siteConfig.founded,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "House No. 5, Street No. 1, New Lahore Road, Pejowali Kalan",
+      addressLocality: "Narowal",
+      postalCode: "51600",
+      addressRegion: "Punjab",
+      addressCountry: "PK",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: siteConfig.geo.latitude,
+      longitude: siteConfig.geo.longitude,
+    },
+    areaServed: ["Pakistan", "United Kingdom", "United States", "United Arab Emirates"],
+    knowsAbout: ["Local SEO", "Google Ads", "Web development", "Mobile app development", "Conversion optimization", "AI automation"],
+    sameAs: [...Object.values(siteConfig.social), siteConfig.trustpilotUrl, siteConfig.clutchUrl, siteConfig.goodfirmsUrl],
   };
 
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { HugeiconsIcon, InfoIcon } from "@/components/icons";
+import { HugeiconsIcon, InfoIcon, ArrowRightIcon } from "@/components/icons";
 
 /**
  * Eyebrow Label: Standardized badge component
@@ -92,7 +92,7 @@ export const CTAButton = ({
   className?: string;
 }) => {
   const baseClasses =
-    "group min-h-[48px] px-6 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 cursor-pointer";
+    "group min-h-[48px] px-6 rounded-xl font-semibold text-sm inline-flex items-center justify-center gap-2 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 cursor-pointer";
   const variantClasses =
     variant === "primary"
       ? "bg-brand text-white hover:bg-brand-dark shadow-xs"
@@ -101,39 +101,13 @@ export const CTAButton = ({
   const content = (
     <>
       <span>{label}</span>
-      <span
-        className="relative w-4 h-4 overflow-hidden flex items-center justify-center -mr-0.5"
+      <HugeiconsIcon
+        icon={ArrowRightIcon}
+        size={16}
+        strokeWidth={2}
+        className="transition-transform duration-300 group-hover:translate-x-1"
         aria-hidden="true"
-      >
-        <svg
-          className={`absolute w-4 h-4 ${
-            variant === "primary" ? "text-white" : "text-ink"
-          } -translate-x-full group-hover:translate-x-0 transition-transform duration-200 ease-in-out`}
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M5 12h14"></path>
-          <path d="m12 5 7 7-7 7"></path>
-        </svg>
-        <svg
-          className={`absolute w-4 h-4 ${
-            variant === "primary" ? "text-white" : "text-ink"
-          } translate-x-0 group-hover:translate-x-full transition-transform duration-200 ease-in-out`}
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M5 12h14"></path>
-          <path d="m12 5 7 7-7 7"></path>
-        </svg>
-      </span>
+      />
     </>
   );
 

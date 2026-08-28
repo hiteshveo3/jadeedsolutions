@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   HugeiconsIcon,
@@ -17,6 +18,7 @@ import {
   TrendingUpIcon,
   SearchIcon,
   GridIcon,
+  ArrowRightIcon,
 } from "@/components/icons";
 
 // Accessible, single-element NavLink with CSS underline & color transition (replaces DOM-heavy letter splitting)
@@ -53,9 +55,14 @@ const NavLink = ({
 
 export function Navbar() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const pathname = usePathname();
 
   const openSearch = () => window.dispatchEvent(new Event("open-command-search"));
 
+  return <HomepageNavbar solid={pathname !== "/"} />;
+
+  /* Legacy mega-menu retained below while inner pages transition to the unified header. */
+  // eslint-disable-next-line no-unreachable
   return (
     <header className="fixed top-0 inset-x-0 z-50 flex flex-col items-center">
       {/* Top Announcement Bar (Light & Warm Editorial Design) */}
@@ -387,5 +394,126 @@ export function Navbar() {
         </AnimatePresence>
       </nav>
     </header>
+  );
+}
+
+function HomepageNavbar({ solid = false }: { solid?: boolean }) {
+  const links = [
+    ["Services", "/services"],
+    ["Solutions", "/how-it-works"],
+    ["Blog", "/blog"],
+    ["Portfolio", "/portfolio"],
+    ["Pricing", "/pricing"],
+    ["Contact", "/contact"],
+  ] as const;
+
+  return (
+    <header className={`${solid ? "fixed bg-[#015f45] py-3 shadow-md" : "absolute pt-5"} inset-x-0 top-0 z-50 px-4 text-white sm:px-6 lg:px-10`}>
+      <nav className="mx-auto flex max-w-[1360px] items-center justify-between gap-4" aria-label="Main Navigation">
+        <Link href="/" className="flex shrink-0 items-center gap-2 rounded-lg font-bold tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cbd810]">
+          <Image src="/jadeed-favicon.webp" alt="Jadeed Solutions Logo" width={38} height={38} className="rounded-lg" />
+          <span className="hidden text-xl leading-none sm:block">Jadeed<br className="lg:hidden" /> Solutions</span>
+        </Link>
+
+        <div className="hidden items-center gap-7 rounded-xl border border-white/35 bg-[#015f45]/80 px-7 py-3.5 text-sm font-semibold shadow-sm lg:flex">
+          {links.map(([label, href]) => (
+            <Link key={label} href={href} className="rounded-sm text-white/90 transition-colors hover:text-[#eaf25a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cbd810]">{label}</Link>
+          ))}
+        </div>
+
+        <div className="flex shrink-0 items-center gap-3">
+          <Link href="/contact" className="group inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-[#cbd810] px-4 text-sm font-bold text-[#111111] shadow-sm transition-colors hover:bg-[#b8c50e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:px-5">
+            <span className="hidden sm:inline">Get a free growth plan</span><span className="sm:hidden">Growth plan</span>
+            <span className="relative flex h-4 w-4 items-center justify-center overflow-hidden" aria-hidden="true">
+              <HugeiconsIcon icon={ArrowRightIcon} size={16} className="absolute -translate-x-full transition-transform duration-300 ease-in-out group-hover:translate-x-0" />
+              <HugeiconsIcon icon={ArrowRightIcon} size={16} className="absolute translate-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-full" />
+            </span>
+          </Link>
+        </div>
+      </nav>
+    </header>
+  );
+}
+
+function InnerPageNavbar() {
+  const [variant, setVariant] = useState(1);
+  const links = [
+    ["Services", "/services"],
+    ["Solutions", "/how-it-works"],
+    ["Blog", "/blog"],
+    ["Portfolio", "/portfolio"],
+    ["Pricing", "/pricing"],
+    ["Contact", "/contact"],
+  ] as const;
+
+  const styles = {
+    1: {
+      name: "Clean",
+      header: "border-black/[.07] bg-white text-[#111111] shadow-sm",
+      menu: "rounded-xl border border-black/10 bg-[#f7f5ef] shadow-sm",
+      link: "text-[#111111]/75 hover:text-[#015f45] focus-visible:ring-[#015f45]",
+      logo: "text-[#111111]",
+      cta: "bg-[#cbd810] text-[#111111] hover:bg-[#b8c50e] focus-visible:ring-[#015f45]",
+    },
+    2: {
+      name: "Brand",
+      header: "border-white/10 bg-[#015f45] text-white shadow-md",
+      menu: "rounded-xl border border-white/20 bg-[#014f39]",
+      link: "text-white/80 hover:text-[#eaf25a] focus-visible:ring-[#cbd810]",
+      logo: "text-white",
+      cta: "bg-[#cbd810] text-[#111111] hover:bg-[#eaf25a] focus-visible:ring-white",
+    },
+    3: {
+      name: "Minimal",
+      header: "border-black/10 bg-white text-[#111111]",
+      menu: "rounded-none border-0 bg-transparent shadow-none",
+      link: "text-[#111111]/70 hover:text-[#015f45] focus-visible:ring-[#015f45]",
+      logo: "text-[#111111]",
+      cta: "border border-[#015f45] bg-[#015f45] text-white hover:bg-[#014f39] focus-visible:ring-[#015f45]",
+    },
+    4: {
+      name: "Editorial",
+      header: "border-[#d8d3c8] bg-[#f7f5ef] text-[#111111] shadow-sm",
+      menu: "rounded-xl border border-[#d8d3c8] bg-white",
+      link: "text-[#111111]/75 hover:text-[#015f45] focus-visible:ring-[#015f45]",
+      logo: "text-[#111111]",
+      cta: "bg-[#111111] text-white hover:bg-[#015f45] focus-visible:ring-[#015f45]",
+    },
+  } as const;
+  const current = styles[variant as keyof typeof styles];
+
+  return (
+    <>
+      <header className={`fixed inset-x-0 top-0 z-50 border-b px-4 py-3 transition-colors duration-300 sm:px-6 lg:px-10 ${current.header}`}>
+        <nav className="mx-auto flex max-w-[1360px] items-center justify-between gap-4" aria-label="Main Navigation">
+          <Link href="/" className={`flex shrink-0 items-center gap-2 rounded-lg font-bold tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#015f45] ${current.logo}`}>
+            <Image src="/jadeed-favicon.webp" alt="Jadeed Solutions Logo" width={38} height={38} className="rounded-lg" />
+            <span className="hidden text-xl leading-none sm:block">Jadeed<br className="lg:hidden" /> Solutions</span>
+          </Link>
+
+          <div className={`hidden items-center gap-7 px-7 py-3.5 text-sm font-semibold transition-all duration-300 lg:flex ${current.menu}`}>
+            {links.map(([label, href]) => (
+              <Link key={label} href={href} className={`rounded-sm transition-colors focus-visible:outline-none focus-visible:ring-2 ${current.link}`}>{label}</Link>
+            ))}
+          </div>
+
+          <Link href="/contact" className={`group inline-flex h-12 shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-xl px-4 text-sm font-bold shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 sm:px-5 ${current.cta}`}>
+            <span className="hidden sm:inline">Get a free growth plan</span><span className="sm:hidden">Growth plan</span>
+            <span className="relative flex h-4 w-4 items-center justify-center overflow-hidden" aria-hidden="true">
+              <HugeiconsIcon icon={ArrowRightIcon} size={16} className="absolute -translate-x-full transition-transform duration-300 ease-in-out group-hover:translate-x-0" />
+              <HugeiconsIcon icon={ArrowRightIcon} size={16} className="absolute translate-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-full" />
+            </span>
+          </Link>
+        </nav>
+      </header>
+
+      <div className="fixed bottom-20 right-3 z-[80] flex items-center gap-1 rounded-xl border border-black/10 bg-white p-1.5 shadow-xl lg:bottom-5 lg:right-5" aria-label="Header variation switcher">
+        {(Object.keys(styles) as unknown as Array<keyof typeof styles>).map((key) => (
+          <button key={key} type="button" onClick={() => setVariant(Number(key))} className={`rounded-lg px-3 py-2 text-xs font-bold transition-colors ${variant === Number(key) ? "bg-[#015f45] text-white" : "text-[#111111]/60 hover:bg-[#f7f5ef] hover:text-[#111111]"}`} aria-pressed={variant === Number(key)} title={`${styles[key].name} header`}>
+            {key}<span className="hidden pl-1 sm:inline">· {styles[key].name}</span>
+          </button>
+        ))}
+      </div>
+    </>
   );
 }

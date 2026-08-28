@@ -52,6 +52,8 @@ export {
   Image01Icon as ImageIcon,
   VideoReplayIcon as VideoIcon,
   HandshakeIcon,
+  Add01Icon as PlusIcon,
+  MinusSignIcon as MinusIcon,
 } from "@hugeicons/core-free-icons";
 
 export type { IconSvgElement } from "@hugeicons/react";

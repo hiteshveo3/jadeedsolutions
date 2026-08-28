@@ -6,7 +6,6 @@ import { CTASection } from "@/components/CTASection";
 import { AccordionItem } from "@/components/Accordion";
 import { LinkButton } from "@/components/Button";
 import { Reveal } from "@/components/Reveal";
-import { HeroBackground } from "@/components/HeroBackground";
 import {
   HugeiconsIcon,
   CheckCircleIcon,
@@ -230,15 +229,17 @@ export function PricingContent() {
   return (
     <CurrencyProvider>
       {/* Hero */}
-      <section className="relative isolate overflow-hidden bg-white">
-        <HeroBackground />
-        <div className="container relative z-10 py-16 text-center sm:py-20">
-          <Reveal className="mx-auto flex max-w-3xl flex-col items-center gap-5">
-            <span className="eyebrow">Pricing</span>
-            <h1 className="font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
+      <main className="bg-white">
+      <section className="bg-white">
+        <div className="container py-20 sm:py-28 lg:py-32">
+          <Reveal className="grid items-end gap-10 lg:grid-cols-[1fr_0.8fr]">
+            <div>
+            <span className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-500">Pricing</span>
+            <h1 className="mt-5 max-w-3xl font-display text-5xl font-semibold tracking-[-0.055em] text-ink sm:text-6xl lg:text-7xl">
               Pay 10% of bookings — or pick a fixed plan
             </h1>
-            <p className="text-lg leading-relaxed text-slate-600">
+            </div>
+            <p className="max-w-xl text-lg leading-relaxed text-slate-600 lg:pb-2">
               Our main model is simple: we only win when you win. Pay just{" "}
               <span className="font-semibold text-brand-500">
                 10% of the bookings we generate
@@ -253,27 +254,27 @@ export function PricingContent() {
       </section>
 
       {/* Flagship — Growth Partnership */}
-      <section className="section bg-slate-50">
+      <section className="bg-white pb-24 sm:pb-32">
         <div className="container">
-          <div className="mb-6 flex justify-end">
-            <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-2.5">
+          <div className="mb-8 flex justify-end">
+            <div className="flex items-center gap-3 rounded-xl border border-[#deded8] bg-[#f7f7f3] px-4 py-2.5">
               <span className="hidden text-xs font-semibold uppercase tracking-wider text-slate-500 sm:inline">
                 Currency
               </span>
               <CurrencySwitcher />
             </div>
           </div>
-          <Reveal className="overflow-hidden rounded-3xl border border-slate-200 bg-white">
+          <Reveal className="overflow-hidden rounded-[28px] border border-[#deded8] bg-[#f7f7f3] shadow-[0_16px_50px_rgba(20,20,20,0.06)]">
             <div className="grid lg:grid-cols-[1.6fr_1fr]">
-              <div className="p-8 sm:p-10">
-                <span className="inline-flex items-center gap-2 rounded-full bg-brand-500 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white">
+              <div className="p-8 sm:p-10 lg:p-12">
+                <span className="inline-flex items-center gap-2 rounded-full bg-[#cbd810] px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#063d30]">
                   Most popular · Growth Partnership
                 </span>
                 <h2 className="mt-4 font-display text-2xl font-semibold text-ink sm:text-3xl">
                   Growth Partnership
                 </h2>
                 <div className="mt-4 flex flex-wrap items-baseline gap-x-3">
-                  <span className="font-display text-6xl font-semibold text-brand-500">
+                  <span className="font-display text-6xl font-semibold tracking-[-0.05em] text-brand-500">
                     10%
                   </span>
                   <span className="text-lg text-slate-600">
@@ -307,7 +308,7 @@ export function PricingContent() {
                 </ul>
               </div>
 
-              <div className="flex flex-col justify-center gap-6 bg-brand-500 p-8 text-white sm:p-10">
+              <div className="flex flex-col justify-center gap-6 bg-brand-500 p-8 text-white sm:p-10 lg:p-12">
                 <div>
                   <h3 className="font-display text-lg font-semibold">
                     Why it works
@@ -343,7 +344,7 @@ export function PricingContent() {
             </div>
 
             {/* AI note */}
-            <div className="flex flex-col gap-3 border-t border-slate-200 bg-brand-50 p-6 sm:flex-row sm:items-start">
+            <div className="flex flex-col gap-3 border-t border-[#deded8] bg-white p-6 sm:flex-row sm:items-start">
               <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-brand-500 text-white">
                 <HugeiconsIcon icon={VideoIcon} size={20} />
               </span>
@@ -376,7 +377,7 @@ export function PricingContent() {
       </section>
 
       {/* How the 10% works */}
-      <section className="section">
+      <section className="section bg-white">
         <div className="container">
           <SectionHeading
             eyebrow="How it works"
@@ -386,7 +387,7 @@ export function PricingContent() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, i) => (
               <Reveal key={step.title} delay={i * 0.08}>
-                <div className="h-full rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                <div className="h-full rounded-[22px] border border-[#deded8] bg-[#f7f7f3] p-6">
                   <div className="flex items-center justify-between">
                     <span className="grid h-12 w-12 place-items-center rounded-xl bg-brand-500 text-white">
                       <HugeiconsIcon icon={step.icon} size={24} />
@@ -409,7 +410,7 @@ export function PricingContent() {
       </section>
 
       {/* Individual services */}
-      <section className="section bg-slate-50">
+      <section className="section bg-white">
         <div className="container">
           <SectionHeading
             eyebrow="À la carte"
@@ -419,7 +420,7 @@ export function PricingContent() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {servicesList.map((service, i) => (
               <Reveal key={service.name} delay={(i % 4) * 0.08}>
-                <div className="card flex h-full flex-col p-6">
+                <div className="flex h-full flex-col rounded-[22px] border border-[#deded8] bg-[#f7f7f3] p-6 transition-transform duration-300 hover:-translate-y-1">
                   {service.tag && (
                     <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                       {service.tag}
@@ -466,18 +467,18 @@ export function PricingContent() {
       </section>
 
       {/* Comparison */}
-      <section className="section bg-slate-50">
+      <section className="section bg-white">
         <div className="container">
           <SectionHeading
             eyebrow="Compare"
             title="Partnership vs individual services"
             description="Both work — it depends on whether you want the full partnership or one fixed service."
           />
-          <Reveal className="mx-auto mt-12 max-w-4xl overflow-hidden rounded-2xl border border-slate-200">
+          <Reveal className="mx-auto mt-12 max-w-5xl overflow-hidden rounded-[24px] border border-[#deded8] bg-[#f7f7f3]">
             <div className="overflow-x-auto">
               <table className="w-full border-collapse text-left text-sm">
                 <thead>
-                  <tr className="bg-brand-500 text-white">
+                  <tr className="bg-[#063d30] text-white">
                     <th className="px-4 py-4 font-bold">Feature</th>
                     <th className="px-4 py-4 text-center font-bold">
                       Growth Partnership
@@ -491,7 +492,7 @@ export function PricingContent() {
                   {comparisonRows.map((row, i) => (
                     <tr
                       key={row.feature}
-                      className={i % 2 === 0 ? "bg-white" : "bg-slate-50"}
+                      className={i % 2 === 0 ? "bg-white" : "bg-[#f7f7f3]"}
                     >
                       <td className="border-t border-slate-200 px-4 py-3 font-semibold text-ink">
                         {row.feature}
@@ -516,7 +517,7 @@ export function PricingContent() {
       </section>
 
       {/* FAQ */}
-      <section className="section">
+      <section className="section bg-white">
         <div className="container">
           <SectionHeading
             eyebrow="FAQ"
@@ -539,7 +540,9 @@ export function PricingContent() {
         primaryLabel="Start a partnership"
         secondaryLabel="Ask a question"
         secondaryHref="/contact"
+        variant="landscape"
       />
+      </main>
     </CurrencyProvider>
   );
 }

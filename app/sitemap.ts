@@ -7,6 +7,7 @@ import { intentPages } from "@/lib/intent-pages";
 import { niches, allNicheCityParams } from "@/lib/niches";
 import { comparisons } from "@/lib/comparisons";
 import { guides } from "@/lib/guides";
+import { allAuthors } from "@/lib/authors";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.url.replace(/\/$/, "");
@@ -71,6 +72,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.65,
   }));
 
+  const authorRoutes = allAuthors().map((author) => ({
+    url: `${base}/author/${author.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.65,
+  }));
+
   const blogRoutes = posts.map((p) => ({
     url: `${base}/blog/${p.slug}`,
     lastModified: new Date(p.date),
@@ -113,6 +121,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...nicheRoutes,
     ...nicheCityRoutes,
     ...caseRoutes,
+    ...authorRoutes,
     ...blogRoutes,
     ...blogYearRoutes,
     ...blogMonthRoutes,
