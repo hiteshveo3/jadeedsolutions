@@ -25,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/tools/growth-check",
     "/compare",
     "/guides",
+    "/profit-share-handbook",
     "/blog",
     "/blog/archive",
     "/contact",
