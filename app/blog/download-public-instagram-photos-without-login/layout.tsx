@@ -1,28 +1,31 @@
 import type { Metadata } from "next";
+import { siteConfig } from "@/lib/site";
 import React from "react";
+
+const SITE = siteConfig.url.replace(/\/$/, "");
 
 export const metadata: Metadata = {
   title: "How to Bulk Download Public Instagram Photos Without Login: 2026 Guide",
   description:
     "Learn how to bulk download photos and videos from a public Instagram profile without logging in using Python and Instaloader, then organize, convert and optimize the images for website SEO.",
-  authors: [{ name: "Sameer Ahmad Basra", url: "https://jadeedsolutions.com/author/sameer-ahmad-basra" }],
+  authors: [{ name: "Sameer Ahmad Basra", url: `${SITE}/author/sameer-ahmad-basra` }],
   publisher: "Jadeed Solutions",
   alternates: {
-    canonical: "https://www.jadeedsolutions.com/blog/download-public-instagram-photos-without-login",
+    canonical: `${SITE}/blog/download-public-instagram-photos-without-login`,
   },
   openGraph: {
     type: "article",
     title: "How to Bulk Download Public Instagram Photos Without Login: 2026 Guide",
     description:
       "Learn how to bulk download photos and videos from a public Instagram profile without logging in using Python and Instaloader, then organize, convert and optimize the images for website SEO.",
-    url: "https://www.jadeedsolutions.com/blog/download-public-instagram-photos-without-login",
+    url: `${SITE}/blog/download-public-instagram-photos-without-login`,
     siteName: "Jadeed Solutions",
     locale: "en_US",
     images: [
       {
-        url: "https://www.jadeedsolutions.com/public/jadeed-growth-landscape.png",
-        width: 1200,
-        height: 630,
+        url: `${SITE}/jadeed-growth-landscape.png`,
+        width: 1897,
+        height: 829,
         alt: "Workflow for turning public Instagram media into SEO-ready website images",
       },
     ],
@@ -33,7 +36,7 @@ export const metadata: Metadata = {
     title: "How to Bulk Download Public Instagram Photos Without Login: 2026 Guide",
     description:
       "A complete guide to retrieving publicly accessible Instagram media in bulk, organizing it with AI agents, converting to WebP, and preparing it for website image SEO.",
-    images: ["https://www.jadeedsolutions.com/public/jadeed-growth-landscape.png"],
+    images: [`${SITE}/jadeed-growth-landscape.png`],
   },
   robots: {
     index: true,
@@ -53,68 +56,68 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://www.jadeedsolutions.com/#organization",
+      "@id": `${SITE}/#organization`,
       "name": "Jadeed Solutions",
-      "url": "https://www.jadeedsolutions.com/",
+      "url": `${SITE}/`,
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.jadeedsolutions.com/logo.png",
+        "url": `${SITE}/logo.png`,
       },
     },
     {
       "@type": "Article",
-      "@id": "https://www.jadeedsolutions.com/blog/download-public-instagram-photos-without-login#article",
+      "@id": `${SITE}/blog/download-public-instagram-photos-without-login#article`,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.jadeedsolutions.com/#website",
+        "@id": `${SITE}/#website`,
         "name": "Jadeed Solutions",
-        "url": "https://www.jadeedsolutions.com/",
+        "url": `${SITE}/`,
       },
       "headline": "How to Bulk Download Public Instagram Photos Without Login — And Turn Them Into an SEO-Ready Website Image Library",
       "description": "Learn how to bulk download photos and videos from a public Instagram profile without logging in using Python and Instaloader, then organize, convert and optimize the images for website SEO.",
       "inLanguage": "en-US",
-      "mainEntityOfPage": "https://www.jadeedsolutions.com/blog/download-public-instagram-photos-without-login",
+      "mainEntityOfPage": `${SITE}/blog/download-public-instagram-photos-without-login`,
       "datePublished": "2026-08-28T08:00:00.000Z",
       "dateModified": "2026-08-28T08:00:00.000Z",
       "publisher": {
-        "@id": "https://www.jadeedsolutions.com/#organization",
+        "@id": `${SITE}/#organization`,
       },
       "author": {
         "@type": "Person",
         "name": "Sameer Ahmad Basra",
-        "url": "https://www.jadeedsolutions.com/author/sameer-ahmad-basra",
+        "url": `${SITE}/author/sameer-ahmad-basra`,
         "jobTitle": "Founder & Technical Lead",
       },
       "articleSection": "Development & SEO",
-      "image": "https://www.jadeedsolutions.com/public/jadeed-growth-landscape.png",
+      "image": `${SITE}/jadeed-growth-landscape.png`,
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://www.jadeedsolutions.com/blog/download-public-instagram-photos-without-login#breadcrumb",
+      "@id": `${SITE}/blog/download-public-instagram-photos-without-login#breadcrumb`,
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://www.jadeedsolutions.com/",
+          "item": `${SITE}/`,
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Blog",
-          "item": "https://www.jadeedsolutions.com/blog",
+          "item": `${SITE}/blog`,
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Bulk Download Instagram Photos Without Login",
-          "item": "https://www.jadeedsolutions.com/blog/download-public-instagram-photos-without-login",
+          "item": `${SITE}/blog/download-public-instagram-photos-without-login`,
         },
       ],
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.jadeedsolutions.com/blog/download-public-instagram-photos-without-login#faq",
+      "@id": `${SITE}/blog/download-public-instagram-photos-without-login#faq`,
       "mainEntity": [
         {
           "@type": "Question",
