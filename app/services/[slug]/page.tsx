@@ -17,7 +17,8 @@ export function generateStaticParams() {
 
 export const dynamicParams = false;
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const service = getService(params.slug);
   if (!service) return {};
   const url = `${siteConfig.url}/services/${service.slug}`;
@@ -37,7 +38,8 @@ const related: Record<string, { posts: string[]; guides: string[] }> = {
   "digital-advertising": { posts: ["google-ads-roi-fundamentals", "local-seo-google-ads-service-business"], guides: ["how-cleaning-companies-get-more-bookings"] },
 };
 
-export default function ServicePage({ params }: { params: { slug: string } }) {
+export default async function ServicePage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const service = getService(params.slug);
   if (!service) notFound();
 

@@ -20,7 +20,8 @@ export function generateStaticParams() {
 
 export const dynamicParams = false;
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const post = getPost(params.slug);
   if (!post) return {};
   const url = `${siteConfig.url}/blog/${post.slug}`;
@@ -49,7 +50,8 @@ function plain(markdown: string) {
   return markdown.replace(/\[([^\]]*)\]\([^)]*\)/g, "$1").replace(/[*_`]/g, "");
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
+export default async function BlogPostPage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const post = getPost(params.slug);
   if (!post || customRoutes.has(post.slug)) notFound();
 

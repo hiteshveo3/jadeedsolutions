@@ -14,7 +14,8 @@ export function generateStaticParams() {
 
 export const dynamicParams = false;
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const page = getComparison(params.slug);
   if (!page) return {};
   const url = `${siteConfig.url}/compare/${page.slug}`;
@@ -46,7 +47,8 @@ function ChoiceList({ title, items, tone }: { title: string; items: string[]; to
   );
 }
 
-export default function ComparePage({ params }: { params: { slug: string } }) {
+export default async function ComparePage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const page = getComparison(params.slug);
   if (!page) notFound();
 

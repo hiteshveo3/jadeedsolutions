@@ -20,7 +20,8 @@ export const dynamicParams = false;
  * kept out of the index (and the sitemap) until each has genuine local proof —
  * see Google's guidance on doorway pages.
  */
-export function generateMetadata({ params }: { params: { slug: string; city: string } }): Metadata {
+export async function generateMetadata(props: { params: Promise<{ slug: string; city: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const data = getNicheCity(params.slug, params.city);
   if (!data) return {};
   return {
@@ -31,7 +32,8 @@ export function generateMetadata({ params }: { params: { slug: string; city: str
   };
 }
 
-export default function IndustryCityPage({ params }: { params: { slug: string; city: string } }) {
+export default async function IndustryCityPage(props: { params: Promise<{ slug: string; city: string }> }) {
+  const params = await props.params;
   const data = getNicheCity(params.slug, params.city);
   const industry = getIndustry(params.slug);
   if (!data || !industry) notFound();

@@ -16,11 +16,8 @@ export function generateStaticParams() {
   return archiveYearParams();
 }
 
-export function generateMetadata({
-  params,
-}: {
-  params: { year: string };
-}): Metadata {
+export async function generateMetadata(props: { params: Promise<{ year: string }> }): Promise<Metadata> {
+  const params = await props.params;
   return {
     title: `Blog Archive · ${params.year}`,
     description: `Jadeed Solutions blog posts published in ${params.year} — browse by month with previews.`,
@@ -42,11 +39,8 @@ const MONTH_NAMES = [
   "Dec",
 ];
 
-export default function BlogYearArchivePage({
-  params,
-}: {
-  params: { year: string };
-}) {
+export default async function BlogYearArchivePage(props: { params: Promise<{ year: string }> }) {
+  const params = await props.params;
   const items = getPostsByYear(params.year);
   if (items.length === 0) notFound();
 

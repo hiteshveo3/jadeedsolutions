@@ -17,11 +17,8 @@ export function generateStaticParams() {
   return allAuthors().map((a) => ({ slug: a.slug }));
 }
 
-export function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Metadata {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const author = authors[params.slug];
   if (!author) return {};
   return {
@@ -37,11 +34,8 @@ export function generateMetadata({
   };
 }
 
-export default function AuthorPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default async function AuthorPage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const author = authors[params.slug];
   if (!author) notFound();
 

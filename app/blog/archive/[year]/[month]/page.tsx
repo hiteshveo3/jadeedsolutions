@@ -20,11 +20,8 @@ export function generateStaticParams() {
   return archiveMonthParams();
 }
 
-export function generateMetadata({
-  params,
-}: {
-  params: { year: string; month: string };
-}): Metadata {
+export async function generateMetadata(props: { params: Promise<{ year: string; month: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const label = formatMonthLabel(params.year, params.month);
   return {
     title: `Archive · ${label}`,
@@ -32,11 +29,8 @@ export function generateMetadata({
   };
 }
 
-export default function BlogMonthArchivePage({
-  params,
-}: {
-  params: { year: string; month: string };
-}) {
+export default async function BlogMonthArchivePage(props: { params: Promise<{ year: string; month: string }> }) {
+  const params = await props.params;
   const items = getPostsByYearMonth(params.year, params.month);
   if (items.length === 0) notFound();
 

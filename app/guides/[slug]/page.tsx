@@ -16,7 +16,8 @@ export function generateStaticParams() {
 
 export const dynamicParams = false;
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const guide = getGuide(params.slug);
   if (!guide) return {};
   const url = `${siteConfig.url}/guides/${guide.slug}`;
@@ -30,7 +31,8 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
 
 const plain = (markdown: string) => markdown.replace(/\[([^\]]*)\]\([^)]*\)/g, "$1").replace(/[*_`]/g, "");
 
-export default function GuidePage({ params }: { params: { slug: string } }) {
+export default async function GuidePage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const guide = getGuide(params.slug);
   if (!guide) notFound();
 
