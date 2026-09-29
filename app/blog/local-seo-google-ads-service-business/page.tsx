@@ -88,9 +88,12 @@ const markdownComponents = {
   h3: ({node, ...props}: any) => (
     <h3 className="text-[20px] md:text-[21px] font-semibold text-[#151515] mt-10 mb-4" {...props} />
   ),
-  p: ({node, ...props}: any) => (
-    <p className="mb-6 leading-[1.8] text-black/75 font-normal text-[16.5px]" {...props} />
-  ),
+  p: ({ node, ...props }: any) =>
+    node?.children?.some((child: any) => child.type === "element" && child.tagName === "img") ? (
+      <div className="mb-6 leading-[1.8] text-black/75 font-normal text-[16.5px]" {...props} />
+    ) : (
+      <p className="mb-6 leading-[1.8] text-black/75 font-normal text-[16.5px]" {...props} />
+    ),
   a: ({node, ...props}: any) => (
     <a className="text-[#015f45] hover:underline font-semibold" {...props} />
   ),
@@ -240,7 +243,7 @@ export default function SingleBlogPage() {
         <div className="max-w-[1200px] mx-auto px-6 pt-16 flex flex-col lg:flex-row gap-16 items-start">
           
           {/* Main Article Content */}
-          <div className="flex-1 w-full max-w-[800px]">
+          <div className="flex-1 w-full min-w-0 max-w-[800px]">
             
             <div className="w-full h-[300px] md:h-[480px] bg-black/5 rounded-2xl border border-black/10 mb-14 flex items-center justify-center text-black/20 overflow-hidden relative shadow-sm">
                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-85"></div>

@@ -11,17 +11,15 @@ import {
 } from "@/components/icons";
 import { authors, getAuthor, allAuthors } from "@/lib/authors";
 import { getPostsByAuthor, formatDate } from "@/lib/blog";
+import { CategoryTile } from "@/components/blog/CategoryTile";
 import { siteConfig } from "@/lib/site";
 
 export function generateStaticParams() {
   return allAuthors().map((a) => ({ slug: a.slug }));
 }
 
-export function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Metadata {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const author = authors[params.slug];
   if (!author) return {};
   return {
@@ -37,11 +35,8 @@ export function generateMetadata({
   };
 }
 
-export default function AuthorPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default async function AuthorPage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const author = authors[params.slug];
   if (!author) notFound();
 
@@ -173,13 +168,7 @@ export default function AuthorPage({
                     className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition-shadow hover:shadow-soft"
                   >
                     <div className="relative aspect-[16/9] overflow-hidden">
-                      <Image
-                        src={p.cover}
-                        alt={p.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-                      />
+                      <CategoryTile category={p.category} readingTime={p.readingTime} fill />
                     </div>
                     <div className="p-5">
                       <span className="inline-flex rounded-full bg-brand-500 px-2.5 py-0.5 text-xs font-semibold text-white">

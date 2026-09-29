@@ -12,7 +12,8 @@ export function generateStaticParams() {
   return publishedCaseStudies().map((c) => ({ slug: c.id }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const study = getCaseStudy(params.slug);
   if (!study) return {};
   const title = "Alpha Movers SEO Case Study: 70+ Booked Jobs in 3 Months";
@@ -55,7 +56,8 @@ const queryRows = [
   ["moving crate hire london", "3", "697", "0.43%", "21.16"],
 ] as const;
 
-export default function CaseStudyPage({ params }: { params: { slug: string } }) {
+export default async function CaseStudyPage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const study = getCaseStudy(params.slug);
   if (!study || study.id !== "alpha-movers") notFound();
   const author = getAuthor();

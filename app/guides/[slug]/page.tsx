@@ -2,26 +2,23 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { guides, getGuide } from "@/lib/guides";
-import { getNiche } from "@/lib/niches";
-import { getAuthor } from "@/lib/authors";
+import { HugeiconsIcon, ArrowRightIcon } from "@/components/icons";
+import { InlineMarkdown, LongformMarkdown } from "@/components/longform/Markdown";
+import { AskPanel, HeroButton, LongformBody, LongformHero, LongformSection, Pill } from "@/components/longform/Layout";
+import { defaultAuthorSlug, getAuthor } from "@/lib/authors";
+import { formatDate } from "@/lib/blog";
+import { getGuide, guides, guideWordCount } from "@/lib/guides";
 import { siteConfig } from "@/lib/site";
-import {
-  ButtonLink,
-  Eyebrow,
-  FaqSection,
-  JsonLd,
-  LinkRows,
-  PageHero,
-  Section,
-  SectionHeader,
-} from "@/components/site/ui";
+import { LinkRows } from "@/components/site/ui";
 
 export function generateStaticParams() {
   return guides.map((g) => ({ slug: g.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+export const dynamicParams = false;
+
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const guide = getGuide(params.slug);
   if (!guide) return {};
   const url = `${siteConfig.url}/guides/${guide.slug}`;
@@ -29,104 +26,119 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     title: guide.seoTitle,
     description: guide.seoDescription,
     alternates: { canonical: url },
-    openGraph: { type: "article", title: guide.seoTitle, description: guide.seoDescription, url },
+    openGraph: { type: "article", title: guide.title, description: guide.seoDescription, url, publishedTime: guide.published, modifiedTime: guide.updated },
   };
 }
 
-const anchor = (text: string) => text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+const plain = (markdown: string) => markdown.replace(/\[([^\]]*)\]\([^)]*\)/g, "$1").replace(/[*_`]/g, "");
 
-export default function GuidePage({ params }: { params: { slug: string } }) {
+export default async function GuidePage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const guide = getGuide(params.slug);
   if (!guide) notFound();
 
-  const author = getAuthor();
-  const industry = guide.relatedIndustry ? getNiche(guide.relatedIndustry) : undefined;
+  const url = `${siteConfig.url}/guides/${guide.slug}`;
+  const author = getAuthor(defaultAuthorSlug);
+  const words = guideWordCount(guide);
+  const minutes = Math.max(1, Math.round(words / 230));
+  const contents = [
+    ...guide.sections.map((s, i) => ({ id: `part-${i + 1}`, label: s.title })),
+    { id: "faqs", label: "Frequently asked questions" },
+  ];
   const others = guides.filter((g) => g.slug !== guide.slug);
+  const whatsappHref = `${siteConfig.whatsappHref}?text=${encodeURIComponent(`Hi Jadeed — I read "${guide.title}" and have a question.`)}`;
 
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    headline: guide.title,
-    description: guide.seoDescription,
-    url: `${siteConfig.url}/guides/${guide.slug}`,
-    author: { "@type": "Person", name: author.name, url: `${siteConfig.url}/author/${author.slug}` },
-    publisher: { "@id": `${siteConfig.url}/#organization` },
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": `${url}#article`,
+        headline: guide.title,
+        description: guide.seoDescription,
+        url,
+        mainEntityOfPage: url,
+        inLanguage: "en",
+        wordCount: words,
+        datePublished: guide.published,
+        dateModified: guide.updated,
+        author: { "@type": "Person", name: author.name, url: `${siteConfig.url}/author/${author.slug}` },
+        publisher: { "@id": `${siteConfig.url}/#organization` },
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${url}#faq`,
+        mainEntity: guide.faqs.map((f) => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: plain(f.answer) } })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+          { "@type": "ListItem", position: 2, name: "Guides", item: `${siteConfig.url}/guides` },
+          { "@type": "ListItem", position: 3, name: guide.title, item: url },
+        ],
+      },
+    ],
   };
 
   return (
     <>
-      <JsonLd data={schema} />
-      <PageHero
-        compact
-        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Guides", href: "/guides" }, { label: guide.eyebrow }]}
-        eyebrow={`Guide · ${guide.eyebrow}`}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <LongformHero
+        crumbs={[{ label: "Home", href: "/" }, { label: "Guides", href: "/guides" }, { label: guide.eyebrow }]}
+        eyebrow={<><Pill>Guide · {guide.eyebrow}</Pill><Pill tone="outline">{minutes} min read</Pill></>}
         title={guide.title}
-        lead={guide.intro}
-      >
-        <Link href={`/author/${author.slug}`} className="mt-10 flex w-fit items-center gap-3 border-t border-white/15 pt-6 transition-opacity hover:opacity-85">
-          <Image src={author.avatar} alt={author.name} width={40} height={40} className="h-10 w-10 rounded-full object-cover" />
-          <span className="text-sm leading-5">
-            <span className="block font-bold">{author.name}</span>
-            <span className="block text-white/60">Founder, Jadeed Solutions</span>
-          </span>
-        </Link>
-      </PageHero>
+        subtitle={guide.intro}
+        actions={
+          <>
+            <HeroButton href="#part-1">
+              Start reading <HugeiconsIcon icon={ArrowRightIcon} size={16} className="transition-transform group-hover:translate-x-1" aria-hidden="true" />
+            </HeroButton>
+            <Link href={`/author/${author.slug}`} className="group inline-flex items-center gap-3 rounded-xl sm:ml-2">
+              <Image src={author.avatar} alt="" width={40} height={40} className="h-10 w-10 rounded-full object-cover ring-2 ring-white/25" />
+              <span className="text-sm leading-5">
+                <span className="block font-semibold text-white group-hover:underline">{author.name}</span>
+                <span className="block text-white/65">Updated <time dateTime={guide.updated}>{formatDate(guide.updated)}</time></span>
+              </span>
+            </Link>
+          </>
+        }
+      />
 
-      <Section tone="cream" labelledBy="guide-body">
-        <h2 id="guide-body" className="sr-only">{guide.title}</h2>
-        <div className="grid gap-10 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-16">
-          <nav aria-label="On this page" className="lg:sticky lg:top-28 lg:self-start">
-            <p className="text-xs font-extrabold uppercase tracking-[.15em] text-[#015f45]">On this page</p>
-            <ol className="mt-4 border-t border-black/10 text-sm">
-              {guide.sections.map((section) => (
-                <li key={section.heading} className="border-b border-black/10">
-                  <a href={`#${anchor(section.heading)}`} className="block py-3 font-medium text-black/70 transition-colors hover:text-[#015f45]">{section.heading}</a>
-                </li>
-              ))}
-            </ol>
-          </nav>
-          <article className="max-w-[720px]">
-            {guide.sections.map((section) => (
-              <section key={section.heading} id={anchor(section.heading)} className="scroll-mt-28 border-b border-black/10 py-8 first:pt-0">
-                <h2 className="font-sans text-[26px] font-semibold leading-tight tracking-[-.035em] sm:text-3xl">{section.heading}</h2>
-                <div className="mt-4 space-y-4 text-[17px] leading-8 text-black/75">
-                  {section.body.map((paragraph) => <p key={paragraph.slice(0, 40)}>{paragraph}</p>)}
-                </div>
-              </section>
+      <LongformBody contents={contents}>
+        {guide.sections.map((section, i) => (
+          <LongformSection key={section.title} id={`part-${i + 1}`} label={`Part ${String(i + 1).padStart(2, "0")}`} title={section.title}>
+            <LongformMarkdown>{section.body}</LongformMarkdown>
+          </LongformSection>
+        ))}
+
+        <LongformSection id="faqs" label="FAQs" title="Frequently asked questions">
+          <dl className="divide-y divide-black/10 border-y border-black/10">
+            {guide.faqs.map((faq) => (
+              <div key={faq.question} className="py-6">
+                <dt className="text-[18px] font-bold tracking-[-.015em]">{faq.question}</dt>
+                <dd className="mt-2.5 text-[17px] leading-[1.75] text-[#1d1d1b]/80"><InlineMarkdown>{faq.answer}</InlineMarkdown></dd>
+              </div>
             ))}
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="/contact" variant="green">Get a free plan</ButtonLink>
-              <ButtonLink href="/tools/growth-check" variant="outlineDark">Take the Growth Check</ButtonLink>
-            </div>
-          </article>
-        </div>
-      </Section>
+          </dl>
+        </LongformSection>
 
-      {industry && (
-        <Section tone="green" labelledBy="industry-heading">
-          <div className="grid gap-8 lg:grid-cols-[1.2fr_.8fr] lg:items-end lg:gap-16">
-            <div>
-              <Eyebrow tone="green">For {industry.tradePlural}</Eyebrow>
-              <h2 id="industry-heading" className="mt-3 font-sans text-[32px] font-semibold leading-[1.05] tracking-[-.045em] [text-wrap:balance] sm:text-5xl">{industry.h1}</h2>
-              <p className="mt-5 max-w-xl leading-7 text-white/75">{industry.intro}</p>
-            </div>
-            <div className="lg:justify-self-end">
-              <ButtonLink href={`/industries/${industry.slug}`} variant="white">See the {industry.navLabel.toLowerCase()} playbook</ButtonLink>
-            </div>
+        <AskPanel
+          eyebrow="Talk it through"
+          title="Want us to look at your business specifically?"
+          text="Tell us your services, areas and where you think customers are being lost. The growth plan call is free, and we will tell you honestly if the answer is “not yet”."
+          whatsappHref={whatsappHref}
+          email={siteConfig.email}
+          emailSubject={`Question about: ${guide.title}`}
+        />
+
+        {others.length > 0 && (
+          <div className="mt-12">
+            <p className="mb-4 text-xs font-extrabold uppercase tracking-[.15em] text-[#015f45]">More guides</p>
+            <LinkRows items={others.map((g) => ({ href: `/guides/${g.slug}`, label: g.title, meta: g.eyebrow }))} />
           </div>
-        </Section>
-      )}
-
-      <FaqSection items={guide.faqs} />
-
-      {others.length > 0 && (
-        <Section tone="mint" labelledBy="other-guides-heading">
-          <SectionHeader id="other-guides-heading" tone="mint" eyebrow="More guides" title="Keep reading" />
-          <div className="mt-10">
-            <LinkRows tone="mint" columns={2} items={others.map((other) => ({ href: `/guides/${other.slug}`, label: other.title, meta: other.eyebrow }))} />
-          </div>
-        </Section>
-      )}
+        )}
+      </LongformBody>
     </>
   );
 }

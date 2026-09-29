@@ -20,16 +20,25 @@ export function generateStaticParams() {
   return allNicheCityParams();
 }
 
-export function generateMetadata({ params }: { params: { slug: string; city: string } }): Metadata {
+export const dynamicParams = false;
+
+/**
+ * City pages share most of their content with the parent industry page, so they are
+ * kept out of the index (and the sitemap) until each has genuine local proof —
+ * see Google's guidance on doorway pages.
+ */
+export async function generateMetadata(props: { params: Promise<{ slug: string; city: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const data = getNicheCity(params.slug, params.city);
   if (!data) return {};
   const title = `${data.niche.navLabel} SEO & Websites in ${data.city.name}`;
   const description = `SEO, Google Maps visibility and conversion-focused websites for ${data.niche.tradePlural} in ${data.city.name}. From £100/mo or 10% of bookings.`;
   const url = `${siteConfig.url}/industries/${params.slug}/${params.city}`;
-  return { title, description, alternates: { canonical: url }, openGraph: { title, description, url } };
+  return { title, description, alternates: { canonical: url }, openGraph: { title, description, url }, robots: { index: false, follow: true } };
 }
 
-export default function IndustryCityPage({ params }: { params: { slug: string; city: string } }) {
+export default async function IndustryCityPage(props: { params: Promise<{ slug: string; city: string }> }) {
+  const params = await props.params;
   const data = getNicheCity(params.slug, params.city);
   if (!data) notFound();
   const { niche, city } = data;
@@ -61,9 +70,9 @@ export default function IndustryCityPage({ params }: { params: { slug: string; c
             title={`In ${city.name}`}
             rows={[
               { label: "Market", value: `${city.region ? `${city.region}, ` : ""}${city.country}` },
-              { label: "Monthly SEO", value: "From £100" },
-              { label: "Or pay per result", value: "10% of bookings" },
-              { label: "Minimum term", value: "6 months" },
+              { label: "Monthly SEO", value: "From £100 · 6-month min." },
+              { label: "Or pay per result", value: "10% of bookings · 12–24 mo" },
+              { label: "We work", value: "Remotely, from Narowal" },
             ]}
           />
         }

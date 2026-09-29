@@ -7,6 +7,10 @@ import { getIntentPage, intentPages, type IntentPage } from "@/lib/intent-pages"
 import { getNiche, niches, nicheCities, type Niche } from "@/lib/niches";
 import { getAuthor } from "@/lib/authors";
 import { getService } from "@/lib/services";
+import { getGuide, guides } from "@/lib/guides";
+import { industryPlaybooks } from "@/lib/industry-playbooks";
+import { getIndustry } from "@/lib/industries";
+import { LongformMarkdown } from "@/components/longform/Markdown";
 import { siteConfig } from "@/lib/site";
 import { AlphaProof } from "@/components/site/AlphaProof";
 import {
@@ -15,6 +19,7 @@ import {
   Eyebrow,
   FaqSection,
   FeatureGrid,
+  LinkRows,
   PageHero,
   Section,
   SectionHeader,
@@ -30,7 +35,10 @@ export function generateStaticParams() {
   });
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+export const dynamicParams = false;
+
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const entry = getNiche(params.slug) ?? getIntentPage(params.slug);
   if (!entry) return {};
   const url = `${siteConfig.url}/industries/${entry.slug}`;
@@ -42,12 +50,67 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function IndustrySlugPage({ params }: { params: { slug: string } }) {
+export default async function IndustrySlugPage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const niche = getNiche(params.slug);
   if (niche) return <NicheView niche={niche} />;
   const page = getIntentPage(params.slug);
   if (page) return <IntentView page={page} />;
   notFound();
+}
+
+/** Long-form playbook for the industry (Markdown), with an on-page contents list. */
+function Playbook({ slug }: { slug: string }) {
+  const sections = industryPlaybooks[slug] ?? [];
+  if (sections.length === 0) return null;
+  const audience = getIndustry(slug)?.audience ?? "your business";
+  return (
+    <Section tone="white" id="playbook" labelledBy="playbook-heading">
+      <div className="grid gap-10 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-16">
+        <div className="lg:sticky lg:top-28 lg:self-start">
+          <Eyebrow>The playbook</Eyebrow>
+          <h2 id="playbook-heading" className="mt-3 font-sans text-[32px] font-semibold leading-[1.05] tracking-[-.045em] [text-wrap:balance]">Our playbook for {audience}</h2>
+          <nav aria-label="Playbook contents" className="mt-6 hidden lg:block">
+            <ol className="border-t border-black/10 text-sm">
+              {sections.map((section, index) => (
+                <li key={section.title} className="border-b border-black/10">
+                  <a href={`#playbook-${index + 1}`} className="block py-3 font-medium text-black/70 transition-colors hover:text-[#015f45]">{section.title}</a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+        </div>
+        <div className="min-w-0 max-w-[760px]">
+          {sections.map((section, index) => (
+            <article key={section.title} id={`playbook-${index + 1}`} className="scroll-mt-28 border-b border-black/10 py-10 first:pt-0 last:border-b-0">
+              <h3 className="font-sans text-[26px] font-semibold leading-tight tracking-[-.035em] [text-wrap:balance] sm:text-3xl">{section.title}</h3>
+              <div className="mt-5"><LongformMarkdown>{section.body}</LongformMarkdown></div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </Section>
+  );
+}
+
+/** Guide, service and handbook links so every industry page leads somewhere deeper. */
+function FurtherReading({ slug, serviceSlug }: { slug: string; serviceSlug: string }) {
+  const guide = guides.find((g) => g.relatedIndustry === slug) ?? getGuide("website-seo-app-or-10-percent");
+  const service = getService(serviceSlug);
+  const items = [
+    ...(guide ? [{ href: `/guides/${guide.slug}`, label: guide.title, meta: "Guide" }] : []),
+    ...(service ? [{ href: `/services/${service.slug}`, label: service.h1, meta: "Service" }] : []),
+    { href: "/profit-share-handbook", label: "Profit-share partnerships: what we need before we take a percentage", meta: "Handbook" },
+    { href: "/pricing", label: "Pricing: fixed, tiered or pay per booking", meta: "Pricing" },
+  ];
+  return (
+    <Section tone="white" labelledBy="reading-heading">
+      <SectionHeader id="reading-heading" eyebrow="Further reading" title="Go deeper before you decide" />
+      <div className="mt-10">
+        <LinkRows columns={2} items={items} />
+      </div>
+    </Section>
+  );
 }
 
 function CtaBand({ note, serviceSlug, title }: { note: string; serviceSlug: string; title: string }) {
@@ -121,6 +184,8 @@ function NicheView({ niche }: { niche: Niche }) {
         </div>
       </Section>
 
+      <Playbook slug={niche.slug} />
+
       <Section tone="green" labelledBy="method-heading">
         <SectionHeader id="method-heading" tone="green" eyebrow="Our method" title="How we grow your bookings" />
         <div className="mt-10 md:mt-14">
@@ -164,6 +229,8 @@ function NicheView({ niche }: { niche: Niche }) {
 
       <FaqSection items={niche.faqs} />
 
+      <FurtherReading slug={niche.slug} serviceSlug={niche.relatedService} />
+
       <CtaBand title={`Get a free plan for your ${niche.tradeLabel} business`} note={niche.ctaNote} serviceSlug={niche.relatedService} />
     </>
   );
@@ -198,7 +265,9 @@ function IntentView({ page }: { page: IntentPage }) {
         </div>
       </Section>
 
-      <Section tone="white" labelledBy="who-heading">
+      <Playbook slug={page.slug} />
+
+      <Section tone="cream" labelledBy="who-heading">
         <div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:gap-16">
           <SectionHeader id="who-heading" eyebrow="Who it's for" title="Built for businesses like yours" />
           <CheckList items={page.whoFor} />
@@ -208,6 +277,8 @@ function IntentView({ page }: { page: IntentPage }) {
       {page.relatedCaseStudy === "alpha-movers" && <AlphaProof />}
 
       <FaqSection items={page.faqs} />
+
+      <FurtherReading slug={page.slug} serviceSlug={page.relatedService} />
 
       <CtaBand title="Get your free plan" note={page.ctaNote} serviceSlug={page.relatedService} />
     </>

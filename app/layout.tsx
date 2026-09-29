@@ -80,7 +80,7 @@ export default function RootLayout({
       latitude: siteConfig.geo.latitude,
       longitude: siteConfig.geo.longitude,
     },
-    areaServed: ["Pakistan", "United Kingdom", "United States", "United Arab Emirates"],
+    areaServed: ["Pakistan", "United Kingdom", "United States", "Canada", "United Arab Emirates"],
     knowsAbout: ["Local SEO", "Google Ads", "Web development", "Mobile app development", "Conversion optimization", "AI automation"],
     sameAs: [...Object.values(siteConfig.social), siteConfig.trustpilotUrl, siteConfig.clutchUrl, siteConfig.goodfirmsUrl],
   };

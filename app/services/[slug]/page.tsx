@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { WhatsappBusinessIcon } from "@/components/icons";
 import { services, getService } from "@/lib/services";
 import { getCaseStudiesForService } from "@/lib/case-studies";
+import { getPost } from "@/lib/blog";
+import { getGuide } from "@/lib/guides";
 import { siteConfig } from "@/lib/site";
 import { AlphaProof } from "@/components/site/AlphaProof";
 import {
@@ -13,18 +15,23 @@ import {
   FaqSection,
   FeatureGrid,
   JsonLd,
+  LinkRows,
   PageHero,
   Section,
   SectionHeader,
   StatRow,
   Steps,
+  TextLink,
 } from "@/components/site/ui";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+export const dynamicParams = false;
+
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const service = getService(params.slug);
   if (!service) return {};
   const url = `${siteConfig.url}/services/${service.slug}`;
@@ -36,9 +43,23 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function ServiceSlugPage({ params }: { params: { slug: string } }) {
+/** Further reading per service: blog posts first, then guides. */
+const related: Record<string, { posts: string[]; guides: string[] }> = {
+  seo: { posts: ["seo-for-local-service-business-step-by-step", "seo-checklist-2026"], guides: ["how-plumbers-get-more-jobs-online"] },
+  "web-development": { posts: ["why-nextjs-for-marketing-sites", "how-to-use-icons-mobile-apps-websites"], guides: ["website-seo-app-or-10-percent"] },
+  "app-development": { posts: ["how-to-talk-to-app-clients-restaurant-example", "best-icon-libraries-mobile-apps-websites"], guides: ["website-seo-app-or-10-percent"] },
+  "digital-advertising": { posts: ["google-ads-roi-fundamentals", "local-seo-google-ads-service-business"], guides: ["how-cleaning-companies-get-more-bookings"] },
+};
+
+export default async function ServiceSlugPage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const service = getService(params.slug);
   if (!service) notFound();
+
+  const reading = [
+    ...(related[service.slug]?.posts ?? []).map((slug) => getPost(slug)).filter((p): p is NonNullable<typeof p> => Boolean(p)).map((p) => ({ href: `/blog/${p.slug}`, label: p.title, meta: `Blog · ${p.readingTime}` })),
+    ...(related[service.slug]?.guides ?? []).map((slug) => getGuide(slug)).filter((g): g is NonNullable<typeof g> => Boolean(g)).map((g) => ({ href: `/guides/${g.slug}`, label: g.title, meta: "Guide" })),
+  ];
 
   const others = services.filter((s) => s.slug !== service.slug);
   const hasAlphaProof = getCaseStudiesForService(service.slug).some((study) => study.id === "alpha-movers");
@@ -125,6 +146,10 @@ export default function ServiceSlugPage({ params }: { params: { slug: string } }
               {service.cost.paragraphs.map((paragraph) => <p key={paragraph.slice(0, 40)}>{paragraph}</p>)}
             </div>
             <p className="mt-6 border-l-2 border-[#015f45] pl-4 text-sm leading-6 text-[#063d30]/75">{service.cost.note}</p>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:gap-6">
+              <TextLink href="/pricing" tone="mint">Compare pricing models</TextLink>
+              <TextLink href="/profit-share-handbook" tone="mint">How performance deals work</TextLink>
+            </div>
           </div>
           <div className="space-y-10">
             <FactRows tone="mint" title="Price guide" rows={service.cost.rows} />
@@ -156,6 +181,15 @@ export default function ServiceSlugPage({ params }: { params: { slug: string } }
       </Section>
 
       <FaqSection items={service.faqs} />
+
+      {reading.length > 0 && (
+        <Section tone="white" labelledBy="reading-heading">
+          <SectionHeader id="reading-heading" eyebrow="Further reading" title="Go deeper before you decide" />
+          <div className="mt-10">
+            <LinkRows columns={2} items={reading} />
+          </div>
+        </Section>
+      )}
 
       <Section tone="mint" labelledBy="more-services-heading">
         <SectionHeader id="more-services-heading" tone="mint" eyebrow="More services" title="Works even better with" />

@@ -23,7 +23,7 @@ import {
 export const metadata: Metadata = {
   title: "How It Works — From First Chat to Booked Jobs",
   description:
-    "How Jadeed Solutions grows local service businesses: free discovery, fix the foundations, grow Google visibility, then pay fixed SEO from £100/mo or 10% of bookings. No setup fee, 6-month minimum.",
+    "How Jadeed Solutions grows local service businesses: free discovery, fix the foundations, grow Google visibility, then pay fixed SEO from £100/mo (6-month minimum) or a share of the bookings we generate (12–24 month term).",
   alternates: { canonical: `${siteConfig.url}/how-it-works` },
 };
 
@@ -31,7 +31,7 @@ const steps = [
   { title: "Free discovery", text: "WhatsApp or call us. We learn your cities, services and goals — then outline a clear plan. Demos are available if you want to see how we work." },
   { title: "Build the foundations", text: "Website and SEO setup, plus apps if you need them. Mobile-first and conversion-first, so visitors call and book." },
   { title: "Grow visibility", text: "We focus on Google search and your website first — most clients never need ads. If you want paid ads later, you fund the spend and we manage the campaigns." },
-  { title: "Pay fairly", text: "Growth Partnership: 10% of the bookings we generate. Or fixed SEO from £100/mo. No setup fee, and a 6-month minimum so results can compound." },
+  { title: "Pay fairly", text: "Fixed SEO from £100/mo with no setup fee and a 6-month minimum, so results can compound. Or the Growth Partnership: typically 10% of the bookings we generate, on a 12–24 month term." },
 ];
 
 const alternatives = [
@@ -53,8 +53,8 @@ const alternatives = [
 ];
 
 const faqs = [
-  { question: "Is there a setup fee?", answer: "No. There is no setup fee on standard plans. SEO plans and the Growth Partnership have a 6-month minimum so the work has time to compound." },
-  { question: "How does the 10% model work?", answer: "On the Growth Partnership you pay 10% of the bookings our work generates, as defined in your agreement. You fund any ad spend directly to Google or Meta." },
+  { question: "Is there a setup fee?", answer: "No. There is no setup fee on standard plans. Fixed SEO plans have a 6-month minimum so the work has time to compound. The Growth Partnership runs on a 12–24 month term and starts with a short paid audit to set the baseline." },
+  { question: "How does the 10% model work?", answer: "On the Growth Partnership you typically pay 10% of the bookings our work generates, as defined in your agreement, over a 12–24 month term. You fund any ad spend directly to Google or Meta. Our profit-share handbook explains how it works in full." },
   { question: "Do I need Google Ads?", answer: "No. Most clients grow through Google search and their website first. If you want ads later, you fund the spend and we manage the campaigns." },
   { question: "Who will I work with?", answer: "A small, hands-on team led by founder Sameer Ahmad Basra. We work with around 10 active clients at a time." },
   { question: "Where are you based?", answer: "Narowal, Pakistan. We work remotely with local service businesses in the UK, USA, UAE and other markets." },
@@ -78,9 +78,9 @@ export default function HowItWorksPage() {
             title="The basics"
             rows={[
               { label: "Setup fee", value: "None" },
-              { label: "Minimum term", value: "6 months" },
+              { label: "Fixed plans", value: "6-month minimum" },
               { label: "Fixed SEO", value: "From £100/mo" },
-              { label: "Growth Partnership", value: "10% of bookings" },
+              { label: "Growth Partnership", value: "10% of bookings, 12–24 mo" },
               { label: "Ad spend", value: "Paid by you, to Google" },
             ]}
           />

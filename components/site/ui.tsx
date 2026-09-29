@@ -345,7 +345,7 @@ export function StatRow({ items, tone = "cream", columns }: { items: readonly { 
   return (
     <dl className={`grid grid-cols-2 gap-x-6 border-t ${line} ${cols} lg:gap-x-10`}>
       {items.map((item) => (
-        <div key={item.label} className={`flex flex-col border-b py-6 md:py-8 ${line}`}>
+        <div key={item.label} className={`flex min-w-0 flex-col break-words border-b py-6 md:py-8 ${line}`}>
           <dt className={`order-2 mt-2 text-sm leading-5 ${mutedClass(tone)}`}>{item.label}</dt>
           <dd className={`order-1 text-[34px] font-bold leading-none tracking-[-.05em] sm:text-5xl ${accentText(tone)}`}>{item.value}</dd>
           {item.note && <dd className={`order-3 mt-1 text-xs ${isDark(tone) ? "text-white/55" : "text-black/50"}`}>{item.note}</dd>}

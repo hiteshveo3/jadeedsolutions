@@ -33,7 +33,7 @@ const flow = [
 
 const faqs = [
   { question: "Can I buy just one service?", answer: "Yes. SEO, websites, apps and Google Ads are all sold as separate packages. You only combine them if it makes sense for your business." },
-  { question: "What does the 10% Growth Partnership include?", answer: "Website, SEO and campaign management, paid as 10% of the bookings our work generates. You fund any ad spend directly. There is no setup fee and a 6-month minimum." },
+  { question: "What does the 10% Growth Partnership include?", answer: "Website, SEO and campaign management, typically paid as 10% of the bookings our work generates. You fund any ad spend directly. It runs on a 12–24 month term and starts with a short paid audit to set the baseline." },
   { question: "How quickly will I see results?", answer: "Ads can bring enquiries within days and websites launch in 1–3 weeks. SEO usually shows meaningful movement in 3–6 months, which is why SEO plans have a 6-month minimum." },
   { question: "Do you work outside the UK and USA?", answer: "Yes. Most clients are in the UK and USA, and we also work with businesses in the UAE, Pakistan and other markets — all delivered remotely." },
 ];
@@ -140,7 +140,7 @@ export default function ServicesPage() {
             columns={2}
             items={[
               { icon: TagIcon, title: "Fixed packages", text: "SEO from £100/month, websites from £199 one-time, apps and ads quoted up front. Clear scope, clear price.", href: "/pricing", linkLabel: "See pricing" },
-              { icon: HandshakeIcon, title: "Growth Partnership", text: "Website, SEO and ad management on 10% of the bookings we generate. No setup fee, 6-month minimum.", href: "/pricing#partnership-calculator", linkLabel: "Try the calculator" },
+              { icon: HandshakeIcon, title: "Growth Partnership", text: "Website, SEO and ad management on typically 10% of the bookings we generate, over a 12–24 month term.", href: "/pricing#partnership-calculator", linkLabel: "Try the calculator" },
             ]}
           />
         </div>

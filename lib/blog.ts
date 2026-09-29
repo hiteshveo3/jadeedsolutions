@@ -1,3 +1,7 @@
+import { seoChecklist2026 } from "@/lib/posts/seo-checklist-2026";
+import { whyNextjsForMarketingSites } from "@/lib/posts/why-nextjs-for-marketing-sites";
+import { googleAdsRoiFundamentals } from "@/lib/posts/google-ads-roi-fundamentals";
+
 export type ContentBlock =
   | { type: "paragraph"; text: string }
   | { type: "heading"; text: string }
@@ -33,6 +37,8 @@ export type Post = {
   title: string;
   excerpt: string;
   date: string;
+  /** Last substantive revision, when later than `date`. */
+  updated?: string;
   readingTime: string;
   category: string;
   authorSlug: string;
@@ -42,7 +48,7 @@ export type Post = {
   faqs?: Faq[];
 };
 
-export const posts: Post[] = [
+const postData: Post[] = [
   {
     slug: "download-public-instagram-photos-without-login",
     title: "How to Bulk Download Public Instagram Photos Without Login: 2026 Guide",
@@ -2401,208 +2407,36 @@ export function AppIcon({
       },
     ],
   },
-  {
-    slug: "seo-checklist-2026",
-    title: "The 2026 SEO Checklist: Rank Higher This Year",
-    excerpt:
-      "A practical, no-fluff checklist covering technical SEO, content, and authority building to grow your organic traffic in 2026.",
-    date: "2026-06-18",
-    readingTime: "7 min read",
-    category: "SEO",
-    authorSlug: "sameer-ahmad-basra",
-    cover:
-      "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=1600&q=80",
-    content: [
-      {
-        type: "paragraph",
-        text: "Search is still the highest-intent channel on the internet. If you want compounding, cost-effective growth, SEO belongs at the center of your strategy. This checklist is the monthly rhythm we use with clients — for the full local-service playbook, read [How to Do SEO for a Local Service Business](/blog/seo-for-local-service-business-step-by-step).",
-      },
-      {
-        type: "callout",
-        title: "Key takeaways",
-        items: [
-          "Fix [Core Web Vitals](https://developers.google.com/search/docs/appearance/core-web-vitals) and crawl errors before anything else.",
-          "Match every page to a clear search intent.",
-          "Earn links from relevant, reputable sites over time.",
-          "Measure rankings, traffic and conversions — not vanity metrics.",
-        ],
-      },
-      { type: "heading", text: "Get the technical foundation right" },
-      {
-        type: "paragraph",
-        text: "Technical SEO is the groundwork everything else sits on. If search engines struggle to crawl or render your site, even the best content won't rank. Start with [Google Search Console](https://search.google.com/search-console), then fix the basics:",
-      },
-      {
-        type: "list",
-        items: [
-          "Ensure fast Core Web Vitals (LCP, INP, CLS) — we often use [Next.js marketing sites](/blog/why-nextjs-for-marketing-sites) for this",
-          "Fix crawl errors and broken links",
-          "Implement a clean, logical URL structure",
-          "Add structured data (schema.org) for rich results — see [Google’s structured data intro](https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data)",
-          "Generate and submit an XML sitemap",
-        ],
-      },
-      {
-        type: "image",
-        src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
-        alt: "Analytics dashboard showing organic traffic growth",
-        caption: "Track Core Web Vitals and organic traffic monthly to spot trends early.",
-      },
-      { type: "heading", text: "Match content to search intent" },
-      {
-        type: "paragraph",
-        text: "Every page should target a keyword with clear intent. Map informational, commercial, and transactional queries to the right page types, and answer the question better than anyone else on page one. Google’s [people-first content guidance](https://developers.google.com/search/docs/fundamentals/creating-helpful-content) is the standard we follow.",
-      },
-      {
-        type: "table",
-        headers: ["Intent", "Page type", "Example"],
-        rows: [
-          ["Informational", "Blog / guide", "\u201chow to improve local SEO\u201d"],
-          ["Commercial", "Comparison / service", "\u201cbest SEO agency\u201d"],
-          ["Transactional", "Landing / contact", "\u201cSEO services near me\u201d"],
-        ],
-      },
-      { type: "heading", text: "Build authority" },
-      {
-        type: "paragraph",
-        text: "Earn links from relevant, reputable sites through digital PR, guest content, and genuinely useful resources. Authority compounds — the sooner you start, the sooner you win. Pair this with a clear [SEO service plan](/services/seo) and, when you need paid demand while organic grows, [Google Ads fundamentals](/blog/google-ads-roi-fundamentals).",
-      },
-      {
-        type: "quote",
-        text: "SEO is not a one-time project. It's a growth engine you build once and improve forever.",
-      },
-      { type: "heading", text: "Your monthly routine" },
-      {
-        type: "paragraph",
-        text: "Consistency beats intensity. Keep SEO moving with a simple monthly rhythm — or run a quick [Growth Check](/tools/growth-check) to see what’s missing:",
-      },
-      {
-        type: "numbered",
-        items: [
-          "Review Search Console for new queries and errors.",
-          "Publish or refresh one high-intent page.",
-          "Earn one or two quality backlinks.",
-          "Audit Core Web Vitals and fix regressions.",
-          "Report on rankings, traffic and conversions.",
-        ],
-      },
-      {
-        type: "cta",
-        title: "Want us to run this for you?",
-        text: "See [SEO services](/services/seo), [pricing](/pricing), or [compare options](/compare) — then book a free audit.",
-        label: "Get a free audit",
-        href: "/contact",
-      },
-    ],
-    faqs: [
-      {
-        q: "How long does SEO take to show results?",
-        a: "Most local businesses start seeing meaningful movement within 3–4 months, with compounding gains after that. Technical fixes can help faster, while authority building takes longer to pay off.",
-      },
-      {
-        q: "Do I need to blog every week to rank?",
-        a: "No. Consistency beats volume. One well-researched, high-intent page per month that genuinely answers a query will usually outperform a pile of thin weekly posts.",
-      },
-      {
-        q: "Is SEO better than running Google Ads?",
-        a: "They solve different problems. Ads buy instant, controllable traffic; SEO builds compounding, lower-cost traffic over time. For most local businesses, the winning move is to run both together — see our [Google Ads ROI guide](/blog/google-ads-roi-fundamentals).",
-      },
-    ],
-  },
-  {
-    slug: "why-nextjs-for-marketing-sites",
-    title: "Why We Build Marketing Sites with Next.js",
-    excerpt:
-      "Performance, SEO, and developer velocity — here's why Next.js is our framework of choice for high-converting marketing websites.",
-    date: "2026-05-02",
-    readingTime: "5 min read",
-    category: "Web Development",
-    authorSlug: "sameer-ahmad-basra",
-    cover:
-      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1600&q=80",
-    content: [
-      {
-        type: "paragraph",
-        text: "The framework you choose for a marketing site directly affects how fast it loads, how well it ranks, and how quickly you can ship changes. For us, [Next.js](https://nextjs.org/) checks every box — and it’s how we deliver [web development](/services/web-development) for local service businesses.",
-      },
-      { type: "heading", text: "Built-in performance" },
-      {
-        type: "paragraph",
-        text: "Server-side rendering and static generation mean pages load instantly and score well on [Core Web Vitals](https://developers.google.com/search/docs/appearance/core-web-vitals) — a direct ranking factor covered in our [2026 SEO checklist](/blog/seo-checklist-2026).",
-      },
-      { type: "heading", text: "SEO-friendly by default" },
-      {
-        type: "list",
-        items: [
-          "Server-rendered HTML that search engines love",
-          "First-class metadata and Open Graph support",
-          "Automatic sitemap and robots handling",
-          "Works well with the local SEO structure in our [local service SEO guide](/blog/seo-for-local-service-business-step-by-step)",
-        ],
-      },
-      { type: "heading", text: "Developer velocity" },
-      {
-        type: "paragraph",
-        text: "A great developer experience means we ship faster and iterate more, which translates directly into better results for your business. Compare agencies and DIY options on our [compare page](/compare), or check [pricing](/pricing).",
-      },
-      {
-        type: "cta",
-        title: "Need a fast marketing site?",
-        text: "We build conversion-focused sites with Next.js — see [web development](/services/web-development) or [contact us](/contact).",
-        label: "Talk about your site",
-        href: "/contact",
-      },
-    ],
-  },
-  {
-    slug: "google-ads-roi-fundamentals",
-    title: "Google Ads ROI: The Fundamentals That Actually Matter",
-    excerpt:
-      "Stop chasing vanity metrics. Here are the levers that determine whether your paid campaigns make money.",
-    date: "2026-03-21",
-    readingTime: "6 min read",
-    category: "Digital Advertising",
-    authorSlug: "sameer-ahmad-basra",
-    cover:
-      "https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=1600&q=80",
-    content: [
-      {
-        type: "paragraph",
-        text: "Profitable paid advertising comes down to a handful of fundamentals done consistently well. Master these before you worry about anything else. For how we run campaigns, see [digital advertising](/services/digital-advertising) — and pair ads with [SEO](/services/seo) so you’re not renting all your demand.",
-      },
-      { type: "heading", text: "Track conversions accurately" },
-      {
-        type: "paragraph",
-        text: "If your tracking is wrong, every optimization decision is wrong. Nail conversion tracking and attribution before scaling spend. Google’s own [Ads Help](https://support.google.com/google-ads) covers conversion setup; we also recommend checking [Search Console](https://search.google.com/search-console) so organic and paid insights sit side by side.",
-      },
-      { type: "heading", text: "Optimize the whole funnel" },
-      {
-        type: "list",
-        items: [
-          "Tight keyword-to-ad-to-landing-page relevance",
-          "Fast, focused landing pages built to convert — see [why we use Next.js](/blog/why-nextjs-for-marketing-sites)",
-          "Continuous creative and copy testing",
-          "Landing pages that match local intent (same ideas as our [local SEO guide](/blog/seo-for-local-service-business-step-by-step))",
-        ],
-      },
-      {
-        type: "quote",
-        text: "The best-performing account isn't the one with the cleverest bids — it's the one with the tightest funnel.",
-      },
-      {
-        type: "paragraph",
-        text: "Not sure whether ads, SEO or a new site is the bottleneck? Run a free [Growth Check](/tools/growth-check) or [compare options](/compare).",
-      },
-      {
-        type: "cta",
-        title: "Want ads that pay for themselves?",
-        text: "See [digital advertising](/services/digital-advertising) and [pricing](/pricing), then [contact us](/contact) with your city and offer.",
-        label: "Talk about ads",
-        href: "/contact",
-      },
-    ],
-  },
+  seoChecklist2026,
+  whyNextjsForMarketingSites,
+  googleAdsRoiFundamentals,
 ];
+
+function blockText(value: unknown): string {
+  if (typeof value === "string") return value;
+  if (Array.isArray(value)) return value.map(blockText).join(" ");
+  if (value && typeof value === "object") {
+    return Object.entries(value)
+      .filter(([key]) => !["type", "src", "href", "language", "speaker"].includes(key))
+      .map(([, v]) => blockText(v))
+      .join(" ");
+  }
+  return "";
+}
+
+/** Reading time from the words actually on the page (about 230 words a minute). */
+function estimateReadingTime(post: Post): string {
+  const words = `${blockText(post.content)} ${blockText(post.faqs ?? [])}`
+    .replace(/\]\([^)]*\)/g, "]")
+    .split(/\s+/)
+    .filter((word) => /[A-Za-z0-9]/.test(word)).length;
+  return `${Math.max(1, Math.round(words / 230))} min read`;
+}
+
+/** Posts rendered from data get a computed reading time; hand-built article routes keep their own. */
+export const posts: Post[] = postData.map((post) =>
+  post.content.length > 3 ? { ...post, readingTime: estimateReadingTime(post) } : post,
+);
 
 export const categories: string[] = [
   "All",

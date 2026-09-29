@@ -74,7 +74,7 @@ export const niches: Niche[] = [
     h1: "Get more plumbing jobs from Google",
     seoTitle: "SEO, Websites & Growth for Plumbing Businesses (UK & USA)",
     seoDescription:
-      "SEO, websites and apps for plumbing companies in the UK & USA. Show up when locals search, turn clicks into calls. From £100/mo or 10% of bookings. 6-month minimum.",
+      "SEO, websites and apps for plumbing companies in the UK & USA. Show up when locals search, turn clicks into calls. From £100/mo (6-month minimum) or 10% of bookings.",
     intro:
       "People look for a plumber online first. We help plumbing businesses across the UK and USA get found — with SEO, conversion-focused websites and apps when you need them — so more searches turn into booked work.",
     experience: [
@@ -117,8 +117,8 @@ export const niches: Niche[] = [
         text: "Google presence, website speed and the pages that should be bringing calls.",
       },
       {
-        title: "3. We grow visibility city by city",
-        text: "Content and SEO for the markets you serve — UK and USA — built for customers and for Google search.",
+        title: "3. We grow visibility where you work",
+        text: "Service content, reviews and area pages backed by real local jobs — built for customers first, then for Google.",
       },
       {
         title: "4. You see results clearly",
@@ -135,7 +135,7 @@ export const niches: Niche[] = [
       "More visibility when people search for a plumber",
       "A site (and optional app) built for mobile and conversions",
       "Honest reporting you can understand",
-      "Optional: pay 10% of bookings only",
+      "Optional: pay a share of the bookings we generate",
     ],
     faqs: [
       {
@@ -146,7 +146,7 @@ export const niches: Niche[] = [
       {
         question: "What’s the minimum commitment?",
         answer:
-          "SEO plans have a 6-month minimum. There’s no setup fee and no big down payment — we need enough time for search results to compound.",
+          "SEO plans have a 6-month minimum. There’s no setup fee and no big down payment — we need enough time for search results to compound. Growth Partnerships on 10% of bookings run for 12–24 months.",
       },
       {
         question: "Do I have to run Google Ads?",
@@ -156,7 +156,7 @@ export const niches: Niche[] = [
       {
         question: "Do you work in the USA as well as the UK?",
         answer:
-          "Yes. We target cities across both markets. Pick your city below or tell us where you operate.",
+          "Yes. We work remotely with businesses in the UK, the US, Canada, the UAE and other markets. Tell us where you operate and we will plan around your real service area.",
       },
     ],
     relatedService: "seo",
@@ -224,8 +224,8 @@ export const niches: Niche[] = [
         text: "Google presence, website speed and the pages that should bring enquiries.",
       },
       {
-        title: "3. We grow city by city",
-        text: "Content and SEO for your markets — built for customers and for Google search.",
+        title: "3. We grow visibility where you work",
+        text: "Service content, reviews and area pages backed by real local jobs — built for customers first, then for Google.",
       },
       {
         title: "4. You see results clearly",
@@ -242,7 +242,7 @@ export const niches: Niche[] = [
       "More visibility when people search for a cleaner",
       "A site (and optional app) built for mobile and conversions",
       "Honest reporting you can understand",
-      "Optional: pay 10% of bookings only",
+      "Optional: pay a share of the bookings we generate",
     ],
     faqs: [
       {
@@ -253,7 +253,7 @@ export const niches: Niche[] = [
       {
         question: "What’s the minimum commitment?",
         answer:
-          "SEO plans have a 6-month minimum. No setup fee — we need time for search results to compound.",
+          "SEO plans have a 6-month minimum. No setup fee — we need time for search results to compound. Growth Partnerships on 10% of bookings run for 12–24 months.",
       },
       {
         question: "Do you work in the UK and USA?",

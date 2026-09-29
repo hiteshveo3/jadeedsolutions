@@ -95,6 +95,7 @@ const faqs = [
   ["Where is Jadeed Solutions located?", "Our registered business location is House No. 5, Street No. 1, New Lahore Road, Pejowali Kalan, Narowal 51600, Pakistan. We work remotely with clients in Pakistan, the UK, the US, the UAE and other markets."],
   ["Does Jadeed Solutions have independent reviews?", "Yes. Public profiles are available on Google Business, Trustpilot, Clutch and Facebook. Each platform is linked on this page so you can check the source directly."],
   ["Which businesses are the best fit?", "We are best suited to local service businesses such as movers, cleaners, plumbers, contractors and other teams that want measurable enquiries and booked jobs rather than disconnected marketing activity."],
+  ["How does pricing work?", "Websites start from £199 and fixed local SEO from £100 a month, with a 6-month minimum. If you would rather pay for results, the Growth Partnership is typically 10% of the bookings our work generates, on a 12–24 month term. Full details are on the pricing page and in our profit-share handbook."],
   ["How do we get started?", "Book a free growth plan. We will review your visibility, website conversion path and acquisition setup, then recommend the clearest next steps."],
 ] as const;
 

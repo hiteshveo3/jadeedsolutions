@@ -75,7 +75,7 @@ export const services: Service[] = [
     highlights: [
       { icon: TagIcon, label: "From £100/month" },
       { icon: HandshakeIcon, label: "Or 10% on bookings" },
-      { icon: ClockIcon, label: "6-month minimum" },
+      { icon: ClockIcon, label: "6-month minimum on monthly plans" },
     ],
     rating: { score: "5.0", count: "from 35 Google reviews" },
     trustBadges: ["5.0 on Google", "Honest SEO", "10% performance model"],
@@ -88,8 +88,8 @@ export const services: Service[] = [
     },
     stats: [
       { value: "5.0", label: "Google (35 reviews)" },
-      { value: "44.3K", label: "Impressions · Alpha (3 mo)" },
-      { value: "216", label: "Clicks · Alpha (3 mo)" },
+      { value: "160.9K", label: "Impressions · Alpha (6 mo)" },
+      { value: "630", label: "Clicks · Alpha (6 mo)" },
       { value: "10%", label: "Performance model" },
     ],
     included: [
@@ -146,7 +146,7 @@ export const services: Service[] = [
         { label: "Performance SEO (Growth Partnership)", value: "10% of generated bookings" },
         { label: "One-off SEO audit", value: "From £150" },
       ],
-      note: "Monthly plans have a 6-month minimum so the work has time to compound. The 10% model is available for qualifying local service businesses.",
+      note: "Monthly plans have a 6-month minimum so the work has time to compound. The 10% model is available for qualifying local service businesses on a 12–24 month term.",
     },
     priceFactors: [
       "How competitive your industry and area are",
@@ -158,9 +158,9 @@ export const services: Service[] = [
     ],
     keyTakeaways: [
       "SEO from £100/month, or 10% of the bookings we generate — for every local service business.",
-      "UK & USA first, then worldwide. Based in Lahore, Pakistan.",
-      "Alpha Movers: 216 organic clicks in 3 months ≈ ~22 bookings at a 10% click-to-book rate.",
-      "Real proof from cleaning and removals brands ranking on competitive local keywords.",
+      "Clients across the UK, US, Canada and UAE. Based in Narowal, Pakistan.",
+      "Alpha Movers: 630 organic clicks and 160,903 impressions in six months, from Google Search Console.",
+      "Public reviews from cleaning and removals clients on Google, Trustpilot and Clutch.",
     ],
     sections: [
       {
@@ -228,7 +228,7 @@ export const services: Service[] = [
     atAGlance: [
       { label: "Pricing", value: "From £100/mo" },
       { label: "Or performance", value: "10% of bookings" },
-      { label: "Minimum term", value: "6 months" },
+      { label: "Minimum term", value: "6 months · 12–24 on the 10% model" },
       { label: "Google rating", value: "5.0 · 35 reviews" },
       { label: "Focus", value: "Local service SEO" },
     ],
@@ -424,6 +424,11 @@ export const services: Service[] = [
     ],
     faqs: [
       {
+        question: "Can you migrate my old site without losing rankings?",
+        answer:
+          "Yes. We map every old URL to its new home with permanent redirects, carry over content and metadata that ranks, and watch Search Console closely for the first weeks after launch.",
+      },
+      {
         question: "Is £199 really the full price?",
         answer:
           "Yes — a starter business website is a one-time fee of £199 with no hidden monthly charges just to keep it online. Larger or custom sites are quoted individually, but you'll always get a fixed price before we begin.",
@@ -472,7 +477,7 @@ export const services: Service[] = [
     },
     stats: [
       { value: "Custom", label: "Quoted per app" },
-      { value: "iOS+Android", label: "Both platforms" },
+      { value: "iOS + Android", label: "Both platforms" },
       { value: "5.0", label: "Google reviews" },
       { value: "MVP-first", label: "Launch lean" },
     ],
@@ -661,7 +666,7 @@ export const services: Service[] = [
       ],
     },
     stats: [
-      { value: "200%+", label: "ROI lift (client review)" },
+      { value: "0%", label: "Markup on ad spend" },
       { value: "5.0", label: "Google reviews" },
       { value: "24–48h", label: "To go live" },
       { value: "Daily", label: "Optimisation" },
@@ -802,6 +807,11 @@ export const services: Service[] = [
       { label: "Focus", value: "Cost per lead & ROAS" },
     ],
     faqs: [
+      {
+        question: "Can ads be part of the 10% model?",
+        answer:
+          "Yes. On the Growth Partnership we manage ads as part of the work — you fund the ad spend directly with Google or Meta, and management is included in the performance fee.",
+      },
       {
         question: "What ad budget do I need?",
         answer:

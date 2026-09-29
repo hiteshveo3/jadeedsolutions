@@ -47,8 +47,8 @@ export const growthServiceMeta: Record<
   },
   partnership: {
     label: "Growth Partnership (10%)",
-    href: "/pricing#partnership-calculator",
-    blurb: "Website, SEO and optional ads — pay 10% of bookings we generate. No setup fee.",
+    href: "/pricing#calculator",
+    blurb: "Website, SEO and optional ads — typically 10% of revenue from bookings we generate, on a 12–24 month term.",
   },
 };
 

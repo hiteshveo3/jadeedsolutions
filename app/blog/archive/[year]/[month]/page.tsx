@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { HeroBackground } from "@/components/HeroBackground";
 import { LinkButton } from "@/components/Button";
@@ -14,17 +13,15 @@ import {
 } from "@/lib/blog";
 import { getAuthor } from "@/lib/authors";
 import { siteConfig } from "@/lib/site";
+import { CategoryTile } from "@/components/blog/CategoryTile";
 import { HugeiconsIcon, ArrowRightIcon, ArrowDownIcon } from "@/components/icons";
 
 export function generateStaticParams() {
   return archiveMonthParams();
 }
 
-export function generateMetadata({
-  params,
-}: {
-  params: { year: string; month: string };
-}): Metadata {
+export async function generateMetadata(props: { params: Promise<{ year: string; month: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const label = formatMonthLabel(params.year, params.month);
   return {
     title: `Archive · ${label}`,
@@ -32,11 +29,8 @@ export function generateMetadata({
   };
 }
 
-export default function BlogMonthArchivePage({
-  params,
-}: {
-  params: { year: string; month: string };
-}) {
+export default async function BlogMonthArchivePage(props: { params: Promise<{ year: string; month: string }> }) {
+  const params = await props.params;
   const items = getPostsByYearMonth(params.year, params.month);
   if (items.length === 0) notFound();
 
@@ -57,7 +51,7 @@ export default function BlogMonthArchivePage({
 
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-white pb-12 pt-16">
+      <section className="relative isolate overflow-hidden bg-white pb-12 pt-32">
         <HeroBackground />
         <div className="container relative z-10 max-w-5xl">
           <nav className="text-xs text-slate-500">
@@ -130,14 +124,7 @@ export default function BlogMonthArchivePage({
                     i === 0 ? "aspect-[16/10] md:aspect-auto md:min-h-[280px]" : "aspect-[21/9]"
                   }`}
                 >
-                  <Image
-                    src={p.cover}
-                    alt=""
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    priority={i === 0}
-                  />
+                  <CategoryTile category={p.category} readingTime={p.readingTime} fill />
                 </Link>
                 <div className="flex flex-col justify-center p-6 sm:p-8">
                   <span className="text-xs font-bold uppercase tracking-wider text-brand-500">

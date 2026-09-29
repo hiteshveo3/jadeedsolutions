@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import {
   HugeiconsIcon,
   SearchIcon,
@@ -18,6 +17,7 @@ import {
   type ArchiveYear,
   type Post,
 } from "@/lib/blog";
+import { CategoryTile } from "@/components/blog/CategoryTile";
 import { getAuthor } from "@/lib/authors";
 
 type ViewMode = "timeline" | "calendar" | "list";
@@ -167,13 +167,7 @@ export function BlogArchiveExplorer({
           className="group grid overflow-hidden rounded-3xl bg-white md:grid-cols-[1.1fr_1fr]"
         >
           <div className="relative aspect-[16/10] md:aspect-auto md:min-h-[240px]">
-            <Image
-              src={latest.cover}
-              alt={latest.title}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
+            <CategoryTile category={latest.category} readingTime={latest.readingTime} fill />
             <span className="absolute left-4 top-4 rounded-full bg-brand-500 px-3 py-1 text-xs font-bold text-white">
               Latest
             </span>
@@ -658,13 +652,7 @@ function PostMiniCard({ post }: { post: Post }) {
       className="group flex h-full gap-3 overflow-hidden rounded-xl bg-white p-2.5"
     >
       <div className="relative h-16 w-20 shrink-0 overflow-hidden rounded-lg bg-slate-100">
-        <Image
-          src={post.cover}
-          alt=""
-          fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
-          sizes="80px"
-        />
+        <CategoryTile category={post.category} readingTime={post.readingTime} fill />
       </div>
       <div className="min-w-0 flex-1 py-0.5">
         <p className="text-[10px] font-bold uppercase tracking-wider text-brand-500">

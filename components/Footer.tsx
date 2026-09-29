@@ -39,6 +39,7 @@ const sections = [
       ["Growth Guides", "/guides"],
       ["Case Studies & Proof", "/portfolio"],
       ["Pricing & Models", "/pricing"],
+      ["Profit-Share Handbook", "/profit-share-handbook"],
       ["Free Growth Check", "/tools/growth-check"],
       ["Blog & Research", "/blog"],
     ],
@@ -101,7 +102,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-6 text-white/65">
-              Connected customer acquisition systems for UK and US local service businesses.
+              Connected customer acquisition systems for local service businesses in the UK, US, Canada and UAE.
             </p>
             <div className="mt-7 space-y-3 text-sm text-white/75">
               <a
@@ -172,7 +173,7 @@ export function Footer() {
           <div className="flex gap-6">
             <Link href="/privacy" className="hover:text-white">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white">Terms of Service</Link>
-            <Link href="/sitemap.xml" className="hover:text-white">Sitemap</Link>
+            <Link href="/site-map" className="hover:text-white">Sitemap</Link>
           </div>
         </div>
       </div>

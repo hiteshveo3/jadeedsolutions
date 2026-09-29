@@ -88,9 +88,12 @@ const markdownComponents = {
   h3: ({ node, ...props }: any) => (
     <h3 className="text-[20px] md:text-[21px] font-semibold text-[#151515] mt-10 mb-4" {...props} />
   ),
-  p: ({ node, ...props }: any) => (
-    <p className="mb-6 leading-[1.8] text-black/75 font-normal text-[16.5px]" {...props} />
-  ),
+  p: ({ node, ...props }: any) =>
+    node?.children?.some((child: any) => child.type === "element" && child.tagName === "img") ? (
+      <div className="mb-6 leading-[1.8] text-black/75 font-normal text-[16.5px]" {...props} />
+    ) : (
+      <p className="mb-6 leading-[1.8] text-black/75 font-normal text-[16.5px]" {...props} />
+    ),
   a: ({ node, ...props }: any) => (
     <a className="text-[#015f45] hover:underline font-semibold" {...props} />
   ),
@@ -130,22 +133,18 @@ const markdownComponents = {
   tr: ({ node, ...props }: any) => (
     <tr className="even:bg-black/[0.015]" {...props} />
   ),
-  code: ({ node, inline, className, children, ...props }: any) => {
-    if (inline) {
-      return (
-        <code className="bg-black/5 text-[#015f45] font-mono text-xs px-1.5 py-0.5 rounded font-semibold" {...props}>
-          {children}
-        </code>
-      );
-    }
-    return (
-      <div className="my-6 rounded-xl overflow-hidden border border-black/10 bg-[#111614] text-white not-prose shadow-sm">
-        <div className="p-4 overflow-x-auto text-xs md:text-sm font-mono leading-relaxed text-[#c3e6cd]">
-          <pre>{children}</pre>
-        </div>
+  code: ({ node, className, children, ...props }: any) => (
+    <code className={className || "bg-black/5 text-[#015f45] font-mono text-xs px-1.5 py-0.5 rounded font-semibold"} {...props}>
+      {children}
+    </code>
+  ),
+  pre: ({ node, children }: any) => (
+    <div className="my-6 rounded-xl overflow-hidden border border-black/10 bg-[#111614] text-white not-prose shadow-sm">
+      <div className="p-4 overflow-x-auto text-xs md:text-sm font-mono leading-relaxed text-[#c3e6cd] [&_code]:bg-transparent [&_code]:p-0 [&_code]:font-normal [&_code]:text-inherit">
+        <pre>{children}</pre>
       </div>
-    );
-  },
+    </div>
+  ),
   img: ({ node, ...props }: any) => (
     <figure className="my-12 overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm">
       <div className="relative w-full h-[280px] sm:h-[420px] bg-black/5 overflow-hidden">
@@ -266,7 +265,7 @@ export default function SingleBlogPage() {
         <div className="max-w-[1200px] mx-auto px-6 pt-16 flex flex-col lg:flex-row gap-16 items-start">
           
           {/* Main Article Content */}
-          <div className="flex-1 w-full max-w-[800px]">
+          <div className="flex-1 w-full min-w-0 max-w-[800px]">
             
             {/* Top Featured Hero Image Container */}
             <div className="w-full h-[300px] md:h-[480px] bg-black/5 rounded-2xl border border-black/10 mb-14 flex items-center justify-center text-black/20 overflow-hidden relative shadow-sm">
