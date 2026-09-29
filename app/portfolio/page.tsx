@@ -1,228 +1,102 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { HugeiconsIcon, ArrowRightIcon } from "@/components/icons";
+import { LongformHero, Pill } from "@/components/longform/Layout";
+import { CaseStudyCard, CheckList, LandingSection, ReviewGrid } from "@/components/landing/Blocks";
+import { publishedCaseStudies } from "@/lib/case-studies";
+import { clientReviews, googleAggregate, trustpilotAggregate } from "@/lib/reviews";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Case Studies & Client Results",
   description:
-    "Explore how Jadeed Solutions helps local service companies in the UK and USA scale bookings through custom Next.js websites, local SEO, mobile apps, and performance-based marketing.",
+    "Verified results from Jadeed Solutions clients: the Alpha Movers case study with Google Search Console data, and public reviews from local service businesses on Google, Trustpilot and Clutch.",
+  alternates: { canonical: `${siteConfig.url}/portfolio` },
 };
 
-const SlidingArrow = ({ colorClass = "text-white" }) => (
-  <div className="relative w-4 h-4 overflow-hidden flex items-center justify-center -mr-0.5 pointer-events-none">
-    <svg className={"absolute w-4 h-4 " + colorClass + " -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M5 12h14"></path>
-      <path d="m12 5 7 7-7 7"></path>
-    </svg>
-    <svg className={"absolute w-4 h-4 " + colorClass + " translate-x-0 group-hover:translate-x-full transition-transform duration-300 ease-in-out"} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M5 12h14"></path>
-      <path d="m12 5 7 7-7 7"></path>
-    </svg>
-  </div>
-);
-
-const caseStudiesData = [
-  {
-    id: "alpha-movers",
-    client: "Alpha Movers UK",
-    category: "Moving & Removals",
-    headline: "+320% Increase in Monthly Booked Removals in 90 Days",
-    summary: "How a local removal company scaled organic phone calls and eliminated empty truck capacity without paying upfront management retainers.",
-    metrics: [
-      { label: "Booked Jobs", value: "+320%" },
-      { label: "Cost Per Lead", value: "-45%" },
-      { label: "Pay Model", value: "10% Performance" },
-    ],
-    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    tags: ["Local SEO", "High-Converting Website", "Call Tracking"]
-  },
-  {
-    id: "proclean-commercial",
-    client: "ProClean Commercial Services",
-    category: "Commercial Cleaning",
-    headline: "£0 to £52,000/mo in Recurring Contracts via Google Ads & CRM Attribution",
-    summary: "Built a precision search campaign targeting commercial office facilities with strict negative keyword filtering and automated WhatsApp booking.",
-    metrics: [
-      { label: "Contract Pipeline", value: "£180K+" },
-      { label: "Close Rate", value: "38%" },
-      { label: "Google Ads ROAS", value: "4.8x" },
-    ],
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    tags: ["Google Ads", "Conversion Landing Page", "CRM Setup"]
-  },
-  {
-    id: "apex-plumbing",
-    client: "Apex Emergency Plumbing",
-    category: "Emergency Trades",
-    headline: "Dominating the Local 3-Pack Across 12 High-Value Zip Codes",
-    summary: "Complete Google Business Profile optimization, review velocity flywheel, and fast mobile emergency landing page for 24/7 plumbing queries.",
-    metrics: [
-      { label: "Map Pack Rank", value: "Top 3" },
-      { label: "Monthly Calls", value: "240+" },
-      { label: "Conversion Rate", value: "12.4%" },
-    ],
-    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    tags: ["Google Map Pack", "Mobile Speed", "Review Automation"]
-  }
-];
+const featuredReviewNames = ["Arooj Fatima", "Mariam Ammad", "FLY FLEET DISPATCHERS", "Ihsan ul Haq"];
 
 export default function PortfolioPage() {
+  const studies = publishedCaseStudies();
+  const reviews = featuredReviewNames
+    .map((name) => clientReviews.find((r) => r.name === name))
+    .filter((r): r is NonNullable<typeof r> => Boolean(r));
+
   return (
-    <main className="min-h-screen bg-[#f9f9f9]">
-      
-      {/* Header */}
-      <section className="w-full bg-white border-b border-black/10 pt-[160px] pb-20 px-6 relative overflow-hidden">
-        <div
-          className="absolute inset-0 z-0 opacity-[0.03] mix-blend-overlay pointer-events-none"
-          style={{
-            backgroundImage:
-              "url('data:image/svg+xml,%3Csvg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cfilter id=\"noiseFilter\"%3E%3CfeTurbulence type=\"fractalNoise\" baseFrequency=\"0.85\" numOctaves=\"3\" stitchTiles=\"stitch\"/%3E%3C/filter%3E%3Crect width=\"100%25\" height=\"100%25\" filter=\"url(%23noiseFilter)\"/%3E%3C/svg%3E')",
-            backgroundRepeat: "repeat",
-          }}
-        />
+    <>
+      <LongformHero
+        crumbs={[{ label: "Home", href: "/" }, { label: "Portfolio" }]}
+        eyebrow={<Pill>Verified results</Pill>}
+        title={<>Client results you can <span className="text-[#eaf25a]">check for yourself.</span></>}
+        subtitle="We only publish numbers we can show the source for — Search Console exports, public reviews and client-confirmed details. More case studies are being prepared and will appear here once the data is reconciled."
+        stats={[
+          ["160,903", "search impressions for Alpha Movers in 6 months"],
+          ["630", "organic clicks in the same period"],
+          [`${googleAggregate.score}★`, `from ${googleAggregate.count} Google reviews`],
+          ["~10", "active client partnerships"],
+        ]}
+      />
 
-        <div className="max-w-[1000px] mx-auto text-center flex flex-col items-center relative z-10">
-          <span className="inline-flex items-center justify-center bg-[#cbd810]/25 text-[#015f45] border border-[#cbd810]/50 text-[12.5px] font-bold px-4 py-1.5 rounded-xl uppercase tracking-[0.12em] mb-7">
-            Proven Results
-          </span>
+      <LandingSection id="case-studies" eyebrow="Case studies" title="Published case studies" tone="cream" intro={<>Each case study shows where its figures come from and what is deliberately left out.</>}>
+        <div className="space-y-4">
+          {studies.map((study) => <CaseStudyCard key={study.id} study={study} />)}
+        </div>
+      </LandingSection>
 
-          <h1 className="text-[40px] md:text-[56px] font-semibold text-[#151515] leading-[1.12] tracking-tight mb-6 max-w-[850px]">
-            Real Case Studies & Measurable Growth
-          </h1>
-          <p className="text-[18px] md:text-[21px] text-black/60 max-w-[750px] mb-10 leading-relaxed font-normal">
-            Explore how our precision marketing systems turn search demand into booked appointments and sustainable revenue for local service businesses.
-          </p>
-
-          {/* Quick Metrics Bar */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-[900px] bg-[#f9f9f9] border border-black/10 rounded-2xl p-6 shadow-sm">
-            <div>
-              <p className="text-[28px] font-bold text-[#015f45]">+320%</p>
-              <p className="text-[13px] text-black/60 font-medium mt-0.5">Average Lead Increase</p>
+      <LandingSection id="what-we-did" eyebrow="The work behind it" title="What a full engagement includes">
+        <div className="grid gap-4 lg:grid-cols-2">
+          <div className="rounded-[24px] border border-black/10 p-6 sm:p-8">
+            <p className="text-xs font-extrabold uppercase tracking-[.15em] text-[#015f45]">For Alpha Movers we built and run</p>
+            <div className="mt-4">
+              <CheckList
+                items={[
+                  "The website, with service and area pages for London and Croydon",
+                  "A mobile app for bookings",
+                  "Local SEO, including specialist furniture and sofa hoisting pages",
+                  "Social media and paid advertising",
+                  "Tracking, so search visibility can be tied to enquiries",
+                ]}
+              />
             </div>
-            <div>
-              <p className="text-[28px] font-bold text-[#151515]">10%</p>
-              <p className="text-[13px] text-black/60 font-medium mt-0.5">Performance Pay Model</p>
-            </div>
-            <div>
-              <p className="text-[28px] font-bold text-[#015f45]">100%</p>
-              <p className="text-[13px] text-black/60 font-medium mt-0.5">Audited Call Tracking</p>
-            </div>
-            <div>
-              <p className="text-[28px] font-bold text-[#151515]">90 Days</p>
-              <p className="text-[13px] text-black/60 font-medium mt-0.5">Scaling Roadmap</p>
+          </div>
+          <div className="rounded-[24px] bg-[#dceee8] p-6 text-[#063d30] sm:p-8">
+            <p className="text-xs font-extrabold uppercase tracking-[.15em] text-[#015f45]">How it was paid for</p>
+            <p className="mt-4 leading-7">
+              Monthly SEO fees did not suit Alpha Movers’ cash flow, so the owner chose to pay 10% after bookings instead. That performance model is available to other local service businesses alongside fixed and tiered pricing.
+            </p>
+            <div className="mt-6 flex flex-col gap-2 text-sm font-bold text-[#015f45]">
+              <Link href="/pricing" className="group inline-flex items-center gap-1.5">Compare pricing models <HugeiconsIcon icon={ArrowRightIcon} size={15} className="transition-transform group-hover:translate-x-1" aria-hidden="true" /></Link>
+              <Link href="/profit-share-handbook" className="group inline-flex items-center gap-1.5">How performance deals work <HugeiconsIcon icon={ArrowRightIcon} size={15} className="transition-transform group-hover:translate-x-1" aria-hidden="true" /></Link>
             </div>
           </div>
         </div>
-      </section>
+      </LandingSection>
 
-      {/* Case Studies Grid */}
-      <section className="max-w-[1280px] mx-auto px-6 py-20">
-        <div className="flex flex-col gap-12">
-          {caseStudiesData.map((study) => (
-            <div
-              key={study.id}
-              className="bg-white border border-black/10 rounded-3xl p-8 lg:p-10 shadow-sm flex flex-col lg:flex-row gap-10 items-center"
-            >
-              {/* Image Side */}
-              <div className="w-full lg:w-[48%] h-[280px] sm:h-[360px] rounded-2xl overflow-hidden relative bg-black/5 flex-shrink-0 border border-black/5">
-                <img
-                  src={study.image}
-                  alt={study.client}
-                  className="w-full h-full object-cover"
-                />
-                <span className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-[#015f45] border border-black/10 text-[12px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm">
-                  {study.category}
-                </span>
-              </div>
-
-              {/* Content Side */}
-              <div className="w-full lg:w-[52%] flex flex-col justify-between">
-                <div>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {study.tags.map((tag, tIdx) => (
-                      <span
-                        key={tIdx}
-                        className="bg-black/5 text-black/70 text-[12px] font-semibold px-2.5 py-1 rounded-md"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <h2 className="text-[24px] md:text-[30px] font-semibold text-[#151515] leading-snug mb-4">
-                    {study.headline}
-                  </h2>
-                  <p className="text-[16px] text-black/70 leading-relaxed font-normal mb-8">
-                    {study.summary}
-                  </p>
-                </div>
-
-                {/* Metrics Row */}
-                <div className="grid grid-cols-3 gap-4 pt-6 border-t border-black/10 mb-8">
-                  {study.metrics.map((m, mIdx) => (
-                    <div key={mIdx}>
-                      <p className="text-[22px] md:text-[26px] font-bold text-[#015f45]">
-                        {m.value}
-                      </p>
-                      <p className="text-[12.5px] text-black/55 font-medium mt-0.5">
-                        {m.label}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Action CTA Buttons (Each button has its own isolated group trigger) */}
-                <div className="flex items-center gap-4">
-                  <Link
-                    href={`/case-studies/${study.id}`}
-                    className="group bg-[#151515] text-white font-semibold px-6 py-3.5 rounded-xl hover:bg-[#015f45] transition-all text-[14.5px] flex items-center gap-2.5 shadow-sm"
-                  >
-                    <span>View Full Case Study</span>
-                    <SlidingArrow colorClass="text-white" />
-                  </Link>
-                  <Link
-                    href="/contact"
-                    className="group text-black font-semibold hover:text-[#015f45] transition-colors text-[14.5px] px-3 py-3 flex items-center gap-1.5"
-                  >
-                    <span>Get Similar Results</span>
-                    <SlidingArrow colorClass="text-[#015f45]" />
-                  </Link>
-                </div>
-              </div>
-            </div>
+      <LandingSection
+        id="reviews"
+        eyebrow="Independent proof"
+        title="What clients say in public"
+        tone="cream"
+        intro={
+          <>
+            {googleAggregate.score} from {googleAggregate.count} Google reviews and {trustpilotAggregate.score} from {trustpilotAggregate.count} on Trustpilot. Every profile is linked so you can read the originals.
+          </>
+        }
+      >
+        <ReviewGrid reviews={reviews} />
+        <div className="mt-6 flex flex-wrap gap-2 text-sm">
+          {[
+            ["Google", googleAggregate.url],
+            ["Trustpilot", siteConfig.trustpilotUrl],
+            ["Clutch", siteConfig.clutchUrl],
+            ["Facebook", siteConfig.facebookReviewsUrl],
+          ].map(([name, href]) => (
+            <a key={name} href={href} target="_blank" rel="noreferrer" className="rounded-full border border-black/10 bg-white px-3.5 py-1.5 font-semibold text-black/70 hover:border-[#015f45]/40 hover:text-[#015f45]">
+              Read reviews on {name} ↗
+            </a>
           ))}
         </div>
-      </section>
-
-      {/* Bottom CTA Card */}
-      <section className="w-full pb-24 px-6">
-        <div className="max-w-[1280px] mx-auto bg-[#015f45] text-white rounded-3xl p-10 lg:p-16 text-center flex flex-col items-center relative overflow-hidden shadow-lg">
-          <span className="inline-block bg-[#cbd810] text-[#111111] text-[11px] font-extrabold px-3 py-1 rounded-md uppercase tracking-widest mb-6">
-            Ready to Scale?
-          </span>
-          <h2 className="text-[32px] md:text-[46px] font-bold text-white mb-6 max-w-[700px] leading-tight">
-            Stop Guessing. Build a Predictable Acquisition Engine.
-          </h2>
-          <p className="text-white/80 text-[17px] md:text-[19px] max-w-[600px] mb-10 leading-relaxed font-normal">
-            Whether you need Local SEO, Google Ads, or a complete high-converting web system, our team is ready to deliver.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link
-              href="/contact"
-              className="group bg-[#cbd810] text-[#111111] font-bold px-8 py-4 rounded-xl hover:bg-[#b8c50e] transition-all text-[15px] shadow-md flex items-center gap-2"
-            >
-              <span>Book a Strategy Call</span>
-              <SlidingArrow colorClass="text-[#111111]" />
-            </Link>
-            <Link
-              href="/tools/growth-check"
-              className="bg-white/10 border border-white/20 text-white font-semibold px-8 py-4 rounded-xl hover:bg-white/20 transition-all text-[15px]"
-            >
-              Free Growth Audit Score
-            </Link>
-          </div>
-        </div>
-      </section>
-
-    </main>
+      </LandingSection>
+    </>
   );
 }

@@ -27,7 +27,7 @@ const tools = [
 export default function ToolsHubPage() {
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-white pb-16 pt-16">
+      <section className="relative isolate overflow-hidden bg-white pb-16 pt-32">
         <HeroBackground />
         <div className="container relative z-10 max-w-3xl">
           <Reveal>

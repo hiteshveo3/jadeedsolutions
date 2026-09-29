@@ -19,7 +19,7 @@ const highlights = [
 
 export default function ContactPage() {
   return (
-    <section className="relative isolate overflow-hidden bg-slate-50 pb-20 pt-16 sm:pb-24 sm:pt-20 lg:pb-28">
+    <section className="relative isolate overflow-hidden bg-slate-50 pb-20 pt-32 sm:pb-24 sm:pt-36 lg:pb-28">
       <HeroBackground />
       <div className="container relative z-10 grid gap-12 lg:grid-cols-2 lg:gap-16">
         <Reveal className="flex flex-col">

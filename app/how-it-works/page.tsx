@@ -75,7 +75,7 @@ const vsAlternatives: { title: string; points: string[] }[] = [
 export default function HowItWorksPage() {
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-white pb-16 pt-16 sm:pb-20 sm:pt-20">
+      <section className="relative isolate overflow-hidden bg-white pb-16 pt-32 sm:pb-20 sm:pt-36">
         <HeroBackground />
         <div className="container relative z-10 max-w-3xl">
           <Reveal className="flex flex-col gap-5">

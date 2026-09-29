@@ -17,7 +17,7 @@ export default function BlogArchiveIndexPage() {
 
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-white pb-10 pt-16">
+      <section className="relative isolate overflow-hidden bg-white pb-10 pt-32">
         <HeroBackground />
         <div className="container relative z-10 max-w-5xl">
           <nav className="text-xs text-slate-500">

@@ -220,8 +220,8 @@ export default function SameerFounderStoryPage() {
                 <span className="text-xs text-white/70 font-medium">Founded in Narowal, Pakistan</span>
               </div>
               <div className="flex flex-col items-center text-center p-2">
-                <span className="text-2xl sm:text-3xl font-extrabold text-[#cbd810] font-mono">100%</span>
-                <span className="text-xs text-white/70 font-medium">Performance-Aligned Model</span>
+                <span className="text-2xl sm:text-3xl font-extrabold text-[#cbd810] font-mono">10%</span>
+                <span className="text-xs text-white/70 font-medium">Pay-After-Booking Option</span>
               </div>
             </motion.div>
 
@@ -459,12 +459,12 @@ export default function SameerFounderStoryPage() {
                         </div>
                         <div className="grid grid-cols-2 gap-3 pt-2">
                           <div className="p-3 rounded-xl bg-[#015f45]/5 border border-[#015f45]/10 text-center">
-                            <div className="text-xl font-bold text-[#015f45] font-mono">Top 3</div>
-                            <div className="text-[11px] text-black/60 font-medium">Abu Dhabi Google Rankings</div>
+                            <div className="text-xl font-bold text-[#015f45] font-mono">Page 1</div>
+                            <div className="text-[11px] text-black/60 font-medium">Abu Dhabi Google results (client’s Trustpilot review)</div>
                           </div>
                           <div className="p-3 rounded-xl bg-[#015f45]/5 border border-[#015f45]/10 text-center">
-                            <div className="text-xl font-bold text-[#015f45] font-mono">100% Organic</div>
-                            <div className="text-[11px] text-black/60 font-medium">Daily Direct WhatsApp Leads</div>
+                            <div className="text-xl font-bold text-[#015f45] font-mono">Web + SEO + Social</div>
+                            <div className="text-[11px] text-black/60 font-medium">Delivered as one package</div>
                           </div>
                         </div>
                       </motion.div>
@@ -540,7 +540,7 @@ export default function SameerFounderStoryPage() {
                       >
                         <div className="p-4 rounded-xl bg-emerald-50/80 border border-emerald-200">
                           <span className="font-bold text-[#015f45] block mb-1">Next.js &amp; AI Overhaul:</span>
-                          Rebuilt from ground up in Next.js + AI content pipeline + sub-second Core Web Vitals.
+                          Rebuilt from the ground up in Next.js with an AI-assisted content pipeline and fast Core Web Vitals.
                         </div>
                         <div className="grid grid-cols-2 gap-3 pt-2">
                           <div className="p-3 rounded-xl bg-[#015f45]/5 border border-[#015f45]/10 text-center">
@@ -548,8 +548,8 @@ export default function SameerFounderStoryPage() {
                             <div className="text-[11px] text-black/60 font-medium">Search Impressions (GSC)</div>
                           </div>
                           <div className="p-3 rounded-xl bg-[#015f45]/5 border border-[#015f45]/10 text-center">
-                            <div className="text-xl font-bold text-[#015f45] font-mono">+35%</div>
-                            <div className="text-[11px] text-black/60 font-medium">Conversion Booking Uplift</div>
+                            <div className="text-xl font-bold text-[#015f45] font-mono">+312%</div>
+                            <div className="text-[11px] text-black/60 font-medium">Clicks, first vs final 28 days (GSC)</div>
                           </div>
                         </div>
                       </motion.div>

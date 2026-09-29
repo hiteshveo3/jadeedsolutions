@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { HeroBackground } from "@/components/HeroBackground";
 import {
@@ -10,6 +9,7 @@ import {
   getArchiveByDate,
   getPostsByYear,
 } from "@/lib/blog";
+import { CategoryTile } from "@/components/blog/CategoryTile";
 import { HugeiconsIcon, ArrowRightIcon, CalendarIcon } from "@/components/icons";
 
 export function generateStaticParams() {
@@ -51,7 +51,7 @@ export default async function BlogYearArchivePage(props: { params: Promise<{ yea
 
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-white pb-12 pt-16">
+      <section className="relative isolate overflow-hidden bg-white pb-12 pt-32">
         <HeroBackground />
         <div className="container relative z-10 max-w-5xl">
           <nav className="text-xs text-slate-500">
@@ -151,13 +151,7 @@ export default async function BlogYearArchivePage(props: { params: Promise<{ yea
                     className="group overflow-hidden rounded-2xl bg-white"
                   >
                     <div className="relative aspect-[16/9] bg-slate-100">
-                      <Image
-                        src={p.cover}
-                        alt=""
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                        sizes="(max-width: 640px) 100vw, 40vw"
-                      />
+                      <CategoryTile category={p.category} readingTime={p.readingTime} fill />
                     </div>
                     <div className="p-5">
                       <span className="text-xs font-bold uppercase tracking-wider text-brand-500">

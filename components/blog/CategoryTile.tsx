@@ -18,10 +18,10 @@ const categoryIcons: Record<string, IconSvgElement> = {
 };
 
 /** Branded stand-in for article imagery: category icon, name and reading time on the brand green. */
-export function CategoryTile({ category, readingTime, large = false }: { category: string; readingTime: string; large?: boolean }) {
+export function CategoryTile({ category, readingTime, large = false, fill = false }: { category: string; readingTime: string; large?: boolean; fill?: boolean }) {
   const icon = categoryIcons[category] ?? BookIcon;
   return (
-    <div className={`relative flex flex-col justify-between overflow-hidden rounded-2xl bg-[#015f45] p-5 text-white ${large ? "min-h-[240px] sm:p-7 lg:min-h-[340px]" : "h-[150px]"}`} aria-hidden="true">
+    <div className={`flex flex-col justify-between overflow-hidden bg-[#015f45] p-5 text-white ${fill ? "absolute inset-0" : `relative rounded-2xl ${large ? "min-h-[240px] sm:p-7 lg:min-h-[340px]" : "h-[150px]"}`}`} aria-hidden="true">
       <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-[#cbd810]/15" />
       <div className="absolute -bottom-16 right-10 h-40 w-40 rounded-full bg-white/[0.06]" />
       <span className={`relative flex items-center justify-center rounded-xl bg-[#cbd810] text-[#063d30] ${large ? "h-14 w-14" : "h-11 w-11"}`}>
