@@ -1,106 +1,53 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { HugeiconsIcon, ArrowRightIcon } from "@/components/icons";
-import { SectionHeading } from "@/components/SectionHeading";
-import { CTASection } from "@/components/CTASection";
-import { Reveal } from "@/components/Reveal";
-import { HeroBackground } from "@/components/HeroBackground";
-import { niches } from "@/lib/niches";
-import { intentPages } from "@/lib/intent-pages";
+import { LongformHero, Pill } from "@/components/longform/Layout";
+import { industries } from "@/lib/industries";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Industries — Local Service Businesses We Help Grow",
   description:
-    "SEO, websites and apps for plumbers, movers, cleaners and local service businesses across 100+ UK & USA cities. From £100/mo or 10% of bookings.",
+    "Websites, local SEO and Google Ads for plumbers, cleaners, movers, trades and contractors in the UK, US, Canada and UAE — with fixed, performance or tiered pricing.",
+  alternates: { canonical: `${siteConfig.url}/industries` },
 };
 
 export default function IndustriesHubPage() {
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-white pb-16 pt-16 sm:pb-20 sm:pt-20">
-        <HeroBackground />
-        <div className="container relative z-10 max-w-3xl">
-          <Reveal className="flex flex-col gap-5">
-            <span className="eyebrow">Industries</span>
-            <h1 className="font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
-              Built for local service businesses
-            </h1>
-            <p className="text-lg leading-relaxed text-slate-600">
-              One focus: more bookings from Google and your website. We work
-              with plumbers, cleaners, movers and other local services across
-              the UK and USA — solo operators through larger firms. Full stack:
-              SEO, websites, apps and optional ads.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <LongformHero
+        crumbs={[{ label: "Home", href: "/" }, { label: "Industries" }]}
+        eyebrow={<Pill>Industries</Pill>}
+        title={<>Built for local service businesses that <span className="text-[#eaf25a]">live on booked jobs.</span></>}
+        subtitle="One focus: more calls and bookings from Google and your website. Each page below explains what we build for that trade, the searches we target and what the first 90 days look like."
+      />
 
-      <section className="section bg-slate-50">
-        <div className="container">
-          <SectionHeading
-            eyebrow="Trades we serve"
-            title="Start here"
-            description="Dedicated pages for your trade — with city coverage across the UK & USA."
-          />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2">
-            {niches.map((n, i) => (
-              <Reveal key={n.slug} delay={i * 0.06}>
-                <Link
-                  href={`/industries/${n.slug}`}
-                  className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-7"
-                >
-                  <span className="text-xs font-semibold uppercase tracking-wider text-brand-500">
-                    {n.eyebrow}
-                  </span>
-                  <h2 className="mt-3 font-display text-xl font-semibold text-ink group-hover:text-brand-500">
-                    {n.navLabel}
-                  </h2>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">
-                    {n.intro}
-                  </p>
-                  <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-500">
-                    View {n.navLabel.toLowerCase()} pages
-                    <HugeiconsIcon icon={ArrowRightIcon} size={16} />
-                  </span>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
+      <div className="bg-[#f7f5ef] py-12 sm:py-16">
+        <div className="container grid max-w-[1200px] gap-4 md:grid-cols-2">
+          {industries.map((industry) => (
+            <Link key={industry.slug} href={`/industries/${industry.slug}`} className="group flex flex-col rounded-[24px] border border-black/10 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#015f45]/35 sm:p-8">
+              <span className="text-xs font-bold uppercase tracking-[.12em] text-[#015f45]">{industry.navLabel}</span>
+              <h2 className="mt-3 text-2xl font-semibold leading-snug tracking-[-.03em] group-hover:text-[#015f45]">{industry.h1}</h2>
+              <p className="mb-6 mt-3 text-sm leading-6 text-black/60">{industry.intro}</p>
+              {industry.playbook.length > 0 && (
+                <ul className="mb-6 space-y-1.5 border-t border-black/10 pt-4 text-sm text-black/60">
+                  {industry.playbook.slice(0, 4).map((s) => (
+                    <li key={s.title} className="flex gap-2"><span className="text-[#015f45]" aria-hidden="true">→</span>{s.title}</li>
+                  ))}
+                </ul>
+              )}
+              <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-bold text-[#015f45]">
+                See the playbook <HugeiconsIcon icon={ArrowRightIcon} size={16} className="transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              </span>
+            </Link>
+          ))}
         </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <SectionHeading
-            eyebrow="Also helpful"
-            title="By goal"
-            description="Buyer-language pages if you already know what you need."
-          />
-          <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {intentPages.map((p) => (
-              <li key={p.slug}>
-                <Link
-                  href={`/industries/${p.slug}`}
-                  className="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-ink"
-                >
-                  {p.navLabel}
-                  <HugeiconsIcon icon={ArrowRightIcon} size={16} />
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-8 text-sm text-slate-500">
-            Based in {siteConfig.address} · remote delivery for UK &amp; USA
-            clients.
+        <div className="container mt-8 max-w-[1200px]">
+          <p className="text-sm text-black/60">
+            Not listed? We work with most businesses that win customers from Google — <Link href="/contact" className="font-semibold text-[#015f45] hover:underline">tell us what you do</Link>, or read the <Link href="/guides" className="font-semibold text-[#015f45] hover:underline">guides</Link>.
           </p>
         </div>
-      </section>
-
-      <CTASection
-        title="Don't see your trade yet?"
-        description="Tell us your city and service — if you sell local jobs, we can help you win more of them."
-      />
+      </div>
     </>
   );
 }

@@ -16,6 +16,22 @@ const nextConfig = {
         destination: "/industries/:path*",
         permanent: true,
       },
+      // Industry pages merged into the page they duplicated.
+      {
+        source: "/industries/seo-for-cleaning-companies",
+        destination: "/industries/seo-for-cleaners",
+        permanent: true,
+      },
+      {
+        source: "/industries/google-ads-for-local-services",
+        destination: "/services/digital-advertising",
+        permanent: true,
+      },
+      {
+        source: "/industries/websites-for-local-service-businesses",
+        destination: "/services/web-development",
+        permanent: true,
+      },
     ];
   },
 };

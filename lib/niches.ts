@@ -117,8 +117,8 @@ export const niches: Niche[] = [
         text: "Google presence, website speed and the pages that should be bringing calls.",
       },
       {
-        title: "3. We grow visibility city by city",
-        text: "Content and SEO for the markets you serve — UK and USA — built for customers and for Google search.",
+        title: "3. We grow visibility where you work",
+        text: "Service content, reviews and area pages backed by real local jobs — built for customers first, then for Google.",
       },
       {
         title: "4. You see results clearly",
@@ -135,7 +135,7 @@ export const niches: Niche[] = [
       "More visibility when people search for a plumber",
       "A site (and optional app) built for mobile and conversions",
       "Honest reporting you can understand",
-      "Optional: pay 10% of bookings only",
+      "Optional: pay a share of the bookings we generate",
     ],
     faqs: [
       {
@@ -156,7 +156,7 @@ export const niches: Niche[] = [
       {
         question: "Do you work in the USA as well as the UK?",
         answer:
-          "Yes. We target cities across both markets. Pick your city below or tell us where you operate.",
+          "Yes. We work remotely with businesses in the UK, the US, Canada, the UAE and other markets. Tell us where you operate and we will plan around your real service area.",
       },
     ],
     relatedService: "seo",
@@ -224,8 +224,8 @@ export const niches: Niche[] = [
         text: "Google presence, website speed and the pages that should bring enquiries.",
       },
       {
-        title: "3. We grow city by city",
-        text: "Content and SEO for your markets — built for customers and for Google search.",
+        title: "3. We grow visibility where you work",
+        text: "Service content, reviews and area pages backed by real local jobs — built for customers first, then for Google.",
       },
       {
         title: "4. You see results clearly",
@@ -242,7 +242,7 @@ export const niches: Niche[] = [
       "More visibility when people search for a cleaner",
       "A site (and optional app) built for mobile and conversions",
       "Honest reporting you can understand",
-      "Optional: pay 10% of bookings only",
+      "Optional: pay a share of the bookings we generate",
     ],
     faqs: [
       {

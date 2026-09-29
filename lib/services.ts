@@ -424,6 +424,11 @@ export const services: Service[] = [
     ],
     faqs: [
       {
+        question: "Can you migrate my old site without losing rankings?",
+        answer:
+          "Yes. We map every old URL to its new home with permanent redirects, carry over content and metadata that ranks, and watch Search Console closely for the first weeks after launch.",
+      },
+      {
         question: "Is £199 really the full price?",
         answer:
           "Yes — a starter business website is a one-time fee of £199 with no hidden monthly charges just to keep it online. Larger or custom sites are quoted individually, but you'll always get a fixed price before we begin.",
@@ -802,6 +807,11 @@ export const services: Service[] = [
       { label: "Focus", value: "Cost per lead & ROAS" },
     ],
     faqs: [
+      {
+        question: "Can ads be part of the 10% model?",
+        answer:
+          "Yes. On the Growth Partnership we manage ads as part of the work — you fund the ad spend directly with Google or Meta, and management is included in the performance fee.",
+      },
       {
         question: "What ad budget do I need?",
         answer:
