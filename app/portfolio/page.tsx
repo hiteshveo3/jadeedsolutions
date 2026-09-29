@@ -1,228 +1,176 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Image from "next/image";
+import { HugeiconsIcon, QuoteIcon, ArrowRightIcon } from "@/components/icons";
+import { GoogleLogo, TrustpilotLogo, ClutchLogo, FacebookLogo } from "@/components/BrandLogos";
+import { publishedCaseStudies } from "@/lib/case-studies";
+import { siteConfig } from "@/lib/site";
+import {
+  ButtonLink,
+  CheckList,
+  Eyebrow,
+  FactRows,
+  PageHero,
+  Section,
+  SectionHeader,
+  StatRow,
+} from "@/components/site/ui";
 
 export const metadata: Metadata = {
   title: "Case Studies & Client Results",
   description:
-    "Explore how Jadeed Solutions helps local service companies in the UK and USA scale bookings through custom Next.js websites, local SEO, mobile apps, and performance-based marketing.",
+    "Verified results for local service businesses: Alpha Movers won 70+ booked jobs and 120+ website enquiries in 3 months. Plus public reviews on Google, Trustpilot and Clutch.",
+  alternates: { canonical: `${siteConfig.url}/portfolio` },
 };
 
-const SlidingArrow = ({ colorClass = "text-white" }) => (
-  <div className="relative w-4 h-4 overflow-hidden flex items-center justify-center -mr-0.5 pointer-events-none">
-    <svg className={"absolute w-4 h-4 " + colorClass + " -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M5 12h14"></path>
-      <path d="m12 5 7 7-7 7"></path>
-    </svg>
-    <svg className={"absolute w-4 h-4 " + colorClass + " translate-x-0 group-hover:translate-x-full transition-transform duration-300 ease-in-out"} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M5 12h14"></path>
-      <path d="m12 5 7 7-7 7"></path>
-    </svg>
-  </div>
-);
+const headlines: Record<string, string> = {
+  "alpha-movers": "Alpha Movers won 70+ booked jobs from its website in 3 months.",
+};
 
-const caseStudiesData = [
-  {
-    id: "alpha-movers",
-    client: "Alpha Movers UK",
-    category: "Moving & Removals",
-    headline: "+320% Increase in Monthly Booked Removals in 90 Days",
-    summary: "How a local removal company scaled organic phone calls and eliminated empty truck capacity without paying upfront management retainers.",
-    metrics: [
-      { label: "Booked Jobs", value: "+320%" },
-      { label: "Cost Per Lead", value: "-45%" },
-      { label: "Pay Model", value: "10% Performance" },
-    ],
-    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    tags: ["Local SEO", "High-Converting Website", "Call Tracking"]
-  },
-  {
-    id: "proclean-commercial",
-    client: "ProClean Commercial Services",
-    category: "Commercial Cleaning",
-    headline: "£0 to £52,000/mo in Recurring Contracts via Google Ads & CRM Attribution",
-    summary: "Built a precision search campaign targeting commercial office facilities with strict negative keyword filtering and automated WhatsApp booking.",
-    metrics: [
-      { label: "Contract Pipeline", value: "£180K+" },
-      { label: "Close Rate", value: "38%" },
-      { label: "Google Ads ROAS", value: "4.8x" },
-    ],
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    tags: ["Google Ads", "Conversion Landing Page", "CRM Setup"]
-  },
-  {
-    id: "apex-plumbing",
-    client: "Apex Emergency Plumbing",
-    category: "Emergency Trades",
-    headline: "Dominating the Local 3-Pack Across 12 High-Value Zip Codes",
-    summary: "Complete Google Business Profile optimization, review velocity flywheel, and fast mobile emergency landing page for 24/7 plumbing queries.",
-    metrics: [
-      { label: "Map Pack Rank", value: "Top 3" },
-      { label: "Monthly Calls", value: "240+" },
-      { label: "Conversion Rate", value: "12.4%" },
-    ],
-    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    tags: ["Google Map Pack", "Mobile Speed", "Review Automation"]
-  }
-];
+const reviews = [
+  { quote: "Their SEO work is excellent and helped bring my business to the first page despite strong competition in Abu Dhabi.", author: "Just Shine Cleaning Services", source: "Trustpilot", logo: "/clients/just-shine.png", initials: "JS" },
+  { quote: "They developed my website exactly how I wanted. Their technical skills are strong, and the way they handle UI/UX is outstanding.", author: "Ather Javed", source: "Trustpilot", logo: null, initials: "AJ" },
+  { quote: "The team managed the project professionally and efficiently. Their technical expertise, creativity and responsiveness stood out.", author: "CEO, Kamboh Tech Solutions", source: "Clutch", logo: null, initials: "KT" },
+] as const;
+
+const platforms = [
+  { name: "Google", logo: GoogleLogo, score: "5.0", detail: "Business Profile", href: siteConfig.googleBusinessUrl },
+  { name: "Trustpilot", logo: TrustpilotLogo, score: "4.0", detail: "3 public reviews", href: siteConfig.trustpilotUrl },
+  { name: "Clutch", logo: ClutchLogo, score: "5.0", detail: "Verified B2B review", href: siteConfig.clutchUrl },
+  { name: "Facebook", logo: FacebookLogo, score: "100%", detail: "recommended", href: siteConfig.facebookReviewsUrl },
+] as const;
 
 export default function PortfolioPage() {
+  const studies = publishedCaseStudies();
+
   return (
-    <main className="min-h-screen bg-[#f9f9f9]">
-      
-      {/* Header */}
-      <section className="w-full bg-white border-b border-black/10 pt-[160px] pb-20 px-6 relative overflow-hidden">
-        <div
-          className="absolute inset-0 z-0 opacity-[0.03] mix-blend-overlay pointer-events-none"
-          style={{
-            backgroundImage:
-              "url('data:image/svg+xml,%3Csvg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cfilter id=\"noiseFilter\"%3E%3CfeTurbulence type=\"fractalNoise\" baseFrequency=\"0.85\" numOctaves=\"3\" stitchTiles=\"stitch\"/%3E%3C/filter%3E%3Crect width=\"100%25\" height=\"100%25\" filter=\"url(%23noiseFilter)\"/%3E%3C/svg%3E')",
-            backgroundRepeat: "repeat",
-          }}
-        />
+    <>
+      <PageHero
+        eyebrow="Portfolio"
+        title={<>Real results,<span className="block text-[#eaf25a]">with the receipts.</span></>}
+        lead="We only publish numbers we can back up with Search Console exports, booking records or public reviews. Here's the proof so far."
+        actions={
+          <>
+            <ButtonLink href="/contact">Get a free growth plan</ButtonLink>
+            <ButtonLink href="/case-studies/alpha-movers" variant="outlineLight">Read the Alpha Movers study</ButtonLink>
+          </>
+        }
+        aside={
+          <FactRows
+            title="Verified so far"
+            rows={[
+              { label: "Booked jobs · Alpha Movers", value: "70+ in 3 months" },
+              { label: "Website enquiries", value: "120+" },
+              { label: "Search impressions", value: "218K" },
+              { label: "Google rating", value: "5.0" },
+            ]}
+          />
+        }
+      />
 
-        <div className="max-w-[1000px] mx-auto text-center flex flex-col items-center relative z-10">
-          <span className="inline-flex items-center justify-center bg-[#cbd810]/25 text-[#015f45] border border-[#cbd810]/50 text-[12.5px] font-bold px-4 py-1.5 rounded-xl uppercase tracking-[0.12em] mb-7">
-            Proven Results
-          </span>
-
-          <h1 className="text-[40px] md:text-[56px] font-semibold text-[#151515] leading-[1.12] tracking-tight mb-6 max-w-[850px]">
-            Real Case Studies & Measurable Growth
-          </h1>
-          <p className="text-[18px] md:text-[21px] text-black/60 max-w-[750px] mb-10 leading-relaxed font-normal">
-            Explore how our precision marketing systems turn search demand into booked appointments and sustainable revenue for local service businesses.
-          </p>
-
-          {/* Quick Metrics Bar */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-[900px] bg-[#f9f9f9] border border-black/10 rounded-2xl p-6 shadow-sm">
-            <div>
-              <p className="text-[28px] font-bold text-[#015f45]">+320%</p>
-              <p className="text-[13px] text-black/60 font-medium mt-0.5">Average Lead Increase</p>
-            </div>
-            <div>
-              <p className="text-[28px] font-bold text-[#151515]">10%</p>
-              <p className="text-[13px] text-black/60 font-medium mt-0.5">Performance Pay Model</p>
-            </div>
-            <div>
-              <p className="text-[28px] font-bold text-[#015f45]">100%</p>
-              <p className="text-[13px] text-black/60 font-medium mt-0.5">Audited Call Tracking</p>
-            </div>
-            <div>
-              <p className="text-[28px] font-bold text-[#151515]">90 Days</p>
-              <p className="text-[13px] text-black/60 font-medium mt-0.5">Scaling Roadmap</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Case Studies Grid */}
-      <section className="max-w-[1280px] mx-auto px-6 py-20">
-        <div className="flex flex-col gap-12">
-          {caseStudiesData.map((study) => (
-            <div
-              key={study.id}
-              className="bg-white border border-black/10 rounded-3xl p-8 lg:p-10 shadow-sm flex flex-col lg:flex-row gap-10 items-center"
-            >
-              {/* Image Side */}
-              <div className="w-full lg:w-[48%] h-[280px] sm:h-[360px] rounded-2xl overflow-hidden relative bg-black/5 flex-shrink-0 border border-black/5">
-                <img
-                  src={study.image}
-                  alt={study.client}
-                  className="w-full h-full object-cover"
-                />
-                <span className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-[#015f45] border border-black/10 text-[12px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm">
-                  {study.category}
-                </span>
-              </div>
-
-              {/* Content Side */}
-              <div className="w-full lg:w-[52%] flex flex-col justify-between">
-                <div>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {study.tags.map((tag, tIdx) => (
-                      <span
-                        key={tIdx}
-                        className="bg-black/5 text-black/70 text-[12px] font-semibold px-2.5 py-1 rounded-md"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+      {studies.map((study, index) => {
+        const chart = study.images.find((image) => image.src.includes("gsc-3-months-sep-2026"));
+        return (
+          <Section key={study.id} tone={index % 2 === 0 ? "deep" : "green"} labelledBy={`study-${study.id}`}>
+            <div className="grid gap-10 lg:grid-cols-[1.05fr_.95fr] lg:gap-16">
+              <div>
+                <div className="flex flex-wrap items-center gap-3">
+                  {study.id === "alpha-movers" && (
+                    <Image src="/clients/alpha-movers.jpeg" alt={`${study.client} logo`} width={44} height={44} className="h-11 w-11 rounded-xl" />
+                  )}
+                  <div className="mr-2">
+                    <div className="font-bold leading-5">{study.client}</div>
+                    <div className="text-sm leading-5 text-white/65">{study.location}</div>
                   </div>
-
-                  <h2 className="text-[24px] md:text-[30px] font-semibold text-[#151515] leading-snug mb-4">
-                    {study.headline}
-                  </h2>
-                  <p className="text-[16px] text-black/70 leading-relaxed font-normal mb-8">
-                    {study.summary}
-                  </p>
+                  <span className="inline-flex rounded-full bg-[#cbd810] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[#0d0d0d]">Verified case study</span>
                 </div>
-
-                {/* Metrics Row */}
-                <div className="grid grid-cols-3 gap-4 pt-6 border-t border-black/10 mb-8">
-                  {study.metrics.map((m, mIdx) => (
-                    <div key={mIdx}>
-                      <p className="text-[22px] md:text-[26px] font-bold text-[#015f45]">
-                        {m.value}
-                      </p>
-                      <p className="text-[12.5px] text-black/55 font-medium mt-0.5">
-                        {m.label}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Action CTA Buttons (Each button has its own isolated group trigger) */}
-                <div className="flex items-center gap-4">
-                  <Link
-                    href={`/case-studies/${study.id}`}
-                    className="group bg-[#151515] text-white font-semibold px-6 py-3.5 rounded-xl hover:bg-[#015f45] transition-all text-[14.5px] flex items-center gap-2.5 shadow-sm"
-                  >
-                    <span>View Full Case Study</span>
-                    <SlidingArrow colorClass="text-white" />
-                  </Link>
-                  <Link
-                    href="/contact"
-                    className="group text-black font-semibold hover:text-[#015f45] transition-colors text-[14.5px] px-3 py-3 flex items-center gap-1.5"
-                  >
-                    <span>Get Similar Results</span>
-                    <SlidingArrow colorClass="text-[#015f45]" />
-                  </Link>
+                <h2 id={`study-${study.id}`} className="mt-7 font-sans text-[32px] font-semibold leading-[1.05] tracking-[-.045em] [text-wrap:balance] sm:text-5xl">
+                  {headlines[study.id] ?? study.client}
+                </h2>
+                <p className="mt-5 leading-7 text-white/75">{study.summary}</p>
+                <p className="mt-4 text-sm text-white/60">Engagement model: {study.engagementModel}</p>
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <ButtonLink href={`/case-studies/${study.id}`} variant="white">View the full case study</ButtonLink>
+                  <a href={study.website} target="_blank" rel="noopener noreferrer" className="group inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-white/25 px-5 text-sm font-semibold text-white transition-colors hover:bg-white/10">
+                    Visit {study.client} <HugeiconsIcon icon={ArrowRightIcon} size={16} className="transition-transform group-hover:translate-x-1" />
+                  </a>
                 </div>
               </div>
+              <div className="space-y-10">
+                <StatRow tone="deep" columns={2} items={study.metrics.slice(0, 4)} />
+                <CheckList tone="deep" items={study.highlights} />
+              </div>
             </div>
+            {chart && (
+              <figure className="mt-12 md:mt-16">
+                <figcaption className="mb-4 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 text-sm">
+                  <span className="font-bold">{chart.caption}</span>
+                  <span className="text-white/60">Google Search Console · Web search</span>
+                </figcaption>
+                <Image src={chart.src} alt={chart.alt} width={1407} height={741} sizes="(min-width: 1200px) 1100px, 100vw" className="h-auto w-full md:rounded-2xl" />
+              </figure>
+            )}
+          </Section>
+        );
+      })}
+
+      <Section tone="cream" labelledBy="reviews-heading">
+        <SectionHeader id="reviews-heading" eyebrow="Independent proof" title="What clients say in public" lead="Every quote below is a public review you can check at the source." />
+        <div className="mt-10 grid border-t border-black/10 md:mt-14 lg:grid-cols-3 lg:gap-x-10">
+          {reviews.map((review) => (
+            <figure key={review.author} className="flex flex-col border-b border-black/10 py-8 lg:py-10">
+              <HugeiconsIcon icon={QuoteIcon} size={28} className="text-[#015f45]" />
+              <blockquote className="mt-5 flex-1 text-lg leading-7 tracking-[-.015em]">“{review.quote}”</blockquote>
+              <figcaption className="mt-6 flex items-center gap-3">
+                {review.logo ? (
+                  <Image src={review.logo} alt="" width={40} height={40} className="h-10 w-10 shrink-0 rounded-lg" />
+                ) : (
+                  <span aria-hidden="true" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#e7f1ed] text-sm font-bold text-[#015f45]">{review.initials}</span>
+                )}
+                <div>
+                  <div className="font-bold">{review.author}</div>
+                  <div className="mt-0.5 text-xs text-black/60">Public review on {review.source}</div>
+                </div>
+              </figcaption>
+            </figure>
           ))}
         </div>
-      </section>
+        <ul className="mt-12 grid border-t border-black/10 sm:grid-cols-2 sm:gap-x-10 lg:grid-cols-4">
+          {platforms.map((platform) => {
+            const Logo = platform.logo;
+            return (
+              <li key={platform.name}>
+                <a href={platform.href} target="_blank" rel="noopener noreferrer" className="group flex items-center justify-between gap-4 border-b border-black/10 py-5">
+                  <span className="flex items-center gap-3">
+                    <Logo className="h-7 w-7 shrink-0" />
+                    <span>
+                      <span className="block font-bold">{platform.name}</span>
+                      <span className="block text-xs text-black/60">{platform.detail}</span>
+                    </span>
+                  </span>
+                  <span className="flex items-center gap-2 text-xl font-bold text-[#015f45]">
+                    {platform.score}
+                    <HugeiconsIcon icon={ArrowRightIcon} size={16} className="transition-transform group-hover:translate-x-1" />
+                  </span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </Section>
 
-      {/* Bottom CTA Card */}
-      <section className="w-full pb-24 px-6">
-        <div className="max-w-[1280px] mx-auto bg-[#015f45] text-white rounded-3xl p-10 lg:p-16 text-center flex flex-col items-center relative overflow-hidden shadow-lg">
-          <span className="inline-block bg-[#cbd810] text-[#111111] text-[11px] font-extrabold px-3 py-1 rounded-md uppercase tracking-widest mb-6">
-            Ready to Scale?
-          </span>
-          <h2 className="text-[32px] md:text-[46px] font-bold text-white mb-6 max-w-[700px] leading-tight">
-            Stop Guessing. Build a Predictable Acquisition Engine.
-          </h2>
-          <p className="text-white/80 text-[17px] md:text-[19px] max-w-[600px] mb-10 leading-relaxed font-normal">
-            Whether you need Local SEO, Google Ads, or a complete high-converting web system, our team is ready to deliver.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link
-              href="/contact"
-              className="group bg-[#cbd810] text-[#111111] font-bold px-8 py-4 rounded-xl hover:bg-[#b8c50e] transition-all text-[15px] shadow-md flex items-center gap-2"
-            >
-              <span>Book a Strategy Call</span>
-              <SlidingArrow colorClass="text-[#111111]" />
-            </Link>
-            <Link
-              href="/tools/growth-check"
-              className="bg-white/10 border border-white/20 text-white font-semibold px-8 py-4 rounded-xl hover:bg-white/20 transition-all text-[15px]"
-            >
-              Free Growth Audit Score
-            </Link>
+      <Section tone="mint" labelledBy="next-heading">
+        <div className="grid gap-8 lg:grid-cols-[1.2fr_.8fr] lg:items-end lg:gap-16">
+          <div>
+            <Eyebrow tone="mint">Your business next</Eyebrow>
+            <h2 id="next-heading" className="mt-3 font-sans text-[32px] font-semibold leading-[1.05] tracking-[-.045em] [text-wrap:balance] sm:text-5xl">Find out where your next booked jobs will come from.</h2>
+            <p className="mt-5 max-w-xl leading-7 text-[#063d30]/75">Take the free 2-minute Growth Check, or send us your website and city for a free plan.</p>
+          </div>
+          <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
+            <ButtonLink href="/tools/growth-check" variant="green">Take the Growth Check</ButtonLink>
+            <ButtonLink href="/contact" variant="outlineDark">Get a free plan</ButtonLink>
           </div>
         </div>
-      </section>
-
-    </main>
+      </Section>
+    </>
   );
 }

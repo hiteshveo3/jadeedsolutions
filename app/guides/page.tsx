@@ -1,56 +1,54 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { guides } from "@/lib/guides";
-import { HeroBackground } from "@/components/HeroBackground";
-import { Reveal } from "@/components/Reveal";
-import { HugeiconsIcon, ArrowRightIcon } from "@/components/icons";
+import { siteConfig } from "@/lib/site";
+import { ButtonLink, FeatureGrid, LinkRows, PageHero, Section, SectionHeader } from "@/components/site/ui";
 
 export const metadata: Metadata = {
   title: "Guides — Grow Local Service Businesses Online",
   description:
-    "Practical guides for plumbers, cleaners and local services: websites, Google growth, apps, ads and when 10% partnership fits.",
+    "Practical guides for plumbers, cleaners and local services: websites, Google growth, apps, ads and when a 10% partnership fits.",
+  alternates: { canonical: `${siteConfig.url}/guides` },
 };
 
 export default function GuidesHubPage() {
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-white pb-16 pt-16">
-        <HeroBackground />
-        <div className="container relative z-10 max-w-3xl">
-          <Reveal>
-            <span className="eyebrow">Guides</span>
-            <h1 className="mt-3 font-display text-4xl font-semibold text-ink">
-              Growth guides for local services
-            </h1>
-            <p className="mt-4 text-lg text-slate-600">
-              Full stack — website, Google, apps and ads — not SEO-only tips.
-            </p>
-          </Reveal>
+      <PageHero
+        eyebrow="Guides"
+        title={<>Growth guides for<span className="block text-[#eaf25a]">local service owners.</span></>}
+        lead="Plain-English playbooks covering your website, Google visibility, apps and ads — and how to choose the right package for your stage."
+        actions={<ButtonLink href="/tools/growth-check">Take the free Growth Check</ButtonLink>}
+      />
+
+      <Section tone="cream" labelledBy="guides-heading">
+        <SectionHeader id="guides-heading" eyebrow="All guides" title="Start with the one that fits" />
+        <div className="mt-10 md:mt-14">
+          <FeatureGrid
+            numbered
+            items={guides.map((guide) => ({
+              eyebrow: guide.eyebrow,
+              title: guide.title,
+              text: guide.intro,
+              href: `/guides/${guide.slug}`,
+              linkLabel: "Read the guide",
+            }))}
+          />
         </div>
-      </section>
-      <section className="section bg-slate-50">
-        <div className="container grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {guides.map((g) => (
-            <Link
-              key={g.slug}
-              href={`/guides/${g.slug}`}
-              className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6"
-            >
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-500">
-                {g.eyebrow}
-              </span>
-              <h2 className="mt-2 font-display text-lg font-semibold text-ink group-hover:text-brand-500">
-                {g.title}
-              </h2>
-              <p className="mt-2 flex-1 text-sm text-slate-600">{g.intro}</p>
-              <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-500">
-                Read guide
-                <HugeiconsIcon icon={ArrowRightIcon} size={16} />
-              </span>
-            </Link>
-          ))}
+      </Section>
+
+      <Section tone="white" labelledBy="more-heading">
+        <SectionHeader id="more-heading" eyebrow="Keep going" title="More ways to plan your growth" />
+        <div className="mt-10">
+          <LinkRows
+            columns={3}
+            items={[
+              { href: "/blog", label: "Blog", description: "In-depth SEO, website and growth articles." },
+              { href: "/industries", label: "Industries", description: "Playbooks and city pages for your trade." },
+              { href: "/pricing", label: "Pricing", description: "Fixed packages or 10% of bookings." },
+            ]}
+          />
         </div>
-      </section>
+      </Section>
     </>
   );
 }

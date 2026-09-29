@@ -53,11 +53,11 @@ export const caseStudies: CaseStudy[] = [
       "digital-advertising",
     ],
     summary:
-      "We built and support Alpha Movers across website, app, SEO, social and paid acquisition. Google Search Console recorded 630 organic clicks and 160,903 impressions from 24 February to 23 August 2026. The final 28 days produced 272 clicks and 96,301 impressions, showing a sharp expansion in search visibility.",
+      "We built and support Alpha Movers across website, app, SEO, social and paid acquisition. In the latest three months (June–September 2026) the website produced 70+ booked jobs and 120+ enquiries, backed by 643 organic clicks and 218K Google Search impressions.",
     story: [
       "Abdullah Bin Mustafa wanted growth but a classic monthly SEO retainer was tough on cash flow. We’d offered a monthly plan — he suggested something better: pay 10% after each booking our work generates. That model unlocked a full partnership instead of a slow drip of retainers.",
       "We didn’t only “do SEO”. We built the website, proposed and shipped a mobile app, ran social and ads, and pushed into services Alpha hadn’t focused on before — including sofa / furniture hoisting — so the site could rank for (and win) higher-value specialist jobs.",
-      "Results compound in Search Console: 486 clicks and 142,133 impressions in the final three months; 272 clicks and 96,301 impressions in the final 28 days alone.",
+      "Results compound: in the latest three months (June–September 2026) the website brought in 120+ enquiries and 70+ booked jobs, with Search Console recording 643 clicks and 218K impressions.",
     ],
     testimonial: {
       quote:
@@ -66,19 +66,19 @@ export const caseStudies: CaseStudy[] = [
       role: "Alpha Movers · London",
     },
     metrics: [
+      { value: "70+", label: "Booked jobs from the website (Jun–Sep 2026)" },
+      { value: "120+", label: "Website enquiries (Jun–Sep 2026)" },
+      { value: "218K", label: "Impressions (last 3 months)" },
+      { value: "643", label: "Clicks (last 3 months)" },
       { value: "160,903", label: "Impressions (24 Feb–23 Aug 2026)" },
-      { value: "630", label: "Clicks (24 Feb–23 Aug 2026)" },
       { value: "+312%", label: "Clicks: first vs final 28 days" },
-      { value: "142,133", label: "Impressions (last 3 months)" },
-      { value: "486", label: "Clicks (last 3 months)" },
-      { value: "272", label: "Clicks (last 28 days)" },
     ],
     highlights: [
       "Client-led 10% after-booking model — better fit than a monthly SEO retainer.",
       "Full stack from Jadeed: website, mobile app, SEO, social and paid ads.",
       "Expanded into sofa / furniture hoisting SEO even though it wasn’t an early focus for the client.",
-      "6-month GSC export: 630 clicks · 160,903 impressions · strong ramp since June 2026.",
-      "Booking and revenue attribution are deliberately excluded until reconciled with lead data.",
+      "Latest 3 months (Jun–Sep 2026): 70+ booked jobs and 120+ enquiries from the website.",
+      "Search Console, last 3 months: 643 clicks · 218K impressions · average position 21.3.",
     ],
     topQueries: [
       { query: "alpha movers", note: "Brand — ranking & getting clicks" },
@@ -97,6 +97,11 @@ export const caseStudies: CaseStudy[] = [
         src: "/case-studies/alpha-movers/homepage.jpeg",
         alt: "Alpha Movers website homepage",
         caption: "alphamovers.co.uk — homepage",
+      },
+      {
+        src: "/case-studies/alpha-movers/gsc-3-months-sep-2026.png",
+        alt: "Google Search Console — Alpha Movers last 3 months, June to September 2026",
+        caption: "GSC — last 3 months, Jun–Sep 2026 (643 clicks · 218K impressions)",
       },
       {
         src: "/case-studies/alpha-movers/gsc-6-months.png",

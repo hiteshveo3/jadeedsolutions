@@ -59,21 +59,20 @@ export function Footer() {
   const [open, setOpen] = useState<string | null>(null);
 
   return (
-    <footer className="border-t border-white/10 bg-[#014f39] text-white">
-      <div className="mx-auto max-w-[1340px] px-6 py-10 sm:py-14 lg:py-16">
-        <div className="relative mb-14 overflow-hidden rounded-[28px] bg-[#dceee8] px-6 py-9 text-[#063d30] sm:px-10 lg:flex lg:items-center lg:justify-between lg:px-12">
-          <div className="absolute -bottom-20 right-12 h-48 w-48 rounded-full bg-[#cbd810]/45 blur-3xl" />
-          <div className="relative max-w-2xl">
+    <footer className="border-white/10 bg-[#014f39] text-white md:border-t">
+      <div className="mx-auto max-w-[1340px] px-5 py-10 sm:px-6 sm:py-14 lg:py-16">
+        <div className="-mx-5 -mt-10 mb-12 bg-[#dceee8] px-5 py-10 text-[#063d30] sm:-mx-6 sm:-mt-14 sm:px-10 md:mx-0 md:mb-14 md:mt-0 md:rounded-[28px] md:py-9 lg:flex lg:items-center lg:justify-between lg:px-12">
+          <div className="max-w-2xl">
             <p className="text-xs font-extrabold uppercase tracking-[.14em] text-[#015f45]">
               Build your next growth system
             </p>
-            <h2 className="mt-3 font-sans text-3xl font-semibold tracking-[-.04em] sm:text-4xl">
+            <h2 className="mt-3 font-sans text-3xl font-semibold tracking-[-.04em] [text-wrap:balance] sm:text-4xl">
               Turn more local demand into booked work.
             </h2>
           </div>
           <Link
             href="/contact"
-            className="group relative mt-7 inline-flex h-12 items-center gap-2 rounded-xl bg-[#cbd810] px-6 text-sm font-bold text-[#111111] transition-colors hover:bg-[#b8c50e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#015f45] focus-visible:ring-offset-2 lg:mt-0"
+            className="group mt-7 inline-flex h-12 w-full items-center justify-center gap-2 sm:w-auto rounded-xl bg-[#cbd810] px-6 text-sm font-bold text-[#111111] transition-colors hover:bg-[#b8c50e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#015f45] focus-visible:ring-offset-2 lg:mt-0"
           >
             Get a free growth plan
             <HugeiconsIcon

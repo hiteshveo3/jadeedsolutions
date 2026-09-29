@@ -6,7 +6,7 @@ import { publishedCaseStudies, getCaseStudy } from "@/lib/case-studies";
 import { alphaMoversFaqs, alphaMoversSections } from "@/lib/alpha-movers-longform";
 import { getAuthor } from "@/lib/authors";
 import { siteConfig } from "@/lib/site";
-import { HugeiconsIcon, ArrowRightIcon, CheckCircleIcon, TrendingUpIcon, SearchIcon, GlobeIcon } from "@/components/icons";
+import { HugeiconsIcon, ArrowRightIcon, CheckCircleIcon, TrendingUpIcon, SearchIcon, GlobeIcon, PlusIcon } from "@/components/icons";
 
 export function generateStaticParams() {
   return publishedCaseStudies().map((c) => ({ slug: c.id }));
@@ -15,8 +15,8 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const study = getCaseStudy(params.slug);
   if (!study) return {};
-  const title = "Alpha Movers SEO Case Study: 160,903 Impressions in 6 Months";
-  const description = "An evidence-led, 5,000+ word Alpha Movers SEO case study using Google Search Console data: 630 clicks, 160,903 impressions and 312% click growth between matched 28-day periods.";
+  const title = "Alpha Movers SEO Case Study: 70+ Booked Jobs in 3 Months";
+  const description = "An evidence-led Alpha Movers SEO case study. Latest 3 months (Jun–Sep 2026): 70+ booked jobs, 120+ website enquiries, 643 organic clicks and 218K Google Search impressions, plus the full six-month Search Console analysis.";
   return {
     title,
     description,
@@ -28,10 +28,10 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
 }
 
 const headlineMetrics = [
-  ["630", "organic clicks", "24 Feb–23 Aug 2026"],
-  ["160,903", "search impressions", "six-month export"],
-  ["272", "clicks in final 28 days", "vs 66 in first 28 days"],
-  ["96,301", "final 28-day impressions", "vs 4,476 in first 28 days"],
+  ["70+", "booked jobs", "from the website · Jun–Sep 2026"],
+  ["120+", "website enquiries", "Jun–Sep 2026"],
+  ["218K", "search impressions", "last 3 months · Search Console"],
+  ["643", "organic clicks", "last 3 months · Search Console"],
 ] as const;
 
 const monthRows = [
@@ -67,10 +67,10 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
       {
         "@type": "Article",
         "@id": `${articleUrl}/#article`,
-        headline: "Alpha Movers SEO Case Study: 160,903 Impressions in 6 Months",
-        description: "Evidence-led analysis of Alpha Movers organic search growth using Google Search Console exports.",
+        headline: "Alpha Movers SEO Case Study: 70+ Booked Jobs in 3 Months",
+        description: "Evidence-led analysis of Alpha Movers organic search growth and website bookings, using Google Search Console exports.",
         datePublished: "2026-08-25",
-        dateModified: "2026-08-25",
+        dateModified: "2026-09-13",
         mainEntityOfPage: articleUrl,
         author: { "@type": "Person", "@id": `${siteConfig.url}/author/sameer-ahmad-basra/#person`, name: author.name, url: `${siteConfig.url}/author/${author.slug}` },
         publisher: { "@id": `${siteConfig.url}/#organization` },
@@ -109,17 +109,17 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
           <div className="mt-8 grid gap-10 lg:grid-cols-[1.2fr_.8fr] lg:items-end">
             <div>
               <div className="inline-flex rounded-full bg-[#cbd810] px-3 py-1 text-xs font-extrabold uppercase tracking-[.14em] text-black">Verified Google Search Console study</div>
-              <h1 className="mt-5 max-w-4xl font-sans text-5xl font-semibold leading-[.98] tracking-[-.055em] sm:text-6xl lg:text-7xl">How Alpha Movers reached <span className="text-[#eaf25a]">160,903 search impressions</span> in six months</h1>
+              <h1 className="mt-5 max-w-4xl font-sans text-5xl font-semibold leading-[.98] tracking-[-.055em] sm:text-6xl lg:text-7xl">How Alpha Movers turned search into <span className="text-[#eaf25a]">70+ booked jobs</span> in three months</h1>
             </div>
             <div>
               <p className="text-lg leading-8 text-white/75">A transparent, AI-first SEO case study covering strategy, data, limitations and the next growth cycle for a London removals business.</p>
               <div className="mt-6 flex items-center gap-3">
                 <Image src={author.avatar} alt={author.name} width={48} height={48} className="h-12 w-12 rounded-full object-cover" />
-                <div><Link href={`/author/${author.slug}`} className="font-bold hover:text-[#eaf25a]">{author.name}</Link><div className="text-sm text-white/60">Founder & CEO, Jadeed Solutions · 25 Aug 2026</div></div>
+                <div><Link href={`/author/${author.slug}`} className="font-bold hover:text-[#eaf25a]">{author.name}</Link><div className="text-sm text-white/60">Founder & CEO, Jadeed Solutions · Updated 13 Sep 2026</div></div>
               </div>
             </div>
           </div>
-          <div className="mt-12 grid overflow-hidden rounded-[24px] border border-white/15 bg-[#014f39] sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid overflow-hidden border border-white/15 bg-[#014f39] sm:grid-cols-2 md:rounded-[24px] lg:grid-cols-4">
             {headlineMetrics.map(([value, label, note]) => <div key={label} className="border-white/10 p-6 [&:not(:last-child)]:border-b sm:[&:nth-child(odd)]:border-r lg:[&:not(:last-child)]:border-b-0 lg:[&:not(:last-child)]:border-r"><div className="text-4xl font-bold tracking-[-.04em] text-[#eaf25a]">{value}</div><div className="mt-2 font-bold">{label}</div><div className="mt-1 text-xs text-white/55">{note}</div></div>)}
           </div>
         </div>
@@ -128,7 +128,7 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
       <div className="container max-w-[1180px] py-12 sm:py-20">
         <div className="grid gap-12 lg:grid-cols-[260px_minmax(0,1fr)]">
           <aside className="lg:sticky lg:top-28 lg:self-start">
-            <div className="rounded-[22px] border border-black/10 bg-white p-5">
+            <div className="border border-black/10 bg-white p-5 md:rounded-[22px]">
               <p className="text-xs font-extrabold uppercase tracking-[.14em] text-[#015f45]">On this page</p>
               <ol className="mt-4 space-y-2 text-sm leading-5 text-black/60">{alphaMoversSections.map((section, index) => <li key={section.id}><a href={`#${section.id}`} className="flex gap-2 hover:text-[#015f45]"><span className="text-black/30">{String(index + 1).padStart(2, "0")}</span><span>{section.title}</span></a></li>)}</ol>
               <div className="mt-6 border-t border-black/10 pt-5"><a href={study.website} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-bold text-[#015f45]">Visit Alpha Movers <HugeiconsIcon icon={ArrowRightIcon} size={16} /></a></div>
@@ -136,10 +136,10 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
           </aside>
 
           <div className="min-w-0">
-            <section className="rounded-[26px] bg-[#dceee8] p-6 sm:p-8" aria-labelledby="data-note">
+            <section className="bg-[#dceee8] p-6 sm:p-8 md:rounded-[26px]" aria-labelledby="data-note">
               <h2 id="data-note" className="text-2xl font-bold tracking-[-.025em]">Data scope and claim boundary</h2>
-              <p className="mt-3 leading-7 text-black/65">The source workbooks verify Google Web Search clicks, impressions, CTR and average position. They do not contain calls, form submissions, bookings or revenue. This study therefore reports search performance as verified and labels commercial interpretation separately.</p>
-              <div className="mt-5 grid gap-3 sm:grid-cols-3"><DataBadge icon={CheckCircleIcon} title="Source" text="Google Search Console exports" /><DataBadge icon={TrendingUpIcon} title="Period" text="24 Feb–23 Aug 2026" /><DataBadge icon={GlobeIcon} title="Primary market" text="United Kingdom" /></div>
+              <p className="mt-3 leading-7 text-black/65">The source workbooks verify Google Web Search clicks, impressions, CTR and average position. They do not contain calls, form submissions, bookings or revenue. The September 2026 update adds website enquiries (120+) and booked jobs (70+) for June–September 2026, which are tracked separately from Search Console. The detailed analysis below covers the original six-month export.</p>
+              <div className="mt-5 grid gap-3 sm:grid-cols-3"><DataBadge icon={CheckCircleIcon} title="Source" text="Search Console + booking records" /><DataBadge icon={TrendingUpIcon} title="Period" text="Feb–Sep 2026" /><DataBadge icon={GlobeIcon} title="Primary market" text="United Kingdom" /></div>
             </section>
 
             {alphaMoversSections.map((section, index) => (
@@ -157,17 +157,17 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
             <section className="py-12" aria-labelledby="case-faqs">
               <p className="text-xs font-extrabold uppercase tracking-[.14em] text-[#015f45]">Answer engine summary</p>
               <h2 id="case-faqs" className="mt-3 font-sans text-4xl font-semibold tracking-[-.04em]">Alpha Movers SEO FAQs</h2>
-              <div className="mt-7 divide-y divide-black/10 border-y border-black/10">{alphaMoversFaqs.map(([q, a], index) => <details key={q} className="group py-5" open={index === 0}><summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-bold"><span>{q}</span><span className="text-xl text-[#015f45] group-open:rotate-45">+</span></summary><p className="max-w-3xl pt-4 leading-7 text-black/65">{a}</p></details>)}</div>
+              <div className="mt-7 divide-y divide-black/10 border-y border-black/10">{alphaMoversFaqs.map(([q, a], index) => <details key={q} className="group py-5" open={index === 0}><summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-bold"><span>{q}</span><HugeiconsIcon icon={PlusIcon} size={20} strokeWidth={2} className="shrink-0 text-[#015f45] transition-transform duration-300 group-open:rotate-45" /></summary><p className="max-w-3xl pt-4 leading-7 text-black/65">{a}</p></details>)}</div>
             </section>
 
-            <section className="rounded-[28px] bg-[#015f45] p-7 text-white sm:p-10">
+            <section className="bg-[#015f45] p-7 text-white sm:p-10 md:rounded-[28px]">
               <div className="grid gap-7 sm:grid-cols-[auto_1fr] sm:items-center">
                 <Image src={author.avatar} alt={`${author.name}, Founder and CEO of Jadeed Solutions`} width={120} height={120} className="h-28 w-28 rounded-[24px] object-cover" />
                 <div><p className="text-xs font-extrabold uppercase tracking-[.14em] text-[#eaf25a]">Analysis by</p><h2 className="mt-2 text-3xl font-bold">{author.name}</h2><p className="mt-2 text-white/70">{author.bio}</p><div className="mt-5 flex flex-wrap gap-3"><Link href={`/author/${author.slug}`} className="rounded-xl bg-white px-5 py-3 text-sm font-bold text-black">View founder profile</Link><a href="https://pk.linkedin.com/in/sameer-ahmad-basra" target="_blank" rel="noreferrer" className="rounded-xl bg-[#cbd810] px-5 py-3 text-sm font-bold text-black">LinkedIn profile</a></div></div>
               </div>
             </section>
 
-            <section className="mt-8 rounded-[28px] bg-[#dceee8] p-7 sm:p-10"><h2 className="text-3xl font-bold tracking-[-.035em]">Want an evidence-led growth plan for your service business?</h2><p className="mt-3 max-w-2xl leading-7 text-black/65">We will review your search footprint, website architecture, conversion path and measurement gaps—then show you the clearest next actions.</p><Link href="/contact" className="group mt-6 inline-flex items-center gap-2 rounded-xl bg-[#cbd810] px-5 py-3 font-bold hover:bg-[#b8c50e]">Get a free growth plan <HugeiconsIcon icon={ArrowRightIcon} size={18} className="transition-transform group-hover:translate-x-1" /></Link></section>
+            <section className="mt-8 bg-[#dceee8] p-7 sm:p-10 md:rounded-[28px]"><h2 className="text-3xl font-bold tracking-[-.035em]">Want an evidence-led growth plan for your service business?</h2><p className="mt-3 max-w-2xl leading-7 text-black/65">We will review your search footprint, website architecture, conversion path and measurement gaps—then show you the clearest next actions.</p><Link href="/contact" className="group mt-6 inline-flex items-center gap-2 rounded-xl bg-[#cbd810] px-5 py-3 font-bold hover:bg-[#b8c50e]">Get a free growth plan <HugeiconsIcon icon={ArrowRightIcon} size={18} className="transition-transform group-hover:translate-x-1" /></Link></section>
           </div>
         </div>
       </div>
@@ -180,5 +180,5 @@ function DataBadge({ icon, title, text }: { icon: Parameters<typeof HugeiconsIco
 }
 
 function DataTable({ title, headers, rows }: { title: string; headers: readonly string[]; rows: readonly (readonly string[])[] }) {
-  return <div className="mt-8 overflow-hidden rounded-[20px] border border-black/10 bg-white"><div className="border-b border-black/10 px-5 py-4 font-bold">{title}</div><div className="overflow-x-auto"><table className="w-full min-w-[640px] text-left text-sm"><thead className="bg-[#e7f1ed] text-[#015f45]"><tr>{headers.map(h => <th key={h} className="px-5 py-3 font-bold">{h}</th>)}</tr></thead><tbody>{rows.map((row) => <tr key={row[0]} className="border-t border-black/5">{row.map((cell, i) => <td key={`${row[0]}-${i}`} className={`px-5 py-3 ${i === 0 ? "font-semibold" : "tabular-nums text-black/60"}`}>{cell}</td>)}</tr>)}</tbody></table></div></div>;
+  return <div className="mt-8 overflow-hidden border border-black/10 bg-white md:rounded-[20px]"><div className="border-b border-black/10 px-5 py-4 font-bold">{title}</div><div className="overflow-x-auto"><table className="w-full min-w-[640px] text-left text-sm"><thead className="bg-[#e7f1ed] text-[#015f45]"><tr>{headers.map(h => <th key={h} className="px-5 py-3 font-bold">{h}</th>)}</tr></thead><tbody>{rows.map((row) => <tr key={row[0]} className="border-t border-black/5">{row.map((cell, i) => <td key={`${row[0]}-${i}`} className={`px-5 py-3 ${i === 0 ? "font-semibold" : "tabular-nums text-black/60"}`}>{cell}</td>)}</tr>)}</tbody></table></div></div>;
 }

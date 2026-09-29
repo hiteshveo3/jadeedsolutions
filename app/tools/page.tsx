@@ -1,70 +1,56 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { SectionHeading } from "@/components/SectionHeading";
-import { HeroBackground } from "@/components/HeroBackground";
-import { Reveal } from "@/components/Reveal";
-import { HugeiconsIcon, ArrowRightIcon } from "@/components/icons";
+import { TargetIcon, TagIcon } from "@/components/icons";
+import { siteConfig } from "@/lib/site";
+import { ButtonLink, FeatureGrid, LinkRows, PageHero, Section, SectionHeader } from "@/components/site/ui";
 
 export const metadata: Metadata = {
   title: "Free Tools — Growth Check & Pricing Calculator",
   description:
-    "Free tools for local service businesses: Growth Check (website, Google, app, ads) and the 10% partnership pricing calculator.",
+    "Free tools for local service businesses: the 2-minute Growth Check (website, Google, app, ads) and the 10% partnership pricing calculator.",
+  alternates: { canonical: `${siteConfig.url}/tools` },
 };
-
-const tools = [
-  {
-    href: "/tools/growth-check",
-    title: "Growth Check",
-    text: "5 questions → recommended focus across website, SEO, app, ads or 10% partnership.",
-  },
-  {
-    href: "/pricing#partnership-calculator",
-    title: "10% pricing calculator",
-    text: "Visualise bookings × job value → what you keep vs our fee.",
-  },
-];
 
 export default function ToolsHubPage() {
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-white pb-16 pt-16">
-        <HeroBackground />
-        <div className="container relative z-10 max-w-3xl">
-          <Reveal>
-            <span className="eyebrow">Tools</span>
-            <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-ink">
-              Free tools to plan your growth
-            </h1>
-            <p className="mt-4 text-lg text-slate-600">
-              Built for local service owners — covering our full stack, not just
-              one service.
-            </p>
-          </Reveal>
+      <PageHero
+        eyebrow="Free tools"
+        title={<>Free tools to<span className="block text-[#eaf25a]">plan your growth.</span></>}
+        lead="Quick, no-signup tools for local service owners. Find where to focus first, then see what a 10% partnership would actually cost you."
+        actions={
+          <>
+            <ButtonLink href="/tools/growth-check">Start the Growth Check</ButtonLink>
+            <ButtonLink href="/pricing#partnership-calculator" variant="outlineLight">Open the calculator</ButtonLink>
+          </>
+        }
+      />
+
+      <Section tone="cream" labelledBy="tools-heading">
+        <SectionHeader id="tools-heading" eyebrow="Start here" title="Pick a tool" />
+        <div className="mt-10 md:mt-14">
+          <FeatureGrid
+            columns={2}
+            items={[
+              { icon: TargetIcon, eyebrow: "2 minutes", title: "Growth Check", text: "Five questions that point you to the right focus: website, Google visibility, an app, ads — or the 10% Growth Partnership.", href: "/tools/growth-check", linkLabel: "Start the check" },
+              { icon: TagIcon, eyebrow: "Calculator", title: "10% pricing calculator", text: "Enter your bookings and average job value to see what you keep and what our fee would be.", href: "/pricing#partnership-calculator", linkLabel: "Open the calculator" },
+            ]}
+          />
         </div>
-      </section>
-      <section className="section bg-slate-50">
-        <div className="container">
-          <SectionHeading eyebrow="Start here" title="Pick a tool" />
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            {tools.map((t) => (
-              <Link
-                key={t.href}
-                href={t.href}
-                className="group rounded-2xl border border-slate-200 bg-white p-7"
-              >
-                <h2 className="font-display text-xl font-semibold text-ink group-hover:text-brand-500">
-                  {t.title}
-                </h2>
-                <p className="mt-2 text-sm text-slate-600">{t.text}</p>
-                <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-500">
-                  Open
-                  <HugeiconsIcon icon={ArrowRightIcon} size={16} />
-                </span>
-              </Link>
-            ))}
-          </div>
+      </Section>
+
+      <Section tone="white" labelledBy="resources-heading">
+        <SectionHeader id="resources-heading" eyebrow="Keep reading" title="More free resources" />
+        <div className="mt-10">
+          <LinkRows
+            columns={3}
+            items={[
+              { href: "/guides", label: "Growth guides", description: "Plain-English playbooks for local service owners." },
+              { href: "/compare", label: "Compare Jadeed", description: "How we stack up against freelancers, DIY and agencies." },
+              { href: "/blog", label: "Blog", description: "SEO, websites and growth strategy articles." },
+            ]}
+          />
         </div>
-      </section>
+      </Section>
     </>
   );
 }

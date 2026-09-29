@@ -7,7 +7,7 @@ import { navLinks } from "@/lib/site";
 import { services } from "@/lib/services";
 import { posts } from "@/lib/blog";
 import { motion, AnimatePresence } from "framer-motion";
-import { HugeiconsIcon, FileIcon, HomeIcon, LayersIcon } from "./icons";
+import { HugeiconsIcon, FileIcon, HomeIcon, LayersIcon, SearchIcon, SparklesIcon, CloseIcon, ArrowRightIcon } from "./icons";
 
 type SearchItem = {
   label: string;
@@ -105,11 +105,11 @@ export function CommandSearch() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.98, y: 10 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="relative w-full max-w-[800px] bg-white sm:rounded-2xl shadow-2xl flex flex-col h-full sm:h-auto sm:max-h-[85vh] overflow-hidden"
+            className="relative w-full max-w-[800px] bg-white sm:rounded-2xl sm:border sm:border-black/10 flex flex-col h-full sm:h-auto sm:max-h-[85vh] overflow-hidden"
           >
             {/* Header / Input Row */}
             <div className="flex items-center gap-3 px-5 py-4 border-b border-[#cdcdcd]/50 shrink-0">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-gray-400 shrink-0"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <HugeiconsIcon icon={SearchIcon} size={20} strokeWidth={2.5} className="text-gray-400 shrink-0" />
               <input
                 ref={inputRef}
                 value={query}
@@ -122,23 +122,23 @@ export function CommandSearch() {
               <div className="hidden sm:flex items-center gap-1 bg-[#f9f9f9] p-1 rounded-lg border border-[#cdcdcd]/60 shrink-0">
                 <button 
                   onClick={() => setMode("search")}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[13px] font-semibold transition-all ${mode === "search" ? "bg-white shadow-sm text-black" : "text-gray-500 hover:text-black"}`}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[13px] font-semibold transition-all ${mode === "search" ? "bg-white text-black" : "text-gray-500 hover:text-black"}`}
                 >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                  <HugeiconsIcon icon={SearchIcon} size={14} strokeWidth={2.5} />
                   Search
                 </button>
-                <button 
+                <button
                   onClick={() => setMode("ask")}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[13px] font-semibold transition-all ${mode === "ask" ? "bg-white shadow-sm text-black" : "text-gray-500 hover:text-black"}`}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[13px] font-semibold transition-all ${mode === "ask" ? "bg-white text-black" : "text-gray-500 hover:text-black"}`}
                 >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                  <HugeiconsIcon icon={SparklesIcon} size={14} strokeWidth={2.5} />
                   Ask AI
                 </button>
               </div>
 
               {/* Close (Mobile) */}
-              <button onClick={close} className="sm:hidden p-2 text-gray-400 hover:text-black">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              <button onClick={close} className="sm:hidden p-2 text-gray-400 transition-colors hover:text-black">
+                <HugeiconsIcon icon={CloseIcon} size={20} strokeWidth={2} />
               </button>
             </div>
 
@@ -158,16 +158,16 @@ export function CommandSearch() {
                     </div>
                     <div className="text-gray-400 text-[13px] flex items-center gap-2 font-medium">
                       Start conversation
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 10 4 15 9 20"></polyline><path d="M20 4v7a4 4 0 0 1-4 4H4"></path></svg>
+                      <HugeiconsIcon icon={ArrowRightIcon} size={14} strokeWidth={2} />
                     </div>
                   </div>
 
                   {/* Sticky Mobile Filters */}
                   <div className="sticky top-[-16px] sm:top-[-24px] bg-white z-10 py-3 mb-4 flex items-center gap-2 overflow-x-auto no-scrollbar border-b border-transparent">
                     <button className="shrink-0 border border-black bg-white px-4 py-1.5 rounded-full text-[13px] font-semibold text-black">All ({results.length})</button>
-                    <button className="shrink-0 border border-[#cdcdcd] bg-white px-4 py-1.5 rounded-full text-[13px] font-medium text-gray-600 hover:text-black">Home ({items.filter(i=>i.group==='Home').length})</button>
-                    <button className="shrink-0 border border-[#cdcdcd] bg-white px-4 py-1.5 rounded-full text-[13px] font-medium text-gray-600 hover:text-black">FAQ (1)</button>
-                    <button className="shrink-0 border border-[#cdcdcd] bg-white px-4 py-1.5 rounded-full text-[13px] font-medium text-gray-600 hover:text-black">Docs ({items.filter(i=>i.group==='Docs').length})</button>
+                    <button className="shrink-0 border border-[#cdcdcd] bg-white px-4 py-1.5 rounded-full text-[13px] font-medium text-gray-600 transition-colors hover:text-black">Home ({items.filter(i=>i.group==='Home').length})</button>
+                    <button className="shrink-0 border border-[#cdcdcd] bg-white px-4 py-1.5 rounded-full text-[13px] font-medium text-gray-600 transition-colors hover:text-black">FAQ (1)</button>
+                    <button className="shrink-0 border border-[#cdcdcd] bg-white px-4 py-1.5 rounded-full text-[13px] font-medium text-gray-600 transition-colors hover:text-black">Docs ({items.filter(i=>i.group==='Docs').length})</button>
                   </div>
 
                   {/* Result Cards */}
@@ -188,7 +188,7 @@ export function CommandSearch() {
                                <HugeiconsIcon icon={Icon} size={18} className="text-gray-500 shrink-0" />
                                {item.label}
                             </div>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-black opacity-0 group-hover:opacity-100 transition-opacity"><polyline points="9 10 4 15 9 20"></polyline><path d="M20 4v7a4 4 0 0 1-4 4H4"></path></svg>
+                            <HugeiconsIcon icon={ArrowRightIcon} size={18} strokeWidth={2} className="text-black opacity-0 transition-opacity group-hover:opacity-100" />
                           </div>
                           
                           {/* Description */}
@@ -210,10 +210,10 @@ export function CommandSearch() {
                      </div>
                   </div>
                   <div className="mt-auto pt-8">
-                     <div className="bg-[#f9f9f9] border border-[#cdcdcd] rounded-xl p-4 flex items-center justify-between shadow-sm focus-within:border-gray-400 transition-colors">
+                     <div className="bg-[#f9f9f9] border border-[#cdcdcd] rounded-xl p-4 flex items-center justify-between focus-within:border-gray-400 transition-colors">
                         <input placeholder="How do I get started?" className="bg-transparent outline-none w-full text-[15px] text-black" />
                         <button className="text-gray-400 hover:text-black transition-colors shrink-0">
-                           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
+                           <HugeiconsIcon icon={ArrowRightIcon} size={20} strokeWidth={2} />
                         </button>
                      </div>
                   </div>
