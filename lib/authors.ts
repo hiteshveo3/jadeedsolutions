@@ -20,13 +20,13 @@ export const authors: Record<string, Author> = {
     avatar: "/team/sameer-ahmad-basra.jpg",
     location: "Narowal, Punjab, Pakistan",
     address: "House No. 5, Street No. 1, New Lahore Road, Pejowali Kalan, Narowal, 51600, Pakistan",
-    bio: "Founder of Jadeed Solutions, helping local service-based businesses generate more bookings by combining high-performing websites, SEO, software, AI, and custom-built automation — with a model where Jadeed Solutions only charges when the business gets an actual booking.",
+    bio: "Founder of Jadeed Solutions, helping local service-based businesses generate more bookings by combining high-performing websites, SEO, software, AI, and custom-built automation — including a performance model where fees follow the bookings the work generates.",
     longBio:
       "Sameer Ahmad Basra founded Jadeed Solutions in December 2024 and leads strategy, software architecture, technical SEO, and automation from Narowal, Punjab. Starting originally in WordPress web development, he expanded into modern Next.js/React engineering, search-intent architecture, AI integration, and performance-based growth systems. His core philosophy connects real business demand to measurable bookings rather than abstract marketing metrics.",
     highlights: [
       "Founder of Jadeed Solutions (Founded December 2024)",
       "Hands-on full-stack development, technical SEO, AI systems & custom automation",
-      "Performance-aligned model: We only charge when you get an actual booking",
+      "Performance, tiered or flat-fee pricing — performance fees follow the bookings we generate",
       "Proven international portfolio across UK, UAE, Pakistan and US service businesses",
       "Official Location: Pejowali Kalan, Narowal, Punjab, Pakistan",
     ],

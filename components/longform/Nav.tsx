@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 
-type Item = { id: string; number: number; title: string; crossBorder?: boolean };
+export type ContentsItem = { id: string; label: string; number?: number | string; badge?: string };
 
-export function HandbookProgress() {
+export function ReadingProgress() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export function HandbookProgress() {
   );
 }
 
-export function HandbookToc({ items }: { items: Item[] }) {
+export function ContentsNav({ items, title = "Contents" }: { items: ContentsItem[]; title?: string }) {
   const [active, setActive] = useState(items[0]?.id);
 
   useEffect(() => {
@@ -44,10 +44,10 @@ export function HandbookToc({ items }: { items: Item[] }) {
   }, [items]);
 
   return (
-    <nav aria-label="Handbook contents" className="custom-scrollbar sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto pb-6 pr-2">
-      <p className="text-xs font-extrabold uppercase tracking-[.15em] text-[#015f45]">Contents</p>
+    <nav aria-label={title} className="custom-scrollbar sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto pb-6 pr-2">
+      <p className="text-xs font-extrabold uppercase tracking-[.15em] text-[#015f45]">{title}</p>
       <ol className="mt-4 space-y-0.5 border-l border-black/10">
-        {items.map((item) => {
+        {items.map((item, index) => {
           const isActive = active === item.id;
           return (
             <li key={item.id}>
@@ -58,10 +58,10 @@ export function HandbookToc({ items }: { items: Item[] }) {
                   isActive ? "border-[#015f45] font-semibold text-[#015f45]" : "border-transparent text-black/60 hover:text-black"
                 }`}
               >
-                <span className="w-4 shrink-0 tabular-nums text-black/35">{item.number}</span>
+                <span className="w-4 shrink-0 tabular-nums text-black/35">{item.number ?? index + 1}</span>
                 <span>
-                  {item.title}
-                  {item.crossBorder && <span className="ml-1.5 whitespace-nowrap rounded bg-[#cbd810]/60 px-1 py-px text-[10px] font-bold uppercase tracking-wide text-[#063d30]">Cross-border</span>}
+                  {item.label}
+                  {item.badge && <span className="ml-1.5 whitespace-nowrap rounded bg-[#cbd810]/60 px-1 py-px text-[10px] font-bold uppercase tracking-wide text-[#063d30]">{item.badge}</span>}
                 </span>
               </a>
             </li>

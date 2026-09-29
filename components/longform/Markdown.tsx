@@ -2,7 +2,6 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import ReactMarkdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { sectionId } from "@/lib/profit-share-handbook";
 
 function textOf(node: ReactNode): string {
   if (typeof node === "string" || typeof node === "number") return String(node);
@@ -10,19 +9,28 @@ function textOf(node: ReactNode): string {
   return "";
 }
 
+/** `2.1` → `section-2-1`; used for numbered sub-headings so they can be deep-linked. */
+export function sectionId(number: number | string) {
+  return `section-${String(number).replace(/\./g, "-")}`;
+}
+
+const linkClass =
+  "font-semibold text-[#015f45] underline decoration-[#015f45]/30 underline-offset-4 transition-colors hover:decoration-[#015f45]";
+
+function MarkdownLink({ href = "", children }: { href?: string; children?: ReactNode }) {
+  if (href.startsWith("/")) return <Link href={href} className={linkClass}>{children}</Link>;
+  if (href.startsWith("#")) return <a href={href} className={linkClass}>{children}</a>;
+  return <a href={href} target="_blank" rel="noreferrer" className={linkClass}>{children}</a>;
+}
+
 const components: Components = {
   p: ({ children }) => <p className="mt-5 text-[17px] leading-[1.75] text-[#1d1d1b]/80 first:mt-0">{children}</p>,
   strong: ({ children }) => <strong className="font-semibold text-[#111]">{children}</strong>,
-  a: ({ href = "", children }) => {
-    const className = "font-semibold text-[#015f45] underline decoration-[#015f45]/30 underline-offset-4 transition-colors hover:decoration-[#015f45]";
-    if (href.startsWith("/")) return <Link href={href} className={className}>{children}</Link>;
-    if (href.startsWith("#")) return <a href={href} className={className}>{children}</a>;
-    return <a href={href} target="_blank" rel="noreferrer" className={className}>{children}</a>;
-  },
+  a: ({ href, children }) => <MarkdownLink href={href}>{children}</MarkdownLink>,
   h3: ({ children }) => {
     const text = textOf(children);
     const match = text.match(/^(\d+\.\d+)\s+(.*)$/);
-    if (!match) return <h3 className="mt-12 text-[21px] font-bold tracking-[-.02em] text-[#111]">{children}</h3>;
+    if (!match) return <h3 className="mt-12 text-[21px] font-bold leading-snug tracking-[-.02em] text-[#111]">{children}</h3>;
     return (
       <h3 id={sectionId(match[1])} className="mt-12 flex scroll-mt-28 gap-3 text-[21px] font-bold leading-snug tracking-[-.02em] text-[#111]">
         <span className="shrink-0 tabular-nums text-[#015f45]">{match[1]}</span>
@@ -43,12 +51,30 @@ const components: Components = {
     </div>
   ),
   th: ({ children, style }) => <th style={style} className="bg-[#f3f1ec] px-4 py-3 text-left text-xs font-bold uppercase tracking-[.1em] text-black/60">{children}</th>,
-  td: ({ children, style }) => <td style={style} className="border-t border-black/10 px-4 py-2.5 tabular-nums text-[#1d1d1b]/85">{children}</td>,
+  td: ({ children, style }) => <td style={style} className="border-t border-black/10 px-4 py-2.5 align-top text-[#1d1d1b]/85">{children}</td>,
+  code: ({ children }) => <code className="rounded bg-[#f3f1ec] px-1.5 py-0.5 font-mono text-[0.9em] text-[#063d30]">{children}</code>,
 };
 
-export function HandbookMarkdown({ children }: { children: string }) {
+/** Block-level Markdown (GFM) in the long-form reading style. */
+export function LongformMarkdown({ children }: { children: string }) {
   return (
     <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
+      {children}
+    </ReactMarkdown>
+  );
+}
+
+const inlineComponents: Components = {
+  p: ({ children }) => <>{children}</>,
+  strong: components.strong,
+  a: components.a,
+  code: components.code,
+};
+
+/** Inline Markdown (links, bold, code) without a wrapping paragraph. */
+export function InlineMarkdown({ children }: { children: string }) {
+  return (
+    <ReactMarkdown remarkPlugins={[remarkGfm]} components={inlineComponents}>
       {children}
     </ReactMarkdown>
   );
