@@ -1,13 +1,20 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { HugeiconsIcon, ArrowRightIcon, WhatsappIcon } from "@/components/icons";
-import { LongformHero, Pill } from "@/components/longform/Layout";
-import { CaseStudyCard, CheckList, LandingSection, StepsGrid } from "@/components/landing/Blocks";
-import { getCaseStudy } from "@/lib/case-studies";
-import { getIndustry } from "@/lib/industries";
-import { allNicheCityParams, getNicheCity } from "@/lib/niches";
+import { HugeiconsIcon, SearchIcon, WhatsappBusinessIcon } from "@/components/icons";
+import { allNicheCityParams, getNicheCity, nicheCities } from "@/lib/niches";
 import { siteConfig } from "@/lib/site";
+import { AlphaProof } from "@/components/site/AlphaProof";
+import {
+  ButtonLink,
+  FactRows,
+  FaqSection,
+  FeatureGrid,
+  LinkRows,
+  PageHero,
+  Section,
+  SectionHeader,
+  Steps,
+} from "@/components/site/ui";
 
 export function generateStaticParams() {
   return allNicheCityParams();
@@ -24,95 +31,98 @@ export async function generateMetadata(props: { params: Promise<{ slug: string; 
   const params = await props.params;
   const data = getNicheCity(params.slug, params.city);
   if (!data) return {};
-  return {
-    title: `${data.niche.navLabel} in ${data.city.name} — SEO, websites & ads`,
-    description: `Local SEO, conversion-focused websites and Google Ads for ${data.niche.tradePlural} in ${data.city.name}${data.city.region ? `, ${data.city.region}` : ""}.`,
-    alternates: { canonical: `${siteConfig.url}/industries/${params.slug}/${params.city}` },
-    robots: { index: false, follow: true },
-  };
+  const title = `${data.niche.navLabel} SEO & Websites in ${data.city.name}`;
+  const description = `SEO, Google Maps visibility and conversion-focused websites for ${data.niche.tradePlural} in ${data.city.name}. From £100/mo or 10% of bookings.`;
+  const url = `${siteConfig.url}/industries/${params.slug}/${params.city}`;
+  return { title, description, alternates: { canonical: url }, openGraph: { title, description, url }, robots: { index: false, follow: true } };
 }
 
 export default async function IndustryCityPage(props: { params: Promise<{ slug: string; city: string }> }) {
   const params = await props.params;
   const data = getNicheCity(params.slug, params.city);
-  const industry = getIndustry(params.slug);
-  if (!data || !industry) notFound();
-
+  if (!data) notFound();
   const { niche, city } = data;
-  const place = city.region && city.country === "USA" ? `${city.name}, ${city.region}` : city.name;
-  const study = industry.relatedCaseStudy ? getCaseStudy(industry.relatedCaseStudy) : undefined;
-  const whatsappHref = `${siteConfig.whatsappHref}?text=${encodeURIComponent(`Hi Jadeed — I run a ${niche.tradeLabel} business in ${city.name} and would like help getting more jobs online.`)}`;
+
+  const nearby = nicheCities(niche)
+    .filter((other) => other.country === city.country && other.slug !== city.slug)
+    .slice(0, 12);
 
   return (
     <>
-      <LongformHero
-        crumbs={[
+      <PageHero
+        breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Industries", href: "/industries" },
-          { label: industry.navLabel, href: `/industries/${industry.slug}` },
+          { label: niche.navLabel, href: `/industries/${niche.slug}` },
           { label: city.name },
         ]}
-        eyebrow={<><Pill>{industry.navLabel}</Pill><Pill tone="outline">{place}</Pill></>}
-        title={<>More {niche.tradeLabel} work from Google in <span className="text-[#eaf25a]">{city.name}.</span></>}
-        subtitle={city.angle}
+        eyebrow={`${niche.navLabel} · ${city.name}`}
+        title={`More ${niche.tradeLabel} jobs from Google in ${city.name}`}
+        lead={city.angle}
         actions={
           <>
-            <Link href="/contact" className="group inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-[#cbd810] px-5 text-sm font-semibold text-[#111] transition-colors hover:bg-[#b8c50e]">
-              Get a free growth plan <HugeiconsIcon icon={ArrowRightIcon} size={16} className="transition-transform group-hover:translate-x-1" aria-hidden="true" />
-            </Link>
-            <a href={whatsappHref} target="_blank" rel="noreferrer" className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-white/35 px-5 text-sm font-semibold text-white transition-colors hover:border-white hover:bg-white/10">
-              <HugeiconsIcon icon={WhatsappIcon} size={18} aria-hidden="true" /> WhatsApp us
-            </a>
+            <ButtonLink href="/contact">Get a free plan</ButtonLink>
+            <ButtonLink href={siteConfig.whatsappHref} variant="outlineLight" icon={WhatsappBusinessIcon}>WhatsApp us</ButtonLink>
           </>
+        }
+        aside={
+          <FactRows
+            title={`In ${city.name}`}
+            rows={[
+              { label: "Market", value: `${city.region ? `${city.region}, ` : ""}${city.country}` },
+              { label: "Monthly SEO", value: "From £100 · 6-month min." },
+              { label: "Or pay per result", value: "10% of bookings · 12–24 mo" },
+              { label: "We work", value: "Remotely, from Narowal" },
+            ]}
+          />
         }
       />
 
-      <LandingSection id="local" eyebrow={`${industry.navLabel} in ${city.name}`} title={`What customers in ${city.name} search for`} tone="cream">
-        <div className="grid gap-4 lg:grid-cols-[1.1fr_.9fr]">
-          <div className="rounded-[24px] border border-black/10 bg-white p-6 sm:p-8">
-            <p className="text-[17px] leading-[1.75] text-black/75">{city.marketNote}</p>
-            <p className="mt-5 text-xs font-extrabold uppercase tracking-[.14em] text-[#015f45]">Searches we would plan around</p>
-            <ul className="mt-3 flex flex-wrap gap-2">
-              {city.exampleQueries.map((q) => (
-                <li key={q} className="rounded-full bg-[#f3f1ec] px-3 py-1.5 text-sm font-medium text-black/70">“{q}”</li>
-              ))}
-            </ul>
-            <p className="mt-4 text-sm leading-6 text-black/55">We confirm real search demand for your services and areas in the free growth plan, rather than assuming it.</p>
-          </div>
-          <div className="rounded-[24px] bg-[#dceee8] p-6 text-[#063d30] sm:p-8">
-            <p className="text-xs font-extrabold uppercase tracking-[.15em] text-[#015f45]">How we work with {city.name} businesses</p>
-            <p className="mt-4 leading-7">
-              We are based in Narowal, Pakistan and work remotely with {niche.tradePlural} in {city.name} and elsewhere in the {city.country === "UK" ? "UK" : "US"}, by WhatsApp, phone and video. Every account we set up — website, Google Business Profile, ads — is in your business’s name.
-            </p>
-            <div className="mt-5"><CheckList items={industry.outcomes} /></div>
-          </div>
-        </div>
-      </LandingSection>
-
-      <LandingSection id="help" eyebrow="How we help" title={`What we do for ${niche.tradePlural}`}>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {industry.capabilities.map((c) => (
-            <div key={c.title} className="rounded-[24px] border border-black/10 p-6">
-              <h3 className="text-lg font-bold tracking-[-.02em]">{c.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-black/65">{c.text}</p>
-            </div>
+      <Section tone="cream" labelledBy="searches-heading">
+        <SectionHeader id="searches-heading" eyebrow="Local demand" title={`What customers in ${city.name} type into Google`} lead={city.marketNote} />
+        <ul className="mt-10 grid border-t border-black/10 md:grid-cols-2 md:gap-x-10">
+          {city.exampleQueries.map((query) => (
+            <li key={query} className="flex items-center gap-4 border-b border-black/10 py-5">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#e7f1ed] text-[#015f45]">
+                <HugeiconsIcon icon={SearchIcon} size={18} />
+              </span>
+              <span className="text-lg font-semibold tracking-[-.02em]">“{query}”</span>
+            </li>
           ))}
+        </ul>
+      </Section>
+
+      <Section tone="white" labelledBy="expertise-heading">
+        <SectionHeader id="expertise-heading" eyebrow="What we do" title={`How we help ${niche.tradePlural} in ${city.name}`} />
+        <div className="mt-10 md:mt-14">
+          <FeatureGrid columns={4} numbered items={niche.expertise} />
         </div>
-        <p className="mt-6 text-sm text-black/60">
-          The full approach — pages, searches, first 90 days — is on our <Link href={`/industries/${industry.slug}`} className="font-semibold text-[#015f45] hover:underline">{industry.navLabel.toLowerCase()} page</Link>
-          {industry.relatedGuide && <> and in the <Link href={`/guides/${industry.relatedGuide}`} className="font-semibold text-[#015f45] hover:underline">step-by-step guide</Link></>}.
-        </p>
-      </LandingSection>
+      </Section>
 
-      <LandingSection id="process" eyebrow="How it works" title="What working with us looks like" tone="green">
-        <StepsGrid steps={industry.process} />
-      </LandingSection>
+      <Section tone="green" labelledBy="method-heading">
+        <SectionHeader id="method-heading" tone="green" eyebrow="Our method" title="From first call to booked jobs" />
+        <div className="mt-10 md:mt-14">
+          <Steps tone="green" steps={niche.methodology} />
+        </div>
+      </Section>
 
-      {study && (
-        <LandingSection id="proof" eyebrow="Proof" title="A local service business we grow">
-          <CaseStudyCard study={study} />
-        </LandingSection>
-      )}
+      {niche.relatedCaseStudy === "alpha-movers" && <AlphaProof />}
+
+      <FaqSection items={niche.faqs} />
+
+      <Section tone="mint" labelledBy="nearby-heading">
+        <SectionHeader id="nearby-heading" tone="mint" eyebrow="Nearby markets" title={`${niche.navLabel} in other ${city.country} cities`} />
+        <div className="mt-10">
+          <LinkRows
+            tone="mint"
+            columns={3}
+            items={[
+              ...nearby.map((other) => ({ href: `/industries/${niche.slug}/${other.slug}`, label: other.name, meta: other.region })),
+              { href: `/industries/${niche.slug}`, label: `All ${niche.navLabel.toLowerCase()} pages` },
+            ]}
+          />
+        </div>
+      </Section>
     </>
   );
 }

@@ -477,7 +477,7 @@ export const services: Service[] = [
     },
     stats: [
       { value: "Custom", label: "Quoted per app" },
-      { value: "iOS+Android", label: "Both platforms" },
+      { value: "iOS + Android", label: "Both platforms" },
       { value: "5.0", label: "Google reviews" },
       { value: "MVP-first", label: "Launch lean" },
     ],

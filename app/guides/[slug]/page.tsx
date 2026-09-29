@@ -9,6 +9,7 @@ import { defaultAuthorSlug, getAuthor } from "@/lib/authors";
 import { formatDate } from "@/lib/blog";
 import { getGuide, guides, guideWordCount } from "@/lib/guides";
 import { siteConfig } from "@/lib/site";
+import { LinkRows } from "@/components/site/ui";
 
 export function generateStaticParams() {
   return guides.map((g) => ({ slug: g.slug }));
@@ -133,18 +134,8 @@ export default async function GuidePage(props: { params: Promise<{ slug: string 
 
         {others.length > 0 && (
           <div className="mt-12">
-            <p className="text-xs font-extrabold uppercase tracking-[.15em] text-[#015f45]">More guides</p>
-            <div className="mt-4 grid gap-4 sm:grid-cols-2">
-              {others.map((g) => (
-                <Link key={g.slug} href={`/guides/${g.slug}`} className="group rounded-2xl border border-black/10 p-5 transition-colors hover:border-[#015f45]/40">
-                  <span className="text-xs font-bold uppercase tracking-[.12em] text-black/45">{g.eyebrow}</span>
-                  <span className="mt-2 block font-semibold leading-snug group-hover:text-[#015f45]">{g.title}</span>
-                  <span className="mt-3 inline-flex items-center gap-1 text-sm font-bold text-[#015f45]">
-                    Read guide <HugeiconsIcon icon={ArrowRightIcon} size={15} className="transition-transform group-hover:translate-x-1" aria-hidden="true" />
-                  </span>
-                </Link>
-              ))}
-            </div>
+            <p className="mb-4 text-xs font-extrabold uppercase tracking-[.15em] text-[#015f45]">More guides</p>
+            <LinkRows items={others.map((g) => ({ href: `/guides/${g.slug}`, label: g.title, meta: g.eyebrow }))} />
           </div>
         )}
       </LongformBody>

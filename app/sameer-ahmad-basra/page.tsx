@@ -76,7 +76,7 @@ export default function SameerFounderStoryPage() {
       {/* FLOATING INTERACTIVE TIMELINE SPINE (Desktop / Tablet) */}
       <aside
         aria-label="Story Timeline Navigation"
-        className="hidden lg:flex fixed left-6 top-1/2 -translate-y-1/2 z-40 flex-col items-start gap-4 p-3 rounded-2xl bg-[#161a18]/85 backdrop-blur-md border border-white/10 shadow-2xl"
+        className="hidden lg:flex fixed left-6 top-1/2 -translate-y-1/2 z-40 flex-col items-start gap-4 p-3 rounded-2xl bg-[#161a18]/85 backdrop-blur-md border border-white/10"
       >
         <span className="text-[10px] font-mono tracking-widest text-[#cbd810] uppercase px-2">Story Arc</span>
         <div className="flex flex-col gap-2 relative">
@@ -93,7 +93,7 @@ export default function SameerFounderStoryPage() {
                 <span
                   className={`relative z-10 flex items-center justify-center w-6 h-6 rounded-full text-[11px] font-bold font-mono transition-all duration-300 ${
                     isActive
-                      ? "bg-[#cbd810] text-[#111] scale-110 shadow-[0_0_12px_rgba(203,216,16,0.6)]"
+                      ? "bg-[#cbd810] text-[#111] scale-110"
                       : "bg-[#222825] text-white/50 group-hover:text-white group-hover:bg-white/20"
                   }`}
                 >
@@ -148,13 +148,10 @@ export default function SameerFounderStoryPage() {
             }}
           />
 
-          {/* Glowing Aura */}
-          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#cbd810]/15 blur-[140px] pointer-events-none" />
-
           <div className="relative z-10 max-w-[1100px] mx-auto w-full flex flex-col items-center text-center">
-            
+
             {/* Act Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#cbd810]/40 bg-[#014f39]/80 px-4 py-1 text-xs font-mono font-bold tracking-widest text-[#cbd810] uppercase mb-8 shadow-sm">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#cbd810]/40 bg-[#014f39]/80 px-4 py-1 text-xs font-mono font-bold tracking-widest text-[#cbd810] uppercase mb-8">
               <span className="w-2 h-2 rounded-full bg-[#cbd810] animate-pulse" />
               Act I · Positioning &amp; Authority
             </div>
@@ -164,7 +161,7 @@ export default function SameerFounderStoryPage() {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl mb-8 bg-[#f28a16] ring-8 ring-[#cbd810]/20"
+              className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden border-4 border-white/20 mb-8 bg-[#f28a16] ring-8 ring-[#cbd810]/20"
             >
               <Image
                 src="/sameer-ahmad-basra.jpg"
@@ -180,7 +177,7 @@ export default function SameerFounderStoryPage() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-[42px] sm:text-[60px] lg:text-[72px] font-bold tracking-tight text-white leading-[1.08] mb-6"
+              className="font-sans text-[42px] sm:text-[60px] lg:text-[72px] font-semibold tracking-[-.05em] text-white leading-[1.08] mb-6"
             >
               Sameer Ahmad Basra
             </motion.h1>
@@ -212,8 +209,8 @@ export default function SameerFounderStoryPage() {
               className="w-full max-w-[820px] grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12 p-4 rounded-2xl bg-[#014f39]/90 border border-white/15 backdrop-blur-md"
             >
               <div className="flex flex-col items-center text-center p-2 border-b sm:border-b-0 sm:border-r border-white/10">
-                <span className="text-2xl sm:text-3xl font-extrabold text-[#cbd810] font-mono">160K+</span>
-                <span className="text-xs text-white/70 font-medium">Verified Impressions Delivered</span>
+                <span className="text-2xl sm:text-3xl font-extrabold text-[#cbd810] font-mono">70+</span>
+                <span className="text-xs text-white/70 font-medium">Booked Jobs for One Client in 3 Months</span>
               </div>
               <div className="flex flex-col items-center text-center p-2 border-b sm:border-b-0 sm:border-r border-white/10">
                 <span className="text-2xl sm:text-3xl font-extrabold text-white font-mono">Dec 2024</span>
@@ -234,7 +231,7 @@ export default function SameerFounderStoryPage() {
             >
               <Link
                 href="/contact"
-                className="group bg-[#cbd810] text-[#111] font-bold text-base h-14 px-8 rounded-xl flex items-center justify-center gap-3 transition-transform hover:scale-[1.02] active:scale-[0.98] shadow-lg"
+                className="group bg-[#cbd810] text-[#111] font-bold text-base h-14 px-8 rounded-xl flex items-center justify-center gap-3 transition-transform hover:scale-[1.02] active:scale-[0.98]"
               >
                 Book a Growth Consultation
                 <HugeiconsIcon
@@ -263,17 +260,14 @@ export default function SameerFounderStoryPage() {
           id="act-2"
           className="relative py-28 px-6 bg-[#1a1e1c] text-[#e0e0e0] border-b border-white/10 overflow-hidden"
         >
-          {/* Subtle Red/Tension Ambient Glow */}
-          <div className="absolute top-1/4 right-0 w-[450px] h-[450px] rounded-full bg-[#8b0000]/10 blur-[130px] pointer-events-none" />
-
           <div className="max-w-[800px] mx-auto">
-            
+
             <div className="inline-flex items-center gap-2 font-mono text-xs text-[#d0d0d0]/60 uppercase tracking-widest mb-4">
               <span className="w-2 h-2 rounded-full bg-[#ff5252]" />
               Act II · The Struggle &amp; Market Realities
             </div>
 
-            <h2 className="text-[28px] sm:text-[36px] font-bold text-white leading-tight mb-8">
+            <h2 className="font-sans text-[28px] sm:text-[36px] font-semibold tracking-[-.03em] text-white leading-tight mb-8">
               From Marketplace Dependencies to Direct Ownership
             </h2>
 
@@ -311,9 +305,6 @@ export default function SameerFounderStoryPage() {
           id="act-3"
           className="relative py-32 px-6 bg-gradient-to-b from-[#1a1e1c] via-[#014f39] to-[#015f45] text-white border-b border-white/10 overflow-hidden"
         >
-          {/* Radiant Climax Atmosphere */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[#cbd810]/15 blur-[160px] pointer-events-none" />
-          
           <div
             className="absolute inset-0 z-0 pointer-events-none opacity-25 mix-blend-overlay"
             style={{
@@ -324,7 +315,7 @@ export default function SameerFounderStoryPage() {
 
           <div className="relative z-10 max-w-[960px] mx-auto text-center flex flex-col items-center">
             
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#cbd810]/50 bg-[#cbd810]/10 px-5 py-1.5 text-xs font-mono font-bold tracking-widest text-[#cbd810] uppercase mb-8 shadow-sm">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#cbd810]/50 bg-[#cbd810]/10 px-5 py-1.5 text-xs font-mono font-bold tracking-widest text-[#cbd810] uppercase mb-8">
               <HugeiconsIcon icon={SparklesIcon} size={14} className="text-[#cbd810]" />
               Act III · The Climax
             </div>
@@ -335,7 +326,7 @@ export default function SameerFounderStoryPage() {
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="text-[48px] sm:text-[68px] lg:text-[84px] font-extrabold tracking-tight text-white leading-none mb-8"
+              className="font-sans text-[48px] sm:text-[68px] lg:text-[84px] font-bold tracking-[-.04em] text-white leading-none mb-8"
             >
               I Continued<span className="text-[#cbd810]">.</span>
             </motion.h2>
@@ -358,7 +349,7 @@ export default function SameerFounderStoryPage() {
             </div>
 
             {/* Standalone Memorable Quote Callout */}
-            <div className="mt-14 inline-block p-6 sm:p-8 rounded-3xl bg-[#014f39]/90 border-2 border-[#cbd810]/40 shadow-2xl">
+            <div className="mt-14 inline-block p-6 sm:p-8 rounded-3xl bg-[#014f39]/90 border-2 border-[#cbd810]/40">
               <blockquote className="text-[22px] sm:text-[28px] font-bold text-[#eaf25a] tracking-tight">
                 &ldquo;Consistency is what creates the difference.&rdquo;
               </blockquote>
@@ -384,7 +375,7 @@ export default function SameerFounderStoryPage() {
                 <HugeiconsIcon icon={RocketIcon} size={16} />
                 Act IV · Vision Realized &amp; Proof Systems
               </div>
-              <h2 className="text-[32px] sm:text-[44px] font-bold tracking-tight text-[#151515] mb-4">
+              <h2 className="font-sans text-[32px] sm:text-[44px] font-semibold tracking-[-.04em] text-[#151515] mb-4">
                 Where Engineering &amp; Search Deliver Measurable Bookings
               </h2>
               <p className="text-[17px] text-black/65 max-w-[720px] leading-relaxed">
@@ -396,7 +387,7 @@ export default function SameerFounderStoryPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
               
               {/* CARD 1: Just Shine Cleaning Services */}
-              <div className="bg-white border border-black/10 rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col justify-between">
+              <div className="bg-white border border-black/10 rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between gap-4 mb-6">
                     <div>
@@ -474,14 +465,15 @@ export default function SameerFounderStoryPage() {
 
                 <div className="mt-8 pt-4 border-t border-black/5 flex items-center justify-between text-xs text-black/50 font-medium">
                   <span>Verified 5.0 Trustpilot Review</span>
-                  <Link href="/blog/local-seo-google-ads-service-business" className="text-[#015f45] font-bold hover:underline">
-                    Read strategy →
+                  <Link href="/blog/local-seo-google-ads-service-business" className="group inline-flex items-center gap-1.5 text-[#015f45] font-bold">
+                    Read strategy
+                    <HugeiconsIcon icon={ArrowRightIcon} size={14} className="transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>
               </div>
 
               {/* CARD 2: Alpha Movers */}
-              <div className="bg-white border border-black/10 rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col justify-between">
+              <div className="bg-white border border-black/10 rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between gap-4 mb-6">
                     <div>
@@ -544,12 +536,12 @@ export default function SameerFounderStoryPage() {
                         </div>
                         <div className="grid grid-cols-2 gap-3 pt-2">
                           <div className="p-3 rounded-xl bg-[#015f45]/5 border border-[#015f45]/10 text-center">
-                            <div className="text-xl font-bold text-[#015f45] font-mono">160,903</div>
-                            <div className="text-[11px] text-black/60 font-medium">Search Impressions (GSC)</div>
+                            <div className="text-xl font-bold text-[#015f45] font-mono">218K</div>
+                            <div className="text-[11px] text-black/60 font-medium">Search Impressions (GSC, 3 mo)</div>
                           </div>
                           <div className="p-3 rounded-xl bg-[#015f45]/5 border border-[#015f45]/10 text-center">
-                            <div className="text-xl font-bold text-[#015f45] font-mono">+312%</div>
-                            <div className="text-[11px] text-black/60 font-medium">Clicks, first vs final 28 days (GSC)</div>
+                            <div className="text-xl font-bold text-[#015f45] font-mono">70+</div>
+                            <div className="text-[11px] text-black/60 font-medium">Booked Jobs (3 mo)</div>
                           </div>
                         </div>
                       </motion.div>
@@ -559,8 +551,9 @@ export default function SameerFounderStoryPage() {
 
                 <div className="mt-8 pt-4 border-t border-black/5 flex items-center justify-between text-xs text-black/50 font-medium">
                   <span>Google Search Console Verified</span>
-                  <Link href="/portfolio" className="text-[#015f45] font-bold hover:underline">
-                    View full case study →
+                  <Link href="/portfolio" className="group inline-flex items-center gap-1.5 text-[#015f45] font-bold">
+                    View full case study
+                    <HugeiconsIcon icon={ArrowRightIcon} size={14} className="transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>
               </div>
@@ -568,13 +561,13 @@ export default function SameerFounderStoryPage() {
             </div>
 
             {/* SKILLS & CAPABILITY TREE */}
-            <div className="bg-white border border-black/10 rounded-3xl p-8 sm:p-12 shadow-sm">
+            <div className="bg-white border border-black/10 rounded-3xl p-8 sm:p-12">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-10 pb-6 border-b border-black/10">
                 <div>
                   <span className="text-xs font-mono uppercase tracking-widest text-[#015f45] font-extrabold block mb-1">
                     System Architecture
                   </span>
-                  <h3 className="text-[24px] sm:text-[28px] font-bold text-[#151515]">
+                  <h3 className="font-sans text-[24px] sm:text-[28px] font-semibold tracking-[-.03em] text-[#151515]">
                     Full-Stack Systems: Where Technology Serves Outcomes
                   </h3>
                 </div>
@@ -585,7 +578,7 @@ export default function SameerFounderStoryPage() {
                     onClick={() => setActiveSkillCategory("frameworks")}
                     className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
                       activeSkillCategory === "frameworks"
-                        ? "bg-[#015f45] text-white shadow-sm"
+                        ? "bg-[#015f45] text-white"
                         : "text-black/60 hover:text-black"
                     }`}
                   >
@@ -595,7 +588,7 @@ export default function SameerFounderStoryPage() {
                     onClick={() => setActiveSkillCategory("ai")}
                     className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
                       activeSkillCategory === "ai"
-                        ? "bg-[#015f45] text-white shadow-sm"
+                        ? "bg-[#015f45] text-white"
                         : "text-black/60 hover:text-black"
                     }`}
                   >
@@ -605,7 +598,7 @@ export default function SameerFounderStoryPage() {
                     onClick={() => setActiveSkillCategory("growth")}
                     className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
                       activeSkillCategory === "growth"
-                        ? "bg-[#015f45] text-white shadow-sm"
+                        ? "bg-[#015f45] text-white"
                         : "text-black/60 hover:text-black"
                     }`}
                   >
@@ -708,16 +701,13 @@ export default function SameerFounderStoryPage() {
           id="act-5"
           className="relative py-32 px-6 bg-gradient-to-br from-[#015f45] via-[#014f39] to-[#111614] text-white border-b border-white/10 overflow-hidden"
         >
-          {/* Ambient Glow */}
-          <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full bg-[#cbd810]/15 blur-[160px] pointer-events-none" />
-
           <div className="max-w-[920px] mx-auto text-center flex flex-col items-center">
-            
+
             <div className="inline-flex items-center gap-2 rounded-full border border-[#cbd810]/40 bg-[#cbd810]/10 px-4 py-1.5 text-xs font-mono font-bold tracking-widest text-[#cbd810] uppercase mb-8">
               Act V · Future &amp; Commercial Alignment
             </div>
 
-            <h2 className="text-[36px] sm:text-[50px] lg:text-[58px] font-bold tracking-tight text-white leading-[1.12] mb-6">
+            <h2 className="font-sans text-[36px] sm:text-[50px] lg:text-[58px] font-semibold tracking-[-.04em] text-white leading-[1.12] mb-6">
               We Don&apos;t Charge for Activity.<br />
               <span className="text-[#cbd810]">We Charge for Results.</span>
             </h2>
@@ -747,11 +737,11 @@ export default function SameerFounderStoryPage() {
             </div>
 
             {/* Final Emotional Call to Action */}
-            <div className="w-full bg-[#111614]/90 border border-white/15 rounded-3xl p-8 sm:p-12 shadow-2xl flex flex-col items-center">
+            <div className="w-full bg-[#111614]/90 border border-white/15 rounded-3xl p-8 sm:p-12 flex flex-col items-center">
               <span className="text-xs font-mono uppercase tracking-widest text-[#cbd810] font-bold mb-3">
                 Your Next Chapter
               </span>
-              <h3 className="text-[28px] sm:text-[36px] font-bold text-white mb-4">
+              <h3 className="font-sans text-[28px] sm:text-[36px] font-semibold tracking-[-.03em] text-white mb-4">
                 Your Story Starts Here
               </h3>
               <p className="text-white/70 text-base max-w-[560px] mb-8">
@@ -761,7 +751,7 @@ export default function SameerFounderStoryPage() {
               <div className="flex flex-wrap items-center justify-center gap-4 w-full sm:w-auto">
                 <Link
                   href="/contact"
-                  className="group bg-[#cbd810] text-[#111] font-bold text-base h-14 px-8 rounded-xl flex items-center justify-center gap-3 transition-transform hover:scale-[1.02] shadow-lg w-full sm:w-auto"
+                  className="group bg-[#cbd810] text-[#111] font-bold text-base h-14 px-8 rounded-xl flex items-center justify-center gap-3 transition-transform hover:scale-[1.02] w-full sm:w-auto"
                 >
                   Book a Consultation
                   <HugeiconsIcon

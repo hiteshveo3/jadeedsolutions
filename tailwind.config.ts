@@ -38,19 +38,17 @@ const config: Config = {
           tint: "#EFF6F2",
           soft: "#A8D1C4",
           accent: "#CBD810",
-          // Numbered scale anchored on the brand green (500 = DEFAULT) so legacy
-          // brand-N utilities render in the current palette.
           50: "#EEF6F2",
           100: "#DCEEE8",
-          200: "#B6DCCD",
-          300: "#86C3AC",
-          400: "#3FA07E",
+          200: "#B9DDD0",
+          300: "#8CC4B0",
+          400: "#4F9E84",
           500: "#015F45",
           600: "#014F39",
           700: "#063D30",
           800: "#052F25",
           900: "#04241C",
-          950: "#021610",
+          950: "#021510",
         },
         surface: {
           canvas: "#FAF9F6",
@@ -62,18 +60,18 @@ const config: Config = {
         },
         accent: {
           light: "#A8D1C4",
-          400: "#ffb27a",
-          500: "#ff9147",
-          600: "#f46a1f",
+          400: "#EAF25A",
+          500: "#CBD810",
+          600: "#B8C50E",
         },
         ink: {
           DEFAULT: "#151515",
           muted: "rgba(21, 21, 21, 0.65)",
           faint: "rgba(21, 21, 21, 0.50)",
-          soft: "#2c231d",
+          soft: "#1F2A26",
         },
         js: {
-          bg: "#F4F3EF",
+          bg: "#F7F5EF",
           dark: "#0D0D0D",
         },
       },
@@ -101,9 +99,17 @@ const config: Config = {
         "fade-up": "fade-up 0.6s ease-out both",
         float: "float 6s ease-in-out infinite",
       },
+      // Brand rule: no shadows anywhere. Every shadow utility resolves to none.
       boxShadow: {
-        soft: "0 1px 2px rgba(26, 20, 16, 0.04), 0 1px 3px rgba(26, 20, 16, 0.06)",
-        glow: "0 1px 2px rgba(26, 20, 16, 0.04), 0 1px 3px rgba(26, 20, 16, 0.06)",
+        sm: "none",
+        DEFAULT: "none",
+        md: "none",
+        lg: "none",
+        xl: "none",
+        "2xl": "none",
+        inner: "none",
+        soft: "none",
+        glow: "none",
       },
       backgroundImage: {
         "grid-faint":

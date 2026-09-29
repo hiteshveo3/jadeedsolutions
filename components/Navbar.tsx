@@ -4,7 +4,8 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { HugeiconsIcon, ArrowRightIcon } from "@/components/icons";
+import { HugeiconsIcon, ArrowRightIcon, PhoneIcon } from "@/components/icons";
+import { siteConfig } from "@/lib/site";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -23,7 +24,7 @@ export function Navbar() {
     <header
       className={`${
         !isHomepage
-          ? "fixed top-0 inset-x-0 z-50 py-3.5 bg-[#015f45] text-white shadow-sm"
+          ? "fixed top-0 inset-x-0 z-50 py-3.5 bg-[#015f45] text-white"
           : "absolute top-0 inset-x-0 z-50 pt-5 text-white"
       } px-4 sm:px-6 lg:px-10 transition-all duration-300`}
     >
@@ -44,22 +45,26 @@ export function Navbar() {
       >
         <Link
           href="/"
-          className="flex shrink-0 items-center gap-2 rounded-lg font-bold tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cbd810]"
+          className={`flex shrink-0 items-center gap-2 rounded-lg font-bold tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cbd810] ${
+            isHomepage
+              ? "h-11 rounded-xl border border-white/20 bg-[#014f39]/80 pl-1 pr-3 backdrop-blur-sm sm:h-12 sm:pl-[5px] sm:pr-4"
+              : ""
+          }`}
         >
           <Image
             src="/jadeed-favicon.webp"
             alt="Jadeed Solutions Logo"
             width={38}
             height={38}
-            className="rounded-lg"
+            className="h-9 w-9 rounded-lg sm:h-[38px] sm:w-[38px]"
           />
-          <span className="hidden text-xl leading-none sm:block">
+          <span className="text-[17px] leading-none sm:text-xl">
             Jadeed
-            <br className="lg:hidden" /> Solutions
+            <br className="hidden sm:inline lg:hidden" /> Solutions
           </span>
         </Link>
 
-        <div className="hidden items-center gap-7 rounded-xl border border-white/20 bg-[#014f39]/80 backdrop-blur-sm px-7 py-3.5 text-sm font-semibold shadow-sm lg:flex">
+        <div className="hidden items-center gap-7 rounded-xl border border-white/20 bg-[#014f39]/80 backdrop-blur-sm px-7 py-3.5 text-sm font-semibold lg:flex">
           {links.map(([label, href]) => (
             <Link
               key={label}
@@ -76,12 +81,18 @@ export function Navbar() {
         </div>
 
         <div className="flex shrink-0 items-center gap-3">
+          <a
+            href={`tel:${siteConfig.phoneHref}`}
+            aria-label={`Call Jadeed Solutions on ${siteConfig.phone}`}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-[#cbd810] text-[#111111] transition-colors hover:bg-[#b8c50e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:hidden"
+          >
+            <HugeiconsIcon icon={PhoneIcon} size={21} />
+          </a>
           <Link
             href="/contact"
-            className="group inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-[#cbd810] px-4 text-sm font-bold text-[#111111] shadow-sm transition-colors hover:bg-[#b8c50e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:px-5"
+            className="group hidden h-12 items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-[#cbd810] px-5 text-sm font-bold text-[#111111] transition-colors hover:bg-[#b8c50e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:inline-flex"
           >
-            <span className="hidden sm:inline">Get a free growth plan</span>
-            <span className="sm:hidden">Growth plan</span>
+            Get a free growth plan
             <span
               className="relative flex h-4 w-4 items-center justify-center overflow-hidden"
               aria-hidden="true"

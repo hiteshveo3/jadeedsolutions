@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { HugeiconsIcon, ArrowRightIcon, CheckIcon } from "@/components/icons";
 import { InlineMarkdown, LongformMarkdown } from "@/components/longform/Markdown";
@@ -7,6 +6,7 @@ import { AskPanel, HeroButton, LongformBody, LongformHero, LongformSection, Pill
 import { formatDate } from "@/lib/blog";
 import { comparisons, getComparison } from "@/lib/comparisons";
 import { siteConfig } from "@/lib/site";
+import { LinkRows } from "@/components/site/ui";
 
 export function generateStaticParams() {
   return comparisons.map((c) => ({ slug: c.slug }));
@@ -31,15 +31,15 @@ const plain = (markdown: string) => markdown.replace(/\[([^\]]*)\]\([^)]*\)/g, "
 
 function ChoiceList({ title, items, tone }: { title: string; items: string[]; tone: "them" | "us" }) {
   return (
-    <div className={`rounded-2xl p-5 sm:p-6 ${tone === "us" ? "bg-[#015f45] text-white" : "border border-black/10 bg-white"}`}>
-      <p className={`text-xs font-extrabold uppercase tracking-[.14em] ${tone === "us" ? "text-[#eaf25a]" : "text-black/50"}`}>{title}</p>
-      <ul className="mt-4 space-y-3 text-[15px] leading-6">
+    <div>
+      <p className={`mb-3 text-xs font-extrabold uppercase tracking-[.14em] ${tone === "us" ? "text-[#015f45]" : "text-black/50"}`}>{title}</p>
+      <ul className="border-t border-black/10 text-[15px] leading-6">
         {items.map((item) => (
-          <li key={item} className="flex gap-3">
-            <span className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${tone === "us" ? "bg-[#cbd810] text-[#063d30]" : "bg-[#f3f1ec] text-black/60"}`} aria-hidden="true">
+          <li key={item} className="flex gap-3 border-b border-black/10 py-3.5">
+            <span className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${tone === "us" ? "bg-[#015f45] text-[#eaf25a]" : "bg-[#f3f1ec] text-black/60"}`} aria-hidden="true">
               <HugeiconsIcon icon={CheckIcon} size={12} strokeWidth={2.6} />
             </span>
-            <span className={tone === "us" ? "text-white/90" : "text-black/75"}>{item}</span>
+            <span className="text-black/75">{item}</span>
           </li>
         ))}
       </ul>
@@ -114,7 +114,7 @@ export default async function ComparePage(props: { params: Promise<{ slug: strin
       <LongformBody contents={contents}>
         <LongformSection id="short-answer" label="Verdict" title="The short answer">
           <p className="text-[18px] leading-8 text-[#1d1d1b]/85"><InlineMarkdown>{page.verdict}</InlineMarkdown></p>
-          <div className="mt-7 grid gap-4 md:grid-cols-2">
+          <div className="mt-8 grid gap-8 md:grid-cols-2">
             <ChoiceList title={`Choose ${page.competitor} if`} items={page.chooseThemIf} tone="them" />
             <ChoiceList title="Choose Jadeed if" items={page.chooseUsIf} tone="us" />
           </div>
@@ -170,15 +170,8 @@ export default async function ComparePage(props: { params: Promise<{ slug: strin
         />
 
         <div className="mt-12">
-          <p className="text-xs font-extrabold uppercase tracking-[.15em] text-[#015f45]">Other comparisons</p>
-          <div className="mt-4 grid gap-3 sm:grid-cols-3">
-            {others.map((c) => (
-              <Link key={c.slug} href={`/compare/${c.slug}`} className="group rounded-2xl border border-black/10 p-4 text-sm font-semibold transition-colors hover:border-[#015f45]/40 hover:text-[#015f45]">
-                Jadeed {c.navLabel}
-                <HugeiconsIcon icon={ArrowRightIcon} size={14} className="ml-1 inline transition-transform group-hover:translate-x-1" aria-hidden="true" />
-              </Link>
-            ))}
-          </div>
+          <p className="mb-4 text-xs font-extrabold uppercase tracking-[.15em] text-[#015f45]">Other comparisons</p>
+          <LinkRows items={others.map((c) => ({ href: `/compare/${c.slug}`, label: c.h1 }))} />
         </div>
       </LongformBody>
     </>

@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { HugeiconsIcon, ArrowLeftIcon } from "@/components/icons";
 
 interface PlaceholderProps {
   badge?: string;
@@ -44,7 +45,7 @@ export function ContentPlaceholder({
             {title}
           </h1>
 
-          <div className="bg-white border border-black/10 rounded-2xl p-8 shadow-sm w-full my-6 text-left">
+          <div className="bg-white border border-black/10 rounded-2xl p-8 w-full my-6 text-left">
             <div className="flex items-center gap-3 mb-4">
               <span className="w-3 h-3 rounded-full bg-[#cbd810] animate-pulse" />
               <span className="text-[13px] font-bold text-black/60 uppercase tracking-wider">
@@ -62,13 +63,14 @@ export function ContentPlaceholder({
           <div className="flex flex-wrap items-center justify-center gap-4 mt-6">
             <Link
               href={parentPath}
-              className="bg-[#151515] text-white font-semibold px-6 py-3.5 rounded-xl hover:bg-black/85 transition-all text-[15px] shadow-sm flex items-center gap-2"
+              className="group bg-[#151515] text-white font-semibold px-6 py-3.5 rounded-xl hover:bg-black/85 transition-colors text-[15px] flex items-center gap-2"
             >
-              ← {parentLabel}
+              <HugeiconsIcon icon={ArrowLeftIcon} size={16} className="transition-transform group-hover:-translate-x-1" />
+              {parentLabel}
             </Link>
             <Link
               href="/contact"
-              className="bg-[#015f45] text-white font-semibold px-6 py-3.5 rounded-xl hover:bg-[#015f45]/90 transition-all text-[15px] shadow-sm"
+              className="bg-[#015f45] text-white font-semibold px-6 py-3.5 rounded-xl hover:bg-[#015f45]/90 transition-all text-[15px]"
             >
               Contact Team Jadeed
             </Link>

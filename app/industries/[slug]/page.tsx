@@ -1,205 +1,286 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { HugeiconsIcon, ArrowRightIcon, WhatsappIcon } from "@/components/icons";
-import { LongformHero, Pill } from "@/components/longform/Layout";
-import { LongformMarkdown } from "@/components/longform/Markdown";
-import { CaseStudyCard, CheckList, FaqList, LandingSection, LinkCards, ReviewGrid, StepsGrid } from "@/components/landing/Blocks";
-import { getCaseStudy } from "@/lib/case-studies";
-import { citiesByCountry } from "@/lib/cities";
-import { getGuide } from "@/lib/guides";
-import { getIndustry, industries } from "@/lib/industries";
-import { getReviewsForService, googleAggregate } from "@/lib/reviews";
+import { WhatsappBusinessIcon } from "@/components/icons";
+import { getIntentPage, intentPages, type IntentPage } from "@/lib/intent-pages";
+import { getNiche, niches, nicheCities, type Niche } from "@/lib/niches";
+import { getAuthor } from "@/lib/authors";
 import { getService } from "@/lib/services";
+import { getGuide, guides } from "@/lib/guides";
+import { industryPlaybooks } from "@/lib/industry-playbooks";
+import { getIndustry } from "@/lib/industries";
+import { LongformMarkdown } from "@/components/longform/Markdown";
 import { siteConfig } from "@/lib/site";
+import { AlphaProof } from "@/components/site/AlphaProof";
+import {
+  ButtonLink,
+  CheckList,
+  Eyebrow,
+  FaqSection,
+  FeatureGrid,
+  LinkRows,
+  PageHero,
+  Section,
+  SectionHeader,
+  Steps,
+} from "@/components/site/ui";
 
 export function generateStaticParams() {
-  return industries.map((i) => ({ slug: i.slug }));
+  const seen = new Set<string>();
+  return [...intentPages.map((p) => ({ slug: p.slug })), ...niches.map((n) => ({ slug: n.slug }))].filter((p) => {
+    if (seen.has(p.slug)) return false;
+    seen.add(p.slug);
+    return true;
+  });
 }
 
 export const dynamicParams = false;
 
 export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const params = await props.params;
-  const industry = getIndustry(params.slug);
-  if (!industry) return {};
-  const url = `${siteConfig.url}/industries/${industry.slug}`;
+  const entry = getNiche(params.slug) ?? getIntentPage(params.slug);
+  if (!entry) return {};
+  const url = `${siteConfig.url}/industries/${entry.slug}`;
   return {
-    title: industry.seoTitle,
-    description: industry.seoDescription,
+    title: entry.seoTitle,
+    description: entry.seoDescription,
     alternates: { canonical: url },
-    openGraph: { type: "website", title: industry.h1, description: industry.seoDescription, url },
+    openGraph: { title: entry.seoTitle, description: entry.seoDescription, url },
   };
 }
 
-export default async function IndustryPage(props: { params: Promise<{ slug: string }> }) {
+export default async function IndustrySlugPage(props: { params: Promise<{ slug: string }> }) {
   const params = await props.params;
-  const industry = getIndustry(params.slug);
-  if (!industry) notFound();
+  const niche = getNiche(params.slug);
+  if (niche) return <NicheView niche={niche} />;
+  const page = getIntentPage(params.slug);
+  if (page) return <IntentView page={page} />;
+  notFound();
+}
 
-  const url = `${siteConfig.url}/industries/${industry.slug}`;
-  const study = industry.relatedCaseStudy ? getCaseStudy(industry.relatedCaseStudy) : undefined;
-  const reviews = getReviewsForService(industry.relatedService, 4);
-  const service = getService(industry.relatedService);
-  const guide = industry.relatedGuide ? getGuide(industry.relatedGuide) : undefined;
-  const others = industries.filter((i) => i.slug !== industry.slug);
-  const whatsappHref = `${siteConfig.whatsappHref}?text=${encodeURIComponent(`Hi Jadeed — I found your page for ${industry.audience} and would like help getting more jobs online.`)}`;
+/** Long-form playbook for the industry (Markdown), with an on-page contents list. */
+function Playbook({ slug }: { slug: string }) {
+  const sections = industryPlaybooks[slug] ?? [];
+  if (sections.length === 0) return null;
+  const audience = getIndustry(slug)?.audience ?? "your business";
+  return (
+    <Section tone="white" id="playbook" labelledBy="playbook-heading">
+      <div className="grid gap-10 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-16">
+        <div className="lg:sticky lg:top-28 lg:self-start">
+          <Eyebrow>The playbook</Eyebrow>
+          <h2 id="playbook-heading" className="mt-3 font-sans text-[32px] font-semibold leading-[1.05] tracking-[-.045em] [text-wrap:balance]">Our playbook for {audience}</h2>
+          <nav aria-label="Playbook contents" className="mt-6 hidden lg:block">
+            <ol className="border-t border-black/10 text-sm">
+              {sections.map((section, index) => (
+                <li key={section.title} className="border-b border-black/10">
+                  <a href={`#playbook-${index + 1}`} className="block py-3 font-medium text-black/70 transition-colors hover:text-[#015f45]">{section.title}</a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+        </div>
+        <div className="min-w-0 max-w-[760px]">
+          {sections.map((section, index) => (
+            <article key={section.title} id={`playbook-${index + 1}`} className="scroll-mt-28 border-b border-black/10 py-10 first:pt-0 last:border-b-0">
+              <h3 className="font-sans text-[26px] font-semibold leading-tight tracking-[-.035em] [text-wrap:balance] sm:text-3xl">{section.title}</h3>
+              <div className="mt-5"><LongformMarkdown>{section.body}</LongformMarkdown></div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </Section>
+  );
+}
 
-  const reading = [
-    ...(guide ? [{ href: `/guides/${guide.slug}`, eyebrow: `Guide · ${guide.eyebrow}`, title: guide.title, text: guide.intro }] : []),
-    ...(service ? [{ href: `/services/${service.slug}`, eyebrow: "Service", title: service.h1, text: service.summary }] : []),
-    { href: "/profit-share-handbook", eyebrow: "Handbook", title: "Profit-share partnerships: what we need before we take a percentage", text: "How performance and tiered deals are set up, and what they need from you." },
+/** Guide, service and handbook links so every industry page leads somewhere deeper. */
+function FurtherReading({ slug, serviceSlug }: { slug: string; serviceSlug: string }) {
+  const guide = guides.find((g) => g.relatedIndustry === slug) ?? getGuide("website-seo-app-or-10-percent");
+  const service = getService(serviceSlug);
+  const items = [
+    ...(guide ? [{ href: `/guides/${guide.slug}`, label: guide.title, meta: "Guide" }] : []),
+    ...(service ? [{ href: `/services/${service.slug}`, label: service.h1, meta: "Service" }] : []),
+    { href: "/profit-share-handbook", label: "Profit-share partnerships: what we need before we take a percentage", meta: "Handbook" },
+    { href: "/pricing", label: "Pricing: fixed, tiered or pay per booking", meta: "Pricing" },
   ];
+  return (
+    <Section tone="white" labelledBy="reading-heading">
+      <SectionHeader id="reading-heading" eyebrow="Further reading" title="Go deeper before you decide" />
+      <div className="mt-10">
+        <LinkRows columns={2} items={items} />
+      </div>
+    </Section>
+  );
+}
 
-  const schema = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Service",
-        "@id": `${url}#service`,
-        name: industry.h1,
-        description: industry.seoDescription,
-        url,
-        serviceType: "Local SEO, websites and paid acquisition",
-        audience: { "@type": "BusinessAudience", name: industry.navLabel },
-        provider: { "@id": `${siteConfig.url}/#organization` },
-        areaServed: ["United Kingdom", "United States", "Canada", "United Arab Emirates"],
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${url}#faq`,
-        mainEntity: industry.faqs.map((f) => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })),
-      },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
-          { "@type": "ListItem", position: 2, name: "Industries", item: `${siteConfig.url}/industries` },
-          { "@type": "ListItem", position: 3, name: industry.navLabel, item: url },
-        ],
-      },
-    ],
-  };
+function CtaBand({ note, serviceSlug, title }: { note: string; serviceSlug: string; title: string }) {
+  const service = getService(serviceSlug);
+  return (
+    <Section tone="mint" labelledBy="industry-cta-heading">
+      <div className="grid gap-8 lg:grid-cols-[1.2fr_.8fr] lg:items-end lg:gap-16">
+        <div>
+          <Eyebrow tone="mint">Free plan</Eyebrow>
+          <h2 id="industry-cta-heading" className="mt-3 font-sans text-[32px] font-semibold leading-[1.05] tracking-[-.045em] [text-wrap:balance] sm:text-5xl">{title}</h2>
+          <p className="mt-5 max-w-xl leading-7 text-[#063d30]/75">{note}</p>
+        </div>
+        <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
+          <ButtonLink href={siteConfig.whatsappHref} variant="green" icon={WhatsappBusinessIcon}>WhatsApp us</ButtonLink>
+          {service && <ButtonLink href={`/services/${service.slug}`} variant="outlineDark">{service.title}</ButtonLink>}
+        </div>
+      </div>
+    </Section>
+  );
+}
+
+function NicheView({ niche }: { niche: Niche }) {
+  const author = getAuthor(niche.authorSlug);
+  const cityViews = nicheCities(niche);
+  const groups = [
+    { label: "United Kingdom", list: cityViews.filter((city) => city.country === "UK") },
+    { label: "United States", list: cityViews.filter((city) => city.country === "USA") },
+  ];
+  const reviewed = new Date(niche.reviewedAt).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <LongformHero
-        crumbs={[{ label: "Home", href: "/" }, { label: "Industries", href: "/industries" }, { label: industry.navLabel }]}
-        eyebrow={<Pill>{industry.eyebrow}</Pill>}
-        title={industry.h1}
-        subtitle={industry.intro}
+      <PageHero
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Industries", href: "/industries" }, { label: niche.navLabel }]}
+        eyebrow={`For ${niche.tradePlural}`}
+        title={niche.h1}
+        lead={niche.intro}
         actions={
           <>
-            <Link href="/contact" className="group inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-[#cbd810] px-5 text-sm font-semibold text-[#111] transition-colors hover:bg-[#b8c50e]">
-              Get a free growth plan <HugeiconsIcon icon={ArrowRightIcon} size={16} className="transition-transform group-hover:translate-x-1" aria-hidden="true" />
-            </Link>
-            <a href={whatsappHref} target="_blank" rel="noreferrer" className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-white/35 px-5 text-sm font-semibold text-white transition-colors hover:border-white hover:bg-white/10">
-              <HugeiconsIcon icon={WhatsappIcon} size={18} aria-hidden="true" /> WhatsApp us
-            </a>
+            <ButtonLink href="/contact">Get a free plan</ButtonLink>
+            <ButtonLink href={siteConfig.whatsappHref} variant="outlineLight" icon={WhatsappBusinessIcon}>WhatsApp us</ButtonLink>
           </>
         }
-        meta={<a href={googleAggregate.url} target="_blank" rel="noreferrer" className="hover:text-white">★ {googleAggregate.score} {googleAggregate.label}</a>}
         aside={
-          <div className="rounded-[24px] border border-white/20 bg-[#014f39]/70 p-6">
-            <p className="text-xs font-extrabold uppercase tracking-[.15em] text-[#eaf25a]">What you can expect</p>
-            <div className="mt-4"><CheckList items={industry.outcomes} dark /></div>
+          <div>
+            <p className="mb-3 text-xs font-extrabold uppercase tracking-[.15em] text-[#eaf25a]">Why owners trust us</p>
+            <CheckList tone="green" items={niche.trustSignals} />
+          </div>
+        }
+      >
+        <Link href={`/author/${author.slug}`} className="mt-10 flex w-fit items-center gap-3 border-t border-white/15 pt-6 transition-opacity hover:opacity-85">
+          <Image src={author.avatar} alt={author.name} width={40} height={40} className="h-10 w-10 rounded-full object-cover" />
+          <span className="text-sm leading-5">
+            <span className="block font-bold">Reviewed by {author.name}</span>
+            <span className="block text-white/60">Updated {reviewed}</span>
+          </span>
+        </Link>
+      </PageHero>
+
+      <Section tone="cream" labelledBy="experience-heading">
+        <div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:gap-16">
+          <SectionHeader id="experience-heading" eyebrow="Why Jadeed" title={`Growth built for ${niche.tradePlural}`} />
+          <CheckList items={niche.experience} />
+        </div>
+      </Section>
+
+      <Section tone="white" labelledBy="expertise-heading">
+        <SectionHeader id="expertise-heading" eyebrow="What we do" title={`Everything a ${niche.tradeLabel} business needs online`} />
+        <div className="mt-10 md:mt-14">
+          <FeatureGrid columns={4} numbered items={niche.expertise} />
+        </div>
+      </Section>
+
+      <Playbook slug={niche.slug} />
+
+      <Section tone="green" labelledBy="method-heading">
+        <SectionHeader id="method-heading" tone="green" eyebrow="Our method" title="How we grow your bookings" />
+        <div className="mt-10 md:mt-14">
+          <Steps tone="green" steps={niche.methodology} />
+        </div>
+      </Section>
+
+      <Section tone="cream" labelledBy="fit-heading">
+        <SectionHeader id="fit-heading" eyebrow="Is it a fit?" title="Who it's for, and what you get" />
+        <div className="mt-10 grid gap-10 md:grid-cols-2 md:gap-16">
+          <div>
+            <p className="mb-3 text-xs font-extrabold uppercase tracking-[.15em] text-black/45">Built for</p>
+            <CheckList items={niche.whoFor} />
+          </div>
+          <div>
+            <p className="mb-3 text-xs font-extrabold uppercase tracking-[.15em] text-black/45">Outcomes</p>
+            <CheckList items={niche.outcomes} />
+          </div>
+        </div>
+      </Section>
+
+      {niche.relatedCaseStudy === "alpha-movers" && <AlphaProof />}
+
+      <Section tone="white" labelledBy="cities-heading">
+        <SectionHeader id="cities-heading" eyebrow="Cities" title={`${niche.navLabel} pages by city`} lead="Pick your city for local search examples and how we'd approach your market." />
+        <div className="mt-10 grid gap-10 md:grid-cols-2 md:gap-16">
+          {groups.map((group) => (
+            <div key={group.label}>
+              <p className="mb-4 text-xs font-extrabold uppercase tracking-[.15em] text-[#015f45]">{group.label}</p>
+              <ul className="columns-2 gap-x-6 border-t border-black/10 text-sm sm:columns-3">
+                {group.list.map((city) => (
+                  <li key={city.slug} className="break-inside-avoid border-b border-black/10">
+                    <Link href={`/industries/${niche.slug}/${city.slug}`} className="block py-2.5 font-medium transition-colors hover:text-[#015f45]">{city.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <FaqSection items={niche.faqs} />
+
+      <FurtherReading slug={niche.slug} serviceSlug={niche.relatedService} />
+
+      <CtaBand title={`Get a free plan for your ${niche.tradeLabel} business`} note={niche.ctaNote} serviceSlug={niche.relatedService} />
+    </>
+  );
+}
+
+function IntentView({ page }: { page: IntentPage }) {
+  return (
+    <>
+      <PageHero
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Industries", href: "/industries" }, { label: page.navLabel }]}
+        eyebrow={page.eyebrow}
+        title={page.h1}
+        lead={page.intro}
+        actions={
+          <>
+            <ButtonLink href="/contact">Get a free plan</ButtonLink>
+            <ButtonLink href={siteConfig.whatsappHref} variant="outlineLight" icon={WhatsappBusinessIcon}>WhatsApp us</ButtonLink>
+          </>
+        }
+        aside={
+          <div>
+            <p className="mb-3 text-xs font-extrabold uppercase tracking-[.15em] text-[#eaf25a]">What you get</p>
+            <CheckList tone="green" items={page.outcomes} />
           </div>
         }
       />
 
-      <LandingSection id="how-we-help" eyebrow="How we help" title={`Built around how ${industry.audience} win work`} tone="cream">
-        <div className={`grid gap-4 sm:grid-cols-2 ${industry.capabilities.length >= 4 ? "lg:grid-cols-4" : "lg:grid-cols-3"}`}>
-          {industry.capabilities.map((c) => (
-            <div key={c.title} className="rounded-[24px] border border-black/10 bg-white p-6">
-              <h3 className="text-lg font-bold tracking-[-.02em]">{c.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-black/65">{c.text}</p>
-            </div>
-          ))}
+      <Section tone="cream" labelledBy="help-heading">
+        <SectionHeader id="help-heading" eyebrow="How we help" title="What we actually do" />
+        <div className="mt-10 md:mt-14">
+          <FeatureGrid numbered items={page.howWeHelp} />
         </div>
-        <div className="mt-4 grid gap-4 lg:grid-cols-2">
-          <div className="rounded-[24px] bg-[#dceee8] p-6 text-[#063d30] sm:p-8">
-            <p className="text-xs font-extrabold uppercase tracking-[.15em] text-[#015f45]">Who this is for</p>
-            <div className="mt-4"><CheckList items={industry.whoFor} /></div>
-          </div>
-          <div className="rounded-[24px] border border-black/10 bg-white p-6 sm:p-8">
-            <p className="text-xs font-extrabold uppercase tracking-[.15em] text-[#015f45]">Why owners trust us</p>
-            <div className="mt-4"><CheckList items={industry.trustSignals} /></div>
-          </div>
+      </Section>
+
+      <Playbook slug={page.slug} />
+
+      <Section tone="cream" labelledBy="who-heading">
+        <div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:gap-16">
+          <SectionHeader id="who-heading" eyebrow="Who it's for" title="Built for businesses like yours" />
+          <CheckList items={page.whoFor} />
         </div>
-      </LandingSection>
+      </Section>
 
-      {industry.playbook.length > 0 && (
-        <section id="playbook" aria-labelledby="playbook-title" className="scroll-mt-24 bg-white py-16 sm:py-20">
-          <div className="container max-w-[1200px] lg:grid lg:grid-cols-[250px_minmax(0,1fr)] lg:gap-14 xl:gap-20">
-            <div className="lg:sticky lg:top-28 lg:self-start">
-              <p className="text-xs font-extrabold uppercase tracking-[.15em] text-[#015f45]">The playbook</p>
-              <h2 id="playbook-title" className="mt-3 text-balance text-[32px] font-semibold leading-[1.05] tracking-[-.045em]">Our playbook for {industry.audience}</h2>
-              <ol className="mt-6 hidden space-y-2 border-l border-black/10 text-[13px] lg:block">
-                {industry.playbook.map((s, i) => (
-                  <li key={s.title}><a href={`#playbook-${i + 1}`} className="-ml-px block border-l-2 border-transparent py-1 pl-3.5 text-black/60 hover:border-[#015f45] hover:text-[#015f45]">{s.title}</a></li>
-                ))}
-              </ol>
-            </div>
-            <div className="mt-10 max-w-[760px] lg:mt-0">
-              {industry.playbook.map((section, i) => (
-                <article key={section.title} id={`playbook-${i + 1}`} className="scroll-mt-28 border-t border-black/10 pt-10 first:border-t-0 first:pt-0 [&+article]:mt-10">
-                  <h3 className="text-balance text-[24px] font-semibold leading-[1.15] tracking-[-.03em] sm:text-[28px]">{section.title}</h3>
-                  <div className="mt-5"><LongformMarkdown>{section.body}</LongformMarkdown></div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      {page.relatedCaseStudy === "alpha-movers" && <AlphaProof />}
 
-      <LandingSection id="process" eyebrow="How it works" title="What working with us looks like" tone="green">
-        <StepsGrid steps={industry.process} />
-      </LandingSection>
+      <FaqSection items={page.faqs} />
 
-      {(study || reviews.length > 0) && (
-        <LandingSection id="proof" eyebrow="Proof" title="Results and reviews you can check">
-          {study && <CaseStudyCard study={study} />}
-          {reviews.length > 0 && <div className={study ? "mt-4" : ""}><ReviewGrid reviews={reviews} /></div>}
-        </LandingSection>
-      )}
+      <FurtherReading slug={page.slug} serviceSlug={page.relatedService} />
 
-      <LandingSection id="faqs" eyebrow="FAQs" title="Questions owners ask" tone="cream">
-        <FaqList faqs={industry.faqs} />
-        <p className="mt-6 text-sm text-black/60">{industry.ctaNote} <Link href="/contact" className="font-semibold text-[#015f45] hover:underline">Contact us</Link> or <a href={whatsappHref} target="_blank" rel="noreferrer" className="font-semibold text-[#015f45] hover:underline">message us on WhatsApp</a>.</p>
-      </LandingSection>
-
-      <LandingSection id="reading" eyebrow="Further reading" title="Go deeper before you decide">
-        <LinkCards items={reading} />
-
-        {industry.niche && (
-          <details className="group mt-8 rounded-2xl border border-black/10 bg-[#f7f5ef]">
-            <summary className="flex cursor-pointer list-none items-center justify-between px-5 py-4 text-sm font-bold [&::-webkit-details-marker]:hidden">
-              Areas we work with {industry.niche.tradePlural} in
-              <span className="text-lg leading-none text-[#015f45] transition-transform group-open:rotate-45" aria-hidden="true">+</span>
-            </summary>
-            <div className="grid gap-6 border-t border-black/10 px-5 py-5 sm:grid-cols-2">
-              {(["UK", "USA"] as const).map((country) => (
-                <div key={country}>
-                  <p className="text-xs font-extrabold uppercase tracking-[.14em] text-[#015f45]">{country === "UK" ? "United Kingdom" : "United States"}</p>
-                  <ul className="mt-3 flex flex-wrap gap-x-3 gap-y-1.5 text-sm">
-                    {citiesByCountry(country).map((city) => (
-                      <li key={city.slug}><Link href={`/industries/${industry.slug}/${city.slug}`} className="text-black/65 hover:text-[#015f45]">{city.name}</Link></li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </details>
-        )}
-
-        <div className="mt-8 flex flex-wrap gap-2 text-sm">
-          <span className="py-1.5 font-semibold text-black/55">Other industries:</span>
-          {others.map((o) => (
-            <Link key={o.slug} href={`/industries/${o.slug}`} className="rounded-full border border-black/10 bg-white px-3.5 py-1.5 font-semibold text-black/70 hover:border-[#015f45]/40 hover:text-[#015f45]">{o.navLabel}</Link>
-          ))}
-        </div>
-      </LandingSection>
+      <CtaBand title="Get your free plan" note={page.ctaNote} serviceSlug={page.relatedService} />
     </>
   );
 }

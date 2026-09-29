@@ -32,7 +32,7 @@ export function StickyWhatsApp() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="WhatsApp Jadeed Solutions"
-      className="fixed bottom-24 right-4 z-[35] flex lg:hidden items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-sm font-bold text-white shadow-lg transition-transform hover:scale-[1.03]"
+      className="fixed bottom-24 right-4 z-[35] flex lg:hidden items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-sm font-bold text-white transition-transform hover:scale-[1.03]"
     >
       <HugeiconsIcon icon={WhatsappBusinessIcon} size={22} />
       <span className="hidden sm:inline">WhatsApp us</span>

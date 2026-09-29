@@ -2,7 +2,12 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { LinkButton } from "@/components/Button";
+import {
+  HugeiconsIcon,
+  ArrowRightIcon,
+  ArrowLeftIcon,
+  WhatsappBusinessIcon,
+} from "@/components/icons";
 import { siteConfig } from "@/lib/site";
 import {
   growthQuestions,
@@ -56,46 +61,32 @@ export function GrowthCheck() {
   const waHref = `${siteConfig.whatsappHref}?text=${encodeURIComponent(waText)}`;
 
   return (
-    <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-soft">
-      <div className="border-b border-slate-200 bg-slate-50 px-6 py-6 sm:px-10">
-        <span className="eyebrow">Free tool</span>
-        <h1 className="mt-3 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-          Growth Check
-        </h1>
-        <p className="mt-2 max-w-2xl text-base text-slate-600">
-          5 quick questions. See where you need a website, Google visibility,
-          an app, ads — or our 10% Growth Partnership. Built for local service
-          businesses.
-        </p>
-        <div className="mt-5 h-2 overflow-hidden rounded-full bg-slate-200">
-          <div
-            className="h-full rounded-full bg-brand-500 transition-[width] duration-300"
-            style={{ width: `${progress}%` }}
-          />
+    <div className="md:rounded-[28px] md:border md:border-black/10 md:bg-white md:p-10">
+      <div>
+        <div className="flex items-center justify-between text-xs font-extrabold uppercase tracking-[.15em]">
+          <span className="text-[#015f45]">{done ? "Your results" : `Question ${step + 1} of ${total}`}</span>
+          <span className="text-black/45">{progress}%</span>
         </div>
-        <p className="mt-2 text-xs font-medium uppercase tracking-wider text-slate-500">
-          {done ? "Results" : `Question ${step + 1} of ${total}`}
-        </p>
+        <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-black/10">
+          <div className="h-full rounded-full bg-[#015f45] transition-[width] duration-300" style={{ width: `${progress}%` }} />
+        </div>
       </div>
 
-      <div className="p-6 sm:p-10">
+      <div className="mt-8 md:mt-10">
         {!done && current && (
           <div>
-            <h2 className="font-display text-xl font-semibold text-ink sm:text-2xl">
-              {current.prompt}
-            </h2>
-            {current.hint && (
-              <p className="mt-2 text-sm text-slate-500">{current.hint}</p>
-            )}
-            <ul className="mt-6 space-y-3">
+            <h3 className="font-sans text-[28px] font-semibold leading-[1.1] tracking-[-.04em] sm:text-4xl">{current.prompt}</h3>
+            {current.hint && <p className="mt-3 leading-7 text-black/60">{current.hint}</p>}
+            <ul className="mt-8 space-y-3">
               {current.answers.map((a) => (
                 <li key={a.id}>
                   <button
                     type="button"
                     onClick={() => pick(a.id)}
-                    className="w-full rounded-2xl border border-slate-200 bg-white px-5 py-4 text-left text-sm font-semibold text-ink sm:text-base"
+                    className="group flex w-full items-center justify-between gap-4 rounded-xl border border-black/15 bg-white px-5 py-4 text-left font-semibold transition-colors hover:border-[#015f45] hover:bg-[#edf5f1] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#015f45]"
                   >
-                    {a.label}
+                    <span>{a.label}</span>
+                    <HugeiconsIcon icon={ArrowRightIcon} size={18} className="shrink-0 text-[#015f45] transition-transform group-hover:translate-x-1" />
                   </button>
                 </li>
               ))}
@@ -104,9 +95,10 @@ export function GrowthCheck() {
               <button
                 type="button"
                 onClick={() => setStep(step - 1)}
-                className="mt-6 text-sm font-semibold text-slate-500 hover:text-brand-500"
+                className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-black/55 transition-colors hover:text-[#015f45]"
               >
-                ← Back
+                <HugeiconsIcon icon={ArrowLeftIcon} size={16} />
+                Back
               </button>
             )}
           </div>
@@ -114,36 +106,20 @@ export function GrowthCheck() {
 
         {done && (
           <div>
-            <h2 className="font-display text-2xl font-semibold text-ink">
-              Your suggested focus
-            </h2>
-            <p className="mt-2 text-slate-600">
-              Based on your answers — not a sales script. Pick what fits; we
-              have separate packages for SEO, websites and apps, or full growth
-              on 10% of bookings.
+            <h3 className="font-sans text-[28px] font-semibold leading-[1.1] tracking-[-.04em] sm:text-4xl">Your suggested focus</h3>
+            <p className="mt-3 max-w-2xl leading-7 text-black/60">
+              Based on your answers — not a sales script. Pick what fits: we have separate packages for SEO, websites and apps, or full growth on 10% of bookings.
             </p>
 
-            <ol className="mt-8 space-y-4">
+            <ol className="mt-8 border-t border-black/10">
               {top.map((item, i) => {
                 const meta = growthServiceMeta[item.key as GrowthServiceKey];
                 return (
-                  <li
-                    key={item.key}
-                    className="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-5"
-                  >
-                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-brand-500 font-display text-lg font-semibold text-white">
-                      {i + 1}
-                    </span>
+                  <li key={item.key} className="flex gap-5 border-b border-black/10 py-6">
+                    <span className="text-3xl font-semibold leading-none tracking-[-.05em] text-[#015f45]">{String(i + 1).padStart(2, "0")}</span>
                     <div>
-                      <Link
-                        href={meta.href}
-                        className="font-display text-lg font-semibold text-ink hover:text-brand-500"
-                      >
-                        {meta.label}
-                      </Link>
-                      <p className="mt-1 text-sm leading-relaxed text-slate-600">
-                        {meta.blurb}
-                      </p>
+                      <Link href={meta.href} className="text-lg font-bold transition-colors hover:text-[#015f45]">{meta.label}</Link>
+                      <p className="mt-1 leading-7 text-black/60">{meta.blurb}</p>
                     </div>
                   </li>
                 );
@@ -151,22 +127,26 @@ export function GrowthCheck() {
             </ol>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <LinkButton href={waHref} size="lg" className="w-full sm:w-auto">
-                WhatsApp my results
-              </LinkButton>
-              <LinkButton
-                href="/pricing#partnership-calculator"
-                variant="secondary"
-                size="lg"
-                className="w-full sm:w-auto"
+              <a
+                href={waHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-[#015f45] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#014f39]"
               >
-                See 10% calculator
-              </LinkButton>
+                <HugeiconsIcon icon={WhatsappBusinessIcon} size={18} />
+                WhatsApp my results
+              </a>
+              <Link
+                href="/pricing#partnership-calculator"
+                className="inline-flex h-12 items-center justify-center rounded-xl border border-[#015f45]/25 px-5 text-sm font-semibold text-[#015f45] transition-colors hover:bg-[#edf5f1]"
+              >
+                See the 10% calculator
+              </Link>
             </div>
             <button
               type="button"
               onClick={restart}
-              className="mt-5 text-sm font-semibold text-slate-500 hover:text-brand-500"
+              className="mt-6 text-sm font-bold text-black/55 transition-colors hover:text-[#015f45]"
             >
               Start over
             </button>

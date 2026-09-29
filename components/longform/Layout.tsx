@@ -27,7 +27,7 @@ export function LongformHero({
   aside?: ReactNode;
 }) {
   return (
-    <header className="relative overflow-hidden bg-[#015f45] pb-14 pt-[128px] text-white sm:pb-20 sm:pt-[156px]">
+    <header className="relative overflow-hidden bg-[#015f45] pb-12 pt-28 text-white sm:pb-16 sm:pt-36">
       <div className="pointer-events-none absolute inset-0 opacity-40 mix-blend-overlay" style={{ backgroundImage: noise }} aria-hidden="true" />
       <div className="container relative max-w-[1200px]">
         <nav aria-label="Breadcrumb" className="text-sm text-white/60">
@@ -48,8 +48,8 @@ export function LongformHero({
         <div className={aside ? "mt-8 grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_380px]" : "mt-8"}>
           <div>
             {eyebrow && <div className="flex flex-wrap items-center gap-2">{eyebrow}</div>}
-            <h1 className="mt-5 max-w-4xl text-balance text-[34px] font-semibold leading-[1.05] tracking-[-.045em] sm:text-5xl lg:text-[56px]">{title}</h1>
-            {subtitle && <p className="mt-6 max-w-2xl text-lg leading-7 text-white/80">{subtitle}</p>}
+            <h1 className="mt-5 max-w-4xl font-sans text-[36px] font-semibold leading-[1] tracking-[-.05em] [text-wrap:balance] sm:text-5xl lg:text-[56px]">{title}</h1>
+            {subtitle && <p className="mt-6 max-w-2xl text-[17px] leading-7 text-white/80 sm:text-xl sm:leading-8">{subtitle}</p>}
 
             {stats && stats.length > 0 && (
               <dl className="mt-9 grid max-w-3xl grid-cols-2 overflow-hidden rounded-2xl border border-white/20 bg-[#014f39]/60 sm:grid-cols-4">
