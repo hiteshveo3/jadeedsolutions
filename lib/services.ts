@@ -88,8 +88,8 @@ export const services: Service[] = [
     },
     stats: [
       { value: "5.0", label: "Google (35 reviews)" },
-      { value: "44.3K", label: "Impressions · Alpha (3 mo)" },
-      { value: "216", label: "Clicks · Alpha (3 mo)" },
+      { value: "160.9K", label: "Impressions · Alpha (6 mo)" },
+      { value: "630", label: "Clicks · Alpha (6 mo)" },
       { value: "10%", label: "Performance model" },
     ],
     included: [
@@ -159,8 +159,8 @@ export const services: Service[] = [
     keyTakeaways: [
       "SEO from £100/month, or 10% of the bookings we generate — for every local service business.",
       "Clients across the UK, US, Canada and UAE. Based in Narowal, Pakistan.",
-      "Alpha Movers: 216 organic clicks in 3 months ≈ ~22 bookings at a 10% click-to-book rate.",
-      "Real proof from cleaning and removals brands ranking on competitive local keywords.",
+      "Alpha Movers: 630 organic clicks and 160,903 impressions in six months, from Google Search Console.",
+      "Public reviews from cleaning and removals clients on Google, Trustpilot and Clutch.",
     ],
     sections: [
       {
@@ -661,7 +661,7 @@ export const services: Service[] = [
       ],
     },
     stats: [
-      { value: "200%+", label: "ROI lift (client review)" },
+      { value: "0%", label: "Markup on ad spend" },
       { value: "5.0", label: "Google reviews" },
       { value: "24–48h", label: "To go live" },
       { value: "Daily", label: "Optimisation" },
