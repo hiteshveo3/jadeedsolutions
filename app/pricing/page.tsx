@@ -195,8 +195,8 @@ const comparisonRows = [
   },
   {
     dimension: "Lead CRM & call tracking",
-    performance: "Included",
-    tiered: "Included",
+    performance: "Included (one-off setup if none exists)",
+    tiered: "Included (one-off setup if none exists)",
     flat: "Included",
   },
   {
@@ -235,6 +235,10 @@ const faqs = [
   {
     q: "Can I transition between commercial models as my business evolves?",
     a: "Yes. Many businesses begin on a Performance or Tiered structure to align incentives while establishing search visibility, and later transition to a Flat-Fee structure as volume becomes steady and predictable.",
+  },
+  {
+    q: "How long does a partnership run, and what does it cost to start?",
+    a: "Performance and tiered partnerships run for an initial term of 12–24 months, because search results take months to compound. They start with a free growth plan call, then a short paid audit that sets the baseline your fee is measured against. Flat-fee SEO plans have a 6-month minimum. Our Profit-Share Handbook walks through every step.",
   },
   {
     q: "How are recurring commercial contracts handled?",
@@ -642,6 +646,17 @@ export default function PricingPage() {
             </article>
           ))}
         </div>
+
+        <Link href="/profit-share-handbook" className="group mt-5 flex flex-col gap-4 rounded-[24px] border border-black/[0.09] bg-[#F7F5EF] p-6 transition-colors hover:border-[#00684f]/40 md:flex-row md:items-center md:justify-between md:p-7">
+          <div>
+            <span className="text-xs font-bold uppercase tracking-[0.16em] text-brand">Considering a percentage deal?</span>
+            <p className="mt-2 text-xl font-semibold tracking-[-0.02em] text-ink">Read the Profit-Share Handbook before the second meeting.</p>
+            <p className="mt-1.5 max-w-2xl text-sm leading-relaxed text-ink/65">What counts as profit, how attribution works, the documents we need from you, and how cross-border payment and disputes are handled.</p>
+          </div>
+          <span className="inline-flex shrink-0 items-center gap-2 text-sm font-bold text-brand">
+            Open the handbook <HugeiconsIcon icon={ArrowRightIcon} size={17} className="transition-transform group-hover:translate-x-1" aria-hidden="true" />
+          </span>
+        </Link>
 
         {/* Segmented Model Selector Tabs */}
         <div className="hidden" role="tablist" aria-label="Commercial Models">

@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: "Jadeed",
   tagline: "More booked jobs for local service businesses",
   description:
-    "Jadeed Solutions helps UK and US local service businesses grow through connected SEO, paid acquisition, websites, apps and revenue attribution, with performance, tiered and flat commercial structures.",
+    "Jadeed Solutions helps local service businesses in the UK, US, Canada and UAE grow through connected SEO, paid acquisition, websites, apps and revenue attribution, with performance, tiered and flat commercial structures.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.jadeedsolutions.com",
   email: "info@jadeedsolutions.com",
   phone: "+92 316 7669343",

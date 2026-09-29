@@ -47,9 +47,11 @@ export default function TermsPage() {
             <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed">
               <li>No setup fee on standard plans unless otherwise agreed.</li>
               <li>
-                Fixed SEO plans and Growth Partnerships have a{" "}
-                <strong>6-month minimum</strong>. There is no “cancel anytime”
-                option during that period.
+                Fixed SEO plans have a <strong>6-month minimum</strong>. Growth
+                Partnerships (performance and tiered deals) run for the initial
+                term set in the partnership agreement, typically{" "}
+                <strong>12–24 months</strong>. There is no “cancel anytime”
+                option during those periods.
               </li>
               <li>
                 Growth Partnership commission is typically{" "}

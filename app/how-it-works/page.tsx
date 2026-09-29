@@ -19,7 +19,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "How It Works — SEO & Growth for Local Services",
   description:
-    "How Jadeed Solutions grows local service businesses: discovery, build, SEO + AI-ready content, then 10% of bookings or fixed SEO from £100/mo. 6-month minimum.",
+    "How Jadeed Solutions grows local service businesses: discovery, build, SEO + AI-ready content, then a share of the bookings we generate (12–24 month term) or fixed SEO from £100/mo (6-month minimum).",
 };
 
 const steps: { icon: IconSvgElement; title: string; text: string }[] = [
@@ -41,7 +41,7 @@ const steps: { icon: IconSvgElement; title: string; text: string }[] = [
   {
     icon: TagIcon,
     title: "4. You pay fairly",
-    text: "Growth Partnership: 10% of bookings we generate. Or fixed SEO from £100/mo. No setup fee. 6-month minimum — enough time for results to compound.",
+    text: "Growth Partnership: typically 10% of revenue from the bookings we generate, on a 12–24 month term that starts with a short paid audit to set the baseline. Or fixed SEO from £100/mo with no setup fee and a 6-month minimum — enough time for results to compound.",
   },
 ];
 
@@ -86,8 +86,8 @@ export default function HowItWorksPage() {
             <p className="text-lg leading-relaxed text-slate-600">
               Friendly, clear communication — but every page and campaign is
               built to win bookings. Mobile-first sites, Google visibility and
-              a website that turns searches into calls. Based in Lahore, serving
-              UK &amp; USA local services.
+              a website that turns searches into calls. Based in Narowal,
+              Pakistan, serving local services in the UK, US, Canada and UAE.
             </p>
             <div className="flex flex-wrap gap-3">
               <LinkButton href={siteConfig.whatsappHref} size="lg">
@@ -180,7 +180,7 @@ export default function HowItWorksPage() {
 
       <CTASection
         title="Ready to start?"
-        description="No setup fee. 6-month minimum. WhatsApp or call — forms open WhatsApp with your message ready."
+        description="Start with a free growth plan call. WhatsApp or call — forms open WhatsApp with your message ready."
       />
     </>
   );

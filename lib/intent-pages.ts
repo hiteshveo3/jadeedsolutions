@@ -136,7 +136,7 @@ export const intentPages: IntentPage[] = [
 
         answer:
 
-          "Yes. Our Growth Partnership is 10% of the bookings we generate — no setup fee and no monthly retainer. Fixed SEO from £100/mo is also available.",
+          "Yes. Our Growth Partnership is typically 10% of revenue from the bookings we generate, usually with no monthly retainer, on a 12–24 month term. It starts with a short paid audit that sets the baseline. Fixed SEO from £100/mo is also available.",
 
       },
 

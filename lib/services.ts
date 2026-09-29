@@ -75,7 +75,7 @@ export const services: Service[] = [
     highlights: [
       { icon: TagIcon, label: "From £100/month" },
       { icon: HandshakeIcon, label: "Or 10% on bookings" },
-      { icon: ClockIcon, label: "6-month minimum" },
+      { icon: ClockIcon, label: "6-month minimum on monthly plans" },
     ],
     rating: { score: "5.0", count: "from 35 Google reviews" },
     trustBadges: ["5.0 on Google", "Honest SEO", "10% performance model"],
@@ -146,7 +146,7 @@ export const services: Service[] = [
         { label: "Performance SEO (Growth Partnership)", value: "10% of generated bookings" },
         { label: "One-off SEO audit", value: "From £150" },
       ],
-      note: "Monthly plans have a 6-month minimum so the work has time to compound. The 10% model is available for qualifying local service businesses.",
+      note: "Monthly plans have a 6-month minimum so the work has time to compound. The 10% model is available for qualifying local service businesses on a 12–24 month term.",
     },
     priceFactors: [
       "How competitive your industry and area are",
@@ -158,7 +158,7 @@ export const services: Service[] = [
     ],
     keyTakeaways: [
       "SEO from £100/month, or 10% of the bookings we generate — for every local service business.",
-      "UK & USA first, then worldwide. Based in Lahore, Pakistan.",
+      "Clients across the UK, US, Canada and UAE. Based in Narowal, Pakistan.",
       "Alpha Movers: 216 organic clicks in 3 months ≈ ~22 bookings at a 10% click-to-book rate.",
       "Real proof from cleaning and removals brands ranking on competitive local keywords.",
     ],
@@ -228,7 +228,7 @@ export const services: Service[] = [
     atAGlance: [
       { label: "Pricing", value: "From £100/mo" },
       { label: "Or performance", value: "10% of bookings" },
-      { label: "Minimum term", value: "6 months" },
+      { label: "Minimum term", value: "6 months · 12–24 on the 10% model" },
       { label: "Google rating", value: "5.0 · 35 reviews" },
       { label: "Focus", value: "Local service SEO" },
     ],

@@ -8,7 +8,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact — Free Proposal for Local Service Growth",
   description:
-    "Get a free proposal from Jadeed Solutions in Lahore — SEO, websites, apps and Google Ads for UK & USA local service businesses. We reply within one business day.",
+    "Get a free proposal from Jadeed Solutions — SEO, websites, apps and Google Ads for local service businesses in the UK, US, Canada and UAE. We reply within one business day.",
 };
 
 const highlights = [
@@ -29,8 +29,8 @@ export default function ContactPage() {
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-slate-600">
             Tell us about your goals and we&rsquo;ll put together a tailored plan
-            to help you get there. Based in Lahore — serving the UK, USA and
-            worldwide.
+            to help you get there. Based in Narowal, Pakistan — serving the UK,
+            US, Canada, UAE and beyond.
           </p>
 
           <ul className="mt-8 space-y-3">
@@ -70,7 +70,7 @@ export default function ContactPage() {
 
           <div className="mt-10 overflow-hidden rounded-2xl border border-slate-200 bg-white">
             <iframe
-              title="Jadeed Solutions — Lahore, Pakistan"
+              title="Jadeed Solutions — Narowal, Pakistan"
               src={siteConfig.googleMapsEmbedUrl}
               className="h-56 w-full border-0 sm:h-64"
               loading="lazy"

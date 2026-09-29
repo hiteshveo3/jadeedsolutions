@@ -38,14 +38,14 @@ export const comparisons: Comparison[] = [
     whyJadeed: [
       "Clear packages: SEO from £100/mo, websites from £199, or full 10% partnership",
       "Most clients grow on Google first — ads only when you ask",
-      "6-month minimum so results can compound — no cancel-anytime gimmicks",
-      "Remote team in Lahore keeps delivery fair-priced for UK & USA clients",
+      "Fixed SEO runs a 6-month minimum and 10% partnerships 12–24 months, so results can compound — no cancel-anytime gimmicks",
+      "Remote team in Narowal, Pakistan keeps delivery fair-priced for UK & USA clients",
     ],
     faqs: [
       {
         question: "Is Jadeed cheaper than hiring on Fiverr?",
         answer:
-          "Often yes for real growth work — and you get one accountable partner instead of stitching gigs together. We keep costs competitive because we’re based in Lahore and deliver remotely.",
+          "Often yes for real growth work — and you get one accountable partner instead of stitching gigs together. We keep costs competitive because we’re based in Pakistan and deliver remotely.",
       },
       {
         question: "Can I buy only a website or only SEO?",
@@ -139,7 +139,8 @@ export const comparisons: Comparison[] = [
     youGet: [
       "10% of bookings we generate (Growth Partnership)",
       "Or fixed SEO / website / app packages",
-      "No setup fee · 6-month minimum",
+      "Fixed SEO: no setup fee, 6-month minimum",
+      "10% partnerships: 12–24 month term",
       "Organic-first; ads only if you ask",
     ],
     theyMiss: [

@@ -74,7 +74,7 @@ export const niches: Niche[] = [
     h1: "Get more plumbing jobs from Google",
     seoTitle: "SEO, Websites & Growth for Plumbing Businesses (UK & USA)",
     seoDescription:
-      "SEO, websites and apps for plumbing companies in the UK & USA. Show up when locals search, turn clicks into calls. From £100/mo or 10% of bookings. 6-month minimum.",
+      "SEO, websites and apps for plumbing companies in the UK & USA. Show up when locals search, turn clicks into calls. From £100/mo (6-month minimum) or 10% of bookings.",
     intro:
       "People look for a plumber online first. We help plumbing businesses across the UK and USA get found — with SEO, conversion-focused websites and apps when you need them — so more searches turn into booked work.",
     experience: [
@@ -146,7 +146,7 @@ export const niches: Niche[] = [
       {
         question: "What’s the minimum commitment?",
         answer:
-          "SEO plans have a 6-month minimum. There’s no setup fee and no big down payment — we need enough time for search results to compound.",
+          "SEO plans have a 6-month minimum. There’s no setup fee and no big down payment — we need enough time for search results to compound. Growth Partnerships on 10% of bookings run for 12–24 months.",
       },
       {
         question: "Do I have to run Google Ads?",
@@ -253,7 +253,7 @@ export const niches: Niche[] = [
       {
         question: "What’s the minimum commitment?",
         answer:
-          "SEO plans have a 6-month minimum. No setup fee — we need time for search results to compound.",
+          "SEO plans have a 6-month minimum. No setup fee — we need time for search results to compound. Growth Partnerships on 10% of bookings run for 12–24 months.",
       },
       {
         question: "Do you work in the UK and USA?",

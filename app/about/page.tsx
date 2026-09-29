@@ -19,7 +19,7 @@ import { getAuthor } from "@/lib/authors";
 
 export const metadata: Metadata = {
   title: "About — Growth Partner for UK & USA Local Services",
-  description: `Jadeed Solutions is a Lahore-based growth partner for local service businesses in the UK, USA and worldwide — SEO, websites, apps and ads on a 10% performance model.`,
+  description: `Jadeed Solutions is a Narowal-based growth partner for local service businesses in the UK, US, Canada, UAE and beyond — SEO, websites, apps and ads with performance, tiered or flat-fee pricing.`,
 };
 
 const values = [
@@ -76,7 +76,7 @@ export default function AboutPage() {
             </h1>
             <p className="text-lg leading-relaxed text-slate-600">
               {siteConfig.name} was founded on a simple belief: digital marketing
-              should be accountable. Based in Lahore, we help local service
+              should be accountable. Based in Narowal, Pakistan, we help local service
               businesses grow with SEO, websites, apps — and optional ads — so
               more Google searches become booked jobs.
             </p>

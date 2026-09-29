@@ -29,6 +29,28 @@ export default function GuidesHubPage() {
         </div>
       </section>
       <section className="section bg-slate-50">
+        <div className="container">
+          <Link
+            href="/profit-share-handbook"
+            className="group mb-6 flex flex-col gap-4 rounded-2xl bg-[#015f45] p-6 text-white sm:p-8 md:flex-row md:items-center md:justify-between"
+          >
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-[#eaf25a]">
+                Partnership due diligence
+              </span>
+              <h2 className="mt-2 font-display text-xl font-semibold sm:text-2xl">
+                Profit-Share Handbook: what we need before we take a percentage
+              </h2>
+              <p className="mt-2 max-w-2xl text-sm text-white/75">
+                The four deal structures, what counts as profit, attribution, the documents we ask for and how disputes resolve.
+              </p>
+            </div>
+            <span className="inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-[#eaf25a]">
+              Read the handbook
+              <HugeiconsIcon icon={ArrowRightIcon} size={16} className="transition-transform group-hover:translate-x-1" />
+            </span>
+          </Link>
+        </div>
         <div className="container grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {guides.map((g) => (
             <Link

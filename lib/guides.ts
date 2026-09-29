@@ -96,7 +96,7 @@ export const guides: Guide[] = [
 
           "Fixed SEO (from £100/mo) or a website package works if you want a clear scope.",
 
-          "A 10% Growth Partnership fits owners who want website, SEO and optional ads tied to bookings generated — with a 6-month minimum so results can compound.",
+          "A 10% Growth Partnership fits owners who want website, SEO and optional ads tied to bookings generated — on a 12–24 month term so results can compound.",
 
         ],
 
@@ -272,7 +272,7 @@ export const guides: Guide[] = [
 
           "You want website, SEO and optional ads with fees tied to bookings we generate.",
 
-          "You can commit 6 months and prefer no heavy setup fee.",
+          "You can commit to a 12–24 month term and are comfortable sharing the figures a percentage deal needs.",
 
         ],
 

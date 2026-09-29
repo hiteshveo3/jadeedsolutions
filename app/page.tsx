@@ -55,7 +55,7 @@ export const metadata: Metadata = {
 const proof = [
   { icon: UsersIcon, value: "10+", label: "active client partnerships" },
   { icon: TrendingUpIcon, value: "160K+", label: "search impressions for Alpha Movers in 6 months" },
-  { icon: HandshakeIcon, value: "10%", label: "typical fee on booked jobs — no retainer needed" },
+  { icon: HandshakeIcon, value: "10%", label: "typical fee on revenue our work brings in" },
   { icon: TagIcon, value: "0%", label: "markup on your Google or Meta ad spend" },
 ] as const;
 
@@ -127,7 +127,7 @@ const models = [
     name: "Performance",
     value: "10%",
     unit: "of revenue from bookings we generate",
-    note: "Illustrative rate for standard-ticket jobs",
+    note: "Illustrative standard-ticket rate · 12–24 month term",
     points: ["Fee only on collected revenue", "Nothing on cancelled or unpaid jobs", "Lower rate for high-ticket work"],
     featured: true,
   },
@@ -135,7 +135,7 @@ const models = [
     name: "Tiered",
     value: "Per job",
     unit: "fixed fee by job type or value",
-    note: "Suits variable-ticket trades",
+    note: "Suits variable-ticket trades · 12–24 month term",
     points: ["Protects high-ticket margins", "Simple job-level reconciliation", "No percentage on big projects"],
     featured: false,
   },
@@ -143,7 +143,7 @@ const models = [
     name: "Flat fee",
     value: "Fixed",
     unit: "monthly or milestone-based scope",
-    note: "Suits predictable requirements",
+    note: "Suits predictable requirements · SEO plans: 6-month minimum",
     points: ["No revenue sharing", "Clear deliverables and timeline", "Easy to budget month to month"],
     featured: false,
   },
@@ -158,7 +158,7 @@ const steps = [
   {
     icon: TagIcon,
     title: "Agree the model",
-    copy: "Choose performance, tiered or flat-fee pricing. We agree how calls, forms and bookings are tracked before any work starts — no surprises later.",
+    copy: "Choose performance, tiered or flat-fee pricing. For percentage deals, a short paid audit sets the baseline and we agree how every booking is counted before work starts.",
   },
   {
     icon: RocketIcon,
@@ -186,13 +186,13 @@ const reviews = [
 ] as const;
 
 const faqs = [
-  ["Which businesses do you work with?", "Local service businesses that win work from Google — movers and removals companies, cleaners, plumbers, contractors and other trades. We work remotely with clients in the UK, the US, the UAE, Pakistan and other markets."],
-  ["How does the performance model work?", "Before launch we agree how calls, forms and bookings are tracked and attributed. You then pay a percentage of collected revenue from the bookings our work generates — typically around 10% for standard-ticket jobs. Cancelled or unpaid jobs cost nothing, and high-ticket work usually moves to a lower rate or fixed per-job tiers."],
+  ["Which businesses do you work with?", "Local service businesses that win work from Google — movers and removals companies, cleaners, plumbers, contractors and other trades. We work remotely with clients in the UK, the US, Canada, the UAE, Pakistan and other markets."],
+  ["How does the performance model work?", "Before launch we agree how calls, forms and bookings are tracked and attributed. You then pay a percentage of collected revenue from the bookings our work generates — typically around 10% for standard-ticket jobs. Cancelled or unpaid jobs cost nothing, and high-ticket work usually moves to a lower rate or fixed per-job tiers. Percentage deals run for 12–24 months and start with a short paid audit that sets the baseline — our profit-share handbook explains every step."],
   ["Do I have to take a performance deal?", "No. If you prefer predictable costs, choose a tiered or flat-fee model instead. You can also buy SEO, a website or an app as a fixed-scope project."],
-  ["How long until I see results?", "A new website can go live quickly. SEO usually needs a few months to compound — Alpha Movers earned 60% of six months of search impressions in the final 28 days alone. We set realistic expectations for your market on the first call."],
+  ["How long until I see results?", "Paid campaigns usually take six to twelve weeks to reach a reliable cost per enquiry. Organic and local search take six to twelve months to compound — Alpha Movers earned 60% of six months of search impressions in the final 28 days alone. We set realistic expectations for your market on the first call."],
   ["Do I need to run Google Ads?", "No. Many clients grow through Google Search and Maps first. When ads make sense, you pay Google or Meta directly with no markup on spend, and we build and manage the campaigns."],
   ["Where is Jadeed Solutions based?", `Our registered business location is ${siteConfig.address}. The team works remotely with clients worldwide.`],
-  ["How do we get started?", "Request a free growth plan or message us on WhatsApp. We will review your visibility, website conversion path and acquisition setup, then recommend the clearest next steps."],
+  ["How do we get started?", "Request a free growth plan or message us on WhatsApp. We will review your visibility, website conversion path and acquisition setup, then recommend the clearest next steps. The growth plan is free; if a percentage deal fits, a short paid audit comes next."],
 ] as const;
 
 export default function Home() {
@@ -421,7 +421,7 @@ export default function Home() {
             {[
               ["0% ad-spend markup", "You pay Google and Meta directly. Campaign management is part of the plan."],
               ["Attribution agreed first", "We agree how calls, forms and bookings are counted before launch, so there are no disputes later."],
-              ["One growth build", "Website, local SEO, Google Ads and tracking are included in every model."],
+              ["You own every account", "Your domain, Google Business Profile and ad accounts stay in your business’s name. We’re added as users."],
             ].map(([title, copy]) => (
               <div key={title} className="bg-white p-5 sm:p-6">
                 <div className="font-bold">{title}</div>
@@ -433,6 +433,9 @@ export default function Home() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link href="/pricing#calculator" className="group inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-[#015f45] px-5 text-sm font-bold text-white transition-colors hover:bg-[#014f39]">Estimate your fee <HugeiconsIcon icon={ArrowRightIcon} size={17} className="transition-transform group-hover:translate-x-1" aria-hidden="true" /></Link>
             <Link href="/pricing#models" className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-[#015f45]/25 px-5 text-sm font-bold text-[#015f45] transition-colors hover:bg-[#edf5f1]">Compare pricing models</Link>
+            <Link href="/profit-share-handbook" className="group inline-flex h-12 items-center justify-center gap-2 rounded-xl px-2 text-sm font-semibold text-black/65 transition-colors hover:text-[#015f45]">
+              Read the profit-share handbook <HugeiconsIcon icon={ArrowRightIcon} size={16} className="transition-transform group-hover:translate-x-1" aria-hidden="true" />
+            </Link>
           </div>
         </div>
       </section>

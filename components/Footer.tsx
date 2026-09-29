@@ -39,6 +39,7 @@ const sections = [
       ["Growth Guides", "/guides"],
       ["Case Studies & Proof", "/portfolio"],
       ["Pricing & Models", "/pricing"],
+      ["Profit-Share Handbook", "/profit-share-handbook"],
       ["Free Growth Check", "/tools/growth-check"],
       ["Blog & Research", "/blog"],
     ],
@@ -102,7 +103,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-6 text-white/65">
-              Connected customer acquisition systems for UK and US local service businesses.
+              Connected customer acquisition systems for local service businesses in the UK, US, Canada and UAE.
             </p>
             <div className="mt-7 space-y-3 text-sm text-white/75">
               <a
