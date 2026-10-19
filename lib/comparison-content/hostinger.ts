@@ -35,7 +35,7 @@ export const vsHostinger: Comparison = {
     ["Tracking", "Usually basic visitor analytics", "Calls, forms and WhatsApp tracked as conversions from launch"],
     ["Speed", "Varies with the template and add-ons", "Built to pass Core Web Vitals on mobile"],
     ["Ongoing growth", "Whatever you do yourself", "Monthly SEO, content and reporting, if you choose a plan"],
-    ["Up-front cost", "Low monthly subscription", "Starter websites from £199; SEO plans from £100 a month"],
+    ["Up-front cost", "Low monthly subscription", "Starter websites from £199; SEO plans from £300 a month"],
   ],
   sections: [
     {
@@ -93,7 +93,7 @@ Everything is set up under your business’s own accounts — domain, hosting an
 |---|---|---|
 | Money up front | Low — a monthly plan | Starter websites from £199, one-time |
 | Your time | Learning the builder, writing copy, taking photos, maintaining it | Supplying information and photos, reviewing drafts |
-| Ongoing cost | Subscription, plus your time | Hosting on your own account; optional SEO plan from £100 a month |
+| Ongoing cost | Subscription, plus your time | Hosting on your own account; optional SEO plan from £300 a month |
 | Time to launch | As fast as you can build it | Usually a few weeks for a focused site |
 | Growth after launch | Whatever you do yourself | Monthly SEO and reporting if you choose a plan |
 

@@ -63,7 +63,7 @@ export const services: Service[] = [
     h1: "SEO for local service businesses in the UK & USA",
     seoTitle: "SEO for Local Service Businesses (UK & USA)",
     seoDescription:
-      "Local SEO for UK & USA service businesses — show up on Google Maps and in search, get more calls and bookings. From £100/mo or 10% of bookings.",
+      "Local SEO for UK & USA service businesses — show up on Google Maps and in search, get more calls and bookings. From £300/mo or 10% of paid jobs.",
     tagline: "Show up on Google. Get more bookings.",
     summary:
       "Local SEO for movers, cleaners, trades and clinics — more calls and booked jobs from Google.",
@@ -71,10 +71,10 @@ export const services: Service[] = [
       "Get found by customers already searching for your service. We specialise in local SEO for UK & USA service businesses so you win the click — and the booking — before competitors do.",
     category: "Organic growth & local SEO",
     heroImage: "/placeholders/add-image.svg",
-    priceLabel: "From £100/month · or 10% on bookings",
+    priceLabel: "From £300/month · or 10% of paid jobs",
     highlights: [
-      { icon: TagIcon, label: "From £100/month" },
-      { icon: HandshakeIcon, label: "Or 10% on bookings" },
+      { icon: TagIcon, label: "From £300/month" },
+      { icon: HandshakeIcon, label: "Or 10% of paid jobs" },
       { icon: ClockIcon, label: "6-month minimum on monthly plans" },
     ],
     rating: { score: "5.0", count: "from 35 Google reviews" },
@@ -83,7 +83,7 @@ export const services: Service[] = [
       heading: "SEO that turns search into customers",
       paragraphs: [
         "Most people looking for a local service start on Google. If you're not showing up, those customers call your competitors instead. We get you ranking for the terms people actually search — your Google listing, local map results, and website pages that turn clicks into calls and bookings.",
-        "Fixed SEO from £100/mo, or 10% of the bookings we generate on our Growth Partnership. Either way, you get clear monthly reporting on impressions, clicks and real enquiries — not vanity charts.",
+        "Fixed SEO from £300/mo, or £0 upfront and 10% of the paid jobs we generate on our Growth Partnership. Either way, you get clear monthly reporting on impressions, clicks and real enquiries — not vanity charts.",
       ],
     },
     stats: [
@@ -137,16 +137,16 @@ export const services: Service[] = [
     ],
     cost: {
       paragraphs: [
-        "SEO is ongoing work, not a one-time switch. We keep pricing simple: SEO Starter from £100/mo, or 10% of the bookings we generate on our Growth Partnership.",
+        "SEO is ongoing work, not a one-time switch. We keep pricing simple: SEO Starter from £300/mo, or £0 upfront and 10% of the paid jobs we generate on our Growth Partnership.",
         "Larger sites, multiple locations or heavier content needs are quoted individually — we'll give you a fixed price before we start.",
       ],
       rows: [
-        { label: "SEO Starter", value: "From £100/month" },
+        { label: "SEO Starter", value: "From £300/month" },
         { label: "Larger / multi-location SEO", value: "Custom quote" },
-        { label: "Performance SEO (Growth Partnership)", value: "10% of generated bookings" },
+        { label: "Performance SEO (Growth Partnership)", value: "10% of paid jobs · £0 upfront" },
         { label: "One-off SEO audit", value: "From £150" },
       ],
-      note: "Monthly plans have a 6-month minimum so the work has time to compound. The 10% model is available for qualifying local service businesses on a 12–24 month term.",
+      note: "Monthly plans have a 6-month minimum so the work has time to compound. The 10% model is £0 upfront for qualifying local service businesses, with a 6-month initial term, then month to month.",
     },
     priceFactors: [
       "How competitive your industry and area are",
@@ -157,7 +157,7 @@ export const services: Service[] = [
       "Whether you need local, national or both",
     ],
     keyTakeaways: [
-      "SEO from £100/month, or 10% of the bookings we generate — for every local service business.",
+      "SEO from £300/month, or 10% of the paid jobs we generate — for every local service business.",
       "Clients across the UK, US, Canada and UAE. Based in Narowal, Pakistan.",
       "Alpha Movers: 630 organic clicks and 160,903 impressions in six months, from Google Search Console.",
       "Public reviews from cleaning and removals clients on Google, Trustpilot and Clutch.",
@@ -226,9 +226,9 @@ export const services: Service[] = [
     ],
     reviews: [],
     atAGlance: [
-      { label: "Pricing", value: "From £100/mo" },
-      { label: "Or performance", value: "10% of bookings" },
-      { label: "Minimum term", value: "6 months · 12–24 on the 10% model" },
+      { label: "Pricing", value: "From £300/mo" },
+      { label: "Or performance", value: "10% of paid jobs" },
+      { label: "Minimum term", value: "6 months · then monthly on the 10% model" },
       { label: "Google rating", value: "5.0 · 35 reviews" },
       { label: "Focus", value: "Local service SEO" },
     ],
@@ -244,7 +244,7 @@ export const services: Service[] = [
           "No reputable agency can guarantee exact positions — anyone who does is a red flag. We guarantee honest work, full transparency, and measurable improvements in traffic, calls and conversions.",
       },
       {
-        question: "What's included in the £100/month plan?",
+        question: "What's included in the £300/month plan?",
         answer:
           "Technical SEO, on-page work on your key pages, Google Business Profile optimisation and monthly reporting. Larger scopes — more locations, more content — are quoted individually.",
       },
@@ -642,7 +642,7 @@ export const services: Service[] = [
     h1: "Google Ads for local service businesses",
     seoTitle: "Google Ads for Local Service Businesses (UK & USA)",
     seoDescription:
-      "Profitable Google Ads and paid campaigns for movers, cleaners and trades — more booked jobs, clear ROI tracking. Or pay 10% of bookings we generate.",
+      "Profitable Google Ads and paid campaigns for movers, cleaners and trades — more booked jobs, clear ROI tracking. Or pay 10% of the paid jobs we generate.",
     tagline: "Google Ads that book jobs, not waste budget.",
     summary:
       "Paid search and social for local services — tracked to calls, quotes and booked jobs.",
@@ -715,7 +715,7 @@ export const services: Service[] = [
         "For standalone ad work, we quote management based on channels and complexity. We'll recommend a sensible starting budget so campaigns have enough data to perform.",
       ],
       rows: [
-        { label: "Growth Partnership (includes ad management)", value: "10% of bookings · you fund ad spend" },
+        { label: "Growth Partnership (includes ad management)", value: "10% of paid jobs · you fund ad spend" },
         { label: "Standalone Google Ads management", value: "Custom quote" },
         { label: "Standalone Meta / Instagram management", value: "Custom quote" },
         { label: "Landing page build", value: "From £100" },

@@ -10,18 +10,18 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <section className="relative isolate overflow-hidden bg-white pb-20 pt-32 sm:pt-36">
+    <section className="relative isolate overflow-hidden bg-transparent pb-20 pt-32 sm:pt-36">
       <HeroBackground />
       <div className="container relative z-10 max-w-3xl">
         <Reveal className="flex flex-col gap-5">
           <span className="eyebrow">Legal</span>
-          <h1 className="font-display text-4xl font-semibold tracking-tight text-ink">
+          <h1 className="font-display text-4xl font-semibold tracking-tight text-white">
             Privacy Policy
           </h1>
-          <p className="text-sm text-slate-500">Last updated: 24 July 2026</p>
+          <p className="text-sm text-white/62">Last updated: 5 October 2026</p>
         </Reveal>
 
-        <div className="prose-site mt-10 space-y-8 text-slate-700">
+        <div className="prose-site mt-10 space-y-8 text-white/80">
           <p>
             {siteConfig.name} (&ldquo;we&rdquo;, &ldquo;us&rdquo;) respects your
             privacy. This policy explains what we collect when you use{" "}
@@ -29,7 +29,7 @@ export default function PrivacyPage() {
           </p>
 
           <div>
-            <h2 className="font-display text-xl font-semibold text-ink">
+            <h2 className="font-display text-xl font-semibold text-white">
               What we collect
             </h2>
             <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed">
@@ -49,7 +49,7 @@ export default function PrivacyPage() {
           </div>
 
           <div>
-            <h2 className="font-display text-xl font-semibold text-ink">
+            <h2 className="font-display text-xl font-semibold text-white">
               How we use it
             </h2>
             <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed">
@@ -61,25 +61,62 @@ export default function PrivacyPage() {
           </div>
 
           <div>
-            <h2 className="font-display text-xl font-semibold text-ink">
+            <h2 className="font-display text-xl font-semibold text-white">
+              Jadeed AI chats, the audit form and calls
+            </h2>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed">
+              <li>
+                Questions you ask Jadeed AI, and its answers, are saved so the
+                team can follow up and improve the answers. Chats are kept for
+                24 months after the last message, then deleted automatically. A
+                random ID in a cookie links the questions of one visit; we
+                don&rsquo;t ask for your name unless you choose to send a
+                question to Sameer.
+              </li>
+              <li>
+                Answers are written by Google&rsquo;s Gemini model from this
+                website&rsquo;s own pages. Your question is sent to Google for
+                that purpose only.
+              </li>
+              <li>
+                When you send the free-audit form, we store your answers, a short
+                summary written by Jadeed AI, and a private audit page that only
+                people with its link can open.
+              </li>
+              <li>
+                If you book a call, we keep its time and how you&rsquo;d like to
+                be called, and add it to our Google Calendar with your email so
+                Google can send you the invite.
+              </li>
+              <li>
+                Clients&rsquo; portal data (customers recorded, messages, files,
+                proposals and invoices) is visible only to that client&rsquo;s
+                people and the Jadeed team.
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="font-display text-xl font-semibold text-white">
               Sharing
             </h2>
             <p className="mt-3 text-sm leading-relaxed">
-              We may use trusted tools (hosting, email, analytics, ad platforms)
-              that process data on our behalf. We only share what is needed to
-              run the service you requested.
+              We may use trusted tools (hosting, email, analytics, ad platforms,
+              Google Firebase for storage and sign-in, Google Gemini for Jadeed
+              AI) that process data on our behalf. We only share what is needed
+              to run the service you requested.
             </p>
           </div>
 
           <div>
-            <h2 className="font-display text-xl font-semibold text-ink">
+            <h2 className="font-display text-xl font-semibold text-white">
               Contact
             </h2>
             <p className="mt-3 text-sm leading-relaxed">
               Questions about privacy:{" "}
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="font-semibold text-brand-500"
+                className="font-semibold text-[#BEF70A]"
               >
                 {siteConfig.email}
               </a>

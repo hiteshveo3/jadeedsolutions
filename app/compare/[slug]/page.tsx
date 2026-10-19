@@ -6,7 +6,7 @@ import { AskPanel, HeroButton, LongformBody, LongformHero, LongformSection, Pill
 import { formatDate } from "@/lib/blog";
 import { comparisons, getComparison } from "@/lib/comparisons";
 import { siteConfig } from "@/lib/site";
-import { LinkRows } from "@/components/site/ui";
+import { FaqCards, LinkRows } from "@/components/site/ui";
 
 export function generateStaticParams() {
   return comparisons.map((c) => ({ slug: c.slug }));
@@ -32,14 +32,14 @@ const plain = (markdown: string) => markdown.replace(/\[([^\]]*)\]\([^)]*\)/g, "
 function ChoiceList({ title, items, tone }: { title: string; items: string[]; tone: "them" | "us" }) {
   return (
     <div>
-      <p className={`mb-3 text-xs font-extrabold uppercase tracking-[.14em] ${tone === "us" ? "text-[#015f45]" : "text-black/50"}`}>{title}</p>
-      <ul className="border-t border-black/10 text-[15px] leading-6">
+      <p className={`mb-3 text-xs font-extrabold uppercase tracking-[.14em] ${tone === "us" ? "text-[#BEF70A]" : "text-white/58"}`}>{title}</p>
+      <ul className="border-t border-white/[0.08] text-[15px] leading-6">
         {items.map((item) => (
-          <li key={item} className="flex gap-3 border-b border-black/10 py-3.5">
-            <span className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${tone === "us" ? "bg-[#015f45] text-[#eaf25a]" : "bg-[#f3f1ec] text-black/60"}`} aria-hidden="true">
+          <li key={item} className="flex gap-3 border-b border-white/[0.08] py-3.5">
+            <span className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${tone === "us" ? "bg-transparent text-[#BEF70A]" : "bg-transparent text-white/68"}`} aria-hidden="true">
               <HugeiconsIcon icon={CheckIcon} size={12} strokeWidth={2.6} />
             </span>
-            <span className="text-black/75">{item}</span>
+            <span className="text-white/83">{item}</span>
           </li>
         ))}
       </ul>
@@ -113,7 +113,7 @@ export default async function ComparePage(props: { params: Promise<{ slug: strin
 
       <LongformBody contents={contents}>
         <LongformSection id="short-answer" label="Verdict" title="The short answer">
-          <p className="text-[18px] leading-8 text-[#1d1d1b]/85"><InlineMarkdown>{page.verdict}</InlineMarkdown></p>
+          <p className="text-[18px] leading-8 text-white/[0.84]"><InlineMarkdown>{page.verdict}</InlineMarkdown></p>
           <div className="mt-8 grid gap-8 md:grid-cols-2">
             <ChoiceList title={`Choose ${page.competitor} if`} items={page.chooseThemIf} tone="them" />
             <ChoiceList title="Choose Jadeed if" items={page.chooseUsIf} tone="us" />
@@ -121,21 +121,21 @@ export default async function ComparePage(props: { params: Promise<{ slug: strin
         </LongformSection>
 
         <LongformSection id="side-by-side" label="Comparison" title="Side by side">
-          <div className="overflow-x-auto rounded-2xl border border-black/10">
-            <table className="w-full min-w-[600px] border-collapse text-left text-[15px]">
+          <div className="jt-wrap">
+            <table className="jt min-w-[600px]">
               <thead>
-                <tr className="bg-[#f3f1ec] text-xs font-bold uppercase tracking-[.1em] text-black/60">
-                  <th scope="col" className="w-[26%] px-4 py-3"><span className="sr-only">Compared</span></th>
-                  <th scope="col" className="px-4 py-3">{page.competitorShort}</th>
-                  <th scope="col" className="bg-[#dceee8] px-4 py-3 text-[#015f45]">Jadeed Solutions</th>
+                <tr>
+                  <th scope="col" className="w-[26%]"><span className="sr-only">Compared</span></th>
+                  <th scope="col" className="jt-us">Jadeed Solutions</th>
+                  <th scope="col">{page.competitorShort}</th>
                 </tr>
               </thead>
               <tbody>
                 {page.table.map(([label, them, us]) => (
-                  <tr key={label} className="border-t border-black/10">
-                    <th scope="row" className="px-4 py-3 align-top text-sm font-semibold text-black/70">{label}</th>
-                    <td className="px-4 py-3 align-top text-[#1d1d1b]/80">{them}</td>
-                    <td className="bg-[#eef6f2] px-4 py-3 align-top font-medium text-[#063d30]">{us}</td>
+                  <tr key={label}>
+                    <th scope="row">{label}</th>
+                    <td className="jt-us">{us}</td>
+                    <td>{them}</td>
                   </tr>
                 ))}
               </tbody>
@@ -150,14 +150,7 @@ export default async function ComparePage(props: { params: Promise<{ slug: strin
         ))}
 
         <LongformSection id="faqs" label="FAQs" title="Frequently asked questions">
-          <dl className="divide-y divide-black/10 border-y border-black/10">
-            {page.faqs.map((faq) => (
-              <div key={faq.question} className="py-6">
-                <dt className="text-[18px] font-bold tracking-[-.015em]">{faq.question}</dt>
-                <dd className="mt-2.5 text-[17px] leading-[1.75] text-[#1d1d1b]/80"><InlineMarkdown>{faq.answer}</InlineMarkdown></dd>
-              </div>
-            ))}
-          </dl>
+          <FaqCards items={page.faqs.map((faq) => ({ question: faq.question, answer: <InlineMarkdown>{faq.answer}</InlineMarkdown> }))} />
         </LongformSection>
 
         <AskPanel
@@ -170,7 +163,7 @@ export default async function ComparePage(props: { params: Promise<{ slug: strin
         />
 
         <div className="mt-12">
-          <p className="mb-4 text-xs font-extrabold uppercase tracking-[.15em] text-[#015f45]">Other comparisons</p>
+          <p className="mb-4 text-xs font-extrabold uppercase tracking-[.15em] text-[#BEF70A]">Other comparisons</p>
           <LinkRows items={others.map((c) => ({ href: `/compare/${c.slug}`, label: c.h1 }))} />
         </div>
       </LongformBody>

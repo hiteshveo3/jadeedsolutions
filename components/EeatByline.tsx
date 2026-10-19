@@ -16,7 +16,7 @@ export function EeatByline({
   const reviewed = reviewedLabel ?? formatReviewed(niche.reviewedAt);
 
   return (
-    <div className="mt-8 flex flex-wrap items-center gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-5">
+    <div className="mt-8 flex flex-wrap items-center gap-4 rounded-2xl border border-white/[0.08] bg-white/[0.05] p-4 sm:p-5">
       <Link
         href={`/author/${author.slug}`}
         className="flex items-center gap-3 transition-opacity hover:opacity-90"
@@ -29,12 +29,12 @@ export function EeatByline({
           className="h-12 w-12 rounded-full object-cover ring-2 ring-white"
         />
         <div>
-          <p className="text-sm font-semibold text-ink">{author.name}</p>
-          <p className="text-xs text-slate-500">{author.role}</p>
+          <p className="text-sm font-semibold text-white">{author.name}</p>
+          <p className="text-xs text-white/62">{author.role}</p>
         </div>
       </Link>
-      <div className="hidden h-10 w-px bg-slate-200 sm:block" aria-hidden />
-      <div className="text-xs leading-relaxed text-slate-500">
+      <div className="hidden h-10 w-px bg-white/15 sm:block" aria-hidden />
+      <div className="text-xs leading-relaxed text-white/62">
         <p>
           Questions? You’re talking to the founder — not a call centre.
         </p>
@@ -44,7 +44,7 @@ export function EeatByline({
             href={siteConfig.googleBusinessUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-brand-500 hover:underline"
+            className="text-[#BEF70A] hover:underline"
           >
             Google 5.0
           </a>
@@ -53,7 +53,7 @@ export function EeatByline({
             href={siteConfig.trustpilotUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-brand-500 hover:underline"
+            className="text-[#BEF70A] hover:underline"
           >
             Trustpilot
           </a>

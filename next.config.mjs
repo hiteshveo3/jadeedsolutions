@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Keep verification builds separate from a running development server.
+  distDir: process.env.JADEED_BUILD_DIR || ".next",
   reactStrictMode: true,
   async redirects() {
     return [

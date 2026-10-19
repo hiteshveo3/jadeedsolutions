@@ -51,34 +51,34 @@ export default async function BlogMonthArchivePage(props: { params: Promise<{ ye
 
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-white pb-12 pt-32">
+      <section className="relative isolate overflow-hidden bg-transparent pb-12 pt-32">
         <HeroBackground />
         <div className="container relative z-10 max-w-5xl">
-          <nav className="text-xs text-slate-500">
-            <Link href="/blog" className="hover:text-brand-500">
+          <nav className="text-xs text-white/62">
+            <Link href="/blog" className="hover:text-[#BEF70A]">
               Blog
             </Link>
             <span className="mx-1.5">/</span>
-            <Link href="/blog/archive" className="hover:text-brand-500">
+            <Link href="/blog/archive" className="hover:text-[#BEF70A]">
               Archive
             </Link>
             <span className="mx-1.5">/</span>
             <Link
               href={`/blog/archive/${params.year}`}
-              className="hover:text-brand-500"
+              className="hover:text-[#BEF70A]"
             >
               {params.year}
             </Link>
             <span className="mx-1.5">/</span>
-            <span className="text-ink">{label.split(" ")[0]}</span>
+            <span className="text-white">{label.split(" ")[0]}</span>
           </nav>
 
           <div className="mt-4 grid gap-8 lg:grid-cols-[1.4fr_0.8fr] lg:items-end">
             <div>
-              <h1 className="font-display text-4xl font-semibold tracking-tight text-ink md:text-5xl">
+              <h1 className="font-display text-4xl font-semibold tracking-tight text-white md:text-5xl">
                 {label}
               </h1>
-              <p className="mt-3 text-slate-600">
+              <p className="mt-3 text-white/72">
                 {items.length} article{items.length === 1 ? "" : "s"} · ~
                 {readingMins} min total reading
               </p>
@@ -87,7 +87,7 @@ export default async function BlogMonthArchivePage(props: { params: Promise<{ ye
               {prev && (
                 <Link
                   href={prev.href}
-                  className="inline-flex items-center gap-1 rounded-full bg-white px-3 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-50 hover:text-brand-500"
+                  className="inline-flex items-center gap-1 rounded-full bg-white/[0.05] px-3 py-2 text-xs font-semibold text-white/72 hover:bg-white/[0.08] hover:text-[#BEF70A]"
                 >
                   <HugeiconsIcon icon={ArrowDownIcon} size={14} className="rotate-90" />
                   {prev.shortLabel} {prev.year}
@@ -96,7 +96,7 @@ export default async function BlogMonthArchivePage(props: { params: Promise<{ ye
               {next && (
                 <Link
                   href={next.href}
-                  className="inline-flex items-center gap-1 rounded-full bg-white px-3 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-50 hover:text-brand-500"
+                  className="inline-flex items-center gap-1 rounded-full bg-white/[0.05] px-3 py-2 text-xs font-semibold text-white/72 hover:bg-white/[0.08] hover:text-[#BEF70A]"
                 >
                   {next.shortLabel} {next.year}
                   <HugeiconsIcon icon={ArrowRightIcon} size={14} />
@@ -107,38 +107,38 @@ export default async function BlogMonthArchivePage(props: { params: Promise<{ ye
         </div>
       </section>
 
-      <section className="bg-slate-50 py-12 md:py-16">
+      <section className="bg-transparent py-12 md:py-16">
         <div className="container max-w-5xl space-y-6">
           {items.map((p, i) => {
             const author = getAuthor(p.authorSlug);
             return (
               <article
                 key={p.slug}
-                className={`overflow-hidden rounded-3xl bg-white ${
+                className={`overflow-hidden rounded-3xl bg-white/[0.05] ${
                   i === 0 ? "md:grid md:grid-cols-[1.1fr_1fr]" : ""
                 }`}
               >
                 <Link
                   href={`/blog/${p.slug}`}
-                  className={`relative block overflow-hidden bg-slate-100 ${
+                  className={`relative block overflow-hidden bg-transparent ${
                     i === 0 ? "aspect-[16/10] md:aspect-auto md:min-h-[280px]" : "aspect-[21/9]"
                   }`}
                 >
                   <CategoryTile category={p.category} readingTime={p.readingTime} fill />
                 </Link>
                 <div className="flex flex-col justify-center p-6 sm:p-8">
-                  <span className="text-xs font-bold uppercase tracking-wider text-brand-500">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#BEF70A]">
                     {p.category}
                   </span>
-                  <h2 className="mt-2 font-display text-2xl font-semibold text-ink">
-                    <Link href={`/blog/${p.slug}`} className="hover:text-brand-500">
+                  <h2 className="mt-2 font-display text-2xl font-semibold text-white">
+                    <Link href={`/blog/${p.slug}`} className="hover:text-[#BEF70A]">
                       {p.title}
                     </Link>
                   </h2>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                  <p className="mt-3 text-sm leading-relaxed text-white/72">
                     {p.excerpt}
                   </p>
-                  <p className="mt-4 text-xs text-slate-500">
+                  <p className="mt-4 text-xs text-white/62">
                     {author.name} · {formatDate(p.date)} · {p.readingTime}
                   </p>
                   <div className="mt-5">
@@ -152,8 +152,8 @@ export default async function BlogMonthArchivePage(props: { params: Promise<{ ye
             );
           })}
 
-          <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white p-5">
-            <p className="text-sm text-slate-600">
+          <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-white/[0.08] bg-white/[0.05] p-5">
+            <p className="text-sm text-white/72">
               {allPosts.length} articles in the full archive
             </p>
             <div className="flex flex-wrap gap-2">

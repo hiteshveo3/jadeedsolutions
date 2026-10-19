@@ -30,6 +30,20 @@ export const siteConfig = {
   },
 } as const;
 
+/**
+ * Call-to-action wording by intent, after Jadeed Marketing (siteConfig.cta), so not every
+ * button says the same thing. All of them keep the visitor on the site: they lead to the
+ * free audit form (/contact) or to Jadeed AI — never out to WhatsApp (owner, 5 Oct 2026).
+ */
+export const cta = {
+  fit: "See if we're a fit",
+  plan: "Get a free growth plan",
+  area: "Check my area",
+  partnership: "Discuss a Growth Partnership",
+  review: "Request a growth review",
+  audit: "Get my free audit",
+} as const;
+
 export const navLinks = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },

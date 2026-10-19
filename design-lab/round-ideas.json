@@ -1,0 +1,281 @@
+{
+  "round": "ideas",
+  "savedAt": "2026-10-04T12:22:17.919Z",
+  "summary": "001 Breadcrumbs: B — Dark, pill wale crumbs\n002 Hero ke neeche 4 chhoti baatein: A — Dark hero, 2×2 lime ticks\n003 Headline ke saath hisaab wala card: A + B (dono)\n004 Section ke upar chhota label: A — Pill label + chamak (spark)\n005 Chalti hui trades ki patti: A + B (dono)\n006 Lambe page ke liye upar tabs: — (Claude's pick B)\n    Note: b acha he, lkn liner ach anhi,\n007 Bohat halki contour lines: A + B (dono)\n    Note: a zyad acha he,\n008 Aakhri CTA: “Kya aap ka area khali hai?”: A — Dark gradient, lime rings\n009 Footer mein bara sa naam: A — Dark footer, halka naam\n010 Phone par neeche aik button: A — Poori chaurai ki patti\n011 Aik paid job ka hisaab (receipt): B — Dark par asli receipt + PAID mohar\n012 Bara sa “$0” — pricing ka pehla jumla: A — Dark, lime $0\n013 Pay karne ke 2 tareeqe — “mujhe chunne mein madad karo”: B — Dark, aik switch se badalta card\n014 Muqabla: Jadeed vs agency vs ads: B — Dark table, lime column\n015 “Yeh akele result nahi” — kati hui chips: B — Dark, upar kata — neeche lime\n016 Result kya hai: 3 sharten: B — Dark, khud dabaein (interactive)\n017 Saaf zubaan mein sharten (fine print khuli): B — Dark, 01–05 numbers\n018 Seedha aap ke naam par kharche: B — Bill jaisi list + “No markup” sticker (dark)\n019 Regulated professions wala note + sources: A — Panel, link chips\n020 4 boxes mein poori deal: B — Dark patti, bare lime numbers\n021 Investment: aik nazar mein qeemat aur shamil kaam: B — Dark price card\n022 Success fee chart (upar ki had ke saath): B — Dark chart, lime line\n023 “Kya fee banti hai?” — khud check karein: B — Dark: bare toggles, lime jawab\n024 “Aik contract kitne mahine ka kharcha nikal deta hai”: B — Dark: dabbe lime hote jate hain\n041 Founder card — call par kaun hoga: A — Photo + naam + do buttons\n042 Case study card — Alpha Movers: A + B (dono)\n043 Saboot: asli Search Console screenshots: A — Tab se screenshot badlo\n044 Ginte hue numbers (sirf sache): B — Aik patti, bare lime numbers\n    Note: sidelines nhi shi\n045 Client ki apni baat (testimonial): A — Bara quote, lime nishan\n    Note: 10% after bookings yw pill lgni chhaiye\n046 Google rating aur review platforms: A — Rating pill + link chips\n047 Pehle aur baad: clicks +312%: B — Upar jati lime line\n048 Remote team — khula aur saaf: A + B (dono)\n    Note: digital clock zyada acha rhe ga\n049 Jo asal mein bana — kaam ki fehrist: A + B (dono)\n    Note: 2nd zyada acha he\n050 Clients ke logo — sirf asli: B — Cards + “aap ka business?”\n051 Research kya kehti hai — har baat ka source: A + B (dono)\n    Note: 1st b thk he, lkn dono use kie ja skte he\n052 Kisne likha (byline) + taaza tareekh: B — Author card\n053 4 qadam: audit se growth tak: B — Naqshe ka rasta, pin dabaein\n054 “Is this a fit?” — pehle hi bata dete hain: A + B (dono)\n055 Pehle 30 din — hafta ba hafta: A + B (dono)\n056 Kaun kya karega — aap aur Jadeed: A + B (dono)\n057 Mahine ki report — aik safha: B — Numbers + chhote bars\n058 Handshake se phone bajne tak: A + B (dono)\n059 Har mashware ke saath “kyun”: A + B (dono)\n    Note: confused, 2nd b ahc ah,e lkn\n060 Kaam kahan tak pohncha (live checklist): A — Gol progress + checklist\n    Note: b kahi us kia ja skta he\n061 Services ke cards (Bulk icon ke saath): B — 01–06 lambi list\n062 Industries — har trade ka apna page: B — Aik bara + baqi list\n    Note: har 1 k cards che nhi zyada?\n063 Shehron ke pages — mulk chuno: A — Mulk ka switch + city chips\n064 Aap ka area khula hai? — khud check: B — Area likho, foran jawab\n065 Service page ka hero (Local SEO): A — Text + “included” card\n066 Kya shamil hai — khulne wali list: B — Baaen list, daaen detail\n067 AI ke jawab mein aap ka naam: A — Chat bubbles\n068 Aas paas ke pages ke links: A — Chips ke do group\n069 Kaam ki tasveer: website + app saath: B — Browser + phone ek doosre par\n    Note: a b achi he wese\n070 Paid ads: kaun sa channel kis kaam ka: A + B (dono)\n071 FAQ search — likho aur jawab dhoondo: B — Category switch + list\n072 Homepage par 4 sawal + “saare sawal”: A — Heading baaen, sawal daaen\n073 Guide mein “Is guide mein” fehrist: B — Upar numbered chips\n074 Guide ke beech: “Yeh kaam hum kar dein?”: A — Text ke beech chhota card\n    Note: ye wala font, psst — we can do this for you b use ho\n075 Lambi guide dark par — aankhon par halki: B — Article + pull quote\n076 Guides ke cards (“Keep reading”): B — Aik bara + do lines\n077 Guide ke shuru mein “Khulasa”: B — “30 second mein”, bare numbers\n078 Mushkil lafz — tap karo, matlab dekho: B — Lafzon ke chips + bara matlab\n079 Free audit form — chhota aur saaf: B — Aik waqt mein aik sawal\n080 Form jo baat-cheet ki tarah chale: A — Chat bubbles + jawab ke chips\n081 Call book karein — din aur waqt: A — Dinon ki patti + waqt\n082 Call kaise ho — WhatsApp, Meet ya phone: B — Switch + bara icon\n    Note: lkn icon na aye\n083 “Aap ki call book ho gayi” — tasdeeq: A — Ticket jaisa card\n084 Contact: WhatsApp, email, pata: A + B (dono)\n085 Owner nahi? Link owner ko bhej dein: B — Bhejne ke tareeqe + preview\n086 Form ke baad: “Audit raaste mein hai”: A — Card + 3 agle qadam\n    Note: lkn har jagh aye use nhi ho skta , mail pr to thk he, lkn ai pr 2nd\n087 Chat ka button — neeche kone mein: B — Gol lime button + bubble\n088 Chat khulte hi tayyar sawal: A — Chat window + chips\n089 AI ka jawab — chhote card ke saath: B — Jawab + source ke chips\n090 Chat ke andar hi call book: B — Sameer ka handoff card\n091 Phone par chat — neeche se aati sheet: A — Poori screen chat\n092 AI ki imaandari — “yeh Sameer se poochiye”: A — “#1 ki guarantee?” ka sacha jawab\n093 Client portal ka home — “is mahine ke customers”: A — Sidebar + 3 numbers\n094 Har customer kahan pohncha (status): A — Table + filter\n095 Invoices aur payment ka saboot: B — Invoice + upload ka dabba\n096 Team se seedhi baat (messages): A — Aik thread\n097 Proposal: approve ya decline — aik click: A — Terms + do buttons\n098 Team ki updates — saaf zubaan mein: B — Kya / kyun / aage — aik card\n099 Andar ka system: leads ka board: A — 4 columns ka board\n100 Portal ka login: A — Beech mein aik card\n    Note: add google and spacing zyada,\nKuch aur: bhai lkn mera 1 concern b he k dark hm ne choose kiye h euar ache b lg rhe he lkn usko light k sath adjust kese kro ge?,,, mje dark bohat hi zyada pasand a rha he, is it possible k site ka bg hi wo dark wala ho je, agr ho gaya to maza a aje ga\nUnanswered (Claude's pick applies): 025, 026, 027, 028, 029, 030, 031, 032, 033, 034, 035, 036, 037, 038, 039, 040",
+  "palette": {
+    "answered": "83",
+    "a": "31",
+    "b": "38",
+    "both": "14",
+    "none": "0"
+  },
+  "answers": {
+    "i001": [
+      "b"
+    ],
+    "i002": [
+      "a"
+    ],
+    "i003": [
+      "both"
+    ],
+    "i004": [
+      "a"
+    ],
+    "i005": [
+      "both"
+    ],
+    "i007": [
+      "both"
+    ],
+    "i008": [
+      "a"
+    ],
+    "i009": [
+      "a"
+    ],
+    "i010": [
+      "a"
+    ],
+    "i011": [
+      "b"
+    ],
+    "i012": [
+      "a"
+    ],
+    "i013": [
+      "b"
+    ],
+    "i014": [
+      "b"
+    ],
+    "i015": [
+      "b"
+    ],
+    "i016": [
+      "b"
+    ],
+    "i017": [
+      "b"
+    ],
+    "i018": [
+      "b"
+    ],
+    "i019": [
+      "a"
+    ],
+    "i020": [
+      "b"
+    ],
+    "i021": [
+      "b"
+    ],
+    "i022": [
+      "b"
+    ],
+    "i023": [
+      "b"
+    ],
+    "i024": [
+      "b"
+    ],
+    "i041": [
+      "a"
+    ],
+    "i042": [
+      "both"
+    ],
+    "i043": [
+      "a"
+    ],
+    "i044": [
+      "b"
+    ],
+    "i045": [
+      "a"
+    ],
+    "i046": [
+      "a"
+    ],
+    "i047": [
+      "b"
+    ],
+    "i048": [
+      "both"
+    ],
+    "i049": [
+      "both"
+    ],
+    "i050": [
+      "b"
+    ],
+    "i051": [
+      "both"
+    ],
+    "i052": [
+      "b"
+    ],
+    "i053": [
+      "b"
+    ],
+    "i054": [
+      "both"
+    ],
+    "i055": [
+      "both"
+    ],
+    "i056": [
+      "both"
+    ],
+    "i057": [
+      "b"
+    ],
+    "i058": [
+      "both"
+    ],
+    "i059": [
+      "both"
+    ],
+    "i060": [
+      "a"
+    ],
+    "i061": [
+      "b"
+    ],
+    "i062": [
+      "b"
+    ],
+    "i063": [
+      "a"
+    ],
+    "i064": [
+      "b"
+    ],
+    "i065": [
+      "a"
+    ],
+    "i066": [
+      "b"
+    ],
+    "i067": [
+      "a"
+    ],
+    "i068": [
+      "a"
+    ],
+    "i069": [
+      "b"
+    ],
+    "i070": [
+      "both"
+    ],
+    "i071": [
+      "b"
+    ],
+    "i072": [
+      "a"
+    ],
+    "i073": [
+      "b"
+    ],
+    "i074": [
+      "a"
+    ],
+    "i075": [
+      "b"
+    ],
+    "i076": [
+      "b"
+    ],
+    "i077": [
+      "b"
+    ],
+    "i078": [
+      "b"
+    ],
+    "i079": [
+      "b"
+    ],
+    "i080": [
+      "a"
+    ],
+    "i081": [
+      "a"
+    ],
+    "i082": [
+      "b"
+    ],
+    "i083": [
+      "a"
+    ],
+    "i084": [
+      "both"
+    ],
+    "i085": [
+      "b"
+    ],
+    "i086": [
+      "a"
+    ],
+    "i087": [
+      "b"
+    ],
+    "i088": [
+      "a"
+    ],
+    "i089": [
+      "b"
+    ],
+    "i090": [
+      "b"
+    ],
+    "i091": [
+      "a"
+    ],
+    "i092": [
+      "a"
+    ],
+    "i093": [
+      "a"
+    ],
+    "i094": [
+      "a"
+    ],
+    "i095": [
+      "b"
+    ],
+    "i096": [
+      "a"
+    ],
+    "i097": [
+      "a"
+    ],
+    "i098": [
+      "b"
+    ],
+    "i099": [
+      "a"
+    ],
+    "i100": [
+      "a"
+    ]
+  },
+  "notes": {
+    "i006": "b acha he, lkn liner ach anhi, ",
+    "i007": "a zyad acha he,",
+    "anything": "bhai lkn mera 1 concern b he k dark hm ne choose kiye h euar ache b lg rhe he lkn usko light k sath adjust kese kro ge?,,, mje dark bohat hi zyada pasand a rha he, is it possible k site ka bg hi wo dark wala ho je, agr ho gaya to maza a aje ga",
+    "i100": "add google and spacing zyada, ",
+    "i082": "lkn icon na aye",
+    "i086": "lkn har jagh aye use nhi ho skta , mail pr to thk he, lkn ai pr 2nd",
+    "i074": "ye wala font, psst — we can do this for you b use ho",
+    "i062": "har 1 k cards che nhi zyada?",
+    "i069": "a b achi he wese",
+    "i059": "confused, 2nd b ahc ah,e lkn ",
+    "i060": "b kahi us kia ja skta he",
+    "i044": "sidelines nhi shi",
+    "i045": "10% after bookings yw pill lgni chhaiye",
+    "i048": "digital clock zyada acha rhe ga",
+    "i049": "2nd zyada acha he",
+    "i051": "1st b thk he, lkn dono use kie ja skte he"
+  }
+}

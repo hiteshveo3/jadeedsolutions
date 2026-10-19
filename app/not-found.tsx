@@ -5,10 +5,10 @@ export default function NotFound() {
     <section className="section bg-hero-glow">
       <div className="container flex min-h-[50vh] flex-col items-center justify-center text-center">
         <span className="font-display text-7xl font-semibold text-gradient">404</span>
-        <h1 className="mt-4 font-display text-3xl font-semibold text-ink">
+        <h1 className="mt-4 font-display text-3xl font-semibold text-white">
           Page not found
         </h1>
-        <p className="mt-3 max-w-md text-slate-600">
+        <p className="mt-3 max-w-md text-white/72">
           Sorry, we couldn&rsquo;t find the page you&rsquo;re looking for. It may
           have been moved or no longer exists.
         </p>

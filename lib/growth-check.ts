@@ -48,7 +48,7 @@ export const growthServiceMeta: Record<
   partnership: {
     label: "Growth Partnership (10%)",
     href: "/pricing#calculator",
-    blurb: "Website, SEO and optional ads — typically 10% of revenue from bookings we generate, on a 12–24 month term.",
+    blurb: "Website, SEO and optional ads — £0 upfront and 10% of the paid jobs we generate, on a 6-month start, then month to month.",
   },
 };
 
@@ -164,7 +164,7 @@ export const growthQuestions: GrowthQuestion[] = [
     answers: [
       {
         id: "percent",
-        label: "10% of bookings you generate sounds fair",
+        label: "10% of paid jobs you bring in sounds fair",
         scores: { partnership: 5 },
       },
       {

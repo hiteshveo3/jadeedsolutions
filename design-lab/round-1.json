@@ -1,0 +1,30 @@
+{
+  "round": 1,
+  "savedAt": "2026-10-04T09:34:15.217Z",
+  "summary": "Q01 Ye palette pasand hai?: Haan, final karo\n    Note: just me chahta hu kahi n akahi fonts diffeent use kr k mje dikhae jae, jese imgs me th efont,\nQ02 Kuch aur kehna hai?: consistency mtters, and lets start round 2\nPalette: gradient radial #0B561C (centre) → #06301D → #051B1E (edges), glow #0B561C, dark #06301D, deep #051B1E, lime #BEF70A, onLime #0B1F12, canvas #F5F6EF, action #10672C, tint #EDF7D4, ink #0B1F12, footer same gradient as hero, extra none, rhythm forest balance, cta dark strip mid-page + lime band before footer",
+  "palette": {
+    "gradient": "radial #0B561C (centre) → #06301D → #051B1E (edges)",
+    "glow": "#0B561C",
+    "dark": "#06301D",
+    "deep": "#051B1E",
+    "lime": "#BEF70A",
+    "onLime": "#0B1F12",
+    "canvas": "#F5F6EF",
+    "action": "#10672C",
+    "tint": "#EDF7D4",
+    "ink": "#0B1F12",
+    "footer": "same gradient as hero",
+    "extra": "none",
+    "rhythm": "forest balance",
+    "cta": "dark strip mid-page + lime band before footer"
+  },
+  "answers": {
+    "r1-approve": [
+      "yes"
+    ]
+  },
+  "notes": {
+    "r1-approve": "just me chahta hu kahi n akahi fonts diffeent use kr k mje dikhae jae, jese imgs me th efont,",
+    "r1-anything": "consistency mtters, and lets start round 2"
+  }
+}

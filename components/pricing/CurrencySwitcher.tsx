@@ -69,7 +69,7 @@ export function CurrencySwitcher() {
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="flex h-11 items-center gap-2.5 rounded-full border border-slate-200 bg-white px-4 text-sm font-semibold text-ink transition-colors hover:border-brand-400 hover:bg-brand-50"
+        className="flex h-11 items-center gap-2.5 rounded-full border border-white/[0.08] bg-white px-4 text-sm font-semibold text-[#0B1F12] transition-colors hover:bg-white/10"
       >
         {active ? (
           <Flag code={active.flag} name={active.name} />
@@ -80,25 +80,25 @@ export function CurrencySwitcher() {
         <HugeiconsIcon
           icon={ArrowDownIcon}
           size={16}
-          className={`text-slate-500 transition-transform ${open ? "rotate-180" : ""}`}
+          className={`text-white/62 transition-transform ${open ? "rotate-180" : ""}`}
         />
       </button>
 
       {open && (
-        <div className="absolute left-1/2 z-50 mt-2 w-72 -translate-x-1/2 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl">
-          <div className="border-b border-slate-100 p-3">
-            <label className="flex h-10 items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 text-sm">
+        <div className="absolute left-1/2 z-50 mt-2 w-72 -translate-x-1/2 overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.05] shadow-xl">
+          <div className="border-b border-white/[0.08] p-3">
+            <label className="flex h-10 items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.05] px-3 text-sm">
               <HugeiconsIcon
                 icon={SearchIcon}
                 size={16}
-                className="shrink-0 text-slate-500"
+                className="shrink-0 text-white/62"
               />
               <input
                 autoFocus
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search currency…"
-                className="w-full bg-transparent text-ink outline-none placeholder:text-slate-500"
+                className="w-full bg-transparent text-white outline-none placeholder:text-white/62"
               />
             </label>
           </div>
@@ -113,33 +113,33 @@ export function CurrencySwitcher() {
                     setOpen(false);
                     setQuery("");
                   }}
-                  className={`flex w-full items-center gap-3 px-3 py-2 text-left text-sm transition-colors hover:bg-brand-50 ${
-                    c.code === currency ? "bg-brand-50" : ""
+                  className={`flex w-full items-center gap-3 px-3 py-2 text-left text-sm transition-colors hover:bg-white/10 ${
+                    c.code === currency ? "bg-white/25" : ""
                   }`}
                 >
                   <Flag code={c.flag} name={c.name} />
-                  <span className="font-semibold text-ink">{c.code}</span>
-                  <span className="flex-1 truncate text-xs text-slate-500">
+                  <span className="font-semibold text-white">{c.code}</span>
+                  <span className="flex-1 truncate text-xs text-white/62">
                     {c.name}
                   </span>
                   {c.code === currency && (
                     <HugeiconsIcon
                       icon={CheckIcon}
                       size={16}
-                      className="shrink-0 text-brand-500"
+                      className="shrink-0 text-[#BEF70A]"
                     />
                   )}
                 </button>
               </li>
             ))}
             {list.length === 0 && (
-              <li className="px-3 py-6 text-center text-sm text-slate-500">
+              <li className="px-3 py-6 text-center text-sm text-white/62">
                 No currency found.
               </li>
             )}
           </ul>
 
-          <div className="border-t border-slate-100 px-3 py-2 text-[11px] text-slate-500">
+          <div className="border-t border-white/[0.08] px-3 py-2 text-[11px] text-white/62">
             {live
               ? "Live exchange rates · updated daily"
               : "Approximate rates · offline"}

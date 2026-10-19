@@ -1,0 +1,2002 @@
+[
+  {
+    "id": "r0",
+    "file": "0046ee5a91dfead32ef55974c2eefd77.jpg",
+    "name": "phone-payment",
+    "alt": "Man showing a payment confirmation on his phone",
+    "kind": "photo",
+    "src": "/images/marketing/phone-payment.webp",
+    "sha256": "0acbe6a785a945c7203799485c1791825ff0025711b1fcb5de91a3b445afd901",
+    "width": 1024,
+    "height": 1024,
+    "originalBytes": 74947,
+    "optimizedBytes": 39326,
+    "placements": [
+      "how-it-works"
+    ]
+  },
+  {
+    "id": "r1",
+    "file": "011c8d519f1296c8902c42a868e3ed93.jpg",
+    "name": "headphones-campaign",
+    "alt": "Woman wearing headphones against a purple background",
+    "kind": "photo",
+    "src": "/images/marketing/headphones-campaign.webp",
+    "sha256": "784e46ce19a8e311f3dba07d7296ecaf9e0049d03d28fab572c6d72ac1905ed2",
+    "width": 1200,
+    "height": 1500,
+    "originalBytes": 123033,
+    "optimizedBytes": 77268,
+    "placements": [
+      "service:digital-advertising"
+    ]
+  },
+  {
+    "id": "r2",
+    "file": "0332a56c527e9c3e939f120327fcbae5.jpg",
+    "name": "mobile-selfie",
+    "alt": "Man holding a smartphone above him",
+    "kind": "photo",
+    "src": "/images/marketing/mobile-selfie.webp",
+    "sha256": "fca02d8c06ea519e8c4256da2c5ae27b4e0ad20bbc87f601f23c3429a672dee0",
+    "width": 1200,
+    "height": 1600,
+    "originalBytes": 177036,
+    "optimizedBytes": 145308,
+    "placements": [
+      "service:app-development"
+    ]
+  },
+  {
+    "id": "r3",
+    "file": "10738365b9276ca6189fd5bdf4bd4707.jpg",
+    "name": "construction-professional",
+    "alt": "Woman wearing a yellow construction helmet",
+    "kind": "photo",
+    "src": "/images/marketing/construction-professional.webp",
+    "sha256": "0b85a6a5441ba10244af4aa7716cba33b898cc091f25a00456527aac306d0f8b",
+    "width": 464,
+    "height": 555,
+    "originalBytes": 45685,
+    "optimizedBytes": 36638,
+    "placements": [
+      "guide:how-plumbers-get-more-jobs-online"
+    ]
+  },
+  {
+    "id": "r4",
+    "file": "10ee6635662aa99cc049d898274d80e3.jpg",
+    "name": "customer-phone-call",
+    "alt": "Woman smiling while talking on the phone",
+    "kind": "photo",
+    "src": "/images/marketing/customer-phone-call.webp",
+    "sha256": "4f2a221aa9bdc3ed162850bd8ec8a52958ad4dfbdb584508906355fc77d02318",
+    "width": 501,
+    "height": 626,
+    "originalBytes": 47266,
+    "optimizedBytes": 37516,
+    "placements": [
+      "service:seo"
+    ]
+  },
+  {
+    "id": "r5",
+    "file": "1230960e6f6240a6acd7fa8011a9e092.jpg",
+    "name": "customers-mobile-search",
+    "alt": "Two people comparing information on their phones",
+    "kind": "photo",
+    "src": "/images/marketing/customers-mobile-search.webp",
+    "sha256": "c7c4b2445745dc915769c7000cdcec468671efc921a1c686b0516ce90f58f1d1",
+    "width": 500,
+    "height": 500,
+    "originalBytes": 41632,
+    "optimizedBytes": 35014,
+    "placements": [
+      "service:seo"
+    ]
+  },
+  {
+    "id": "r6",
+    "file": "1d1736afef7f8f341cc72de99f425022.jpg",
+    "name": "mobile-search-closeup",
+    "alt": "Hands using a smartphone against a blue background",
+    "kind": "photo",
+    "src": "/images/marketing/mobile-search-closeup.webp",
+    "sha256": "73b3c721937bf5834bfd18e04218abd63cb2c3167538fd66e0e671011cd42a62",
+    "width": 597,
+    "height": 626,
+    "originalBytes": 24311,
+    "optimizedBytes": 15534,
+    "placements": [
+      "home"
+    ]
+  },
+  {
+    "id": "r8",
+    "file": "27742955a56436b8b1370bb9bc78cd08.jpg",
+    "name": "couple-yellow-background",
+    "alt": "Two people seated against a yellow background",
+    "kind": "photo",
+    "src": "/images/marketing/couple-yellow-background.webp",
+    "sha256": "cd6813b6fc3ccaf2f3c386946ce25f0343eac159d3c03e318eb29917245ce931",
+    "width": 735,
+    "height": 1103,
+    "originalBytes": 79391,
+    "optimizedBytes": 50762,
+    "placements": [
+      "guide:website-seo-app-or-10-percent"
+    ]
+  },
+  {
+    "id": "r9",
+    "file": "29f34b5f-39f6-45aa-bc1d-97f497acef59.png",
+    "name": "food-menu-laptop",
+    "alt": "Couple browsing food options on a laptop",
+    "kind": "photo",
+    "src": "/images/marketing/food-menu-laptop.webp",
+    "sha256": "66bf4b73e753d4d92ea5dfe1b0d4ed7bde67e53451250f9fdc64b183becc667c",
+    "width": 1200,
+    "height": 1200,
+    "originalBytes": 1983421,
+    "optimizedBytes": 107582,
+    "placements": [
+      "blog:how-to-talk-to-app-clients-restaurant-example"
+    ]
+  },
+  {
+    "id": "r10",
+    "file": "3007c4b2fe290ff3fc3a73103347c966.jpg",
+    "name": "colourful-portrait-framing",
+    "alt": "Woman holding her hands in a frame around her face",
+    "kind": "photo",
+    "src": "/images/marketing/colourful-portrait-framing.webp",
+    "sha256": "8712d48826a59ee2bb7d39c2967db4520d402bc779d6f5f68f65ca301c91b9f7",
+    "width": 736,
+    "height": 1032,
+    "originalBytes": 132062,
+    "optimizedBytes": 118894,
+    "placements": [
+      "blog:download-public-instagram-photos-without-login"
+    ]
+  },
+  {
+    "id": "r11",
+    "file": "30c5c057325ecf9cb0ff37bef9b3982e.jpg",
+    "name": "bright-campaign-portrait",
+    "alt": "Woman smiling against a yellow background",
+    "kind": "photo",
+    "src": "/images/marketing/bright-campaign-portrait.webp",
+    "sha256": "e216e207eedcae036d04350a53ecb95816f75963ac6ff81b23009281e10c5e88",
+    "width": 705,
+    "height": 940,
+    "originalBytes": 69422,
+    "optimizedBytes": 46536,
+    "placements": [
+      "service:digital-advertising"
+    ]
+  },
+  {
+    "id": "r13",
+    "file": "3a80416376eb6188608c906a880e5ba7.jpg",
+    "name": "expressive-campaign-portrait",
+    "alt": "Woman with a surprised expression in a yellow shirt",
+    "kind": "photo",
+    "src": "/images/marketing/expressive-campaign-portrait.webp",
+    "sha256": "8bd4a55672bc3766b812403396104bfd5c251850cb6307af13955de681de8768",
+    "width": 736,
+    "height": 970,
+    "originalBytes": 83603,
+    "optimizedBytes": 59608,
+    "placements": [
+      "service:digital-advertising"
+    ]
+  },
+  {
+    "id": "r14",
+    "file": "3e82e8f6104be88e8d647ba98e3018cb.jpg",
+    "name": "business-owner-laptop",
+    "alt": "Woman sitting with a laptop",
+    "kind": "photo",
+    "src": "/images/marketing/business-owner-laptop.webp",
+    "sha256": "6398efb09d1cd222e657daf9a1b6ddfa00d6aa37da6c12e5d1a0ac9655ae59b4",
+    "width": 602,
+    "height": 665,
+    "originalBytes": 44068,
+    "optimizedBytes": 32860,
+    "placements": [
+      "service:web-development"
+    ]
+  },
+  {
+    "id": "r15",
+    "file": "407e11878f8df5c4d0b6105d2a046a7d.jpg",
+    "name": "mobile-social-frame",
+    "alt": "Woman using a phone inside an illustrated social media frame",
+    "kind": "photo",
+    "src": "/images/marketing/mobile-social-frame.webp",
+    "sha256": "e8c25ea42ab2241fa0e7b1cc7777f4c1f04519ecacb18e0edba90a8b8de75592",
+    "width": 736,
+    "height": 1318,
+    "originalBytes": 79161,
+    "optimizedBytes": 47406,
+    "placements": [
+      "service:app-development"
+    ]
+  },
+  {
+    "id": "r16",
+    "file": "456d6a4d0b734362cb829bba77b797dc.jpg",
+    "name": "mobile-portrait-composition",
+    "alt": "Man pictured inside an illustrated mobile screen",
+    "kind": "photo",
+    "src": "/images/marketing/mobile-portrait-composition.webp",
+    "sha256": "36fa04eae5015c5f291bb3a56e9d92c403afeb9bcf0f0d04a432afaada1ceb3b",
+    "width": 736,
+    "height": 1104,
+    "originalBytes": 54437,
+    "optimizedBytes": 32814,
+    "placements": [
+      "service:app-development"
+    ]
+  },
+  {
+    "id": "r17",
+    "file": "4add8324606d06893e0e531d0094bd9c.jpg",
+    "name": "contractor-yellow-helmet",
+    "alt": "Contractor wearing a yellow helmet and checked shirt",
+    "kind": "photo",
+    "src": "/images/marketing/contractor-yellow-helmet.webp",
+    "sha256": "a21bd45f54126b7b36764ef382aad2d82d8bef22134b91a2a5ed278538fb9904",
+    "width": 1200,
+    "height": 1500,
+    "originalBytes": 316423,
+    "optimizedBytes": 277062,
+    "placements": [
+      "home"
+    ]
+  },
+  {
+    "id": "r19",
+    "file": "4eb2df709a9485b9045e3b464e1caef0.jpg",
+    "name": "delivery-worker-packages",
+    "alt": "Delivery worker holding a parcel and takeaway containers",
+    "kind": "photo",
+    "src": "/images/marketing/delivery-worker-packages.webp",
+    "sha256": "0762d3883dda03d2dc5895257ab8eee0cf26edf3de3837c4e7593bf1fe6988c6",
+    "width": 736,
+    "height": 1051,
+    "originalBytes": 72001,
+    "optimizedBytes": 45252,
+    "placements": [
+      "industry:seo-for-plumbers"
+    ]
+  },
+  {
+    "id": "r21",
+    "file": "525bf2c9338649150c95d01b65c6e325.jpg",
+    "name": "professional-colour-portrait",
+    "alt": "Woman wearing a suit and green glasses",
+    "kind": "photo",
+    "src": "/images/marketing/professional-colour-portrait.webp",
+    "sha256": "5d61164d2d491c45d00aeeb8fe91f452ea3b4614d0d2e8d8147df791ca63ebc9",
+    "width": 750,
+    "height": 1125,
+    "originalBytes": 80796,
+    "optimizedBytes": 59408,
+    "placements": [
+      "service:digital-advertising"
+    ]
+  },
+  {
+    "id": "r24",
+    "file": "548979d92cab4811166238a00d1eb7c9.jpg",
+    "name": "customer-online-order",
+    "alt": "Man holding a phone with packages beside him",
+    "kind": "photo",
+    "src": "/images/marketing/customer-online-order.webp",
+    "sha256": "e19f3eee595398a118c4c3505492c2eafad37ea635fcf197bc1cedea43eb3c2b",
+    "width": 1080,
+    "height": 1350,
+    "originalBytes": 158364,
+    "optimizedBytes": 103250,
+    "placements": [
+      "service:digital-advertising"
+    ]
+  },
+  {
+    "id": "r25",
+    "file": "55ff6714f8ded1b4ed7810500bd39521.jpg",
+    "name": "customer-checking-phone",
+    "alt": "Woman smiling while using her smartphone",
+    "kind": "photo",
+    "src": "/images/marketing/customer-checking-phone.webp",
+    "sha256": "ab1daf6a4b1817cf139f88fb2d4946069f612e681529239692046cfd50632b5a",
+    "width": 540,
+    "height": 876,
+    "originalBytes": 78249,
+    "optimizedBytes": 67408,
+    "placements": [
+      "how-it-works"
+    ]
+  },
+  {
+    "id": "r28",
+    "file": "66fe1094b39f524ba69cd9aef50913e8.jpg",
+    "name": "business-customer-conversation",
+    "alt": "Woman seated across a desk from another person",
+    "kind": "photo",
+    "src": "/images/marketing/business-customer-conversation.webp",
+    "sha256": "564a52b6272c90105200db65eee1e253668525abcf83a38aeea8b52610d87ef5",
+    "width": 735,
+    "height": 919,
+    "originalBytes": 64951,
+    "optimizedBytes": 42672,
+    "placements": [
+      "industry:seo-for-plumbers"
+    ]
+  },
+  {
+    "id": "r31",
+    "file": "6c8ec3db095972d55b07cc2e9b14b2cb.jpg",
+    "name": "mover-stacked-boxes",
+    "alt": "Mover carrying a stack of cardboard boxes",
+    "kind": "photo",
+    "src": "/images/marketing/mover-stacked-boxes.webp",
+    "sha256": "37d298099b72a0747d80f223f7f7b4a34b6c147327599065061667fb51654f91",
+    "width": 454,
+    "height": 626,
+    "originalBytes": 20134,
+    "optimizedBytes": 11592,
+    "placements": [
+      "industry:seo-for-uk-removals"
+    ]
+  },
+  {
+    "id": "r33",
+    "file": "8059a3d683e09c0a7b7d760767c3af4d.jpg",
+    "name": "photographer-at-work",
+    "alt": "Photographer holding a camera beside a desk",
+    "kind": "photo",
+    "src": "/images/marketing/photographer-at-work.webp",
+    "sha256": "64375b7160d631dae8726b9dd3ce6f93893cda377a7d26aa01e77f54d4fc1e80",
+    "width": 1200,
+    "height": 1500,
+    "originalBytes": 148689,
+    "optimizedBytes": 80542,
+    "placements": [
+      "blog:download-public-instagram-photos-without-login"
+    ]
+  },
+  {
+    "id": "r34",
+    "file": "81d8c243287069c65f5cb13669990383.jpg",
+    "name": "delivery-worker-box",
+    "alt": "Worker in a blue polo shirt holding a cardboard box",
+    "kind": "photo",
+    "src": "/images/marketing/delivery-worker-box.webp",
+    "sha256": "4f5fc397b7495eb324a18b2d19a97c442df973dddee4045345045aa91ef219b2",
+    "width": 736,
+    "height": 1104,
+    "originalBytes": 49372,
+    "optimizedBytes": 25542,
+    "placements": [
+      "industry:seo-for-uk-removals"
+    ]
+  },
+  {
+    "id": "r38",
+    "file": "970cb99c0d28f74ed70b97fb9d415052.jpg",
+    "name": "laptop-campaign-composition",
+    "alt": "Woman with a laptop against a colourful illustrated background",
+    "kind": "photo",
+    "src": "/images/marketing/laptop-campaign-composition.webp",
+    "sha256": "817a1f6c3870c561220826edd0409fa6053d74566950f185dfc0bee2348d0d11",
+    "width": 380,
+    "height": 690,
+    "originalBytes": 37501,
+    "optimizedBytes": 21460,
+    "placements": [
+      "service:digital-advertising"
+    ]
+  },
+  {
+    "id": "r39",
+    "file": "971907d50a00a00a4b7b3f21456aa4d1.jpg",
+    "name": "portrait-green-hat",
+    "alt": "Portrait of a man wearing a green knitted hat",
+    "kind": "photo",
+    "src": "/images/marketing/portrait-green-hat.webp",
+    "sha256": "e953fa81a87486b7da6f0344f7d70198a429e9c57f6b42779a246cb2163d12db",
+    "width": 736,
+    "height": 920,
+    "originalBytes": 130924,
+    "optimizedBytes": 116134,
+    "placements": [
+      "service:digital-advertising"
+    ]
+  },
+  {
+    "id": "r44",
+    "file": "9e2a99299fca88961edcacef60e1820b.jpg",
+    "name": "photographer-blue-jacket",
+    "alt": "Photographer holding a camera to his eye",
+    "kind": "photo",
+    "src": "/images/marketing/photographer-blue-jacket.webp",
+    "sha256": "1df7ccc8cbaa2fb3d5d9dd8663033d00ceed95308a58b020b4c587c723e07434",
+    "width": 736,
+    "height": 1308,
+    "originalBytes": 157115,
+    "optimizedBytes": 134322,
+    "placements": [
+      "blog:download-public-instagram-photos-without-login"
+    ]
+  },
+  {
+    "id": "r45",
+    "file": "a24593da5acc11c9e7fa87846eb1a4f8.jpg",
+    "name": "portrait-green-jacket",
+    "alt": "Man looking through green glasses toward the camera",
+    "kind": "photo",
+    "src": "/images/marketing/portrait-green-jacket.webp",
+    "sha256": "e78e4a865c7a33906b39d5358eb9f8667de5e82c136dc1ce3d4d9be6aad498c3",
+    "width": 736,
+    "height": 1104,
+    "originalBytes": 68181,
+    "optimizedBytes": 50336,
+    "placements": [
+      "service:digital-advertising"
+    ]
+  },
+  {
+    "id": "r47",
+    "file": "a644701c5a6212ab394d440ed6223ce6.jpg",
+    "name": "social-platforms-laptop",
+    "alt": "Woman using a laptop surrounded by social platform symbols",
+    "kind": "photo",
+    "src": "/images/marketing/social-platforms-laptop.webp",
+    "sha256": "9c68713ce5881b5a68793f6944ffd3d0e74dce5360aaabac1422d1769353c6a6",
+    "width": 1011,
+    "height": 1098,
+    "originalBytes": 114386,
+    "optimizedBytes": 79732,
+    "placements": [
+      "service:app-development"
+    ]
+  },
+  {
+    "id": "r49",
+    "file": "ab560217d5256043c03b3ea32ae6d45c.jpg",
+    "name": "customer-mobile-screen",
+    "alt": "Man holding a smartphone with a purple screen",
+    "kind": "photo",
+    "src": "/images/marketing/customer-mobile-screen.webp",
+    "sha256": "f8fe8b685a870e75031adfa184959b0f5f3561a8352eda5bc7efc35c5c47405a",
+    "width": 735,
+    "height": 706,
+    "originalBytes": 44615,
+    "optimizedBytes": 25986,
+    "placements": [
+      "service:app-development"
+    ]
+  },
+  {
+    "id": "r50",
+    "file": "ac2ceec85e0aa7b8fd53e4797f43ef33.jpg",
+    "name": "seasonal-travel-photo",
+    "alt": "Person sitting in a deckchair holding a phone",
+    "kind": "photo",
+    "src": "/images/marketing/seasonal-travel-photo.webp",
+    "sha256": "ea33966266148ba0e2d8547bfc7abc3fde1a9435039d06570bb3b1c1affdfc45",
+    "width": 1079,
+    "height": 1349,
+    "originalBytes": 133931,
+    "optimizedBytes": 95680,
+    "placements": [
+      "service:digital-advertising"
+    ]
+  },
+  {
+    "id": "r51",
+    "file": "ae48dc9a7f946fedfa67cafadb30cd63.jpg",
+    "name": "business-website-laptop",
+    "alt": "Business professional holding an open laptop",
+    "kind": "photo",
+    "src": "/images/marketing/business-website-laptop.webp",
+    "sha256": "4d3aca52d347316fb865705d8b4a647d00a1cb7995c10eaaac547ebbe662e676",
+    "width": 491,
+    "height": 729,
+    "originalBytes": 29126,
+    "optimizedBytes": 16854,
+    "placements": [
+      "service:web-development"
+    ]
+  },
+  {
+    "id": "r53",
+    "file": "b22433dc7221034319e5f1150dfc6924.jpg",
+    "name": "construction-planning",
+    "alt": "Construction professional holding a clipboard",
+    "kind": "photo",
+    "src": "/images/marketing/construction-planning.webp",
+    "sha256": "5ffa69531558e77533e65b74aaba3fa2d0cd0a611522d6d1b8bcab4d1e9108c5",
+    "width": 707,
+    "height": 1000,
+    "originalBytes": 102428,
+    "optimizedBytes": 79662,
+    "placements": [
+      "guide:how-plumbers-get-more-jobs-online"
+    ]
+  },
+  {
+    "id": "r54",
+    "file": "b46d7ca34cc36950ef852a238f5c3fc2.jpg",
+    "name": "photographer-striped-shirt",
+    "alt": "Photographer looking through a camera",
+    "kind": "photo",
+    "src": "/images/marketing/photographer-striped-shirt.webp",
+    "sha256": "6488c5963306646b003c159624f0bc5f56e01b1ee805a95fa6f1f78ea7b4e30a",
+    "width": 736,
+    "height": 1097,
+    "originalBytes": 143129,
+    "optimizedBytes": 127646,
+    "placements": [
+      "blog:download-public-instagram-photos-without-login"
+    ]
+  },
+  {
+    "id": "r55",
+    "file": "b7a6b9bce556429f9edfabb7d1bb09e4.jpg",
+    "name": "phone-user-expression",
+    "alt": "Man with glasses looking at a smartphone",
+    "kind": "photo",
+    "src": "/images/marketing/phone-user-expression.webp",
+    "sha256": "af29de58840a8de9f8f9b53e6d3bda5b217975c98fe7064b0261bd240b4783af",
+    "width": 735,
+    "height": 985,
+    "originalBytes": 127135,
+    "optimizedBytes": 97860,
+    "placements": [
+      "service:digital-advertising"
+    ]
+  },
+  {
+    "id": "r56",
+    "file": "b7f4fab76bee870cd1124398baa17c22.jpg",
+    "name": "business-reporting-documents",
+    "alt": "Professional holding printed charts and documents",
+    "kind": "photo",
+    "src": "/images/marketing/business-reporting-documents.webp",
+    "sha256": "bcc4cfc1ef969e1fdeacc50967399c8f66791ddecc2f50d60796d71e33d14e52",
+    "width": 735,
+    "height": 919,
+    "originalBytes": 67715,
+    "optimizedBytes": 46498,
+    "placements": [
+      "how-it-works"
+    ]
+  },
+  {
+    "id": "r57",
+    "file": "b8c9262b25636502014df44806c57d77.jpg",
+    "name": "construction-high-visibility",
+    "alt": "Worker wearing a white helmet and high-visibility vest",
+    "kind": "photo",
+    "src": "/images/marketing/construction-high-visibility.webp",
+    "sha256": "bc60cff75d27c94e1e2290b3be95564dd268b1bff74c12144cf66a672246a5bc",
+    "width": 736,
+    "height": 981,
+    "originalBytes": 62745,
+    "optimizedBytes": 39794,
+    "placements": [
+      "guide:how-plumbers-get-more-jobs-online"
+    ]
+  },
+  {
+    "id": "r59",
+    "file": "bc6e8d87fc7a1891fe48728f35fc1a57.jpg",
+    "name": "mobile-campaign-blue",
+    "alt": "Man looking at his phone against a blue background",
+    "kind": "photo",
+    "src": "/images/marketing/mobile-campaign-blue.webp",
+    "sha256": "19ec3fff1b960c9b4956b8090359796431568663ec585bee8df71b4ad7f8f780",
+    "width": 1200,
+    "height": 1500,
+    "originalBytes": 133494,
+    "optimizedBytes": 104526,
+    "placements": [
+      "service:digital-advertising"
+    ]
+  },
+  {
+    "id": "r60",
+    "file": "bea44ab9b60bacd14ec237cccbc6c150.jpg",
+    "name": "energetic-campaign-purple",
+    "alt": "Person calling out against a purple background",
+    "kind": "photo",
+    "src": "/images/marketing/energetic-campaign-purple.webp",
+    "sha256": "54b6c32caf01940d564620a6988187afe916d3b211f4d01e72350db0c13bab0a",
+    "width": 864,
+    "height": 1184,
+    "originalBytes": 76381,
+    "optimizedBytes": 40780,
+    "placements": [
+      "service:digital-advertising"
+    ]
+  },
+  {
+    "id": "r61",
+    "file": "booked-jobs-widget.png",
+    "name": "bookings-dashboard-example",
+    "alt": "Illustrative dashboard showing booked jobs",
+    "kind": "dashboard",
+    "src": "/images/marketing/bookings-dashboard-example.webp",
+    "sha256": "4c7168631e84effeb75ac1aabf1e6eba17c8d97dacb3e77fc6c7fc2a64fbc71e",
+    "width": 487,
+    "height": 465,
+    "originalBytes": 144192,
+    "optimizedBytes": 10420,
+    "placements": [
+      "service:seo"
+    ]
+  },
+  {
+    "id": "r63",
+    "file": "c3b24a1b34f059d28ead05789412021f.jpg",
+    "name": "laptop-orange-chair",
+    "alt": "Woman using a laptop in an orange chair",
+    "kind": "photo",
+    "src": "/images/marketing/laptop-orange-chair.webp",
+    "sha256": "a34741ccb993193f616f0a237e1626e991c0c53223086bf0ef7dbfefcb9e7203",
+    "width": 1200,
+    "height": 1600,
+    "originalBytes": 93268,
+    "optimizedBytes": 56526,
+    "placements": [
+      "service:digital-advertising"
+    ]
+  },
+  {
+    "id": "r64",
+    "file": "c67069fcad5e579b1ed3877f4cd24564.jpg",
+    "name": "mobile-customer-purple",
+    "alt": "Man looking at a smartphone against a purple background",
+    "kind": "photo",
+    "src": "/images/marketing/mobile-customer-purple.webp",
+    "sha256": "6ea65f3ea7cdea87803e8430e7ecc217167a6994ce9fcdf5f14e80c943c32441",
+    "width": 736,
+    "height": 1313,
+    "originalBytes": 127864,
+    "optimizedBytes": 116032,
+    "placements": [
+      "service:app-development"
+    ]
+  },
+  {
+    "id": "r75",
+    "file": "Cinematic Portrait of a Street Food Cook.png",
+    "name": "restaurant-kitchen-cook",
+    "alt": "Cook working at a kitchen counter",
+    "kind": "photo",
+    "src": "/images/marketing/restaurant-kitchen-cook.webp",
+    "sha256": "2eebba2d0736374161a8b67f428b2ea8d8ed609b6825c7531ab49f72ac6489e4",
+    "width": 1200,
+    "height": 1200,
+    "originalBytes": 1896064,
+    "optimizedBytes": 66798,
+    "placements": [
+      "blog:how-to-talk-to-app-clients-restaurant-example"
+    ]
+  },
+  {
+    "id": "r77",
+    "file": "d4b87ac66035413de099a7442806f6cf.jpg",
+    "name": "customer-support-headset",
+    "alt": "Customer support professional wearing a headset",
+    "kind": "photo",
+    "src": "/images/marketing/customer-support-headset.webp",
+    "sha256": "fc0c27f9caf1e2f82acdf4051865501b07310e43885b68d3970d154b515267ee",
+    "width": 736,
+    "height": 1075,
+    "originalBytes": 64072,
+    "optimizedBytes": 39674,
+    "placements": [
+      "home"
+    ]
+  },
+  {
+    "id": "r78",
+    "file": "d93790e01396bb610af162a7c40b9bc9.jpg",
+    "name": "customer-website-browsing",
+    "alt": "Man using a laptop in a yellow armchair",
+    "kind": "photo",
+    "src": "/images/marketing/customer-website-browsing.webp",
+    "sha256": "204c2a0341c008da89a481b4e5c3c61bcb7b785d9108b31494b47466cbf69a43",
+    "width": 736,
+    "height": 736,
+    "originalBytes": 34832,
+    "optimizedBytes": 21174,
+    "placements": [
+      "service:web-development"
+    ]
+  },
+  {
+    "id": "r80",
+    "file": "download.png",
+    "name": "hand-held-smartphone",
+    "alt": "Hand holding a smartphone against a yellow background",
+    "kind": "photo",
+    "src": "/images/marketing/hand-held-smartphone.webp",
+    "sha256": "1a4fbe546bd5acf5341a5b3def06c1d674e389b0e332a7710fa3ce37bd5f9a62",
+    "width": 900,
+    "height": 1600,
+    "originalBytes": 1138005,
+    "optimizedBytes": 25102,
+    "placements": [
+      "service:app-development"
+    ]
+  },
+  {
+    "id": "r83",
+    "file": "f245f36d89f19e77dae600a65a6ff412.jpg",
+    "name": "lifestyle-campaign-couple",
+    "alt": "Two people smiling against a yellow background",
+    "kind": "photo",
+    "src": "/images/marketing/lifestyle-campaign-couple.webp",
+    "sha256": "63d980900096a5afe6ac940256bb749182f00c1f0f75c00ebd781070fa97adf9",
+    "width": 512,
+    "height": 512,
+    "originalBytes": 34896,
+    "optimizedBytes": 26952,
+    "placements": [
+      "service:digital-advertising"
+    ]
+  },
+  {
+    "id": "r84",
+    "file": "fa147035ce86e25a16ebe42c2d9bdee4.jpg",
+    "name": "campaign-portrait-hands",
+    "alt": "Woman posing with her hands framing her face",
+    "kind": "photo",
+    "src": "/images/marketing/campaign-portrait-hands.webp",
+    "sha256": "910c20048dba37d6e430d576985206ab502570f8081dd4521cfb94a522117f67",
+    "width": 750,
+    "height": 770,
+    "originalBytes": 57323,
+    "optimizedBytes": 33688,
+    "placements": [
+      "blog:download-public-instagram-photos-without-login"
+    ]
+  },
+  {
+    "id": "r87",
+    "file": "Friendly Neighborhood Home Service Visit.png",
+    "name": "home-service-visit",
+    "alt": "Home service technician talking with a homeowner",
+    "kind": "photo",
+    "src": "/images/marketing/home-service-visit.webp",
+    "sha256": "037a4b4af5138a195feadf161b0946d5818a13f399d15c1b491fdfb89b946141",
+    "width": 1200,
+    "height": 1200,
+    "originalBytes": 1935166,
+    "optimizedBytes": 82514,
+    "placements": [
+      "industry:seo-for-plumbers"
+    ]
+  },
+  {
+    "id": "r92",
+    "file": "google-maps-ranking-widget.png",
+    "name": "maps-ranking-example",
+    "alt": "Illustrative Google Maps ranking dashboard",
+    "kind": "dashboard",
+    "src": "/images/marketing/maps-ranking-example.webp",
+    "sha256": "18c999ce1fddc43e69bbabce59aac086385dd0e78f8d07e640ac83b62b770de1",
+    "width": 478,
+    "height": 460,
+    "originalBytes": 147820,
+    "optimizedBytes": 11912,
+    "placements": [
+      "service:seo"
+    ]
+  },
+  {
+    "id": "r96",
+    "file": "jobs-completed-paid-widget.png",
+    "name": "paid-jobs-dashboard-example",
+    "alt": "Illustrative dashboard showing completed and paid jobs",
+    "kind": "dashboard",
+    "src": "/images/marketing/paid-jobs-dashboard-example.webp",
+    "sha256": "a143abd279afac07ff41d54ac38f832589ed9c45f8cb20ab759b81671002abc2",
+    "width": 487,
+    "height": 460,
+    "originalBytes": 140646,
+    "optimizedBytes": 10064,
+    "placements": [
+      "how-it-works"
+    ]
+  },
+  {
+    "id": "r99",
+    "file": "person browsing cake photos on a phone.png",
+    "name": "customer-browsing-cakes",
+    "alt": "Woman browsing cake photos on her phone",
+    "kind": "photo",
+    "src": "/images/marketing/customer-browsing-cakes.webp",
+    "sha256": "e4fb0c86830d5ef56927ff32ede0939b972f60c523f99249fb3cb0414708966b",
+    "width": 1200,
+    "height": 1200,
+    "originalBytes": 2163560,
+    "optimizedBytes": 118734,
+    "placements": [
+      "blog:how-to-talk-to-app-clients-restaurant-example"
+    ]
+  },
+  {
+    "id": "r100",
+    "file": "qualified-leads-widget.png",
+    "name": "qualified-leads-example",
+    "alt": "Illustrative dashboard showing calls and form submissions",
+    "kind": "dashboard",
+    "src": "/images/marketing/qualified-leads-example.webp",
+    "sha256": "30fa86ed89c78931fedab1b77b67e7c9b5ef2b8a86b22c8714bf066441abd288",
+    "width": 478,
+    "height": 465,
+    "originalBytes": 135760,
+    "optimizedBytes": 9256,
+    "placements": [
+      "guide:how-plumbers-get-more-jobs-online"
+    ]
+  },
+  {
+    "id": "r102",
+    "file": "revenue-generated-widget.png",
+    "name": "revenue-dashboard-example",
+    "alt": "Illustrative dashboard showing tracked revenue",
+    "kind": "dashboard",
+    "src": "/images/marketing/revenue-dashboard-example.webp",
+    "sha256": "bf6109e96865627008908e28ae83e740dc78be146e8781ab3a4aca71e95522e9",
+    "width": 482,
+    "height": 460,
+    "originalBytes": 147229,
+    "optimizedBytes": 11802,
+    "placements": [
+      "how-it-works"
+    ]
+  },
+  {
+    "id": "r103",
+    "file": "Search Console Analytics Card.png",
+    "name": "search-performance-example",
+    "alt": "Illustrative Search Console impressions dashboard",
+    "kind": "dashboard",
+    "src": "/images/marketing/search-performance-example.webp",
+    "sha256": "37c113cfe073d8b14a87a67afc5fffbef00f1ecaf52842c3615e8bd48d9a7a9b",
+    "width": 1200,
+    "height": 1097,
+    "originalBytes": 952137,
+    "optimizedBytes": 30294,
+    "placements": [
+      "service:seo"
+    ]
+  },
+  {
+    "id": "r104",
+    "file": "Thoughtful Tech Founder Portrait.png",
+    "name": "technology-professional",
+    "alt": "Portrait of a professional in a dark shirt",
+    "kind": "photo",
+    "src": "/images/marketing/technology-professional.webp",
+    "sha256": "1ca36fea488953f5f7bcc42a1c1b24a20358dc74332f6dc2c2848df86b533017",
+    "width": 1200,
+    "height": 1155,
+    "originalBytes": 2060877,
+    "optimizedBytes": 90206,
+    "placements": [
+      "service:web-development"
+    ]
+  },
+  {
+    "id": "r106",
+    "file": "Warm Smile, Heavy Lift.png",
+    "name": "moving-service-worker",
+    "alt": "Moving service worker lifting a cardboard box",
+    "kind": "photo",
+    "src": "/images/marketing/moving-service-worker.webp",
+    "sha256": "46278b41304116fd120db54099034fda53bbeac03aebd4e5b59edb7bafd571c8",
+    "width": 1200,
+    "height": 1200,
+    "originalBytes": 1918946,
+    "optimizedBytes": 80486,
+    "placements": [
+      "industry:seo-for-uk-removals"
+    ]
+  },
+  {
+    "id": "w31",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.34 AM (1).jpeg",
+    "name": "landscaping-house-garden",
+    "alt": "Flower beds beside a house and garden path",
+    "kind": "photo",
+    "src": "/images/marketing/landscaping-house-garden.webp",
+    "sha256": "c4b7c6f58a20dd3dbbf604739f087c4f3b6cb353152dadd9662326afbbd29cfc",
+    "width": 736,
+    "height": 1308,
+    "originalBytes": 174435,
+    "optimizedBytes": 142902,
+    "placements": [
+      "industry:seo-for-local-service-businesses"
+    ]
+  },
+  {
+    "id": "w32",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.34 AM (2).jpeg",
+    "name": "landscaping-flower-path",
+    "alt": "Garden path bordered by colourful flowers",
+    "kind": "photo",
+    "src": "/images/marketing/landscaping-flower-path.webp",
+    "sha256": "890c18dcdf8b51d1f4852fc1c15e73c4ca74b16f05899caed25c4cfe1e811493",
+    "width": 736,
+    "height": 1308,
+    "originalBytes": 176603,
+    "optimizedBytes": 137948,
+    "placements": [
+      "industry:seo-for-local-service-businesses"
+    ]
+  },
+  {
+    "id": "w34",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.35 AM (1).jpeg",
+    "name": "landscaping-stepping-stones",
+    "alt": "Stepping stones and planting beside a modern house",
+    "kind": "photo",
+    "src": "/images/marketing/landscaping-stepping-stones.webp",
+    "sha256": "56c075b164d738b4e9ecf1fdb4a18fc5a87509f23840ec31abcfba64735b875a",
+    "width": 736,
+    "height": 1104,
+    "originalBytes": 159308,
+    "optimizedBytes": 136170,
+    "placements": [
+      "industry:seo-for-local-service-businesses"
+    ]
+  },
+  {
+    "id": "w35",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.35 AM.jpeg",
+    "name": "lawn-care-green-garden",
+    "alt": "Green garden lawn surrounded by planting",
+    "kind": "photo",
+    "src": "/images/marketing/lawn-care-green-garden.webp",
+    "sha256": "38ee2462b4eeebc2f8235319f5b5f5e780524cb7de13ca082144ea3aa0f7273c",
+    "width": 736,
+    "height": 1051,
+    "originalBytes": 194651,
+    "optimizedBytes": 192266,
+    "placements": [
+      "industry:seo-for-local-service-businesses"
+    ]
+  },
+  {
+    "id": "w38",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.36 AM.jpeg",
+    "name": "landscaping-courtyard",
+    "alt": "Narrow courtyard with potted plants and a gravel path",
+    "kind": "photo",
+    "src": "/images/marketing/landscaping-courtyard.webp",
+    "sha256": "da0fceebb86e5fb4f4fe7b973d00547d1fa893999f57c304db0347e721ff405b",
+    "width": 736,
+    "height": 1104,
+    "originalBytes": 206177,
+    "optimizedBytes": 202694,
+    "placements": [
+      "industry:seo-for-local-service-businesses"
+    ]
+  },
+  {
+    "id": "w39",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.37 AM (1).jpeg",
+    "name": "bakery-layered-cake",
+    "alt": "Layered chocolate cake on a cake stand",
+    "kind": "photo",
+    "src": "/images/marketing/bakery-layered-cake.webp",
+    "sha256": "5a6eba3e202b6c183e349528966624a37e4c8c48e60ad8fa5642e85fb3fa1039",
+    "width": 736,
+    "height": 977,
+    "originalBytes": 75874,
+    "optimizedBytes": 54628,
+    "placements": [
+      "blog:how-to-talk-to-app-clients-restaurant-example"
+    ]
+  },
+  {
+    "id": "w40",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.37 AM.jpeg",
+    "name": "bakery-professional",
+    "alt": "Chef in a white jacket standing with folded arms",
+    "kind": "photo",
+    "src": "/images/marketing/bakery-professional.webp",
+    "sha256": "f7cb4857d8727608a8ac6b11a7cc35e474af698cda04f7c415c41714e1223a58",
+    "width": 736,
+    "height": 920,
+    "originalBytes": 53228,
+    "optimizedBytes": 28510,
+    "placements": [
+      "blog:how-to-talk-to-app-clients-restaurant-example"
+    ]
+  },
+  {
+    "id": "w41",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.38 AM (1).jpeg",
+    "name": "bakery-mixing-ingredients",
+    "alt": "Hands cracking an egg into a glass mixing bowl",
+    "kind": "photo",
+    "src": "/images/marketing/bakery-mixing-ingredients.webp",
+    "sha256": "90cd5cad3442aad5358a628e0f9d2abd0ad7db5f43cb3628174a5ececc9b168a",
+    "width": 736,
+    "height": 977,
+    "originalBytes": 87699,
+    "optimizedBytes": 60902,
+    "placements": [
+      "blog:how-to-talk-to-app-clients-restaurant-example"
+    ]
+  },
+  {
+    "id": "w43",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.38 AM.jpeg",
+    "name": "bakery-cake-decoration",
+    "alt": "Baker decorating a layered chocolate cake",
+    "kind": "photo",
+    "src": "/images/marketing/bakery-cake-decoration.webp",
+    "sha256": "df277dddcbb0d5018caf365e0e187788cf57d6ad3d71bcd575ee8c0fd56bb1ac",
+    "width": 736,
+    "height": 977,
+    "originalBytes": 103039,
+    "optimizedBytes": 77624,
+    "placements": [
+      "blog:how-to-talk-to-app-clients-restaurant-example"
+    ]
+  },
+  {
+    "id": "w53",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.43 AM (1).jpeg",
+    "name": "food-shop-owner",
+    "alt": "Woman in an apron standing beside fresh produce",
+    "kind": "photo",
+    "src": "/images/marketing/food-shop-owner.webp",
+    "sha256": "df8c781c87aaf1135f2eedf4c3338e14c4f9e55f37c552d34e163dae1ef4300d",
+    "width": 736,
+    "height": 1307,
+    "originalBytes": 169499,
+    "optimizedBytes": 147508,
+    "placements": [
+      "guide:website-seo-app-or-10-percent"
+    ]
+  },
+  {
+    "id": "w54",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.43 AM.jpeg",
+    "name": "local-business-owner",
+    "alt": "Man standing outside with his arms folded",
+    "kind": "photo",
+    "src": "/images/marketing/local-business-owner.webp",
+    "sha256": "bf6da38137917a3d1d504c9dc3a1567c0dc78e8e3f3b8b78eecccb3015fe7a61",
+    "width": 736,
+    "height": 909,
+    "originalBytes": 60366,
+    "optimizedBytes": 41088,
+    "placements": [
+      "guide:website-seo-app-or-10-percent"
+    ]
+  },
+  {
+    "id": "w55",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.44 AM (1).jpeg",
+    "name": "food-market-owner",
+    "alt": "Woman in an apron holding produce at a market",
+    "kind": "photo",
+    "src": "/images/marketing/food-market-owner.webp",
+    "sha256": "5873edfb138f4e294e4f27459f00d2f20ac7dc8f5bdfe83af1287b6538fec248",
+    "width": 626,
+    "height": 626,
+    "originalBytes": 73934,
+    "optimizedBytes": 62572,
+    "placements": [
+      "guide:website-seo-app-or-10-percent"
+    ]
+  },
+  {
+    "id": "w56",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.44 AM (2).jpeg",
+    "name": "food-store-owner",
+    "alt": "Woman in an apron standing in a produce shop",
+    "kind": "photo",
+    "src": "/images/marketing/food-store-owner.webp",
+    "sha256": "5953740d4b5f2c110f9fc051736e4e3df4d468d8c4cd61592b20915a66e8a13e",
+    "width": 736,
+    "height": 941,
+    "originalBytes": 65504,
+    "optimizedBytes": 47646,
+    "placements": [
+      "guide:website-seo-app-or-10-percent"
+    ]
+  },
+  {
+    "id": "w58",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.45 AM (1).jpeg",
+    "name": "catering-food-preparation",
+    "alt": "Woman preparing vegetables at a kitchen counter",
+    "kind": "photo",
+    "src": "/images/marketing/catering-food-preparation.webp",
+    "sha256": "5336d87ba5ec15bb7ca862dd1e26141b0bc73155940931b42f3053b39ef52c82",
+    "width": 736,
+    "height": 1309,
+    "originalBytes": 178511,
+    "optimizedBytes": 139968,
+    "placements": [
+      "blog:how-to-talk-to-app-clients-restaurant-example"
+    ]
+  },
+  {
+    "id": "w59",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.45 AM.jpeg",
+    "name": "catering-fresh-salad",
+    "alt": "Woman holding a plate of fresh salad",
+    "kind": "photo",
+    "src": "/images/marketing/catering-fresh-salad.webp",
+    "sha256": "9078909aa71d99a72b672eb95f25cb136cd7645429a7bf2454a060406d352392",
+    "width": 736,
+    "height": 982,
+    "originalBytes": 105691,
+    "optimizedBytes": 84192,
+    "placements": [
+      "blog:how-to-talk-to-app-clients-restaurant-example"
+    ]
+  },
+  {
+    "id": "w60",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.46 AM (1).jpeg",
+    "name": "catering-kitchen-counter",
+    "alt": "Woman preparing food beside a kitchen counter",
+    "kind": "photo",
+    "src": "/images/marketing/catering-kitchen-counter.webp",
+    "sha256": "ba7d6aa099cc130329c07d389605bbf0faa47fcec9971ee620ac9e97625aa26c",
+    "width": 736,
+    "height": 736,
+    "originalBytes": 86067,
+    "optimizedBytes": 68820,
+    "placements": [
+      "blog:how-to-talk-to-app-clients-restaurant-example"
+    ]
+  },
+  {
+    "id": "w61",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.46 AM (2).jpeg",
+    "name": "bakery-dough-preparation",
+    "alt": "Woman preparing dough in a home kitchen",
+    "kind": "photo",
+    "src": "/images/marketing/bakery-dough-preparation.webp",
+    "sha256": "a35fa4db2b0743ab056c1517f9f4612be470b84f0e3a139e6bd4fbdd0796660a",
+    "width": 600,
+    "height": 900,
+    "originalBytes": 63974,
+    "optimizedBytes": 46686,
+    "placements": [
+      "blog:how-to-talk-to-app-clients-restaurant-example"
+    ]
+  },
+  {
+    "id": "w62",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.46 AM.jpeg",
+    "name": "bakery-flour-preparation",
+    "alt": "Baker preparing flour and dough in a kitchen",
+    "kind": "photo",
+    "src": "/images/marketing/bakery-flour-preparation.webp",
+    "sha256": "ad1c8bd89c0b7c0ebcc64eba268ec79e0a34c7ab9531c1983c1af730aad9110a",
+    "width": 688,
+    "height": 1024,
+    "originalBytes": 93280,
+    "optimizedBytes": 70226,
+    "placements": [
+      "blog:how-to-talk-to-app-clients-restaurant-example"
+    ]
+  },
+  {
+    "id": "w64",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.47 AM.jpeg",
+    "name": "home-kitchen-cooking",
+    "alt": "Woman working at a stove in a home kitchen",
+    "kind": "photo",
+    "src": "/images/marketing/home-kitchen-cooking.webp",
+    "sha256": "ae06157c9a90826005679abafca5efe0af13181127253489696fd593bc1bc258",
+    "width": 720,
+    "height": 1080,
+    "originalBytes": 82416,
+    "optimizedBytes": 48988,
+    "placements": [
+      "guide:how-cleaning-companies-get-more-bookings"
+    ]
+  },
+  {
+    "id": "w65",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.48 AM (1).jpeg",
+    "name": "cleaning-window-glass",
+    "alt": "Woman wearing gloves cleaning window glass",
+    "kind": "photo",
+    "src": "/images/marketing/cleaning-window-glass.webp",
+    "sha256": "e84f536f9e15c0f87bf4f68cf1be741c79fe1586b1d5b6eca5e14db87e9c9748",
+    "width": 736,
+    "height": 1105,
+    "originalBytes": 76523,
+    "optimizedBytes": 43178,
+    "placements": [
+      "guide:how-cleaning-companies-get-more-bookings"
+    ]
+  },
+  {
+    "id": "w66",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.48 AM.jpeg",
+    "name": "cleaning-kitchen-counter",
+    "alt": "Woman wiping a kitchen counter with a cloth",
+    "kind": "photo",
+    "src": "/images/marketing/cleaning-kitchen-counter.webp",
+    "sha256": "9132ecceaa5db56927571288186f589421bd5ee59d1cb32091a11ebd8cde6b5a",
+    "width": 736,
+    "height": 736,
+    "originalBytes": 52495,
+    "optimizedBytes": 31144,
+    "placements": [
+      "industry:seo-for-cleaners"
+    ]
+  },
+  {
+    "id": "w67",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.49 AM (1).jpeg",
+    "name": "cleaning-kitchen-cloth",
+    "alt": "Cleaner holding a cloth beside a kitchen counter",
+    "kind": "photo",
+    "src": "/images/marketing/cleaning-kitchen-cloth.webp",
+    "sha256": "db29de561d8331649609b2940927181cd140591ba628ed97a3a7a0719439025a",
+    "width": 736,
+    "height": 1105,
+    "originalBytes": 60414,
+    "optimizedBytes": 34892,
+    "placements": [
+      "guide:how-cleaning-companies-get-more-bookings"
+    ]
+  },
+  {
+    "id": "w68",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.49 AM (2).jpeg",
+    "name": "cleaning-kitchen-cabinet",
+    "alt": "Cleaner wearing gloves wiping a kitchen cabinet",
+    "kind": "photo",
+    "src": "/images/marketing/cleaning-kitchen-cabinet.webp",
+    "sha256": "9d00e774ac8ef3a80bb0156dde98b0fcc11cbf59e2dd53dccc7ef78239575fe8",
+    "width": 736,
+    "height": 1104,
+    "originalBytes": 69927,
+    "optimizedBytes": 40278,
+    "placements": [
+      "industry:seo-for-cleaners"
+    ]
+  },
+  {
+    "id": "r7",
+    "file": "2107d571eae681cba2c77ba5b369aac4.jpg",
+    "name": "food-app-offer",
+    "alt": "Food ordering campaign with an orange product and headline",
+    "kind": "reference",
+    "src": "/images/marketing/food-app-offer.webp",
+    "sha256": "201894b33be8d204e03ca6049d4c35068f93e72acc90c4c6badd7bae2d817441",
+    "width": 736,
+    "height": 920,
+    "originalBytes": 88236,
+    "optimizedBytes": 55986,
+    "placements": [
+      "campaign:food-and-retail"
+    ]
+  },
+  {
+    "id": "r12",
+    "file": "386cfe8a5644ac21d1e446ee11d3fc94.jpg",
+    "name": "launch-announcement",
+    "alt": "Blue launch announcement with a bold headline",
+    "kind": "reference",
+    "src": "/images/marketing/launch-announcement.webp",
+    "sha256": "216620d01d192f70e7e1b17d23c481408e3fccc47a001edd4103ddb503a9dc5c",
+    "width": 736,
+    "height": 981,
+    "originalBytes": 95069,
+    "optimizedBytes": 65638,
+    "placements": [
+      "campaign:colour-and-message"
+    ]
+  },
+  {
+    "id": "r18",
+    "file": "4bff6ab1844cc3411822a145dadbdb90.jpg",
+    "name": "green-service-campaign",
+    "alt": "Green service campaign with a product illustration",
+    "kind": "reference",
+    "src": "/images/marketing/green-service-campaign.webp",
+    "sha256": "bf0034c7b95e40f6d2379a60601dda48d53d4fc4e367b9c98edf089313c93a4b",
+    "width": 736,
+    "height": 920,
+    "originalBytes": 95185,
+    "optimizedBytes": 58960,
+    "placements": [
+      "campaign:colour-and-message"
+    ]
+  },
+  {
+    "id": "r20",
+    "file": "4fd2115960f7b88f7abf21c8ef9e940e.jpg",
+    "name": "partnership-campaign",
+    "alt": "Green partnership announcement with handshake imagery",
+    "kind": "reference",
+    "src": "/images/marketing/partnership-campaign.webp",
+    "sha256": "023d2554825f929bab3d047beea032b554287f0ccf7c731617152d81b4cf1566",
+    "width": 736,
+    "height": 920,
+    "originalBytes": 84149,
+    "optimizedBytes": 50304,
+    "placements": [
+      "campaign:colour-and-message"
+    ]
+  },
+  {
+    "id": "r26",
+    "file": "57390f6312c3017af498672cd775bf6c.jpg",
+    "name": "social-campaign-headline",
+    "alt": "Red social campaign with a large headline and portrait",
+    "kind": "reference",
+    "src": "/images/marketing/social-campaign-headline.webp",
+    "sha256": "7f5b77d7b80c8eb80d8f1f1f08ba37e2d3aec4df570528c426a55b36beac72f9",
+    "width": 736,
+    "height": 920,
+    "originalBytes": 90738,
+    "optimizedBytes": 57574,
+    "placements": [
+      "campaign:colour-and-message"
+    ]
+  },
+  {
+    "id": "r27",
+    "file": "5973af1c15070dffa62bee9d0492210f.jpg",
+    "name": "music-campaign-green",
+    "alt": "Green music campaign with headphones and a laptop",
+    "kind": "reference",
+    "src": "/images/marketing/music-campaign-green.webp",
+    "sha256": "7b957a5b27165aef10bd01bda0a92b00749cffb694bd9b42024adceb6b0f3867",
+    "width": 736,
+    "height": 920,
+    "originalBytes": 78285,
+    "optimizedBytes": 51548,
+    "placements": [
+      "campaign:colour-and-message"
+    ]
+  },
+  {
+    "id": "r29",
+    "file": "67e9f853a3a0cd03a4a227ce13052514.jpg",
+    "name": "service-offer-blue",
+    "alt": "Blue service campaign with a portrait and headline",
+    "kind": "reference",
+    "src": "/images/marketing/service-offer-blue.webp",
+    "sha256": "0159134cafa07241a5be2d2d7432dbfbb318ea214ae8d7ad8d035ef6fef4c616",
+    "width": 735,
+    "height": 919,
+    "originalBytes": 100625,
+    "optimizedBytes": 72044,
+    "placements": [
+      "campaign:colour-and-message"
+    ]
+  },
+  {
+    "id": "r30",
+    "file": "6ac1a7ad89e672628b5310baae64c2ee.jpg",
+    "name": "mobile-payments-campaign",
+    "alt": "Mobile payment campaign with a phone user",
+    "kind": "reference",
+    "src": "/images/marketing/mobile-payments-campaign.webp",
+    "sha256": "cc93d75c67e195fd0b299d95ec5eab9f640ad504d3479570d79deb22429a8b77",
+    "width": 640,
+    "height": 800,
+    "originalBytes": 77379,
+    "optimizedBytes": 67238,
+    "placements": [
+      "campaign:colour-and-message"
+    ]
+  },
+  {
+    "id": "r32",
+    "file": "7c54f667eb97665431d48d727ae74480.jpg",
+    "name": "seasonal-campaign-blue",
+    "alt": "Bright seasonal campaign with a portrait and blue background",
+    "kind": "reference",
+    "src": "/images/marketing/seasonal-campaign-blue.webp",
+    "sha256": "1a8a33441a86cd3c70fc803f00981114ea7487889dc4ad6e8d4b70660493355c",
+    "width": 1200,
+    "height": 1200,
+    "originalBytes": 329189,
+    "optimizedBytes": 342288,
+    "placements": [
+      "campaign:colour-and-message"
+    ]
+  },
+  {
+    "id": "r35",
+    "file": "83eec1a5e0e4f26ec7b17bc6632d336f.jpg",
+    "name": "orange-drink-campaign",
+    "alt": "Orange beverage campaign with a portrait and product",
+    "kind": "reference",
+    "src": "/images/marketing/orange-drink-campaign.webp",
+    "sha256": "f2e97ad741a86ed576ce6ff35cb705a3df1b6f1ee7405470d857a6f0e0629802",
+    "width": 1126,
+    "height": 1409,
+    "originalBytes": 233750,
+    "optimizedBytes": 158422,
+    "placements": [
+      "campaign:food-and-retail"
+    ]
+  },
+  {
+    "id": "r37",
+    "file": "9603bc06b22a868547c23b5caa03c4ba.jpg",
+    "name": "beverage-headline-composition",
+    "alt": "Beverage campaign combining a close portrait and headline",
+    "kind": "reference",
+    "src": "/images/marketing/beverage-headline-composition.webp",
+    "sha256": "40b59fd77d84f8760e3dd0a688bb95c5bfbd36dd3cb89d6464a3af9cdc0c3220",
+    "width": 736,
+    "height": 920,
+    "originalBytes": 114825,
+    "optimizedBytes": 86226,
+    "placements": [
+      "campaign:food-and-retail"
+    ]
+  },
+  {
+    "id": "r40",
+    "file": "9a404b31b472590fb9bf7959342933f4.jpg",
+    "name": "retail-shopping-campaign",
+    "alt": "Retail campaign showing a customer with a shopping trolley",
+    "kind": "reference",
+    "src": "/images/marketing/retail-shopping-campaign.webp",
+    "sha256": "dee44a9bfee51fe65cc4c35187d6a90fede09390b1891bb182ea532efc02378e",
+    "width": 1080,
+    "height": 1348,
+    "originalBytes": 236785,
+    "optimizedBytes": 202532,
+    "placements": [
+      "campaign:food-and-retail"
+    ]
+  },
+  {
+    "id": "r42",
+    "file": "9de16aaacce1d6c3df1b40e328e525e0 (1).jpg",
+    "name": "review-campaign-green",
+    "alt": "Green review campaign with a customer portrait",
+    "kind": "reference",
+    "src": "/images/marketing/review-campaign-green.webp",
+    "sha256": "b14fe760e6dfb42651979de876dfbe5aec07dff13dec019a132cd76ef500e35a",
+    "width": 736,
+    "height": 920,
+    "originalBytes": 82292,
+    "optimizedBytes": 47210,
+    "placements": [
+      "campaign:colour-and-message"
+    ]
+  },
+  {
+    "id": "r48",
+    "file": "a7ad5b4d97ae1e82527336f735af382f.jpg",
+    "name": "retail-offer-campaign",
+    "alt": "Retail offer campaign with a large discount message",
+    "kind": "reference",
+    "src": "/images/marketing/retail-offer-campaign.webp",
+    "sha256": "91077ae55b6ea3ed3feb20697eb0faa3587fad1d02effdbd5bf13442ac5d3b31",
+    "width": 1199,
+    "height": 1483,
+    "originalBytes": 301943,
+    "optimizedBytes": 244416,
+    "placements": [
+      "campaign:food-and-retail"
+    ]
+  },
+  {
+    "id": "r52",
+    "file": "b158349174cec15605bd5c09e7fbca3a.jpg",
+    "name": "creative-services-campaign",
+    "alt": "Creative services campaign with a green headline",
+    "kind": "reference",
+    "src": "/images/marketing/creative-services-campaign.webp",
+    "sha256": "db11997efe481f74866295230c09962a6a0a24f76a853a76bf6cf4cc99d68b59",
+    "width": 1199,
+    "height": 1205,
+    "originalBytes": 140284,
+    "optimizedBytes": 80540,
+    "placements": [
+      "campaign:colour-and-message"
+    ]
+  },
+  {
+    "id": "r66",
+    "file": "cd8f98496a8099b6b7e85582da4dfd36.jpg",
+    "name": "music-subscription-campaign",
+    "alt": "Music subscription campaign with a product price",
+    "kind": "reference",
+    "src": "/images/marketing/music-subscription-campaign.webp",
+    "sha256": "9e16f40e03f0b69b43040c5b686e493b7d608e61b50bf55442fd52d0d1890fa0",
+    "width": 736,
+    "height": 920,
+    "originalBytes": 83478,
+    "optimizedBytes": 50956,
+    "placements": [
+      "campaign:colour-and-message"
+    ]
+  },
+  {
+    "id": "r76",
+    "file": "d37da4040323beb62940e7e48c7ca752.jpg",
+    "name": "food-delivery-campaign",
+    "alt": "Food delivery campaign with an orange background",
+    "kind": "reference",
+    "src": "/images/marketing/food-delivery-campaign.webp",
+    "sha256": "72393c5cc3fdb6e0d8d83661baf298e27c2fe676d16126403ef7528da8b1a098",
+    "width": 736,
+    "height": 1041,
+    "originalBytes": 85839,
+    "optimizedBytes": 53980,
+    "placements": [
+      "campaign:food-and-retail"
+    ]
+  },
+  {
+    "id": "r79",
+    "file": "da4842b7c055e485ba8837effd1530de.jpg",
+    "name": "social-conversation-campaign",
+    "alt": "Green conversation campaign with two portraits",
+    "kind": "reference",
+    "src": "/images/marketing/social-conversation-campaign.webp",
+    "sha256": "c615320e5055a8c802c34063a1619d565b9dd7dfe205b8b1c539487b28322eea",
+    "width": 1080,
+    "height": 1080,
+    "originalBytes": 97098,
+    "optimizedBytes": 73976,
+    "placements": [
+      "campaign:colour-and-message"
+    ]
+  },
+  {
+    "id": "r81",
+    "file": "ec62bdfa52e0055b6a315c86655af0d9.jpg",
+    "name": "weekly-campaign-green",
+    "alt": "Weekly campaign with green typography and a portrait",
+    "kind": "reference",
+    "src": "/images/marketing/weekly-campaign-green.webp",
+    "sha256": "104694a668998ebe83b4f5efe2a194d3f11e6e6b8cd9c62dc0c7349aa8c51a71",
+    "width": 736,
+    "height": 874,
+    "originalBytes": 61931,
+    "optimizedBytes": 40482,
+    "placements": [
+      "campaign:colour-and-message"
+    ]
+  },
+  {
+    "id": "r85",
+    "file": "fbabdab7ad445a2f0159e8c658b07f28.jpg",
+    "name": "beverage-product-portrait",
+    "alt": "Beverage campaign featuring a customer and product",
+    "kind": "reference",
+    "src": "/images/marketing/beverage-product-portrait.webp",
+    "sha256": "652e46ea3ddde1f565789850df132ffed50ab5bfb84d4b1a275c32daf2096b42",
+    "width": 736,
+    "height": 981,
+    "originalBytes": 116453,
+    "optimizedBytes": 91854,
+    "placements": [
+      "campaign:food-and-retail"
+    ]
+  },
+  {
+    "id": "r86",
+    "file": "fe806cfabeeba697a506f7a30cf9cd84.jpg",
+    "name": "new-week-campaign",
+    "alt": "Green weekly campaign with large type and a portrait",
+    "kind": "reference",
+    "src": "/images/marketing/new-week-campaign.webp",
+    "sha256": "c38a42e30180f2091e20e97a859b2b64470192ea3c2e3b51c0b385ca4bd86548",
+    "width": 736,
+    "height": 736,
+    "originalBytes": 56111,
+    "optimizedBytes": 38400,
+    "placements": [
+      "campaign:colour-and-message"
+    ]
+  },
+  {
+    "id": "w1",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.10 AM.jpeg",
+    "name": "campaign-reference-1",
+    "alt": "Yellow and blue social campaign with a phone and headphones",
+    "kind": "reference",
+    "src": "/images/marketing/campaign-reference-1.webp",
+    "sha256": "573a8806b20d9be66b69ea248ca5fa9add91db95a5055f45dfb06169e11c7bdb",
+    "width": 736,
+    "height": 903,
+    "originalBytes": 165165,
+    "optimizedBytes": 136652,
+    "placements": [
+      "campaign:seasonal"
+    ]
+  },
+  {
+    "id": "w3",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.18 AM.jpeg",
+    "name": "campaign-reference-3",
+    "alt": "Orange announcement with a portrait and repeated headline",
+    "kind": "reference",
+    "src": "/images/marketing/campaign-reference-3.webp",
+    "sha256": "96218404cefe0e31df3d2dc2548facb367b1fa280784af52cc2d59eaa4f95d4e",
+    "width": 736,
+    "height": 920,
+    "originalBytes": 95199,
+    "optimizedBytes": 62882,
+    "placements": [
+      "campaign:seasonal"
+    ]
+  },
+  {
+    "id": "w5",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.21 AM.jpeg",
+    "name": "campaign-reference-5",
+    "alt": "Orange portrait collage with customer expressions",
+    "kind": "reference",
+    "src": "/images/marketing/campaign-reference-5.webp",
+    "sha256": "79c103f99f4a2c273a882461fdecddbb6c5ae567915c345ea5eed305d9b50fa7",
+    "width": 736,
+    "height": 884,
+    "originalBytes": 98418,
+    "optimizedBytes": 73292,
+    "placements": [
+      "campaign:seasonal"
+    ]
+  },
+  {
+    "id": "w6",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.22 AM.jpeg",
+    "name": "campaign-reference-6",
+    "alt": "Green brand recognition campaign with illustrated character",
+    "kind": "reference",
+    "src": "/images/marketing/campaign-reference-6.webp",
+    "sha256": "eb2c8b79cccdc682b984acc4062dce2fea3bb6856ca94ed44c0b5f5434d056e0",
+    "width": 450,
+    "height": 600,
+    "originalBytes": 37246,
+    "optimizedBytes": 24958,
+    "placements": [
+      "campaign:seasonal"
+    ]
+  },
+  {
+    "id": "w9",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.24 AM (1).jpeg",
+    "name": "campaign-reference-9",
+    "alt": "Green campaign featuring large numerical typography",
+    "kind": "reference",
+    "src": "/images/marketing/campaign-reference-9.webp",
+    "sha256": "e672f20698151de61112459e6f770448798b157e47599b53b553ee1e521f6d96",
+    "width": 450,
+    "height": 600,
+    "originalBytes": 43926,
+    "optimizedBytes": 29074,
+    "placements": [
+      "campaign:seasonal"
+    ]
+  },
+  {
+    "id": "w13",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.26 AM (2).jpeg",
+    "name": "campaign-reference-13",
+    "alt": "Yellow creativity campaign with a bold handwritten headline",
+    "kind": "reference",
+    "src": "/images/marketing/campaign-reference-13.webp",
+    "sha256": "c477c87366e839d73348a4cc4f5e20b6f017cb7dab124665f615784350d78a0a",
+    "width": 736,
+    "height": 920,
+    "originalBytes": 73082,
+    "optimizedBytes": 51852,
+    "placements": [
+      "campaign:seasonal"
+    ]
+  },
+  {
+    "id": "w17",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.28 AM (1).jpeg",
+    "name": "campaign-reference-17",
+    "alt": "Green weekend campaign showing two seated customers",
+    "kind": "reference",
+    "src": "/images/marketing/campaign-reference-17.webp",
+    "sha256": "26b9cd30205d24923e0da1fd5f8827a791909fe26a20aa313c51ee224a45ada1",
+    "width": 736,
+    "height": 914,
+    "originalBytes": 104917,
+    "optimizedBytes": 69570,
+    "placements": [
+      "campaign:seasonal"
+    ]
+  },
+  {
+    "id": "w18",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.28 AM (2).jpeg",
+    "name": "campaign-reference-18",
+    "alt": "Green Friday campaign with oversized rounded typography",
+    "kind": "reference",
+    "src": "/images/marketing/campaign-reference-18.webp",
+    "sha256": "a8502e0ab6b8173c9cd6f7b57072a5668cd4235719b4e5f5bd8097cb9f5b27c7",
+    "width": 736,
+    "height": 920,
+    "originalBytes": 79320,
+    "optimizedBytes": 52264,
+    "placements": [
+      "campaign:seasonal"
+    ]
+  },
+  {
+    "id": "w19",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.28 AM.jpeg",
+    "name": "campaign-reference-19",
+    "alt": "Light green Friday campaign with a seated customer",
+    "kind": "reference",
+    "src": "/images/marketing/campaign-reference-19.webp",
+    "sha256": "1aec244ba698e554695ee9970d00b737315df10a0295eb7d4dcb1693f37973ca",
+    "width": 736,
+    "height": 735,
+    "originalBytes": 67947,
+    "optimizedBytes": 45896,
+    "placements": [
+      "campaign:seasonal"
+    ]
+  },
+  {
+    "id": "w20",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.29 AM (1).jpeg",
+    "name": "campaign-reference-20",
+    "alt": "Orange Friday campaign with a couple and large white type",
+    "kind": "reference",
+    "src": "/images/marketing/campaign-reference-20.webp",
+    "sha256": "58aa300aec469c7874d9bfdc30b78fabd381b22dc398ed98c504564ae1c51386",
+    "width": 736,
+    "height": 736,
+    "originalBytes": 85455,
+    "optimizedBytes": 60452,
+    "placements": [
+      "campaign:seasonal"
+    ]
+  },
+  {
+    "id": "w21",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.29 AM.jpeg",
+    "name": "campaign-reference-21",
+    "alt": "Green Friday campaign with stacked typography",
+    "kind": "reference",
+    "src": "/images/marketing/campaign-reference-21.webp",
+    "sha256": "bd1fa857e62e2598337f84a93aaffba3432ca9c9b30ab2054a3a3db2ba03d6b1",
+    "width": 736,
+    "height": 736,
+    "originalBytes": 46862,
+    "optimizedBytes": 31834,
+    "placements": [
+      "campaign:seasonal"
+    ]
+  },
+  {
+    "id": "w22",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.30 AM.jpeg",
+    "name": "campaign-reference-22",
+    "alt": "Yellow and orange Friday campaign with a customer portrait",
+    "kind": "reference",
+    "src": "/images/marketing/campaign-reference-22.webp",
+    "sha256": "b320315c0fb5d0d48a91cdfd259970713f9171d740776f28e62eec1a8c55d778",
+    "width": 735,
+    "height": 804,
+    "originalBytes": 88135,
+    "optimizedBytes": 55418,
+    "placements": [
+      "campaign:seasonal"
+    ]
+  },
+  {
+    "id": "w23",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.31 AM (1).jpeg",
+    "name": "campaign-reference-23",
+    "alt": "Orange Friday campaign with a customer using a laptop",
+    "kind": "reference",
+    "src": "/images/marketing/campaign-reference-23.webp",
+    "sha256": "856698e002e48e97e90eb0d18d5ae25e87d2ff7aef36d18cf0fd5d528a4e470d",
+    "width": 735,
+    "height": 935,
+    "originalBytes": 61576,
+    "optimizedBytes": 36584,
+    "placements": [
+      "campaign:seasonal"
+    ]
+  },
+  {
+    "id": "w25",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.32 AM (1).jpeg",
+    "name": "campaign-reference-25",
+    "alt": "Bright green mobile banking campaign",
+    "kind": "reference",
+    "src": "/images/marketing/campaign-reference-25.webp",
+    "sha256": "9c5813737be644b3621e5a7c3c4c356016dddd5ddeefa84f98f02b48d4ea0c6b",
+    "width": 735,
+    "height": 919,
+    "originalBytes": 97032,
+    "optimizedBytes": 61926,
+    "placements": [
+      "campaign:seasonal"
+    ]
+  },
+  {
+    "id": "w27",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.32 AM.jpeg",
+    "name": "campaign-reference-27",
+    "alt": "Yellow Friday campaign with a customer portrait",
+    "kind": "reference",
+    "src": "/images/marketing/campaign-reference-27.webp",
+    "sha256": "99fed989a8eacaa8fd6064ec0a511921189db4c320fd8a73c0197f5d29cbe867",
+    "width": 736,
+    "height": 920,
+    "originalBytes": 108806,
+    "optimizedBytes": 78226,
+    "placements": [
+      "campaign:seasonal"
+    ]
+  },
+  {
+    "id": "w29",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.33 AM (2).jpeg",
+    "name": "campaign-reference-29",
+    "alt": "Orange grocery campaign with produce and a customer",
+    "kind": "reference",
+    "src": "/images/marketing/campaign-reference-29.webp",
+    "sha256": "cb19a500bbb09fd45ddcbf0bfa23820cee02fc4d3b0414de625f5ec9705ff854",
+    "width": 736,
+    "height": 736,
+    "originalBytes": 91961,
+    "optimizedBytes": 71300,
+    "placements": [
+      "campaign:food-and-retail"
+    ]
+  },
+  {
+    "id": "w30",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.33 AM.jpeg",
+    "name": "campaign-reference-30",
+    "alt": "Green seasonal campaign with plants and a customer",
+    "kind": "reference",
+    "src": "/images/marketing/campaign-reference-30.webp",
+    "sha256": "95d6778eb0432dd87d8dcca55811a2fb216bc97babaa65e50f7a245c2b18e493",
+    "width": 736,
+    "height": 736,
+    "originalBytes": 112721,
+    "optimizedBytes": 97694,
+    "placements": [
+      "campaign:food-and-retail"
+    ]
+  },
+  {
+    "id": "w33",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.34 AM.jpeg",
+    "name": "campaign-reference-33",
+    "alt": "Green fresh produce campaign with a grocery worker",
+    "kind": "reference",
+    "src": "/images/marketing/campaign-reference-33.webp",
+    "sha256": "e090cbf7312c4fc7748b3b5cbf3bd8bc1e604375dfacb562c62014333edcabab",
+    "width": 736,
+    "height": 1308,
+    "originalBytes": 121743,
+    "optimizedBytes": 78866,
+    "placements": [
+      "campaign:food-and-retail"
+    ]
+  },
+  {
+    "id": "w70",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.50 AM (1).jpeg",
+    "name": "campaign-reference-70",
+    "alt": "Cleaning campaign with a mop and playful headline",
+    "kind": "reference",
+    "src": "/images/marketing/campaign-reference-70.webp",
+    "sha256": "e62306ed3f4efedd10ea161a761f2bb9490647e676134d4bfaddc4b527e91167",
+    "width": 736,
+    "height": 919,
+    "originalBytes": 104768,
+    "optimizedBytes": 72302,
+    "placements": [
+      "campaign:local-services"
+    ]
+  },
+  {
+    "id": "w71",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.50 AM.jpeg",
+    "name": "campaign-reference-71",
+    "alt": "Cleaning campaign contrasting a service message and a customer",
+    "kind": "reference",
+    "src": "/images/marketing/campaign-reference-71.webp",
+    "sha256": "52840fe0dd59953ab1763869768019fab98dc564bb9b9ee07d18df23141dfa46",
+    "width": 736,
+    "height": 920,
+    "originalBytes": 79355,
+    "optimizedBytes": 51842,
+    "placements": [
+      "campaign:local-services"
+    ]
+  },
+  {
+    "id": "w72",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.51 AM (1).jpeg",
+    "name": "campaign-reference-72",
+    "alt": "Dark green cleaning campaign with a clear call to action",
+    "kind": "reference",
+    "src": "/images/marketing/campaign-reference-72.webp",
+    "sha256": "b0ef46d107170ec0b150b69b9831bdccd8a3ead8fc7766387e722070cb02316f",
+    "width": 736,
+    "height": 920,
+    "originalBytes": 85922,
+    "optimizedBytes": 57290,
+    "placements": [
+      "campaign:local-services"
+    ]
+  },
+  {
+    "id": "w74",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.52 AM (1).jpeg",
+    "name": "campaign-reference-74",
+    "alt": "Light green cleaning campaign with a customer portrait",
+    "kind": "reference",
+    "src": "/images/marketing/campaign-reference-74.webp",
+    "sha256": "ecb17e13c02de5baa4bb0101134203025e44339fa453c8d1e92608846bd202df",
+    "width": 736,
+    "height": 736,
+    "originalBytes": 52882,
+    "optimizedBytes": 35342,
+    "placements": [
+      "campaign:local-services"
+    ]
+  },
+  {
+    "id": "w77",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.53 AM (1).jpeg",
+    "name": "campaign-reference-77",
+    "alt": "Green cleaning campaign showing a cleaner and service offer",
+    "kind": "reference",
+    "src": "/images/marketing/campaign-reference-77.webp",
+    "sha256": "7cfb673de5a5163404f0302800dbd14cc3ef356f322790e2c87e637397285356",
+    "width": 736,
+    "height": 736,
+    "originalBytes": 86328,
+    "optimizedBytes": 56796,
+    "placements": [
+      "campaign:local-services"
+    ]
+  },
+  {
+    "id": "w80",
+    "file": "WhatsApp Image 2026-10-04 at 8.04.54 AM (2).jpeg",
+    "name": "campaign-reference-80",
+    "alt": "Moving campaign showing a worker carrying boxes",
+    "kind": "reference",
+    "src": "/images/marketing/campaign-reference-80.webp",
+    "sha256": "353eecf1bf7266d784972743db080a8cba02f2117e04de504ee8172fb2267425",
+    "width": 736,
+    "height": 920,
+    "originalBytes": 72035,
+    "optimizedBytes": 46606,
+    "placements": [
+      "campaign:local-services"
+    ]
+  }
+]

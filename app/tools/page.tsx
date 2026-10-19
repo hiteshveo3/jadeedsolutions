@@ -15,7 +15,7 @@ export default function ToolsHubPage() {
     <>
       <PageHero
         eyebrow="Free tools"
-        title={<>Free tools to<span className="block text-[#eaf25a]">plan your growth.</span></>}
+        title={<>Free tools to<span className="block text-[#BEF70A]">plan your growth.</span></>}
         lead="Quick, no-signup tools for local service owners. Find where to focus first, then see what a 10% partnership would actually cost you."
         actions={
           <>

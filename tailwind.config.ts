@@ -1,4 +1,12 @@
 import type { Config } from "tailwindcss";
+import typography from "@tailwindcss/typography";
+
+/* Every whole-number opacity (white/12, white/72 …) — pages use many values off
+   Tailwind's default scale, which otherwise generate no CSS at all. */
+const opacity = Object.fromEntries(Array.from({ length: 101 }, (_, i) => [String(i), String(i / 100)]));
+
+/* No pure white on dark (owner, 5 Oct 2026: exact white strains the eyes). */
+const WHITE = "#EEF2E7";
 
 const config: Config = {
   content: [
@@ -18,6 +26,9 @@ const config: Config = {
       },
     },
     extend: {
+      opacity,
+      /* A missing border colour falls back to a faint line, never light grey. */
+      borderColor: { DEFAULT: "rgba(238, 242, 231, 0.08)" },
       fontSize: {
         xs: ["12px", { lineHeight: "1.5" }],
         sm: ["13px", { lineHeight: "1.5" }],
@@ -31,54 +42,61 @@ const config: Config = {
         "5xl": ["48px", { lineHeight: "1.1" }],
         "6xl": ["58px", { lineHeight: "1.08" }],
       },
+      // Full-dark brand system (owner, 2026-10-04): every section sits on the
+      // brand radial gradient; lime is the only accent. Old token names are
+      // remapped so pages that still use them render correctly on dark.
       colors: {
+        white: WHITE,
+        forest: { glow: "#0B561C", DEFAULT: "#06301D", deep: "#051B1E" },
+        neon: { DEFAULT: "#BEF70A", hover: "#ABDE09", ink: "#0B1F12" },
         brand: {
-          DEFAULT: "#015F45",
-          dark: "#014F39",
-          tint: "#EFF6F2",
-          soft: "#A8D1C4",
-          accent: "#CBD810",
-          50: "#EEF6F2",
-          100: "#DCEEE8",
-          200: "#B9DDD0",
-          300: "#8CC4B0",
-          400: "#4F9E84",
-          500: "#015F45",
-          600: "#014F39",
-          700: "#063D30",
-          800: "#052F25",
-          900: "#04241C",
-          950: "#021510",
+          DEFAULT: "#BEF70A",
+          dark: "#ABDE09",
+          tint: "rgba(190, 247, 10, 0.08)",
+          soft: "rgba(190, 247, 10, 0.35)",
+          accent: "#BEF70A",
+          50: "rgba(190, 247, 10, 0.06)",
+          100: "rgba(190, 247, 10, 0.10)",
+          200: "rgba(190, 247, 10, 0.25)",
+          300: "rgba(190, 247, 10, 0.40)",
+          400: "#D2FA5A",
+          500: "#BEF70A",
+          600: "#ABDE09",
+          700: "#0B561C",
+          800: "#06301D",
+          900: "#051B1E",
+          950: "#03100F",
         },
         surface: {
-          canvas: "#FAF9F6",
-          DEFAULT: "#FFFFFF",
-          muted: "#F3F1EC",
-          warm: "#F5F3EE",
-          mint: "#EEF5F1",
-          track: "#E8E6E1",
+          canvas: "rgba(255, 255, 255, 0.03)",
+          DEFAULT: "rgba(255, 255, 255, 0.06)",
+          muted: "rgba(255, 255, 255, 0.05)",
+          warm: "rgba(255, 255, 255, 0.05)",
+          mint: "rgba(190, 247, 10, 0.08)",
+          track: "rgba(255, 255, 255, 0.16)",
         },
         accent: {
-          light: "#A8D1C4",
-          400: "#EAF25A",
-          500: "#CBD810",
-          600: "#B8C50E",
+          light: "rgba(190, 247, 10, 0.35)",
+          400: "#D2FA5A",
+          500: "#BEF70A",
+          600: "#ABDE09",
         },
         ink: {
-          DEFAULT: "#151515",
-          muted: "rgba(21, 21, 21, 0.65)",
-          faint: "rgba(21, 21, 21, 0.50)",
-          soft: "#1F2A26",
+          DEFAULT: WHITE,
+          muted: "rgba(255, 255, 255, 0.72)",
+          faint: "rgba(255, 255, 255, 0.56)",
+          soft: "rgba(255, 255, 255, 0.86)",
         },
         js: {
-          bg: "#F7F5EF",
-          dark: "#0D0D0D",
+          bg: "#06301D",
+          dark: WHITE,
         },
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
         display: ["var(--font-display)", "system-ui", "sans-serif"],
         roobert: ["Roobertvf", "Arial", "sans-serif"],
+        hand: ["var(--font-hand)", "cursive"],
       },
       keyframes: {
         scroll: {
@@ -112,12 +130,13 @@ const config: Config = {
         glow: "none",
       },
       backgroundImage: {
+        "brand-grad": "radial-gradient(120% 120% at 50% 0%, #0B561C 0%, #06301D 48%, #051B1E 100%)",
         "grid-faint":
           "linear-gradient(to right, rgba(148,163,184,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(148,163,184,0.08) 1px, transparent 1px)",
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [typography],
 };
 
 export default config;

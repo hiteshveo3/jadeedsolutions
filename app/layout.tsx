@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { DM_Sans, Bricolage_Grotesque } from "next/font/google";
+import { Caveat, Chewy, DM_Sans, Urbanist } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CommandSearch } from "@/components/CommandSearch";
-import { MobileBottomNav } from "@/components/MobileBottomNav";
-import { StickyWhatsApp } from "@/components/StickyWhatsApp";
-import { BackToTop } from "@/components/BackToTop";
+import { ChatWidget } from "@/components/chat/ChatWidget";
+import { SiteChrome } from "@/components/site/SiteChrome";
+import { searchItems } from "@/lib/ai/knowledge";
 import { siteConfig } from "@/lib/site";
 
 const dmSans = DM_Sans({
@@ -15,9 +15,29 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-const bricolage = Bricolage_Grotesque({
+// FINAL heading font (2026-10-04): Urbanist. Body stays DM Sans.
+// Headings render at 600 (readability fix, 2026-10-19); 700/800 stay loaded for the
+// few bold display accents.
+const urbanist = Urbanist({
   subsets: ["latin"],
+  weight: ["600", "700", "800"],
   variable: "--font-display",
+  display: "swap",
+});
+
+// Small handwritten accents (≤10% of a page, Round 2).
+const caveat = Caveat({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-hand",
+  display: "swap",
+});
+
+// Sticker font, used rarely (1–2 stickers on the site, Round 2).
+const chewy = Chewy({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-sticker",
   display: "swap",
 });
 
@@ -86,19 +106,23 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${dmSans.variable} ${bricolage.variable}`}>
+    <html lang="en" className={`${dmSans.variable} ${urbanist.variable} ${caveat.variable} ${chewy.variable}`}>
       <body>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <Navbar />
-        <CommandSearch />
+        <SiteChrome>
+          <Navbar />
+          <CommandSearch items={searchItems()} />
+        </SiteChrome>
         <main>{children}</main>
-        <Footer />
-        <div className="h-16 lg:hidden" aria-hidden="true" />
-        <MobileBottomNav />
-        <BackToTop />
+        <SiteChrome>
+          <Footer />
+          {/* Room for the phone action bar (Jadeed AI + free audit). */}
+          <div className="h-[84px] md:hidden" aria-hidden="true" />
+          <ChatWidget />
+        </SiteChrome>
       </body>
     </html>
   );

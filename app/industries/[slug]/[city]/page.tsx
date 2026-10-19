@@ -1,9 +1,13 @@
+import { JustShineProof } from "@/components/site/ClientEvidence";
+import { IndustryPhotos } from "@/components/site/IndustryPhotos";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { HugeiconsIcon, SearchIcon, WhatsappBusinessIcon } from "@/components/icons";
+import { HugeiconsIcon, SearchIcon, WhatsappIcon } from "@/components/icons";
 import { allNicheCityParams, getNicheCity, nicheCities } from "@/lib/niches";
 import { siteConfig } from "@/lib/site";
 import { AlphaProof } from "@/components/site/AlphaProof";
+import { StreetMap } from "@/components/site/Art";
+import { AreaCheck } from "@/components/jadeed/terms";
 import {
   ButtonLink,
   FactRows,
@@ -32,7 +36,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string; 
   const data = getNicheCity(params.slug, params.city);
   if (!data) return {};
   const title = `${data.niche.navLabel} SEO & Websites in ${data.city.name}`;
-  const description = `SEO, Google Maps visibility and conversion-focused websites for ${data.niche.tradePlural} in ${data.city.name}. From £100/mo or 10% of bookings.`;
+  const description = `SEO, Google Maps visibility and conversion-focused websites for ${data.niche.tradePlural} in ${data.city.name}. From £300/mo or 10% of paid jobs.`;
   const url = `${siteConfig.url}/industries/${params.slug}/${params.city}`;
   return { title, description, alternates: { canonical: url }, openGraph: { title, description, url }, robots: { index: false, follow: true } };
 }
@@ -62,7 +66,7 @@ export default async function IndustryCityPage(props: { params: Promise<{ slug: 
         actions={
           <>
             <ButtonLink href="/contact">Get a free plan</ButtonLink>
-            <ButtonLink href={siteConfig.whatsappHref} variant="outlineLight" icon={WhatsappBusinessIcon}>WhatsApp us</ButtonLink>
+            <ButtonLink href={siteConfig.whatsappHref} variant="outlineLight" icon={WhatsappIcon}>WhatsApp us</ButtonLink>
           </>
         }
         aside={
@@ -70,20 +74,21 @@ export default async function IndustryCityPage(props: { params: Promise<{ slug: 
             title={`In ${city.name}`}
             rows={[
               { label: "Market", value: `${city.region ? `${city.region}, ` : ""}${city.country}` },
-              { label: "Monthly SEO", value: "From £100 · 6-month min." },
-              { label: "Or pay per result", value: "10% of bookings · 12–24 mo" },
+              { label: "Monthly SEO", value: "From £300 · 6-month min." },
+              { label: "Or pay per result", value: "10% of paid jobs · £0 upfront" },
               { label: "We work", value: "Remotely, from Narowal" },
             ]}
           />
         }
       />
 
+      <IndustryPhotos slug={niche.slug} />
       <Section tone="cream" labelledBy="searches-heading">
         <SectionHeader id="searches-heading" eyebrow="Local demand" title={`What customers in ${city.name} type into Google`} lead={city.marketNote} />
-        <ul className="mt-10 grid border-t border-black/10 md:grid-cols-2 md:gap-x-10">
+        <ul className="mt-10 grid border-t border-white/[0.08] md:grid-cols-2 md:gap-x-10">
           {city.exampleQueries.map((query) => (
-            <li key={query} className="flex items-center gap-4 border-b border-black/10 py-5">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#e7f1ed] text-[#015f45]">
+            <li key={query} className="flex items-center gap-4 border-b border-white/[0.08] py-5">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/[0.07] text-[#BEF70A]">
                 <HugeiconsIcon icon={SearchIcon} size={18} />
               </span>
               <span className="text-lg font-semibold tracking-[-.02em]">“{query}”</span>
@@ -106,7 +111,19 @@ export default async function IndustryCityPage(props: { params: Promise<{ slug: 
         </div>
       </Section>
 
+      {/* Idea 064 B — is your area still open? Territory per lib/partnership.ts. */}
+      <Section tone="cream" labelledBy="area-heading">
+        <h2 id="area-heading" className="sr-only">Territory availability in {city.name}</h2>
+        <div className="grid items-center gap-8 rounded-[30px] border border-white/[0.08] bg-white/[0.04] p-6 sm:p-10 lg:grid-cols-[1.1fr_.9fr]">
+          <AreaCheck trade={niche.tradePlural} placeholder={`An area in or near ${city.name}`} />
+          <div className="overflow-hidden rounded-[22px] border border-white/[0.08]">
+            <StreetMap me rings h={260} />
+          </div>
+        </div>
+      </Section>
+
       {niche.relatedCaseStudy === "alpha-movers" && <AlphaProof />}
+      {niche.relatedCaseStudy === "just-shine" && <JustShineProof />}
 
       <FaqSection items={niche.faqs} />
 

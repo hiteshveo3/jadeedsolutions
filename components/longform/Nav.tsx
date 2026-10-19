@@ -20,7 +20,7 @@ export function ReadingProgress() {
 
   return (
     <div className="fixed inset-x-0 top-0 z-[60] h-1" aria-hidden="true">
-      <div className="h-full bg-[#cbd810]" style={{ width: `${progress}%` }} />
+      <div className="h-full bg-[#BEF70A]" style={{ width: `${progress}%` }} />
     </div>
   );
 }
@@ -45,8 +45,8 @@ export function ContentsNav({ items, title = "Contents" }: { items: ContentsItem
 
   return (
     <nav aria-label={title} className="custom-scrollbar sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto pb-6 pr-2">
-      <p className="text-xs font-extrabold uppercase tracking-[.15em] text-[#015f45]">{title}</p>
-      <ol className="mt-4 space-y-0.5 border-l border-black/10">
+      <p className="text-xs font-extrabold uppercase tracking-[.15em] text-[#BEF70A]">{title}</p>
+      <ol className="mt-4 space-y-0.5">
         {items.map((item, index) => {
           const isActive = active === item.id;
           return (
@@ -54,14 +54,14 @@ export function ContentsNav({ items, title = "Contents" }: { items: ContentsItem
               <a
                 href={`#${item.id}`}
                 aria-current={isActive ? "location" : undefined}
-                className={`-ml-px flex gap-2.5 border-l-2 py-1.5 pl-3.5 text-[13px] leading-5 transition-colors ${
-                  isActive ? "border-[#015f45] font-semibold text-[#015f45]" : "border-transparent text-black/60 hover:text-black"
+                className={`flex gap-2.5 rounded-[10px] px-3 py-1.5 text-[13px] leading-5 transition-colors ${
+                  isActive ? "bg-[#BEF70A]/10 font-semibold text-[#BEF70A]" : "text-white/68 hover:bg-white/[0.04] hover:text-white"
                 }`}
               >
-                <span className="w-4 shrink-0 tabular-nums text-black/35">{item.number ?? index + 1}</span>
+                <span className="w-4 shrink-0 tabular-nums text-white/43">{item.number ?? index + 1}</span>
                 <span>
                   {item.label}
-                  {item.badge && <span className="ml-1.5 whitespace-nowrap rounded bg-[#cbd810]/60 px-1 py-px text-[10px] font-bold uppercase tracking-wide text-[#063d30]">{item.badge}</span>}
+                  {item.badge && <span className="ml-1.5 whitespace-nowrap rounded bg-[#BEF70A]/15 px-1 py-px text-[10px] font-bold uppercase tracking-wide text-[#BEF70A]">{item.badge}</span>}
                 </span>
               </a>
             </li>

@@ -1,0 +1,27 @@
+{
+  "round": 3,
+  "savedAt": "2026-10-04T10:05:16.155Z",
+  "summary": "Q01 Buttons ki shape: Poore gol (pill)\nQ02 Cards ka style: Safed card + halki line\nQ03 Icons ka style: Bulk\n    Note: we ll use  linear and bold also, and i need 6 variations in bulk , b so i can decide\nQ04 Kuch aur kehna hai?: cta mobile pr ya full width kro, ya one line me ya just 1 hi cta i need mobile bottom navigation as well, or cta in bottom, whatsapp business k aicon use kia jae not simple, , navigation aur arrows b stylish way me use houn\nComponents (unanswered = recommended): buttons pill, cards line, icons Iconsax bulk; hero = live-site layout (full artwork + floating nav, white + lime buttons) in the new palette",
+  "palette": {
+    "buttonShape": "pill",
+    "cardStyle": "line",
+    "iconSet": "iconsax",
+    "iconStyle": "bulk",
+    "hero": "live-site layout"
+  },
+  "answers": {
+    "r3-buttons": [
+      "pill"
+    ],
+    "r3-cards": [
+      "line"
+    ],
+    "r3-icons": [
+      "bulk"
+    ]
+  },
+  "notes": {
+    "r3-icons": "we ll use  linear and bold also, and i need 6 variations in bulk , b so i can decide",
+    "r3-anything": "cta mobile pr ya full width kro, ya one line me ya just 1 hi cta i need mobile bottom navigation as well, or cta in bottom, whatsapp business k aicon use kia jae not simple, , navigation aur arrows b stylish way me use houn"
+  }
+}

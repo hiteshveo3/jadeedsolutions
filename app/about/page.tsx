@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { WorldClocks } from "@/components/jadeed/interactive";
 import Link from "next/link";
 import {
   HugeiconsIcon,
@@ -38,9 +39,9 @@ const values = [
 ];
 
 const team = [
-  { name: "Sameer Ahmad Basra", role: "Founder & CEO", initials: "SA", photo: "/team/sameer-ahmad-basra.jpg", href: "/sameer-ahmad-basra" },
-  { name: "Aqeel Ahmad", role: "Growth Specialist", initials: "AA" },
-  { name: "Asad Waqas", role: "Growth Specialist", initials: "AW" },
+  { name: "Sameer Ahmad Basra", role: "Founder & CEO", initials: "SA", photo: "/team/sameer-ahmad-basra-2026.jpg", href: "/sameer-ahmad-basra" },
+  { name: "Aqeel Ahmad", role: "Growth Specialist", initials: "AA", photo: "/team/aqeel-ahmad.jpg" },
+  { name: "Asad Waqas", role: "Growth Specialist", initials: "AW", photo: "/team/asad-waqas.jpg" },
 ];
 
 export default function AboutPage() {
@@ -50,7 +51,7 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About"
-        title={<>A small team that measures<span className="text-[#eaf25a]"> success in booked jobs.</span></>}
+        title={<>A small team that measures<span className="text-[#BEF70A]"> success in booked jobs.</span></>}
         lead="Jadeed Solutions was founded in December 2024 in Narowal, Pakistan. We help local service businesses in the UK, USA and beyond win more work from Google — with SEO, websites, apps and optional ads."
         actions={
           <>
@@ -80,8 +81,8 @@ export default function AboutPage() {
           <div>
             <Eyebrow>Founder</Eyebrow>
             <h2 id="founder-heading" className="mt-3 font-sans text-[32px] font-semibold leading-[1.05] tracking-[-.045em] sm:text-5xl">{founder.name}</h2>
-            <p className="mt-2 font-semibold text-[#015f45]">{founder.role}</p>
-            <p className="mt-5 leading-7 text-black/70">{founder.longBio}</p>
+            <p className="mt-2 font-semibold text-[#BEF70A]">{founder.role}</p>
+            <p className="mt-5 leading-7 text-white/78">{founder.longBio}</p>
             {founder.highlights && (
               <div className="mt-8">
                 <CheckList items={founder.highlights} />
@@ -103,7 +104,7 @@ export default function AboutPage() {
             eyebrow="Our mission"
             title="Make growth predictable for the businesses we serve"
           />
-          <figure className="border-l-2 border-[#cbd810] pl-6">
+          <figure className="relative pl-9 before:absolute before:left-0 before:-top-1 before:font-display before:text-[46px] before:leading-none before:text-[#BEF70A] before:content-['“']">
             <blockquote className="text-2xl font-medium leading-snug tracking-[-.02em] sm:text-3xl">
               “We don’t sell fluff. We sell bookings — and we back it up with Search Console data and clear reporting.”
             </blockquote>
@@ -129,23 +130,23 @@ export default function AboutPage() {
 
       <Section tone="mint" labelledBy="team-heading">
         <SectionHeader id="team-heading" tone="mint" eyebrow="Our team" title="The people behind your growth" />
-        <ul className="mt-10 grid border-t border-[#063d30]/15 md:grid-cols-3 md:gap-x-10">
+        <ul className="mt-10 grid border-t border-white/[0.08] md:grid-cols-3 md:gap-x-10">
           {team.map((member) => {
             const content = (
               <>
                 {member.photo ? (
                   <Image src={member.photo} alt={member.name} width={56} height={56} className="h-14 w-14 rounded-full object-cover" />
                 ) : (
-                  <span className="grid h-14 w-14 place-items-center rounded-full bg-[#015f45] text-lg font-semibold text-[#eaf25a]">{member.initials}</span>
+                  <span className="grid h-14 w-14 place-items-center rounded-full bg-[#BEF70A] text-lg font-semibold text-[#0B1F12]">{member.initials}</span>
                 )}
                 <div>
                   <p className="text-lg font-bold">{member.name}</p>
-                  <p className="text-sm text-[#063d30]/70">{member.role}</p>
+                  <p className="text-sm text-white/78">{member.role}</p>
                 </div>
               </>
             );
             return (
-              <li key={member.name} className="border-b border-[#063d30]/15">
+              <li key={member.name} className="border-b border-white/[0.08]">
                 {member.href ? (
                   <Link href={member.href} className="flex items-center gap-4 py-6 transition-opacity hover:opacity-80">{content}</Link>
                 ) : (
@@ -155,7 +156,11 @@ export default function AboutPage() {
             );
           })}
         </ul>
-        <p className="mt-8 text-sm text-[#063d30]/70">
+        <div className="mt-12">
+          <p className="mb-4 text-[11px] font-bold uppercase tracking-[.14em] text-white/55">A remote team, in the open · right now</p>
+          <WorldClocks />
+        </div>
+        <p className="mt-8 text-sm text-white/78">
           <HugeiconsIcon icon={UsersIcon} size={16} className="mr-1.5 inline -translate-y-px" />
           {siteConfig.address}
         </p>

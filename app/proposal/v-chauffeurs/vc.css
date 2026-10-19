@@ -1,0 +1,54 @@
+/* V Chauffeurs proposal: page-only motion helpers. Colours, fonts, buttons and
+   cards all come from the site design system (globals.css, components/site/ui). */
+
+.vc-num {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Gentle entrance for swapped panels (tabs, timeline, diagram). */
+@keyframes vc-fade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.vc-fade {
+  animation: vc-fade 0.35s ease-out both;
+}
+
+/* Sections fade up as they scroll in, where the browser supports scroll timelines. */
+@supports (animation-timeline: view()) {
+  .vc-reveal {
+    animation: vc-fade linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+
+@media print {
+  .vc-fade,
+  .vc-reveal {
+    animation: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vc-fade,
+  .vc-reveal {
+    animation: none !important;
+  }
+}
+
+/* Anchored sections clear the site bar plus the section bar. */
+.vc :is(section, div)[id] {
+  scroll-margin-top: 116px;
+}
+@media (min-width: 640px) {
+  .vc :is(section, div)[id] {
+    scroll-margin-top: 124px;
+  }
+}

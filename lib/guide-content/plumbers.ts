@@ -212,8 +212,8 @@ Track a small number of things every month:
       body: `
 There is no single right way to pay for marketing. It depends on your cash flow and how predictable you want costs to be.
 
-- **Fixed-fee plans** give you a defined scope and a predictable monthly cost — SEO plans start from £100 a month with a six-month minimum, and websites start from £199.
-- **Performance deals** tie fees to the revenue from bookings the work generates, typically around 10% for standard-ticket jobs, on a 12–24 month term.
+- **Fixed-fee plans** give you a defined scope and a predictable monthly cost — SEO plans start from £300 a month with a six-month minimum, and websites start from £199.
+- **Performance deals** tie fees to the paid jobs the work generates — typically 10% of the paid invoice for standard-ticket jobs, £0 upfront, on a 6-month initial term, then month to month.
 - **Tiered deals** charge a fixed fee per completed job, which often suits high-value installs better than a percentage.
 
 If a percentage deal interests you, read our [Profit-Share Handbook](/profit-share-handbook) first — it explains exactly what we need from you and why. Otherwise, see [pricing](/pricing) or the [plumbing industry page](/industries/seo-for-plumbers).

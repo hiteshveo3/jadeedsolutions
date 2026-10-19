@@ -51,26 +51,26 @@ export default async function BlogYearArchivePage(props: { params: Promise<{ yea
 
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-white pb-12 pt-32">
+      <section className="relative isolate overflow-hidden bg-transparent pb-12 pt-32">
         <HeroBackground />
         <div className="container relative z-10 max-w-5xl">
-          <nav className="text-xs text-slate-500">
-            <Link href="/blog" className="hover:text-brand-500">
+          <nav className="text-xs text-white/62">
+            <Link href="/blog" className="hover:text-[#BEF70A]">
               Blog
             </Link>
             <span className="mx-1.5">/</span>
-            <Link href="/blog/archive" className="hover:text-brand-500">
+            <Link href="/blog/archive" className="hover:text-[#BEF70A]">
               Archive
             </Link>
             <span className="mx-1.5">/</span>
-            <span className="text-ink">{params.year}</span>
+            <span className="text-white">{params.year}</span>
           </nav>
           <div className="mt-4 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <h1 className="font-display text-4xl font-semibold tracking-tight text-ink md:text-5xl">
+              <h1 className="font-display text-4xl font-semibold tracking-tight text-white md:text-5xl">
                 {params.year}
               </h1>
-              <p className="mt-2 text-slate-600">
+              <p className="mt-2 text-white/72">
                 {items.length} article{items.length === 1 ? "" : "s"} · jump to
                 any month below
               </p>
@@ -79,7 +79,7 @@ export default async function BlogYearArchivePage(props: { params: Promise<{ yea
               {yearGroup.monthCounts.map((c, i) => (
                 <div
                   key={i}
-                  className={`w-3 rounded-sm ${c ? "bg-brand-500" : "bg-slate-200"}`}
+                  className={`w-3 rounded-sm ${c ? "bg-white/[0.05]" : "bg-white/15"}`}
                   style={{ height: c ? 12 + (c / max) * 36 : 8 }}
                   title={`${MONTH_NAMES[i]}: ${c}`}
                 />
@@ -95,7 +95,7 @@ export default async function BlogYearArchivePage(props: { params: Promise<{ yea
                 return (
                   <div
                     key={name}
-                    className="rounded-xl border border-dashed border-slate-200 bg-slate-50 px-2 py-3 text-center text-slate-300"
+                    className="rounded-xl border border-dashed border-white/[0.08] bg-white/[0.05] px-2 py-3 text-center text-white/70"
                   >
                     <p className="text-[10px] font-bold uppercase">{name}</p>
                     <p className="text-sm">—</p>
@@ -106,7 +106,7 @@ export default async function BlogYearArchivePage(props: { params: Promise<{ yea
                 <a
                   key={name}
                   href={`#month-${month}`}
-                  className="rounded-xl bg-brand-50 px-2 py-3 text-center transition-colors hover:bg-brand-500 hover:text-white"
+                  className="rounded-xl bg-white/[0.07] px-2 py-3 text-center transition-colors hover:bg-white/[0.09] hover:text-white"
                 >
                   <p className="text-[10px] font-bold uppercase">{name}</p>
                   <p className="font-display text-lg font-semibold">{count}</p>
@@ -117,27 +117,27 @@ export default async function BlogYearArchivePage(props: { params: Promise<{ yea
         </div>
       </section>
 
-      <section className="bg-slate-50 py-12 md:py-16">
+      <section className="bg-transparent py-12 md:py-16">
         <div className="container max-w-5xl space-y-12">
           {yearGroup.months.map((m) => (
             <div key={m.key} id={`month-${m.month}`} className="scroll-mt-28">
               <div className="mb-4 flex items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
-                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-brand-500 text-white">
+                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-white/[0.05] text-white">
                     <HugeiconsIcon icon={CalendarIcon} size={18} />
                   </span>
                   <div>
-                    <h2 className="font-display text-xl font-semibold text-ink">
+                    <h2 className="font-display text-xl font-semibold text-white">
                       {formatMonthLabel(m.year, m.month)}
                     </h2>
-                    <p className="text-xs text-slate-500">
+                    <p className="text-xs text-white/62">
                       {m.count} article{m.count === 1 ? "" : "s"}
                     </p>
                   </div>
                 </div>
                 <Link
                   href={m.href}
-                  className="inline-flex items-center gap-1 text-sm font-semibold text-brand-500"
+                  className="inline-flex items-center gap-1 text-sm font-semibold text-[#BEF70A]"
                 >
                   Month page
                   <HugeiconsIcon icon={ArrowRightIcon} size={14} />
@@ -148,22 +148,22 @@ export default async function BlogYearArchivePage(props: { params: Promise<{ yea
                   <Link
                     key={p.slug}
                     href={`/blog/${p.slug}`}
-                    className="group overflow-hidden rounded-2xl bg-white"
+                    className="group overflow-hidden rounded-2xl bg-white/[0.05]"
                   >
-                    <div className="relative aspect-[16/9] bg-slate-100">
+                    <div className="relative aspect-[16/9] bg-transparent">
                       <CategoryTile category={p.category} readingTime={p.readingTime} fill />
                     </div>
                     <div className="p-5">
-                      <span className="text-xs font-bold uppercase tracking-wider text-brand-500">
+                      <span className="text-xs font-bold uppercase tracking-wider text-[#BEF70A]">
                         {p.category}
                       </span>
-                      <h3 className="mt-1 font-display text-lg font-semibold text-ink group-hover:text-brand-500">
+                      <h3 className="mt-1 font-display text-lg font-semibold text-white group-hover:text-[#BEF70A]">
                         {p.title}
                       </h3>
-                      <p className="mt-2 line-clamp-2 text-sm text-slate-600">
+                      <p className="mt-2 line-clamp-2 text-sm text-white/72">
                         {p.excerpt}
                       </p>
-                      <p className="mt-3 text-xs text-slate-500">
+                      <p className="mt-3 text-xs text-white/62">
                         {formatDate(p.date)} · {p.readingTime}
                       </p>
                     </div>

@@ -86,10 +86,10 @@ function SliderField({
   return (
     <div className="space-y-4">
       <div className="flex items-end justify-between gap-3">
-        <label htmlFor={id} className="text-base font-semibold text-ink">
+        <label htmlFor={id} className="text-base font-semibold text-white">
           {label}
         </label>
-        <span className="rounded-full bg-brand-50 px-4 py-1.5 font-display text-base font-semibold tabular-nums text-brand-600">
+        <span className="rounded-full bg-white/[0.07] px-4 py-1.5 font-display text-base font-semibold tabular-nums text-[#BEF70A]">
           {valueLabel}
         </span>
       </div>
@@ -108,7 +108,7 @@ function SliderField({
         className="calc-range"
         style={{ ["--calc-pct" as string]: `${pct}%` }}
       />
-      <div className="flex justify-between text-xs font-medium uppercase tracking-wider text-slate-400">
+      <div className="flex justify-between text-xs font-medium uppercase tracking-wider text-white/52">
         <span>{min}</span>
         <span>{max}</span>
       </div>
@@ -182,21 +182,21 @@ export function PartnershipCalculator() {
   return (
     <div
       id="partnership-calculator"
-      className="scroll-mt-28 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-soft"
+      className="scroll-mt-28 overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.05] shadow-soft"
     >
       <p ref={liveRef} className="sr-only" aria-live="polite" />
 
-      <div className="border-b border-slate-200 bg-slate-50 px-6 py-6 sm:px-10 sm:py-8">
+      <div className="border-b border-white/[0.08] bg-transparent px-6 py-6 sm:px-10 sm:py-8">
         <span className="eyebrow">Visualizer</span>
-        <h2 className="mt-3 font-display text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+        <h2 className="mt-3 font-display text-2xl font-semibold tracking-tight text-white sm:text-3xl">
           See what you&rsquo;d pay
         </h2>
-        <p className="mt-2 max-w-2xl text-base leading-relaxed text-slate-600">
+        <p className="mt-2 max-w-2xl text-base leading-relaxed text-white/72">
           Set bookings and average job value. Instantly see our{" "}
-          <span className="font-semibold text-brand-500">10%</span> fee and what
+          <span className="font-semibold text-[#BEF70A]">10%</span> fee and what
           you keep — same offer for every local service business.
         </p>
-        <p className="mt-4 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm leading-relaxed text-amber-950">
+        <p className="mt-4 rounded-xl border border-white/[0.08] bg-white/[0.06] px-4 py-3 text-sm leading-relaxed text-amber-300">
           Estimate only · based on bookings <strong>we</strong> generate — not
           your existing jobs · 6-month minimum · Alpha Movers avg job was
           ~£150–250.
@@ -229,58 +229,58 @@ export function PartnershipCalculator() {
           />
 
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-              <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
+            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.05] p-5">
+              <p className="text-xs font-bold uppercase tracking-wider text-white/62">
                 Quiet month
               </p>
-              <p className="mt-1 text-sm text-slate-600">0 bookings from us</p>
-              <p className="mt-3 font-display text-2xl font-semibold text-ink">
+              <p className="mt-1 text-sm text-white/72">0 bookings from us</p>
+              <p className="mt-3 font-display text-2xl font-semibold text-white">
                 Pay {format(quietFee)}
               </p>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-              <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
+            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.05] p-5">
+              <p className="text-xs font-bold uppercase tracking-wider text-white/62">
                 Busier month
               </p>
-              <p className="mt-1 text-sm text-slate-600">
+              <p className="mt-1 text-sm text-white/72">
                 ~{busyMath.revenue > 0 ? Math.round(busyMath.revenue / (avgJob || 1)) : 0}{" "}
                 bookings
               </p>
-              <p className="mt-3 font-display text-2xl font-semibold text-ink">
+              <p className="mt-3 font-display text-2xl font-semibold text-white">
                 Pay {format(Math.round(busyMath.fee))}
               </p>
             </div>
           </div>
 
-          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+          <div className="rounded-2xl border border-white/[0.08] bg-white/[0.05] p-5">
             <div className="flex items-center justify-between gap-3">
-              <span className="text-sm text-slate-600">Monthly revenue generated</span>
-              <span className="font-display text-xl font-semibold tabular-nums text-ink">
+              <span className="text-sm text-white/72">Monthly revenue generated</span>
+              <span className="font-display text-xl font-semibold tabular-nums text-white">
                 {format(Math.round(animRevenue))}
               </span>
             </div>
             <div
-              className="mt-4 flex h-3.5 overflow-hidden rounded-full bg-slate-200"
+              className="mt-4 flex h-3.5 overflow-hidden rounded-full bg-white/15"
               role="img"
               aria-label="You keep 90 percent, Jadeed fee 10 percent"
             >
               <div
-                className="h-full bg-brand-500 transition-[width] duration-300 ease-out motion-reduce:transition-none"
+                className="h-full bg-[#BEF70A] transition-[width] duration-300 ease-out motion-reduce:transition-none"
                 style={{ width: math.revenue > 0 ? "90%" : "0%" }}
               />
               <div
-                className="h-full bg-ink/80 transition-[width] duration-300 ease-out motion-reduce:transition-none"
+                className="h-full bg-black/70 transition-[width] duration-300 ease-out motion-reduce:transition-none"
                 style={{ width: math.revenue > 0 ? "10%" : "0%" }}
               />
             </div>
-            <div className="mt-2 flex justify-between text-xs font-medium text-slate-500">
+            <div className="mt-2 flex justify-between text-xs font-medium text-white/62">
               <span>You keep {(100 - PARTNERSHIP_COMMISSION * 100).toFixed(0)}%</span>
               <span>Jadeed {(PARTNERSHIP_COMMISSION * 100).toFixed(0)}%</span>
             </div>
-            <p className="mt-4 text-sm leading-relaxed text-slate-500">
+            <p className="mt-4 text-sm leading-relaxed text-white/62">
               Break-even vs a typical {format(TYPICAL_RETAINER_GBP)}/mo retainer:
               about{" "}
-              <span className="font-semibold text-ink">
+              <span className="font-semibold text-white">
                 {math.breakEvenBookings} bookings/mo
               </span>{" "}
               at this job value.
@@ -289,7 +289,7 @@ export function PartnershipCalculator() {
         </div>
 
         {/* Results — equal column, roomy */}
-        <div className="flex min-h-full flex-col justify-between gap-10 bg-brand-500 p-8 text-white sm:p-10 lg:p-12">
+        <div className="flex min-h-full flex-col justify-between gap-10 bg-transparent p-8 text-white sm:p-10 lg:p-12">
           <div>
             <p className="text-sm font-bold uppercase tracking-wider text-white/80">
               You keep each month
@@ -304,13 +304,13 @@ export function PartnershipCalculator() {
           </div>
 
           <dl className="space-y-5">
-            <div className="flex items-baseline justify-between gap-4 border-b border-white/25 pb-4">
+            <div className="flex items-baseline justify-between gap-4 border-b border-white/[0.08] pb-4">
               <dt className="text-base text-white/85">Jadeed fee (10%)</dt>
               <dd className="font-display text-3xl font-semibold tabular-nums">
                 {format(Math.round(animFee))}
               </dd>
             </div>
-            <div className="flex items-baseline justify-between gap-4 border-b border-white/25 pb-4">
+            <div className="flex items-baseline justify-between gap-4 border-b border-white/[0.08] pb-4">
               <dt className="text-base text-white/85">6 months you keep</dt>
               <dd className="font-display text-2xl font-semibold tabular-nums">
                 {format(Math.round(math.sixKeep))}

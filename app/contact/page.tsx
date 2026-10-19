@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PhoneIcon, WhatsappBusinessIcon } from "@/components/icons";
+import { PhoneIcon, WhatsappIcon } from "@/components/icons";
 import { ContactForm } from "@/components/ContactForm";
 import { siteConfig } from "@/lib/site";
 import { ButtonLink, CheckList, Eyebrow, FactRows, PageHero, Section } from "@/components/site/ui";
@@ -22,11 +22,11 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact"
-        title={<>Tell us where<span className="block text-[#eaf25a]">you want to grow.</span></>}
+        title={<>Tell us where<span className="block text-[#BEF70A]">you want to grow.</span></>}
         lead="Share your city, your services and the jobs you want more of. We'll reply within one business day with a clear, no-obligation plan."
         actions={
           <>
-            <ButtonLink href={siteConfig.whatsappHref} icon={WhatsappBusinessIcon}>WhatsApp us</ButtonLink>
+            <ButtonLink href={siteConfig.whatsappHref} icon={WhatsappIcon}>WhatsApp us</ButtonLink>
             <ButtonLink href={`tel:${siteConfig.phoneHref}`} variant="outlineLight" icon={PhoneIcon}>Call {siteConfig.phone}</ButtonLink>
           </>
         }
@@ -34,8 +34,8 @@ export default function ContactPage() {
           <FactRows
             title="Reach us directly"
             rows={[
-              { label: "Phone & WhatsApp", value: <a href={`tel:${siteConfig.phoneHref}`} className="hover:text-[#eaf25a]">{siteConfig.phone}</a> },
-              { label: "Email", value: <a href={`mailto:${siteConfig.email}`} className="hover:text-[#eaf25a]">{siteConfig.email}</a> },
+              { label: "Phone & WhatsApp", value: <a href={`tel:${siteConfig.phoneHref}`} className="hover:text-[#BEF70A]">{siteConfig.phone}</a> },
+              { label: "Email", value: <a href={`mailto:${siteConfig.email}`} className="hover:text-[#BEF70A]">{siteConfig.email}</a> },
               { label: "Hours", value: "Mon–Fri, 9am–6pm" },
               { label: "Reply time", value: "Within 1 business day" },
             ]}
@@ -48,13 +48,13 @@ export default function ContactPage() {
           <div>
             <Eyebrow>What happens next</Eyebrow>
             <h2 className="mt-3 font-sans text-[32px] font-semibold leading-[1.05] tracking-[-.045em] sm:text-4xl">Three steps. No pressure.</h2>
-            <ol className="mt-8 border-t border-black/10">
+            <ol className="mt-8 border-t border-white/[0.08]">
               {nextSteps.map((step, index) => (
-                <li key={step.title} className="flex gap-5 border-b border-black/10 py-6">
-                  <span className="text-3xl font-semibold leading-none tracking-[-.05em] text-[#015f45]">{String(index + 1).padStart(2, "0")}</span>
+                <li key={step.title} className="flex gap-5 border-b border-white/[0.08] py-6">
+                  <span className="text-3xl font-semibold leading-none tracking-[-.05em] text-[#BEF70A]">{String(index + 1).padStart(2, "0")}</span>
                   <div>
                     <h3 className="font-bold">{step.title}</h3>
-                    <p className="mt-1 leading-7 text-black/65">{step.text}</p>
+                    <p className="mt-1 leading-7 text-white/73">{step.text}</p>
                   </div>
                 </li>
               ))}
@@ -70,18 +70,18 @@ export default function ContactPage() {
         </div>
       </Section>
 
-      <section className="bg-[#dceee8] text-[#063d30] md:py-24" aria-labelledby="office-heading">
+      <section className="bg-white/[0.07] text-white md:py-24" aria-labelledby="office-heading">
         <div className="container max-w-[1200px]">
-          <div className="-mx-5 grid overflow-hidden md:mx-0 md:rounded-[30px] md:bg-white lg:grid-cols-[.9fr_1.1fr]">
+          <div className="-mx-5 grid overflow-hidden md:mx-0 md:rounded-[30px] md:bg-white/[0.05] lg:grid-cols-[.9fr_1.1fr]">
             <div className="px-5 py-14 sm:p-10 lg:p-12">
               <Eyebrow tone="mint">Our office</Eyebrow>
               <h2 id="office-heading" className="mt-3 font-sans text-[32px] font-semibold leading-[1.05] tracking-[-.045em] [text-wrap:balance] sm:text-4xl">Based in Narowal. Working worldwide.</h2>
-              <address className="mt-5 not-italic leading-7 text-[#063d30]/75">{siteConfig.address}</address>
+              <address className="mt-5 not-italic leading-7 text-white/83">{siteConfig.address}</address>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <ButtonLink href={siteConfig.googleBusinessUrl} variant="green">View Google Business Profile</ButtonLink>
               </div>
             </div>
-            <iframe src={siteConfig.googleMapsEmbedUrl} title="Jadeed Solutions office in Pejowali Kalan, Narowal" width="600" height="450" className="h-[320px] w-full border-0 md:h-[380px] lg:h-full lg:min-h-[420px]" loading="lazy" allowFullScreen referrerPolicy="strict-origin-when-cross-origin" />
+            <iframe src={siteConfig.googleMapsEmbedUrl} title="Jadeed Solutions office in Pejowali Kalan, Narowal" width="600" height="450" className="h-[320px] w-full border-0 [filter:invert(.9)_hue-rotate(160deg)_saturate(.7)] md:h-[380px] lg:h-full lg:min-h-[420px]" loading="lazy" allowFullScreen referrerPolicy="strict-origin-when-cross-origin" />
           </div>
         </div>
       </section>

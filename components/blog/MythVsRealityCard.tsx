@@ -40,7 +40,7 @@ export function MythVsRealityCard() {
           <HugeiconsIcon icon={AlertIcon} size={14} />
           SEO Myth-Busting
         </span>
-        <h3 className="font-display text-xl font-bold tracking-tight text-ink">
+        <h3 className="font-display text-xl font-bold tracking-tight text-white">
           Common Local SEO Myths vs. Google’s Official Stance
         </h3>
       </div>
@@ -49,32 +49,32 @@ export function MythVsRealityCard() {
         {MYTHS.map((item) => (
           <div
             key={item.topic}
-            className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xs"
+            className="overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.05] shadow-2xs"
           >
-            <div className="bg-slate-100/70 px-5 py-2.5 border-b border-slate-200">
-              <span className="text-xs font-extrabold uppercase tracking-wider text-slate-700">
+            <div className="bg-white/[0.06]/70 px-5 py-2.5 border-b border-white/[0.08]">
+              <span className="text-xs font-extrabold uppercase tracking-wider text-white/80">
                 {item.topic}
               </span>
             </div>
-            <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-200">
+            <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-white/12">
               {/* Myth Column */}
               <div className="p-5 bg-rose-50/30">
                 <div className="flex items-center gap-2 text-rose-700 font-bold text-xs uppercase tracking-wider">
                   <span className="grid h-4 w-4 place-items-center rounded-full bg-rose-600 text-white text-[10px]">✕</span>
                   Common SEO Myth
                 </div>
-                <p className="mt-2 text-xs font-medium text-slate-700 leading-relaxed">
+                <p className="mt-2 text-xs font-medium text-white/80 leading-relaxed">
                   &ldquo;{item.myth}&rdquo;
                 </p>
               </div>
 
               {/* Reality Column */}
-              <div className="p-5 bg-emerald-50/30">
-                <div className="flex items-center gap-2 text-emerald-700 font-bold text-xs uppercase tracking-wider">
-                  <span className="grid h-4 w-4 place-items-center rounded-full bg-emerald-600 text-white text-[10px]">✓</span>
+              <div className="p-5 bg-white/[0.06]">
+                <div className="flex items-center gap-2 text-[#BEF70A] font-bold text-xs uppercase tracking-wider">
+                  <span className="grid h-4 w-4 place-items-center rounded-full bg-[#BEF70A] text-[#0B1F12] text-[10px]">✓</span>
                   Official Reality
                 </div>
-                <p className="mt-2 text-xs font-medium text-slate-800 leading-relaxed">
+                <p className="mt-2 text-xs font-medium text-white leading-relaxed">
                   {item.reality}
                 </p>
                 <div className="mt-3">
@@ -82,7 +82,7 @@ export function MythVsRealityCard() {
                     href={item.sourceUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[11px] font-semibold text-emerald-700 underline underline-offset-2 hover:text-emerald-900"
+                    className="text-[11px] font-semibold text-[#BEF70A] underline underline-offset-2 hover:text-[#BEF70A]"
                   >
                     Source: {item.sourceDoc} →
                   </a>

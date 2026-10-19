@@ -65,7 +65,7 @@ Google Business Profile optimisation and review growth, service and area pages w
 
 ### Cost and time
 
-SEO plans start from £100 a month with a six-month minimum. Expect six to twelve months for organic and local search to compound — in the [Alpha Movers case study](/case-studies/alpha-movers), 60% of six months of search impressions arrived in the final 28 days. See [SEO services](/services/seo).
+SEO plans start from £300 a month with a six-month minimum. Expect six to twelve months for organic and local search to compound — in the [Alpha Movers case study](/case-studies/alpha-movers), 60% of six months of search impressions arrived in the final 28 days. See [SEO services](/services/seo).
 `,
     },
     {
@@ -125,10 +125,10 @@ Separately from what you buy, you can choose how you pay for it.
 | Model | How the fee works | Best for | Term |
 |---|---|---|---|
 | Flat fee | A fixed monthly or milestone price for a defined scope | Predictable budgets; businesses that prefer to keep their books private | SEO plans: six-month minimum |
-| Performance | A percentage — typically around 10% for standard-ticket jobs — of revenue from bookings the work generates | Owners who want fees tied to results and can share the figures | 12–24 months |
-| Tiered | A fixed fee per completed job, by job type or value | High-ticket or variable-ticket work, where a percentage would eat margin | 12–24 months |
+| Performance | A percentage — typically 10% of the paid invoice for standard-ticket jobs — of the paid jobs the work generates | Owners who want fees tied to results and can share the figures | 6 months, then month to month |
+| Tiered | A fixed fee per completed job, by job type or value | High-ticket or variable-ticket work, where a percentage would eat margin | 6 months, then month to month |
 
-A performance deal needs more from you: agreed attribution, access to booking and revenue records, response commitments and a short paid audit to set the baseline. Our [Profit-Share Handbook](/profit-share-handbook) explains every requirement and why it exists. If you would rather keep your figures private, a flat fee is a perfectly sensible choice.
+A performance deal needs more from you: agreed attribution, a shared record of what happened with each customer, and response commitments. There is no setup fee and the audit is free. Our [Profit-Share Handbook](/profit-share-handbook) explains every requirement and why it exists. If you would rather keep your figures private, a flat fee is a perfectly sensible choice.
 
 Use the [pricing page](/pricing) to compare the models and estimate a fee.
 `,

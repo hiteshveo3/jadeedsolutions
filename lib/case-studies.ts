@@ -32,7 +32,7 @@ export type CaseStudy = {
 
 /**
  * Real client case studies. Numbers stay honest (GSC + client-confirmed).
- * Booking estimate for Alpha: ~10% of organic clicks convert to bookings.
+ * Search Console measures search activity; booking counts are tracked separately.
  */
 export const caseStudies: CaseStudy[] = [
   {
@@ -43,8 +43,7 @@ export const caseStudies: CaseStudy[] = [
     location: "London & Croydon, UK",
     engagementModel: "10% commission on generated bookings / sales",
     launched: "18 December 2025",
-    siteAge: "Launched 18 Dec 2025 · ~7 months old (July 2026)",
-    logo: "/case-studies/alpha-movers/logo-alpha.png",
+    siteAge: "Launched 18 Dec 2025 · ~9 months old (October 2026)",
     contactName: "Abdullah Bin Mustafa",
     services: [
       "seo",
@@ -53,11 +52,11 @@ export const caseStudies: CaseStudy[] = [
       "digital-advertising",
     ],
     summary:
-      "We built and support Alpha Movers across website, app, SEO, social and paid acquisition. In the latest three months (June–September 2026) the website produced 70+ booked jobs and 120+ enquiries, backed by 643 organic clicks and 218K Google Search impressions.",
+      "We built and support Alpha Movers across website, app, SEO, social and paid acquisition. In the latest three months (July–October 2026) the website produced 90+ booked jobs and 150+ enquiries. The latest Search Console screenshot, captured 19 October 2026, separately records 885 organic clicks and 273K impressions over three months.",
     story: [
       "Abdullah Bin Mustafa wanted growth but a classic monthly SEO retainer was tough on cash flow. We’d offered a monthly plan — he suggested something better: pay 10% after each booking our work generates. That model unlocked a full partnership instead of a slow drip of retainers.",
       "We didn’t only “do SEO”. We built the website, proposed and shipped a mobile app, ran social and ads, and pushed into services Alpha hadn’t focused on before — including sofa / furniture hoisting — so the site could rank for (and win) higher-value specialist jobs.",
-      "Results compound: in the latest three months (June–September 2026) the website brought in 120+ enquiries and 70+ booked jobs, with Search Console recording 643 clicks and 218K impressions.",
+      "Results compound: in the latest three months (July–October 2026) the website brought in 150+ enquiries and 90+ booked jobs. The 19 October Search Console capture records 885 clicks and 273K impressions over its latest three-month window.",
     ],
     testimonial: {
       quote:
@@ -66,81 +65,81 @@ export const caseStudies: CaseStudy[] = [
       role: "Alpha Movers · London",
     },
     metrics: [
-      { value: "70+", label: "Booked jobs from the website (Jun–Sep 2026)" },
-      { value: "120+", label: "Website enquiries (Jun–Sep 2026)" },
-      { value: "218K", label: "Impressions (last 3 months)" },
-      { value: "643", label: "Clicks (last 3 months)" },
-      { value: "160,903", label: "Impressions (24 Feb–23 Aug 2026)" },
-      { value: "+312%", label: "Clicks: first vs final 28 days" },
+      { value: "90+", label: "Booked jobs from the website (Jul–Oct 2026)" },
+      { value: "150+", label: "Website enquiries (Jul–Oct 2026)" },
+      { value: "273K", label: "Impressions (last 3 months)" },
+      { value: "885", label: "Clicks (last 3 months)" },
+      { value: "930", label: "Clicks (last 6 months · 4 Oct capture)" },
+      { value: "285K", label: "Impressions (last 6 months · 4 Oct capture)" },
+      { value: "273", label: "Clicks (last 28 days · 4 Oct capture)" },
+      { value: "83.2K", label: "Impressions (last 28 days · 4 Oct capture)" },
+      { value: "+312%", label: "Historical clicks: first vs final 28 days · Feb–Aug" },
     ],
     highlights: [
       "Client-led 10% after-booking model — better fit than a monthly SEO retainer.",
       "Full stack from Jadeed: website, mobile app, SEO, social and paid ads.",
       "Expanded into sofa / furniture hoisting SEO even though it wasn’t an early focus for the client.",
-      "Latest 3 months (Jun–Sep 2026): 70+ booked jobs and 120+ enquiries from the website.",
-      "Search Console, last 3 months: 643 clicks · 218K impressions · average position 21.3.",
+      "Latest 3 months (Jul–Oct 2026): 90+ booked jobs and 150+ enquiries from the website.",
+      "Search Console, last 3 months: 885 clicks · 273K impressions · average position 17.9.",
     ],
     topQueries: [
-      { query: "alpha movers", note: "Brand — ranking & getting clicks" },
-      { query: "piano movers croydon", note: "High-intent local — converting" },
-      { query: "furniture hoist / sofa hoist", note: "Specialist service we pushed — strong impressions" },
-      { query: "crate hire london", note: "Supporting service pages gaining visibility" },
-      { query: "removals east london / croydon / stratford", note: "Geo pages building share" },
+      { query: "alpha movers", note: "Brand: 36 clicks, the top query" },
+      { query: "furniture hoist / furniture hoist london", note: "Specialist service we pushed: 11 clicks, 635 impressions" },
+      { query: "crate hire london / moving crates london", note: "Crate hire pages: 9.7K+ impressions" },
+      { query: "man and van ilford / removals ilford", note: "High-intent local: 8 clicks" },
+      { query: "removals croydon / stratford / enfield", note: "Geo pages: 1.4K+ impressions each" },
     ],
     images: [
       {
-        src: "/case-studies/alpha-movers/logo-alpha.png",
-        alt: "Alpha Movers logo",
-        caption: "Alpha Movers logo",
-      },
-      {
-        src: "/case-studies/alpha-movers/homepage.jpeg",
+        src: "/case-studies/alpha-movers/homepage-oct-2026.webp",
         alt: "Alpha Movers website homepage",
         caption: "alphamovers.co.uk — homepage",
       },
       {
-        src: "/case-studies/alpha-movers/gsc-3-months-sep-2026.png",
-        alt: "Google Search Console — Alpha Movers last 3 months, June to September 2026",
-        caption: "GSC — last 3 months, Jun–Sep 2026 (643 clicks · 218K impressions)",
+        src: "/case-studies/alpha-movers/gsc-3-months-19-oct-2026.webp",
+        alt: "Google Search Console — Alpha Movers last 3 months, captured 19 October 2026",
+        caption: "GSC — last 3 months, captured 19 Oct 2026 (885 clicks · 273K impressions)",
       },
       {
-        src: "/case-studies/alpha-movers/gsc-6-months.png",
+        src: "/case-studies/alpha-movers/gsc-6-months-oct-2026.webp",
         alt: "Google Search Console — Alpha Movers last 6 months",
-        caption: "GSC — last 6 months (339 clicks · 55.9K impressions)",
+        caption: "GSC — last 6 months, captured 4 Oct 2026 (930 clicks · 285K impressions)",
       },
       {
         src: "/case-studies/alpha-movers/gsc-3-months.png",
         alt: "Google Search Console — Alpha Movers last 3 months",
-        caption: "GSC — last 3 months (216 clicks · 44.3K impressions)",
+        caption: "Earlier GSC capture — 3-month window (216 clicks · 44.3K impressions)",
       },
       {
-        src: "/case-studies/alpha-movers/gsc-28-days.png",
+        src: "/case-studies/alpha-movers/gsc-28-days-oct-2026.webp",
         alt: "Google Search Console — Alpha Movers last 28 days",
-        caption: "GSC — last 28 days (122 clicks · 22K impressions)",
+        caption: "GSC — last 28 days, captured 4 Oct 2026 (273 clicks · 83.2K impressions)",
       },
       {
         src: "/case-studies/alpha-movers/gsc-7-days.png",
         alt: "Google Search Console — Alpha Movers last 7 days",
-        caption: "GSC — last 7 days (36 clicks · 7.68K impressions)",
+        caption: "Earlier GSC capture — 7-day window (36 clicks · 7.68K impressions)",
       },
     ],
   },
   {
     id: "just-shine",
-    draft: true,
+    logo: "/clients/just-shine.png",
     client: "Just Shine Cleaning Services",
-    website: "#",
+    website: "https://justshinecleaningservices.com",
     industry: "Cleaning (local service)",
     location: "Abu Dhabi, UAE",
     engagementModel: "10% commission on generated bookings",
     services: ["seo", "web-development", "digital-advertising"],
     summary:
-      "Full growth stack for a competitive Abu Dhabi cleaning brand — website, social media and SEO on the 10% model. Ranked on tough local terms like cleaning services, villa cleaning, deep cleaning and house cleaning in Abu Dhabi despite strong competition.",
+      "Full growth stack for a competitive Abu Dhabi cleaning brand — website, social media and SEO on the 10% model. Search Console captured on 4 October 2026 shows 370 clicks and 22.3K impressions over three months, with 239 clicks and 12.8K impressions in the last 28 days. The website supports English and Arabic.",
     metrics: [
-      { value: "1st page", label: "Competitive cleaning keywords" },
-      { value: "10%", label: "Commission model" },
-      { value: "5", label: "Trustpilot review" },
-      { value: "Full stack", label: "Web · SEO · Social" },
+      { value: "370", label: "Organic clicks · last 3 months" },
+      { value: "22.3K", label: "Impressions · last 3 months" },
+      { value: "239", label: "Organic clicks · last 28 days" },
+      { value: "12.8K", label: "Impressions · last 28 days" },
+      { value: "476", label: "Organic clicks · last 6 months" },
+      { value: "25.6K", label: "Impressions · last 6 months" },
     ],
     highlights: [
       "Ranked on competitive Abu Dhabi cleaning keywords (villa, deep clean, house cleaning and more).",
@@ -155,12 +154,31 @@ export const caseStudies: CaseStudy[] = [
     ],
     images: [
       {
-        src: "/placeholders/add-image.svg",
-        alt: "Just Shine — proof visual",
-        caption: "Rankings / website screenshot",
-        placeholder: true,
+            "src": "/case-studies/just-shine/gsc-3-months-oct-2026.webp",
+            "alt": "Just Shine Search Console — last 3 months, captured 4 October 2026",
+            "caption": "370 clicks · 22.3K impressions · 1.7% CTR · position 24.6 · captured 4 Oct 2026"
       },
-    ],
+      {
+            "src": "/case-studies/just-shine/gsc-6-months-oct-2026.webp",
+            "alt": "Just Shine Search Console — last 6 months, captured 4 October 2026",
+            "caption": "476 clicks · 25.6K impressions · 1.9% CTR · position 23.4 · captured 4 Oct 2026"
+      },
+      {
+            "src": "/case-studies/just-shine/gsc-28-days-oct-2026.webp",
+            "alt": "Just Shine Search Console — last 28 days, captured 4 October 2026",
+            "caption": "239 clicks · 12.8K impressions · 1.9% CTR · position 16.9 · captured 4 Oct 2026"
+      },
+      {
+            "src": "/case-studies/just-shine/homepage-oct-2026.webp",
+            "alt": "Just Shine English website",
+            "caption": "Just Shine website · English"
+      },
+      {
+            "src": "/case-studies/just-shine/homepage-arabic-oct-2026.webp",
+            "alt": "Just Shine Arabic website",
+            "caption": "Just Shine website · Arabic"
+      }
+],
   },
   {
     id: "ihr-dream-cleaning",

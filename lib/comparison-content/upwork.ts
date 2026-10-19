@@ -73,8 +73,8 @@ Hourly contracts pay for time spent, which is fair for defined technical work bu
 
 With Jadeed you choose how to pay:
 
-- **Fixed-fee plans** for a defined scope and a predictable monthly cost — SEO from £100 a month with a six-month minimum, websites from £199.
-- **Performance deals** where the fee is a share of revenue from bookings the work generates — typically around 10% for standard-ticket jobs, on a 12–24 month term.
+- **Fixed-fee plans** for a defined scope and a predictable monthly cost — SEO from £300 a month with a six-month minimum, websites from £199.
+- **Performance deals** where the fee is a share of the paid jobs the work generates — typically 10% of the paid invoice for standard-ticket jobs, £0 upfront, on a 6-month initial term, then month to month.
 - **Tiered deals** with a fixed fee per completed job, for higher-value work.
 
 Performance deals need more from you — agreed attribution, access to booking records, response commitments — and our [Profit-Share Handbook](/profit-share-handbook) explains every requirement before you commit.

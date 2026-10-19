@@ -1,0 +1,48 @@
+{
+  "round": 1,
+  "savedAt": "2026-10-04T09:15:10.688Z",
+  "summary": "Q01 Main dark green: —\n    Note: mene jo reference imgs di hein unki tara wla use kr lo, even k jo gradient use kia gaya he waha,\nQ02 Lime accent: —\n    Note: jo mene reference img di he wo wala exact,\nQ03 Page background: —\n    Note: white k ilawa koi b decide kia ja skta he\nQ04 Green for buttons and links on light sections: —\n    Note: me confuse hu,\nQ05 Soft tint: —\n    Note: i m confuse,\nQ06 Text colour: —\n    Note: confuse yar\nQ07 How much dark vs light: —\n    Note: u have to dcide,\nQ08 Closing call-to-action: —\n    Note: a and b\nQ09 Footer: Same as the hero\nQ10 Extra colour for charts and highlights: —\n    Note: koi b nhi thk\nQ11 Anything else about the colours?: —\nResolved palette (unanswered = Forest): dark #0B3D26, deep #062A1A, panel #0E3A26, lime #C8F31D, canvas #F5F6EF, action #1F6B3A, tint #EAF6D2, ink #0D0D0D, footer #0B3D26, extra #0B3D26, rhythm forest, cta lime",
+  "palette": {
+    "dark": "#0B3D26",
+    "deep": "#062A1A",
+    "panel": "#0E3A26",
+    "lime": "#C8F31D",
+    "canvas": "#F5F6EF",
+    "action": "#1F6B3A",
+    "tint": "#EAF6D2",
+    "ink": "#0D0D0D",
+    "footer": "#0B3D26",
+    "footerInk": "#FFFFFF",
+    "footerMuted": "rgba(255,255,255,0.66)",
+    "footerAccent": "#C8F31D",
+    "extra": "#0B3D26",
+    "onExtra": "#FFFFFF",
+    "rhythm": "forest",
+    "cta": "lime"
+  },
+  "answers": {
+    "r1-dark": [],
+    "r1-lime": [],
+    "r1-canvas": [],
+    "r1-action": [],
+    "r1-tint": [],
+    "r1-ink": [],
+    "r1-rhythm": [],
+    "r1-cta": [],
+    "r1-footer": [
+      "hero"
+    ],
+    "r1-extra": []
+  },
+  "notes": {
+    "r1-dark": "mene jo reference imgs di hein unki tara wla use kr lo, even k jo gradient use kia gaya he waha, ",
+    "r1-lime": "jo mene reference img di he wo wala exact,",
+    "r1-canvas": "white k ilawa koi b decide kia ja skta he",
+    "r1-action": "me confuse hu, ",
+    "r1-tint": "i m confuse,",
+    "r1-ink": "confuse yar",
+    "r1-rhythm": "u have to dcide,",
+    "r1-cta": "a and b",
+    "r1-extra": "koi b nhi thk"
+  }
+}

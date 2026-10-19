@@ -6,7 +6,7 @@ import { ButtonLink, FeatureGrid, PageHero, Section, SectionHeader } from "@/com
 export const metadata: Metadata = {
   title: "Compare Jadeed — vs Fiverr, Upwork, Hostinger & Agencies",
   description:
-    "See why local service businesses choose Jadeed Solutions over Fiverr, Upwork, DIY website builders and traditional agencies — full growth stack with an optional 10% of bookings model.",
+    "See why local service businesses choose Jadeed Solutions over Fiverr, Upwork, DIY website builders and traditional agencies — full growth stack with an optional £0-upfront model: 10% of paid jobs.",
   alternates: { canonical: `${siteConfig.url}/compare` },
 };
 
@@ -25,7 +25,7 @@ export default function CompareHubPage() {
     <>
       <PageHero
         eyebrow="Compare"
-        title={<>Jadeed vs<span className="block text-[#eaf25a]">the usual alternatives.</span></>}
+        title={<>Jadeed vs<span className="block text-[#BEF70A]">the usual alternatives.</span></>}
         lead="Honest comparisons with freelancers, DIY website builders and traditional agencies — and why a remote, founder-led team works for UK & USA local services."
         actions={
           <>
@@ -53,22 +53,22 @@ export default function CompareHubPage() {
 
       <Section tone="green" labelledBy="matrix-heading">
         <SectionHeader id="matrix-heading" tone="green" eyebrow="At a glance" title="How the options compare" lead="A quick summary. Every business is different — the detailed pages explain the trade-offs." />
-        <div className="-mx-5 mt-10 overflow-x-auto px-5 md:mx-0 md:px-0">
-          <table className="w-full min-w-[720px] border-collapse text-left text-sm">
+        <div className="jt-wrap mt-10">
+          <table className="jt min-w-[720px]">
             <thead>
-              <tr className="border-b border-white/25">
-                <th scope="col" className="py-4 pr-4 font-semibold text-white/60">What matters</th>
+              <tr>
+                <th scope="col">What matters</th>
                 {columns.map((column) => (
-                  <th key={column} scope="col" className={`px-4 py-4 font-bold ${column === "Jadeed" ? "text-[#eaf25a]" : ""}`}>{column}</th>
+                  <th key={column} scope="col" className={column === "Jadeed" ? "jt-us" : ""}>{column}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
               {matrix.map((row) => (
-                <tr key={row.label} className="border-b border-white/15">
-                  <th scope="row" className="py-4 pr-4 font-semibold">{row.label}</th>
+                <tr key={row.label}>
+                  <th scope="row">{row.label}</th>
                   {row.values.map((value, index) => (
-                    <td key={`${row.label}-${index}`} className={`px-4 py-4 ${index === 3 ? "font-bold text-[#eaf25a]" : "text-white/75"}`}>{value}</td>
+                    <td key={`${row.label}-${index}`} className={columns[index] === "Jadeed" ? "jt-us" : ""}>{value}</td>
                   ))}
                 </tr>
               ))}

@@ -1,0 +1,28 @@
+{
+  "round": 4,
+  "savedAt": "2026-10-04T10:18:23.948Z",
+  "summary": "Q01 Bulk icons ke 6 andaaz: —\n    Note: koi b nhi acha, hm single color k sath jae ge,\nQ02 Mobile par hero ke buttons: Sirf 1 button\n    Note: see client results pr arrow nhi aye ga\nQ03 Mobile ka neeche wala bar: —\n    Note: bro i need simple bottom navigation i think just single button is best is k ilawa kuch nhi,\nQ04 Arrows aur navigation ka style: Gol mein teer\nQ05 Kuch aur kehna hai?: whatsapp business kiu k he hi nhi iconsax me so apne hisb se jo b best lge ab use kr lo\nPicks (unanswered = recommended): bulk icons duo, mobile hero CTA single, bottom bar both, arrows circle; WhatsApp Business icon everywhere",
+  "palette": {
+    "bulkIcons": "duo",
+    "mobileHeroCta": "single",
+    "mobileBottomBar": "both",
+    "arrows": "circle",
+    "whatsappIcon": "whatsapp-business"
+  },
+  "answers": {
+    "r4-bulk": [],
+    "r4-mcta": [
+      "single"
+    ],
+    "r4-bottom": [],
+    "r4-arrows": [
+      "circle"
+    ]
+  },
+  "notes": {
+    "r4-bulk": "koi b nhi acha, hm single color k sath jae ge,",
+    "r4-mcta": "see client results pr arrow nhi aye ga",
+    "r4-bottom": "bro i need simple bottom navigation i think just single button is best is k ilawa kuch nhi, ",
+    "r4-anything": "whatsapp business kiu k he hi nhi iconsax me so apne hisb se jo b best lge ab use kr lo"
+  }
+}

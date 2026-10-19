@@ -2,25 +2,95 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Jadeed Solutions — full-dark brand system (owner decisions, 2026-10-04):
+   every section sits on the brand radial gradient (never flat black), lime
+   #BEF70A is the only accent, light colours appear only on real "paper"
+   (receipts, invoices). Headings: Urbanist 800. Body: DM Sans. */
 :root {
-  --background: 255 255 255;
-  --foreground: 11 16 32;
+  --glow: #0b561c;
+  --forest: #06301d;
+  --deep: #051b1e;
+  --lime: #bef70a;
+  --lime-hover: #abde09;
+  --on-lime: #0b1f12;
+  --grad: radial-gradient(120% 120% at 50% 0%, #0b561c 0%, #06301d 48%, #051b1e 100%);
+  /* No pure white on dark (owner, 5 Oct 2026): text and headings use a soft off-white. */
+  --white: #eef2e7;
+  --read: rgba(238, 242, 231, 0.84);
+  color-scheme: dark;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    background: var(--forest);
   }
 
   body {
-    @apply bg-js-bg text-js-dark antialiased;
+    @apply text-white antialiased;
+    background: transparent;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
-  ::selection {
-    background: #cbd810;
-    color: #063d30;
+  /* The brand green behind every page. It stays fixed while the page scrolls, so it must be
+     even from top to bottom: the old top-bright / bottom-dark radial made the lower half of
+     the screen look permanently dark while scrolling (owner, 19 Oct 2026). Now one forest
+     tone with a soft glow at the top and a matching one at the bottom; sections that want
+     the strong brand radial carry .bg-glow, which scrolls with them. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(120% 55% at 50% 0%, rgba(11, 86, 28, 0.55) 0%, rgba(11, 86, 28, 0) 100%),
+      radial-gradient(120% 55% at 50% 100%, rgba(11, 86, 28, 0.35) 0%, rgba(11, 86, 28, 0) 100%),
+      #06301d;
   }
+
+  ::selection {
+    background: var(--lime);
+    color: var(--on-lime);
+  }
+
+  /* One focus style: a lime ring for keyboard users only — never the browser's
+     white/black box on click (owner, 5 Oct 2026). */
+  :focus {
+    outline: none;
+  }
+  :focus-visible {
+    outline: 2px solid var(--lime);
+    outline-offset: 3px;
+  }
+  svg :focus-visible {
+    outline: none;
+  }
+}
+
+/* Fix 2 — form boxes stay clearly visible on dark: brighter than cards, a firm border,
+   a readable placeholder and a lime focus ring. Beats utility classes on purpose. */
+input:not([type="range"]):not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]):not(.bg-transparent),
+textarea:not(.bg-transparent),
+select:not(.bg-transparent) {
+  background-color: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.24);
+  color: var(--white);
+}
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+/* Focus is one colour only — a lime border, no second glow ring (owner, 5 Oct 2026). */
+input:not([type="range"]):not([type="checkbox"]):not([type="radio"]):not(.bg-transparent):focus,
+textarea:not(.bg-transparent):focus,
+select:not(.bg-transparent):focus {
+  border-color: var(--lime);
+  box-shadow: none;
+}
+select option {
+  background: var(--forest);
+  color: var(--white);
 }
 
 @layer components {
@@ -33,27 +103,37 @@
   }
 
   .eyebrow {
-    @apply inline-flex w-fit items-center gap-2 self-start text-xs font-extrabold uppercase tracking-[.15em] text-brand-500;
+    @apply inline-flex w-fit items-center gap-2 self-start text-xs font-extrabold uppercase tracking-[.15em] text-[#BEF70A];
   }
 
+  /* Cards: translucent fill with a faint line — no bright borders (owner, 5 Oct 2026). */
   .card {
-    @apply rounded-2xl border border-black/10 bg-white;
+    @apply rounded-[22px] border border-white/[0.08] bg-white/[0.06];
   }
 
-  /* Native-looking custom select (not OS chrome dependent) */
+  /* A section that carries its own brand glow on top of the page gradient. */
+  .bg-glow {
+    background: radial-gradient(90% 120% at 50% 0%, rgba(11, 86, 28, 0.95) 0%, rgba(6, 48, 29, 0.55) 52%, rgba(5, 27, 30, 0) 100%);
+  }
+
+  .hand {
+    font-family: var(--font-hand), cursive;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
   .select-custom {
     @apply appearance-none bg-[length:16px] bg-[right_0.85rem_center] bg-no-repeat pr-10;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6 9l6 6 6-6' stroke='%2364748b' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6 9l6 6 6-6' stroke='%23ffffff' stroke-opacity='.7' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   }
 
   .link-underline {
     @apply relative after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full;
   }
 
-  /* Custom Sleek Scrollbar */
   .custom-scrollbar {
     scrollbar-width: thin;
-    scrollbar-color: rgba(1, 95, 69, 0.25) transparent;
+    scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
   }
   .custom-scrollbar::-webkit-scrollbar {
     width: 5px;
@@ -62,51 +142,155 @@
     background: transparent;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: rgba(1, 95, 69, 0.25);
+    background: rgba(255, 255, 255, 0.22);
     border-radius: 9999px;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: rgba(1, 95, 69, 0.55);
+    background: rgba(190, 247, 10, 0.55);
+  }
+
+  /* Fix 1 — long reading on dark: 84% white, 17–18px, airy lines, ~66-character column. */
+  .read {
+    max-width: 66ch;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--read);
+  }
+  @media (min-width: 768px) {
+    .read {
+      font-size: 18px;
+    }
+  }
+  .read :where(h2, h3, h4, strong, b) {
+    color: var(--white);
+  }
+  .read :where(a) {
+    color: var(--lime);
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 }
 
+/* Long-form prose (blog, guides, handbook) follows the same reading rules. */
+.prose {
+  --tw-prose-body: var(--read);
+  --tw-prose-headings: var(--white);
+  --tw-prose-lead: rgba(255, 255, 255, 0.8);
+  --tw-prose-links: var(--lime);
+  --tw-prose-bold: var(--white);
+  --tw-prose-counters: rgba(255, 255, 255, 0.6);
+  --tw-prose-bullets: var(--lime);
+  --tw-prose-hr: rgba(255, 255, 255, 0.14);
+  --tw-prose-quotes: var(--white);
+  --tw-prose-quote-borders: transparent;
+  --tw-prose-captions: rgba(255, 255, 255, 0.6);
+  --tw-prose-code: var(--white);
+  --tw-prose-pre-code: var(--white);
+  --tw-prose-pre-bg: rgba(0, 0, 0, 0.3);
+  --tw-prose-th-borders: rgba(238, 242, 231, 0.14);
+  --tw-prose-td-borders: rgba(238, 242, 231, 0.08);
+  line-height: 1.75;
+}
+
 .text-gradient {
-  @apply text-brand-500;
+  @apply text-[#BEF70A];
 }
 
 .bg-hero-glow {
-  @apply bg-brand-50;
+  @apply bg-glow;
 }
 
-/* Partnership calculator — cross-browser range (WebKit + Firefox) */
+/* Tables: one look everywhere, after the homepage "How we're different" table —
+   no boxes or grid lines, faint row rules, a muted uppercase header (owner, 5 Oct 2026). */
+.jt-wrap {
+  overflow-x: auto;
+  margin-inline: -1.25rem;
+  padding-inline: 1.25rem;
+}
+@media (min-width: 640px) {
+  .jt-wrap {
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+}
+.jt {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 15px;
+  line-height: 1.55;
+}
+.jt thead th {
+  padding: 0.9rem 1rem;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(238, 242, 231, 0.5);
+  white-space: nowrap;
+}
+.jt tbody tr {
+  border-top: 1px solid rgba(238, 242, 231, 0.1);
+}
+.jt tbody td,
+.jt tbody th {
+  padding: 0.95rem 1rem;
+  vertical-align: top;
+  color: rgba(238, 242, 231, 0.82);
+}
+.jt tbody th,
+.jt tbody td:first-child {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(238, 242, 231, 0.62);
+}
+/* The Jadeed column, when a table has one: lime tint, like the homepage. */
+.jt .jt-us {
+  background: rgba(190, 247, 10, 0.07);
+  color: var(--white);
+  font-weight: 600;
+}
+.jt thead .jt-us {
+  background: rgba(190, 247, 10, 0.12);
+  color: var(--lime);
+  border-radius: 16px 16px 0 0;
+}
+.jt tbody tr:last-child .jt-us {
+  border-radius: 0 0 16px 16px;
+}
+
+/* Notes and quotes in long-form text: a soft lime-tinted panel, never a side bar. */
+.prose blockquote {
+  border-radius: 20px;
+  background: rgba(190, 247, 10, 0.07);
+  padding: 1rem 1.25rem;
+  font-style: normal;
+}
+.prose blockquote p:first-of-type::before,
+.prose blockquote p:last-of-type::after {
+  content: none;
+}
+
+/* Range sliders (calculators) — lime on dark. */
 .calc-range {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
   height: 0.5rem;
   border-radius: 9999px;
-  background: linear-gradient(
-    to right,
-    #00684f 0%,
-    #00684f var(--calc-pct, 0%),
-    #e2e8f0 var(--calc-pct, 0%),
-    #e2e8f0 100%
-  );
+  background: linear-gradient(to right, var(--lime) 0%, var(--lime) var(--calc-pct, 0%), rgba(255, 255, 255, 0.16) var(--calc-pct, 0%), rgba(255, 255, 255, 0.16) 100%);
   outline: none;
   cursor: pointer;
 }
-
 .calc-range:focus-visible {
-  outline: 3px solid rgba(0, 104, 79, 0.24);
-  outline-offset: 2px;
+  outline: 3px solid rgba(190, 247, 10, 0.35);
+  outline-offset: 4px;
 }
-
 .calc-range::-webkit-slider-runnable-track {
   height: 0.5rem;
   border-radius: 9999px;
   background: transparent;
 }
-
 .calc-range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -114,32 +298,121 @@
   height: 1.375rem;
   margin-top: -0.4375rem;
   border-radius: 9999px;
-  border: 3px solid #fff;
-  background: #00684f;
+  border: 3px solid var(--forest);
+  background: var(--lime);
   cursor: grab;
 }
-
 .calc-range:active::-webkit-slider-thumb {
   cursor: grabbing;
 }
-
 .calc-range::-moz-range-track {
   height: 0.5rem;
   border-radius: 9999px;
-  background: #e2e8f0;
+  background: rgba(255, 255, 255, 0.16);
 }
-
 .calc-range::-moz-range-progress {
   height: 0.5rem;
   border-radius: 9999px;
-  background: #00684f;
+  background: var(--lime);
 }
-
 .calc-range::-moz-range-thumb {
   width: 1.375rem;
   height: 1.375rem;
   border-radius: 9999px;
-  border: 3px solid #fff;
-  background: #00684f;
+  border: 3px solid var(--forest);
+  background: var(--lime);
   cursor: grab;
+}
+
+/* Final heading font: Urbanist on every heading, whatever font utility the element carries.
+   Readability fix (owner, 19 Oct 2026): 800 everywhere with tight tracking and ~1.0 leading
+   made letters touch and lines crowd. Each level now gets its own weight, a gentler
+   letter-spacing and real line height. !important on purpose, so the hundreds of older
+   tracking-[-.04em] / leading-[1.02] utilities on headings fall in line from here. */
+h1, h2, h3 {
+  font-family: var(--font-display), system-ui, sans-serif !important;
+  text-wrap: balance;
+}
+/* Weights stepped down again (owner, 19 Oct 2026: "too bold, especially on desktop"):
+   light text on the dark green gradient already looks heavier than it is (irradiation),
+   and big desktop headlines magnify it. 600 on every level keeps Urbanist's character
+   without the glow; hierarchy comes from size, not thickness. */
+h1 {
+  font-weight: 600 !important;
+  letter-spacing: -0.015em !important;
+  line-height: 1.08 !important;
+}
+h2 {
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.12 !important;
+}
+h3 {
+  font-weight: 600 !important;
+  letter-spacing: 0em !important;
+  line-height: 1.25 !important;
+}
+/* Display-font text outside h1–h3 (big quotes, card headlines) follows the same ceiling. */
+.font-display.font-extrabold,
+.font-display.font-black {
+  font-weight: 600 !important;
+}
+
+/* Fix 3 — print / PDF (proposals): the screen stays dark, paper turns light automatically. */
+@media print {
+  html,
+  body {
+    background: #ffffff !important;
+    color: #0b1f12 !important;
+  }
+  body::before,
+  [data-site-header],
+  [data-site-footer],
+  [data-mobile-bar],
+  .no-print {
+    display: none !important;
+  }
+  * {
+    color: #0b1f12 !important;
+    background: transparent !important;
+    border-color: #d9dccf !important;
+    box-shadow: none !important;
+  }
+  a {
+    text-decoration: underline;
+  }
+  img {
+    break-inside: avoid;
+  }
+}
+
+@keyframes ring {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.04); opacity: 0.75; }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes growup {
+  from { transform: scaleY(0); }
+}
+/* Bottom sheets (selectors and menus on phones) slide up from the bottom. */
+@keyframes sheet-up {
+  from { transform: translateY(100%); }
+  to { transform: none; }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes pulse-lime {
+  0% { box-shadow: 0 0 0 0 rgba(190, 247, 10, 0.55); }
+  100% { box-shadow: 0 0 0 16px rgba(190, 247, 10, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

@@ -310,7 +310,7 @@ export const seoChecklist2026: Post = {
     {
       type: "cta",
       title: "Want us to run this checklist for you?",
-      text: "See [SEO services](/services/seo) and [pricing](/pricing) — fixed plans or a share of the bookings we generate.",
+      text: "See [SEO services](/services/seo) and [pricing](/pricing) — fixed plans or a share of the paid jobs we generate.",
       label: "Get a free growth plan",
       href: "/contact",
     },

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Font check</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@800&family=Manrope:wght@800&family=Outfit:wght@700;800&family=Urbanist:wght@800&family=Onest:wght@800&family=DM+Sans:opsz,wght@9..40,800&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b1a0c;color:#fff;font-family:system-ui;padding:24px}
+h1.t{font:600 14px system-ui;color:#9bb;margin:0 0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:20px}
+.card{background:radial-gradient(circle at 30% 20%,#14401a,#050d06);border:1px solid #234;border-radius:18px;padding:28px}
+.name{font:600 13px system-ui;color:#BEF70A;margin-bottom:14px}
+.h{font-weight:800;font-size:68px;line-height:.98;letter-spacing:-.035em;margin:0}
+.pill{display:inline-block;background:#BEF70A;color:#111;border-radius:16px;padding:2px 22px;font-size:.6em;transform:rotate(-4deg);margin:0 6px}
+.btns{display:flex;gap:12px;margin-top:20px}
+.btn{background:#BEF70A;color:#111;border-radius:10px;padding:14px 20px;font-weight:800;font-size:22px;letter-spacing:-.02em}
+</style></head><body>
+<h1 class="t">Reference: "Only Pay for Results" — 5 candidate fonts, same size/spacing. Compare O, y, R, t, s shapes.</h1>
+<div class="grid" id="g"></div>
+<script>
+[["Plus Jakarta Sans 800 (best guess)","Plus Jakarta Sans"],["Manrope 800","Manrope"],["Outfit 800","Outfit"],["Urbanist 800","Urbanist"],["Onest 800","Onest"],["DM Sans 800 (current site)","DM Sans"]].forEach(([n,f])=>{
+g.insertAdjacentHTML("beforeend",`<div class="card" style="font-family:'${f}'"><div class="name">${n}</div><p class="h">Only Pay <span class="pill">for</span><br>Results</p><div class="btns"><span class="btn">No Retainer</span><span class="btn">No Setup Fee</span></div></div>`)});
+</script></body></html>

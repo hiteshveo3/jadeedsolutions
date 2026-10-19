@@ -74,7 +74,7 @@ export const niches: Niche[] = [
     h1: "Get more plumbing jobs from Google",
     seoTitle: "SEO, Websites & Growth for Plumbing Businesses (UK & USA)",
     seoDescription:
-      "SEO, websites and apps for plumbing companies in the UK & USA. Show up when locals search, turn clicks into calls. From £100/mo (6-month minimum) or 10% of bookings.",
+      "SEO, websites and apps for plumbing companies in the UK & USA. Show up when locals search, turn clicks into calls. From £300/mo (6-month minimum) or 10% of paid jobs.",
     intro:
       "People look for a plumber online first. We help plumbing businesses across the UK and USA get found — with SEO, conversion-focused websites and apps when you need them — so more searches turn into booked work.",
     experience: [
@@ -103,7 +103,7 @@ export const niches: Niche[] = [
     trustSignals: [
       "5.0 on Google from 35 reviews",
       "Around 10 active clients — small team, hands-on work",
-      "Clear packages: SEO, website or app — or full growth on 10% of bookings",
+      "Clear packages: SEO, website or app — or full growth on 10% of paid jobs",
       "No setup fee · 6-month minimum on SEO plans",
       "Real case study with Google Search Console numbers on site",
     ],
@@ -129,13 +129,13 @@ export const niches: Niche[] = [
       "Solo plumbers who want more phone calls",
       "Small and mid-size firms covering one city or many",
       "Larger plumbing companies expanding into new areas",
-      "Owners who prefer 10% after bookings instead of a heavy retainer",
+      "Owners who prefer 10% after the job is paid instead of a heavy retainer",
     ],
     outcomes: [
       "More visibility when people search for a plumber",
       "A site (and optional app) built for mobile and conversions",
       "Honest reporting you can understand",
-      "Optional: pay a share of the bookings we generate",
+      "Optional: £0 upfront, pay a share of the paid jobs we generate",
     ],
     faqs: [
       {
@@ -146,7 +146,7 @@ export const niches: Niche[] = [
       {
         question: "What’s the minimum commitment?",
         answer:
-          "SEO plans have a 6-month minimum. There’s no setup fee and no big down payment — we need enough time for search results to compound. Growth Partnerships on 10% of bookings run for 12–24 months.",
+          "SEO plans have a 6-month minimum. There’s no setup fee and no big down payment — we need enough time for search results to compound. Growth Partnerships are £0 upfront and 10% of paid jobs, with a 6-month initial term, then month to month.",
       },
       {
         question: "Do I have to run Google Ads?",
@@ -181,7 +181,7 @@ export const niches: Niche[] = [
     h1: "Get more cleaning bookings from Google",
     seoTitle: "SEO, Websites & Growth for Cleaning Businesses (UK & USA)",
     seoDescription:
-      "SEO, websites and apps for cleaning companies in the UK & USA. Win end-of-tenancy, deep clean and office jobs online. From £100/mo SEO or 10% of bookings.",
+      "SEO, websites and apps for cleaning companies in the UK & USA. Win end-of-tenancy, deep clean and office jobs online. From £300/mo SEO or 10% of paid jobs.",
     intro:
       "People search for cleaners before they book. We help cleaning businesses across the UK and USA get found — with SEO, conversion-focused websites and apps when you need them — so more searches turn into booked cleans.",
     experience: [
@@ -210,7 +210,7 @@ export const niches: Niche[] = [
     trustSignals: [
       "5.0 on Google from 35 reviews",
       "Around 10 active clients — small team, hands-on work",
-      "SEO, website or app packages — or full growth on 10% of bookings",
+      "SEO, website or app packages — or full growth on 10% of paid jobs",
       "No setup fee · 6-month minimum on SEO plans",
       "Real case study with Google Search Console numbers on site",
     ],
@@ -236,13 +236,13 @@ export const niches: Niche[] = [
       "Solo cleaners who want more phone bookings",
       "Teams covering one city or many",
       "Commercial and residential cleaning companies",
-      "Owners who prefer 10% after bookings instead of a heavy retainer",
+      "Owners who prefer 10% after the job is paid instead of a heavy retainer",
     ],
     outcomes: [
       "More visibility when people search for a cleaner",
       "A site (and optional app) built for mobile and conversions",
       "Honest reporting you can understand",
-      "Optional: pay a share of the bookings we generate",
+      "Optional: £0 upfront, pay a share of the paid jobs we generate",
     ],
     faqs: [
       {
@@ -253,7 +253,7 @@ export const niches: Niche[] = [
       {
         question: "What’s the minimum commitment?",
         answer:
-          "SEO plans have a 6-month minimum. No setup fee — we need time for search results to compound. Growth Partnerships on 10% of bookings run for 12–24 months.",
+          "SEO plans have a 6-month minimum. No setup fee — we need time for search results to compound. Growth Partnerships are £0 upfront and 10% of paid jobs, with a 6-month initial term, then month to month.",
       },
       {
         question: "Do you work in the UK and USA?",
@@ -262,7 +262,7 @@ export const niches: Niche[] = [
       },
     ],
     relatedService: "seo",
-    relatedCaseStudy: "alpha-movers",
+    relatedCaseStudy: "just-shine",
     authorSlug: defaultAuthorSlug,
     reviewedAt: "2026-07-24",
     ctaNote: "WhatsApp or call with your city — we’ll outline a free plan.",

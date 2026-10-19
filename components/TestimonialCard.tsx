@@ -14,12 +14,12 @@ export function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
     <figure className="card flex h-full flex-col p-7">
       <HugeiconsIcon icon={QuoteIcon} size={32} className="text-brand-200" />
-      <blockquote className="mt-4 flex-1 text-base leading-relaxed text-slate-700">
+      <blockquote className="mt-4 flex-1 text-base leading-relaxed text-white/80">
         &ldquo;{testimonial.quote}&rdquo;
       </blockquote>
-      <figcaption className="mt-6 flex items-center gap-3 border-t border-slate-100 pt-4">
+      <figcaption className="mt-6 flex items-center gap-3 border-t border-white/[0.08] pt-4">
         {isPlaceholder ? (
-          <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-brand-500 text-sm font-semibold text-white ring-2 ring-brand-100">
+          <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#BEF70A] text-sm font-semibold text-[#0B1F12] ring-2 ring-brand-100">
             {initials || "JS"}
           </span>
         ) : (
@@ -32,8 +32,8 @@ export function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
           />
         )}
         <div>
-          <div className="font-semibold text-ink">{testimonial.name}</div>
-          <div className="text-sm text-slate-500">{testimonial.role}</div>
+          <div className="font-semibold text-white">{testimonial.name}</div>
+          <div className="text-sm text-white/62">{testimonial.role}</div>
         </div>
       </figcaption>
     </figure>

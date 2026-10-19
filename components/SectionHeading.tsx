@@ -23,11 +23,11 @@ export function SectionHeading({
           {eyebrow}
         </span>
       )}
-      <h2 className="font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+      <h2 className="font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">
         {title}
       </h2>
       {description && (
-        <p className="text-lg leading-relaxed text-slate-600">{description}</p>
+        <p className="text-lg leading-relaxed text-white/72">{description}</p>
       )}
     </Reveal>
   );

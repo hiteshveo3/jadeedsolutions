@@ -13,9 +13,9 @@ export const Eyebrow = ({
   className?: string;
 }) => (
   <div
-    className={`inline-flex items-center gap-2 bg-brand-tint border border-brand/20 text-brand text-xs font-bold px-3.5 py-1.5 rounded-lg uppercase tracking-wider ${className}`}
+    className={`inline-flex items-center gap-2 bg-white/[0.07] border border-[#BEF70A]/20 text-[#BEF70A] text-xs font-bold px-3.5 py-1.5 rounded-lg uppercase tracking-wider ${className}`}
   >
-    <span className="w-1.5 h-1.5 rounded-full bg-brand" aria-hidden="true" />
+    <span className="w-1.5 h-1.5 rounded-full bg-[#BEF70A]" aria-hidden="true" />
     <span>{children}</span>
   </div>
 );
@@ -30,9 +30,9 @@ export const Disclaimer = ({
   children: React.ReactNode;
   className?: string;
 }) => (
-  <p className={`text-xs text-ink/70 leading-normal flex items-start gap-1.5 ${className}`}>
+  <p className={`text-xs text-white/78 leading-normal flex items-start gap-1.5 ${className}`}>
     <span
-      className="w-4 h-4 rounded-full bg-brand-tint text-brand flex items-center justify-center flex-shrink-0 mt-0.5"
+      className="w-4 h-4 rounded-full bg-white/[0.07] text-[#BEF70A] flex items-center justify-center flex-shrink-0 mt-0.5"
       aria-hidden="true"
     >
       <HugeiconsIcon icon={InfoIcon} size={11} strokeWidth={2.5} />
@@ -59,18 +59,18 @@ export const StatCard = ({
 }) => {
   const bgClasses =
     variant === "tint"
-      ? "bg-brand-tint border border-brand/15"
+      ? "bg-white/25 border border-[#BEF70A]/15"
       : variant === "muted"
-      ? "bg-surface-canvas border border-black/[0.06]"
-      : "bg-surface border border-black/[0.08]";
+      ? "bg-transparent border border-white/[0.08]"
+      : "bg-transparent border border-white/[0.08]";
 
   return (
     <div className={`p-4 rounded-xl ${bgClasses} ${className}`}>
-      <span className="text-xs font-bold text-ink/65 uppercase tracking-wider block mb-1">
+      <span className="text-xs font-bold text-white/73 uppercase tracking-wider block mb-1">
         {label}
       </span>
-      <div className="text-xl font-bold text-ink">{value}</div>
-      {subtext && <span className="text-xs text-ink/60 mt-1 block">{subtext}</span>}
+      <div className="text-xl font-bold text-white">{value}</div>
+      {subtext && <span className="text-xs text-white/68 mt-1 block">{subtext}</span>}
     </div>
   );
 };
@@ -92,11 +92,11 @@ export const CTAButton = ({
   className?: string;
 }) => {
   const baseClasses =
-    "group min-h-[48px] px-6 rounded-xl font-semibold text-sm inline-flex items-center justify-center gap-2 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 cursor-pointer";
+    "group min-h-[48px] px-6 rounded-full font-semibold text-sm inline-flex items-center justify-center gap-2 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#BEF70A] focus-visible:ring-offset-2 cursor-pointer";
   const variantClasses =
     variant === "primary"
-      ? "bg-brand text-white hover:bg-brand-dark shadow-xs"
-      : "bg-surface-muted text-ink hover:bg-surface-track border border-black/[0.08]";
+      ? "bg-[#BEF70A] text-[#0B1F12] hover:bg-[#ABDE09] shadow-xs"
+      : "bg-white/[0.08] text-white hover:bg-white/[0.14]";
 
   const content = (
     <>

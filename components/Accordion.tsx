@@ -23,16 +23,16 @@ export function AccordionItem({
 
   const wrapper =
     variant === "card"
-      ? "overflow-hidden rounded-2xl border border-slate-200 bg-slate-100"
+      ? "overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.05]"
       : variant === "card-white"
-        ? "overflow-hidden rounded-2xl border border-slate-200 bg-white"
-        : "border-b border-slate-200 last:border-0";
+        ? "overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.05]"
+        : "border-b border-white/[0.08] last:border-0";
 
   const trigger = isCard
-    ? "flex w-full items-center justify-between gap-4 p-6 text-left font-semibold text-ink"
-    : "flex w-full items-center justify-between gap-4 py-4 text-left text-sm font-semibold uppercase tracking-wider text-slate-500";
+    ? "flex w-full items-center justify-between gap-4 p-6 text-left font-semibold text-white"
+    : "flex w-full items-center justify-between gap-4 py-4 text-left text-sm font-semibold uppercase tracking-wider text-white/62";
 
-  const body = isCard ? "px-6 pb-6 text-slate-600" : "pb-4 text-sm";
+  const body = isCard ? "px-6 pb-6 text-white/72" : "pb-4 text-sm";
 
   return (
     <div className={wrapper}>
@@ -46,7 +46,7 @@ export function AccordionItem({
         <HugeiconsIcon
           icon={ArrowDownIcon}
           size={20}
-          className={`shrink-0 text-brand-500 transition-transform duration-300 ${
+          className={`shrink-0 text-[#BEF70A] transition-transform duration-300 ${
             open ? "rotate-180" : ""
           }`}
         />

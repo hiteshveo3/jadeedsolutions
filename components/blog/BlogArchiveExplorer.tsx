@@ -164,29 +164,29 @@ export function BlogArchiveExplorer({
       {latest && (
         <Link
           href={`/blog/${latest.slug}`}
-          className="group grid overflow-hidden rounded-3xl bg-white md:grid-cols-[1.1fr_1fr]"
+          className="group grid overflow-hidden rounded-3xl bg-white/[0.05] md:grid-cols-[1.1fr_1fr]"
         >
           <div className="relative aspect-[16/10] md:aspect-auto md:min-h-[240px]">
             <CategoryTile category={latest.category} readingTime={latest.readingTime} fill />
-            <span className="absolute left-4 top-4 rounded-full bg-brand-500 px-3 py-1 text-xs font-bold text-white">
+            <span className="absolute left-4 top-4 rounded-full bg-[#BEF70A] px-3 py-1 text-xs font-bold text-[#0B1F12]">
               Latest
             </span>
           </div>
           <div className="flex flex-col justify-center p-6 sm:p-8">
-            <p className="text-xs font-bold uppercase tracking-wider text-brand-500">
+            <p className="text-xs font-bold uppercase tracking-wider text-[#BEF70A]">
               {latest.category}
             </p>
-            <h2 className="mt-2 font-display text-2xl font-semibold tracking-tight text-ink group-hover:text-brand-500">
+            <h2 className="mt-2 font-display text-2xl font-semibold tracking-tight text-white group-hover:text-[#BEF70A]">
               {latest.title}
             </h2>
-            <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-slate-600">
+            <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-white/72">
               {latest.excerpt}
             </p>
-            <p className="mt-4 text-xs text-slate-500">
+            <p className="mt-4 text-xs text-white/62">
               {latestAuthor?.name} · {formatDate(latest.date)} ·{" "}
               {latest.readingTime}
             </p>
-            <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-500">
+            <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[#BEF70A]">
               Read article
               <HugeiconsIcon icon={ArrowRightIcon} size={16} />
             </span>
@@ -195,19 +195,19 @@ export function BlogArchiveExplorer({
       )}
 
       {/* Controls */}
-      <div className="sticky top-16 z-30 -mx-1 rounded-2xl border border-slate-200 bg-white/95 p-3 shadow-soft backdrop-blur sm:p-4">
+      <div className="sticky top-16 z-30 -mx-1 rounded-2xl border border-white/[0.08] bg-[#06301D]/95 p-3 shadow-soft backdrop-blur sm:p-4">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-          <label className="flex h-11 w-full items-center gap-2.5 rounded-full border border-slate-200 bg-slate-50 px-4 text-sm lg:max-w-sm">
+          <label className="flex h-11 w-full items-center gap-2.5 rounded-full border border-white/[0.08] bg-white/[0.05] px-4 text-sm lg:max-w-sm">
             <HugeiconsIcon
               icon={SearchIcon}
               size={16}
-              className="shrink-0 text-slate-500"
+              className="shrink-0 text-white/62"
             />
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search title, topic, excerpt…"
-              className="w-full bg-transparent text-ink outline-none placeholder:text-slate-400"
+              className="w-full bg-transparent text-white outline-none placeholder:text-white/52"
             />
           </label>
 
@@ -216,14 +216,14 @@ export function BlogArchiveExplorer({
             <button
               type="button"
               onClick={expandAll}
-              className="rounded-full border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-50 hover:text-brand-500"
+              className="rounded-full border border-white/[0.08] px-3 py-2 text-xs font-semibold text-white/72 hover:bg-white/[0.08] hover:text-[#BEF70A]"
             >
               Expand all
             </button>
             <button
               type="button"
               onClick={collapseAll}
-              className="rounded-full border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-50 hover:text-brand-500"
+              className="rounded-full border border-white/[0.08] px-3 py-2 text-xs font-semibold text-white/72 hover:bg-white/[0.08] hover:text-[#BEF70A]"
             >
               Collapse
             </button>
@@ -247,7 +247,7 @@ export function BlogArchiveExplorer({
         </div>
 
         {filteredArchive.length > 1 && (
-          <div className="mt-3 flex gap-2 overflow-x-auto border-t border-slate-100 pt-3">
+          <div className="mt-3 flex gap-2 overflow-x-auto border-t border-white/[0.08] pt-3">
             {filteredArchive.map((y) => (
               <a
                 key={y.year}
@@ -255,8 +255,8 @@ export function BlogArchiveExplorer({
                 onClick={() => setActiveYear(y.year)}
                 className={`shrink-0 rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors ${
                   activeYear === y.year
-                    ? "bg-brand-500 text-white"
-                    : "bg-slate-100 text-slate-600 hover:bg-brand-50 hover:text-brand-600"
+                    ? "bg-[#BEF70A] text-[#0B1F12]"
+                    : "bg-white/[0.05] text-white/72 hover:bg-white/10 hover:text-[#BEF70A]"
                 }`}
               >
                 {y.year}
@@ -267,19 +267,19 @@ export function BlogArchiveExplorer({
         )}
       </div>
 
-      <p className="text-sm text-slate-500">
+      <p className="text-sm text-white/62">
         Showing{" "}
-        <span className="font-semibold text-ink">{flatPosts.length}</span>{" "}
+        <span className="font-semibold text-white">{flatPosts.length}</span>{" "}
         article{flatPosts.length === 1 ? "" : "s"}
         {query || category !== "All" ? " matching filters" : ""}.
       </p>
 
       {filteredArchive.length === 0 ? (
-        <div className="rounded-3xl border border-dashed border-slate-200 bg-white px-6 py-16 text-center">
-          <p className="font-display text-lg font-semibold text-ink">
+        <div className="rounded-3xl border border-dashed border-white/[0.08] bg-white/[0.05] px-6 py-16 text-center">
+          <p className="font-display text-lg font-semibold text-white">
             No articles match
           </p>
-          <p className="mt-2 text-sm text-slate-500">
+          <p className="mt-2 text-sm text-white/62">
             Try another search or clear the topic filter.
           </p>
           <button
@@ -288,7 +288,7 @@ export function BlogArchiveExplorer({
               setQuery("");
               setCategory("All");
             }}
-            className="mt-5 text-sm font-semibold text-brand-500"
+            className="mt-5 text-sm font-semibold text-[#BEF70A]"
           >
             Clear filters
           </button>
@@ -322,14 +322,14 @@ function StatCard({
   value: string;
 }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5">
-      <div className="flex items-center gap-2 text-slate-500">
+    <div className="rounded-2xl border border-white/[0.08] bg-white/[0.05] p-4 sm:p-5">
+      <div className="flex items-center gap-2 text-white/62">
         <HugeiconsIcon icon={icon} size={16} />
         <span className="text-xs font-semibold uppercase tracking-wider">
           {label}
         </span>
       </div>
-      <p className="mt-2 font-display text-2xl font-semibold text-ink sm:text-3xl">
+      <p className="mt-2 font-display text-2xl font-semibold text-white sm:text-3xl">
         {value}
       </p>
     </div>
@@ -351,8 +351,8 @@ function FilterChip({
       onClick={onClick}
       className={`shrink-0 rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors ${
         active
-          ? "bg-brand-500 text-white"
-          : "border border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
+          ? "bg-[#BEF70A] text-[#0B1F12]"
+          : "border border-white/[0.08] bg-white/[0.05] text-white/72 hover:bg-white/[0.08]"
       }`}
     >
       {label}
@@ -373,7 +373,7 @@ function ViewToggle({
     { id: "list", label: "List" },
   ];
   return (
-    <div className="inline-flex rounded-full border border-slate-200 bg-slate-50 p-1">
+    <div className="inline-flex rounded-full border border-white/[0.08] bg-white/[0.05] p-1">
       {options.map((o) => (
         <button
           key={o.id}
@@ -381,8 +381,8 @@ function ViewToggle({
           onClick={() => setView(o.id)}
           className={`rounded-full px-3 py-1.5 text-xs font-bold transition-colors ${
             view === o.id
-              ? "bg-white text-brand-500 shadow-sm"
-              : "text-slate-500 hover:text-ink"
+              ? "bg-white/[0.05] text-[#BEF70A] shadow-sm"
+              : "text-white/62 hover:text-white"
           }`}
         >
           {o.label}
@@ -395,9 +395,9 @@ function ViewToggle({
 function HeatBar({ count, max }: { count: number; max: number }) {
   const pct = count === 0 ? 0 : Math.max(12, Math.round((count / max) * 100));
   return (
-    <div className="h-1.5 w-full overflow-hidden rounded-full bg-slate-100">
+    <div className="h-1.5 w-full overflow-hidden rounded-full bg-white/[0.05]">
       <div
-        className="h-full rounded-full bg-brand-500 transition-[width] duration-300"
+        className="h-full rounded-full bg-white/[0.05] transition-[width] duration-300"
         style={{ width: `${pct}%` }}
       />
     </div>
@@ -424,18 +424,18 @@ function TimelineView({
       {archive.map((year) => (
         <section key={year.year} id={`year-${year.year}`} className="scroll-mt-36">
           <div className="mb-5 flex items-center gap-3 md:gap-5">
-            <span className="relative z-10 grid h-10 w-10 place-items-center rounded-full bg-brand-500 font-display text-sm font-bold text-white shadow-soft">
+            <span className="relative z-10 grid h-10 w-10 place-items-center rounded-full bg-[#BEF70A] font-display text-sm font-bold text-[#0B1F12] shadow-soft">
               {year.year.slice(2)}
             </span>
             <div className="flex flex-1 flex-wrap items-end justify-between gap-3">
               <div>
                 <Link
                   href={year.href}
-                  className="font-display text-2xl font-semibold text-ink hover:text-brand-500"
+                  className="font-display text-2xl font-semibold text-white hover:text-[#BEF70A]"
                 >
                   {year.year}
                 </Link>
-                <p className="text-sm text-slate-500">
+                <p className="text-sm text-white/62">
                   {year.count} article{year.count === 1 ? "" : "s"}
                 </p>
               </div>
@@ -449,7 +449,7 @@ function TimelineView({
               return (
                 <div
                   key={m.key}
-                  className="overflow-hidden rounded-2xl bg-white"
+                  className="overflow-hidden rounded-2xl bg-white/[0.05]"
                 >
                   <button
                     type="button"
@@ -459,10 +459,10 @@ function TimelineView({
                   >
                     <div className="min-w-0 flex-1">
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="font-display text-lg font-semibold text-ink">
+                        <span className="font-display text-lg font-semibold text-white">
                           {m.label}
                         </span>
-                        <span className="rounded-full bg-brand-50 px-2 py-0.5 text-xs font-bold text-brand-600">
+                        <span className="rounded-full bg-white/[0.07] px-2 py-0.5 text-xs font-bold text-[#BEF70A]">
                           {m.count}
                         </span>
                       </div>
@@ -473,12 +473,12 @@ function TimelineView({
                     <Link
                       href={m.href}
                       onClick={(e) => e.stopPropagation()}
-                      className="hidden text-xs font-semibold text-brand-500 sm:inline"
+                      className="hidden text-xs font-semibold text-[#BEF70A] sm:inline"
                     >
                       Month page
                     </Link>
                     <span
-                      className={`grid h-8 w-8 place-items-center rounded-full border border-slate-200 text-slate-500 transition-transform ${
+                      className={`grid h-8 w-8 place-items-center rounded-full border border-white/[0.08] text-white/62 transition-transform ${
                         open ? "rotate-90" : ""
                       }`}
                     >
@@ -487,7 +487,7 @@ function TimelineView({
                   </button>
 
                   {open && (
-                    <div className="border-t border-slate-100 bg-slate-50/80 p-3 sm:p-4">
+                    <div className="border-t border-white/[0.08] bg-white/[0.06] p-3 sm:p-4">
                       <ul className="grid gap-3 sm:grid-cols-2">
                         {m.posts.map((p) => (
                           <li key={p.slug}>
@@ -515,7 +515,7 @@ function YearSparkline({ counts, max }: { counts: number[]; max: number }) {
         return (
           <div key={i} className="flex flex-col items-center gap-1">
             <div
-              className={`w-2 rounded-sm ${c ? "bg-brand-500" : "bg-slate-200"}`}
+              className={`w-2 rounded-sm ${c ? "bg-white/[0.05]" : "bg-white/15"}`}
               style={{ height: h }}
               title={`${MONTH_NAMES[i]}: ${c}`}
             />
@@ -539,16 +539,16 @@ function CalendarView({
         <section
           key={year.year}
           id={`year-${year.year}`}
-          className="scroll-mt-36 overflow-hidden rounded-3xl bg-white"
+          className="scroll-mt-36 overflow-hidden rounded-3xl bg-white/[0.05]"
         >
-          <div className="flex items-center justify-between border-b border-slate-200 bg-slate-50 px-5 py-4">
+          <div className="flex items-center justify-between border-b border-white/[0.08] bg-transparent px-5 py-4">
             <Link
               href={year.href}
-              className="font-display text-xl font-semibold text-ink hover:text-brand-500"
+              className="font-display text-xl font-semibold text-white hover:text-[#BEF70A]"
             >
               {year.year}
             </Link>
-            <span className="text-sm text-slate-500">{year.count} posts</span>
+            <span className="text-sm text-white/62">{year.count} posts</span>
           </div>
           <div className="grid grid-cols-3 gap-2 p-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-12">
             {MONTH_NAMES.map((name, i) => {
@@ -561,7 +561,7 @@ function CalendarView({
                 return (
                   <div
                     key={name}
-                    className="flex aspect-square flex-col items-center justify-center rounded-xl border border-dashed border-slate-200 bg-slate-50 text-slate-300"
+                    className="flex aspect-square flex-col items-center justify-center rounded-xl border border-dashed border-white/[0.08] bg-white/[0.05] text-white/70"
                   >
                     <span className="text-[10px] font-bold uppercase">{name}</span>
                     <span className="text-xs">—</span>
@@ -577,17 +577,17 @@ function CalendarView({
                     backgroundColor: `rgba(255, 107, 53, ${0.12 + intensity * 0.35})`,
                   }}
                 >
-                  <span className="text-[10px] font-bold uppercase text-brand-700">
+                  <span className="text-[10px] font-bold uppercase text-white">
                     {name}
                   </span>
-                  <span className="font-display text-xl font-semibold text-ink">
+                  <span className="font-display text-xl font-semibold text-white">
                     {count}
                   </span>
                 </Link>
               );
             })}
           </div>
-          <div className="border-t border-slate-100 px-5 py-3 text-xs text-slate-500">
+          <div className="border-t border-white/[0.08] px-5 py-3 text-xs text-white/62">
             Darker cells = more articles that month. Click a month to open it.
           </div>
         </section>
@@ -598,9 +598,9 @@ function CalendarView({
 
 function ListView({ posts }: { posts: Post[] }) {
   return (
-    <div className="overflow-hidden rounded-3xl bg-white">
+    <div className="overflow-hidden rounded-3xl bg-white/[0.05]">
       <table className="w-full text-left text-sm">
-        <thead className="bg-slate-50 text-xs uppercase tracking-wider text-slate-500">
+        <thead className="bg-transparent text-xs uppercase tracking-wider text-white/62">
           <tr>
             <th className="px-4 py-3 font-semibold sm:px-5">Article</th>
             <th className="hidden px-4 py-3 font-semibold md:table-cell">
@@ -616,25 +616,25 @@ function ListView({ posts }: { posts: Post[] }) {
           {posts.map((p) => (
             <tr
               key={p.slug}
-              className="border-t border-slate-100"
+              className="border-t border-white/[0.08]"
             >
               <td className="px-4 py-3.5 sm:px-5">
                 <Link
                   href={`/blog/${p.slug}`}
-                  className="font-semibold text-ink hover:text-brand-500"
+                  className="font-semibold text-white hover:text-[#BEF70A]"
                 >
                   {p.title}
                 </Link>
               </td>
               <td className="hidden px-4 py-3.5 md:table-cell">
-                <span className="rounded-full bg-brand-50 px-2 py-0.5 text-xs font-semibold text-brand-600">
+                <span className="rounded-full bg-white/[0.07] px-2 py-0.5 text-xs font-semibold text-[#BEF70A]">
                   {p.category}
                 </span>
               </td>
-              <td className="hidden whitespace-nowrap px-4 py-3.5 text-slate-500 sm:table-cell">
+              <td className="hidden whitespace-nowrap px-4 py-3.5 text-white/62 sm:table-cell">
                 {formatDate(p.date)}
               </td>
-              <td className="whitespace-nowrap px-4 py-3.5 text-slate-500 sm:px-5">
+              <td className="whitespace-nowrap px-4 py-3.5 text-white/62 sm:px-5">
                 {p.readingTime}
               </td>
             </tr>
@@ -649,19 +649,19 @@ function PostMiniCard({ post }: { post: Post }) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="group flex h-full gap-3 overflow-hidden rounded-xl bg-white p-2.5"
+      className="group flex h-full gap-3 overflow-hidden rounded-xl bg-white/[0.05] p-2.5"
     >
-      <div className="relative h-16 w-20 shrink-0 overflow-hidden rounded-lg bg-slate-100">
+      <div className="relative h-16 w-20 shrink-0 overflow-hidden rounded-lg bg-white/[0.05]">
         <CategoryTile category={post.category} readingTime={post.readingTime} fill />
       </div>
       <div className="min-w-0 flex-1 py-0.5">
-        <p className="text-[10px] font-bold uppercase tracking-wider text-brand-500">
+        <p className="text-[10px] font-bold uppercase tracking-wider text-[#BEF70A]">
           {post.category}
         </p>
-        <p className="mt-0.5 line-clamp-2 text-sm font-semibold leading-snug text-ink group-hover:text-brand-500">
+        <p className="mt-0.5 line-clamp-2 text-sm font-semibold leading-snug text-white group-hover:text-[#BEF70A]">
           {post.title}
         </p>
-        <p className="mt-1 text-[11px] text-slate-500">
+        <p className="mt-1 text-[11px] text-white/62">
           {formatDate(post.date)} · {post.readingTime}
         </p>
       </div>

@@ -64,31 +64,31 @@ export default async function AuthorPage(props: { params: Promise<{ slug: string
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="bg-[#f7f5ef] pb-20 pt-28 text-[#111]">
+      <div className="bg-transparent pb-20 pt-28 text-white">
         <div className="container py-10 md:py-14">
-          <nav aria-label="Breadcrumb" className="text-xs text-black/50">
+          <nav aria-label="Breadcrumb" className="text-xs text-white/58">
             <ol className="flex items-center gap-1.5">
               <li>
-                <Link href="/" className="hover:text-brand-500">
+                <Link href="/" className="hover:text-[#BEF70A]">
                   Home
                 </Link>
               </li>
               <li aria-hidden="true">/</li>
               <li>
-                <Link href="/blog" className="hover:text-brand-500">
+                <Link href="/blog" className="hover:text-[#BEF70A]">
                   Blog
                 </Link>
               </li>
               <li aria-hidden="true">/</li>
-              <li className="text-ink" aria-current="page">
+              <li className="text-white" aria-current="page">
                 {author.name}
               </li>
             </ol>
           </nav>
 
           {/* Profile header */}
-          <div className="mt-6 grid overflow-hidden rounded-[30px] bg-[#015f45] text-white lg:grid-cols-[.7fr_1.3fr]">
-            <div className="relative min-h-[380px] bg-[#f28a16]">
+          <div className="mt-6 grid overflow-hidden rounded-[30px] bg-white/[0.05] text-white lg:grid-cols-[.7fr_1.3fr]">
+            <div className="relative min-h-[380px] bg-[#c6e962]">
             <Image
               src={author.avatar}
               alt={`${author.name}, Founder and CEO of Jadeed Solutions`}
@@ -99,20 +99,20 @@ export default async function AuthorPage(props: { params: Promise<{ slug: string
             />
             </div>
             <div className="p-7 sm:p-10 lg:p-12">
-              <span className="inline-flex items-center rounded-full bg-[#cbd810] px-3 py-1 text-xs font-bold uppercase tracking-wider text-black">
+              <span className="inline-flex items-center rounded-full bg-[#BEF70A] px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#0B1F12]">
                 Founder profile
               </span>
               <h1 className="mt-4 font-sans text-4xl font-semibold tracking-[-.045em] md:text-6xl">
                 {author.name}
               </h1>
-              <p className="mt-2 font-semibold text-[#eaf25a]">{author.role}</p>
+              <p className="mt-2 font-semibold text-[#BEF70A]">{author.role}</p>
               <p className="mt-5 max-w-2xl leading-7 text-white/70">{author.longBio}</p>
 
               {author.highlights && author.highlights.length > 0 && (
                 <ul className="mt-6 grid gap-3 text-left text-sm text-white/75 sm:grid-cols-2">
                   {author.highlights.map((h) => (
                     <li key={h} className="flex items-start gap-2">
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#cbd810]" />
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#BEF70A]" />
                       {h}
                     </li>
                   ))}
@@ -122,7 +122,7 @@ export default async function AuthorPage(props: { params: Promise<{ slug: string
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <Link
                   href="/sameer-ahmad-basra"
-                  className="inline-flex items-center gap-1.5 rounded-xl bg-[#cbd810] px-4 py-2 text-sm font-bold text-[#111111] transition-colors hover:bg-[#b8c50e]"
+                  className="inline-flex items-center gap-1.5 rounded-xl bg-[#BEF70A] px-4 py-2 text-sm font-bold text-[#0B1F12] transition-colors hover:bg-[#ABDE09]"
                 >
                   Read Full Founder Story →
                 </Link>
@@ -132,7 +132,7 @@ export default async function AuthorPage(props: { params: Promise<{ slug: string
                     href={s.href}
                     target={s.label === "LinkedIn" ? "_blank" : undefined}
                     rel={s.label === "LinkedIn" ? "noreferrer" : undefined}
-                    className="inline-flex items-center gap-1.5 rounded-xl border border-white/15 bg-white/10 px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-white hover:text-[#015f45]"
+                    className="inline-flex items-center gap-1.5 rounded-xl border border-white/[0.08] bg-white/10 px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-white/[0.08] hover:text-[#BEF70A]"
                   >
                     {s.label === "Email" && (
                       <HugeiconsIcon icon={MailIcon} size={15} />
@@ -147,16 +147,16 @@ export default async function AuthorPage(props: { params: Promise<{ slug: string
           {/* Posts */}
           <section className="mt-12">
             <div className="mb-6 flex items-end justify-between">
-              <h2 className="font-sans text-3xl font-semibold tracking-[-.035em] text-[#111]">
+              <h2 className="font-sans text-3xl font-semibold tracking-[-.035em] text-white">
                 Articles by {author.name.split(" ")[0]}
               </h2>
-              <span className="text-sm text-slate-500">
+              <span className="text-sm text-white/62">
                 {posts.length} {posts.length === 1 ? "article" : "articles"}
               </span>
             </div>
 
             {posts.length === 0 ? (
-              <p className="rounded-2xl border border-slate-200 bg-white p-8 text-center text-slate-500">
+              <p className="rounded-2xl border border-white/[0.08] bg-white/[0.05] p-8 text-center text-white/62">
                 No articles yet — check back soon.
               </p>
             ) : (
@@ -165,19 +165,19 @@ export default async function AuthorPage(props: { params: Promise<{ slug: string
                   <Link
                     key={p.slug}
                     href={`/blog/${p.slug}`}
-                    className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition-shadow hover:shadow-soft"
+                    className="group overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.05] transition-shadow hover:shadow-soft"
                   >
                     <div className="relative aspect-[16/9] overflow-hidden">
                       <CategoryTile category={p.category} readingTime={p.readingTime} fill />
                     </div>
                     <div className="p-5">
-                      <span className="inline-flex rounded-full bg-brand-500 px-2.5 py-0.5 text-xs font-semibold text-white">
+                      <span className="inline-flex rounded-full bg-[#BEF70A] px-2.5 py-0.5 text-xs font-semibold text-[#0B1F12]">
                         {p.category}
                       </span>
-                      <h3 className="mt-3 font-display text-base font-semibold leading-snug text-ink group-hover:text-brand-500">
+                      <h3 className="mt-3 font-display text-base font-semibold leading-snug text-white group-hover:text-[#BEF70A]">
                         {p.title}
                       </h3>
-                      <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-500">
+                      <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-white/62">
                         <span className="inline-flex items-center gap-1.5">
                           <HugeiconsIcon icon={CalendarIcon} size={14} />
                           <time dateTime={p.date}>{formatDate(p.date)}</time>
@@ -187,7 +187,7 @@ export default async function AuthorPage(props: { params: Promise<{ slug: string
                           {p.readingTime}
                         </span>
                       </div>
-                      <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand-500">
+                      <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-[#BEF70A]">
                         Read article
                         <HugeiconsIcon
                           icon={ArrowRightIcon}

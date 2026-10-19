@@ -35,7 +35,7 @@ export function StatsCounter({
         {display}
         {suffix}
       </span>
-      <p className="mt-2 text-sm font-medium text-slate-600">{label}</p>
+      <p className="mt-2 text-sm font-medium text-white/72">{label}</p>
     </div>
   );
 }

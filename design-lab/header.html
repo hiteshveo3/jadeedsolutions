@@ -1,0 +1,904 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Header · Jadeed design lab</title>
+<link rel="icon" href="/jadeed-favicon.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chewy&amp;family=Urbanist:wght@800&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&amp;display=swap" rel="stylesheet">
+<style>
+/* Palette = Round 1, fonts = Round 2 (both final, 2026-10-04). */
+:root {
+  --glow: #0B561C; --dark: #06301D; --deep: #051B1E;
+  --lime: #BEF70A; --on-lime: #0B1F12;
+  --canvas: #F5F6EF; --action: #10672C; --tint: #EDF7D4; --ink: #0B1F12;
+  --grad: radial-gradient(120% 85% at 50% 42%, #0B561C 0%, #08461C 18%, #06301D 40%, #05211E 66%, #051B1E 100%);
+  --grad-band: radial-gradient(75% 140% at 50% 50%, #0A4F1C 0%, #06301D 52%, #051B1E 100%);
+  --grad-card: radial-gradient(90% 130% at 18% 0%, #0A4A1D 0%, #06301D 46%, #051B1E 100%);
+  --grad-foot: radial-gradient(90% 130% at 50% 0%, #0B561C 0%, #06301D 46%, #051B1E 100%);
+  --grad-bar: radial-gradient(70% 260% at 50% 0%, #0A4F1C 0%, #06301D 55%, #051B1E 100%);
+  --font-body: 'DM Sans', system-ui, sans-serif;
+
+  --paper: #FAFAF7; --line: #E2E2DA; --lab-ink: #0D0D0D; --lab-muted: #5C5C55; --lab-soft: #F0F0EA;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--lab-ink); font-family: var(--font-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+button, textarea { font: inherit; }
+:focus-visible { outline: 3px solid var(--lab-ink); outline-offset: 2px; }
+.wrap { max-width: 1320px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 40px); }
+
+/* ── Lab chrome (same as the numbered rounds) ─────────────────────────── */
+.topbar { background: #FFFFFF; border-bottom: 1px solid var(--line); }
+.topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -0.02em; text-decoration: none; white-space: nowrap; }
+.brand i { font-style: normal; width: 32px; height: 32px; border-radius: 9px; background: var(--dark); color: var(--lime); display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: 19px; letter-spacing: -0.04em; line-height: 1; }
+.brand span { color: var(--lab-muted); font-weight: 600; }
+.toplinks { display: flex; gap: 6px; }
+.toplinks a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: 10px; font-size: 14px; font-weight: 600; text-decoration: none; color: var(--lab-muted); }
+.toplinks a:hover { background: var(--lab-soft); color: var(--lab-ink); }
+@media (max-width: 640px) { .brand span { display: none; } .toplinks a { padding: 0 10px; } }
+
+.eyebrow { margin: 0; font-size: 12px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--lab-muted); }
+.intro { padding: clamp(40px, 6vw, 72px) 0 clamp(40px, 5vw, 64px); }
+.intro h1 { margin: 12px 0 0; max-width: 900px; font-size: clamp(42px, 6vw, 76px); line-height: 0.94; letter-spacing: -0.055em; font-weight: 700; color: var(--dark); }
+.intro h1 em { font-style: normal; color: var(--action); }
+.lead { margin: 18px 0 0; max-width: 720px; font-size: 19px; color: var(--lab-muted); }
+.done { list-style: none; margin: 26px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.done li { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px 8px 8px; border-radius: 999px; background: #FFFFFF; border: 1px solid var(--line); font-size: 15px; font-weight: 600; }
+.done b { width: 26px; height: 26px; border-radius: 999px; background: var(--lime); color: var(--on-lime); display: inline-flex; align-items: center; justify-content: center; }
+.done svg { width: 15px; height: 15px; }
+
+.q, .block { border-top: 1px solid var(--line); padding: clamp(48px, 6vw, 80px) 0; scroll-margin-top: 8px; }
+.q-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.q-num { padding: 3px 8px; border-radius: 6px; background: var(--lab-ink); color: #FFFFFF; font-size: 12px; font-weight: 800; letter-spacing: 0.06em; }
+.q h2, .block h2 { margin: 0; font-size: clamp(26px, 3vw, 38px); line-height: 1.1; letter-spacing: -0.035em; font-weight: 700; }
+.block h2 { margin-top: 10px; }
+.q-help, .lead2 { margin: 10px 0 0; max-width: 760px; color: var(--lab-muted); }
+.opts { margin-top: 28px; display: grid; gap: 20px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 900px) { .opts.two { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.opt { display: flex; flex-direction: column; gap: 14px; min-width: 0; padding: 14px; border-radius: 22px; background: #FFFFFF; border: 2px solid var(--line); transition: border-color 0.2s; }
+.opt.is-chosen { border-color: var(--lab-ink); }
+.opt-head { display: flex; align-items: flex-start; gap: 12px; }
+.letter { width: 30px; height: 30px; flex-shrink: 0; border-radius: 8px; background: var(--lab-soft); display: inline-flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; transition: background 0.2s; }
+.is-chosen .letter { background: var(--lime); color: var(--on-lime); }
+.opt-text { flex: 1; min-width: 0; }
+.opt-label { margin: 0; font-size: 17px; font-weight: 700; line-height: 1.3; }
+.opt-label .rec { margin-left: 6px; padding: 2px 8px; border-radius: 999px; background: var(--tint); color: var(--action); font-size: 11px; font-weight: 800; vertical-align: 2px; white-space: nowrap; }
+.opt-note { margin: 2px 0 0; font-size: 14px; line-height: 1.4; color: var(--lab-muted); }
+.choose { flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 42px; padding: 0 16px; border-radius: 11px; border: 1.5px solid var(--lab-ink); background: transparent; color: var(--lab-ink); font-size: 14px; font-weight: 700; cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+.choose:hover { background: var(--lab-ink); color: #FFFFFF; }
+.choose[aria-pressed="true"] { background: var(--lime); border-color: var(--lime); color: var(--on-lime); }
+.choose svg { width: 16px; height: 16px; }
+.q-note { margin-top: 24px; }
+.q-note label { font-size: 15px; font-weight: 600; color: #3A3A35; }
+.q-note label span { font-weight: 400; color: var(--lab-muted); }
+.q-note textarea { display: block; width: 100%; max-width: 860px; margin-top: 8px; padding: 14px 16px; border-radius: 14px; border: 1px solid #CFCFC7; background: #FFFFFF; color: var(--lab-ink); font-size: 16px; line-height: 1.5; resize: vertical; outline: none; transition: border-color 0.2s; }
+.q-note textarea:focus { border-color: var(--lab-ink); }
+
+.bar { position: sticky; bottom: 0; z-index: 50; background: rgba(250,250,247,0.94); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-top: 1px solid var(--line); }
+.bar .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 20px; padding-top: 10px; padding-bottom: 10px; }
+.bar-left, .bar-right { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.progress { width: 120px; height: 8px; flex-shrink: 0; border-radius: 999px; background: #E4E4DD; overflow: hidden; }
+.progress i { display: block; height: 100%; width: 0; border-radius: 999px; background: var(--lab-ink); transition: width 0.5s; }
+.count { margin: 0; font-size: 14px; font-weight: 700; white-space: nowrap; }
+.status { margin: 0; font-size: 13px; color: var(--lab-muted); }
+.bar-btn { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: 10px; border: 1.5px solid var(--lab-ink); background: transparent; color: var(--lab-ink); font-size: 14px; font-weight: 700; text-decoration: none; white-space: nowrap; cursor: pointer; }
+.bar-btn:hover, .bar-btn.solid { background: var(--lab-ink); color: #FFFFFF; }
+@media (max-width: 700px) { .bar-left, .bar-right { width: 100%; justify-content: space-between; } .progress { width: 80px; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+
+/* ── The answer: one header, three states ──────────────────────────────── */
+.ans-grid { margin-top: 28px; display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 860px) { .ans-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.ans { margin: 0; display: flex; flex-direction: column; gap: 12px; min-width: 0; padding: 14px; border-radius: 22px; background: #FFFFFF; border: 1px solid var(--line); }
+.ans.later { background: transparent; border-style: dashed; border-width: 1.5px; border-color: #CFCFC7; }
+.ans figcaption { display: flex; gap: 12px; align-items: flex-start; }
+.ans figcaption b { display: block; font-size: 17px; line-height: 1.3; }
+.ans figcaption span { display: block; margin-top: 2px; font-size: 14px; line-height: 1.45; color: var(--lab-muted); }
+.ans .n { width: 30px; height: 30px; flex-shrink: 0; border-radius: 8px; background: var(--lime); color: var(--on-lime); display: inline-flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; }
+.ans.later .n { background: var(--lab-soft); color: var(--lab-muted); }
+.ans .stage { flex: 1; display: flex; align-items: center; justify-content: center; padding: 14px; border-radius: 14px; background: var(--lab-soft); }
+
+.decided { list-style: none; margin: 32px 0 0; padding: 0; display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr)); }
+.decided li { display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; border-radius: 14px; background: #FFFFFF; border: 1px solid var(--line); font-size: 15px; line-height: 1.35; }
+.decided li > span:first-child { width: 22px; height: 22px; flex-shrink: 0; margin-top: 1px; border-radius: 999px; background: #E3F3E6; color: #14532D; display: inline-flex; align-items: center; justify-content: center; }
+.decided svg { width: 13px; height: 13px; }
+.decided b { display: block; }
+.decided small { display: block; margin-top: 2px; font-size: 13px; color: var(--lab-muted); }
+.decided-h { margin: 36px 0 0; font-size: 15px; font-weight: 800; letter-spacing: 0.02em; }
+.rules { list-style: none; margin: 22px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.rules li { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; font-size: 14px; font-weight: 600; }
+.rules span { display: inline-flex; width: 16px; height: 16px; }
+.rules .yes { background: #E3F3E6; color: #14532D; }
+.rules .no { background: #F3F1EC; color: #5C5C55; }
+.earlier { background: var(--lab-soft); }
+.earlier + #questions .q { background: var(--lab-soft); }
+
+/* Scaled previews: render at a desktop width, shrink to fit the card. */
+.shot { position: relative; width: 100%; overflow: hidden; border-radius: 14px; border: 1px solid var(--line); background: var(--canvas); }
+.shot > .pvw { transform-origin: 0 0; }
+.shot.crop { max-height: 180px; }
+.shots { display: grid; gap: 12px; }
+.shot-cap { margin: 0 0 6px; font-size: 13px; font-weight: 700; color: var(--lab-muted); }
+
+/* ── Live demo ─────────────────────────────────────────────────────────── */
+.screens { margin-top: 28px; display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr); align-items: start; }
+@media (min-width: 1100px) { .screens { grid-template-columns: minmax(0, 1fr) 360px; } }
+.frame { border-radius: 18px; overflow: hidden; border: 1px solid var(--line); background: #FFFFFF; }
+.frame-bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; border-bottom: 1px solid var(--line); background: var(--paper); }
+.frame-bar i { width: 10px; height: 10px; border-radius: 999px; background: #DADAD2; }
+.frame-bar span { margin-left: 10px; padding: 3px 12px; border-radius: 999px; background: #FFFFFF; border: 1px solid var(--line); font-size: 12px; color: var(--lab-muted); }
+.demo { height: 600px; overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; }
+.phone { position: relative; width: 100%; max-width: 360px; margin: 0 auto; padding: 12px; border-radius: 40px; background: #0D0D0D; }
+.phone-in { height: 700px; border-radius: 30px; overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; background: var(--canvas); scrollbar-width: none; }
+.phone-in::-webkit-scrollbar { display: none; }
+.phone-over { position: absolute; inset: 12px; border-radius: 30px; overflow: hidden; pointer-events: none; }
+.phone-over > * { pointer-events: auto; }
+.switch { margin-top: 18px; display: inline-flex; gap: 4px; padding: 4px; border-radius: 12px; background: var(--lab-soft); }
+.switch button { min-height: 38px; padding: 0 16px; border: 0; border-radius: 9px; background: transparent; color: var(--lab-muted); font-size: 14px; font-weight: 700; cursor: pointer; }
+.switch button[aria-pressed="true"] { background: #FFFFFF; color: var(--lab-ink); box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+.hint { margin: 10px 0 0; font-size: 14px; color: var(--lab-muted); }
+
+/* ── Mock-ups ──────────────────────────────────────────────────────────── */
+.pvw { container: pv / inline-size; min-width: 0; }
+.pv { position: relative; font-family: var(--font-body); font-size: 13px; line-height: 1.5; color: var(--ink); background: var(--canvas); text-align: left; }
+.pv p, .pv h3, .pv h4, .pv h5, .pv ol, .pv ul { margin: 0; padding: 0; }
+.pv ol, .pv ul { list-style: none; }
+.pv svg { width: 1em; height: 1em; flex-shrink: 0; }
+.pv img { display: block; }
+.pv button { border: 0; background: none; color: inherit; padding: 0; cursor: pointer; }
+
+/* Pill buttons, white + lime in the hero (Round 3, final). */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 36px; padding: 0 16px; border-radius: 999px; font-size: 12.5px; font-weight: 700; white-space: nowrap; }
+.btn-lime { background: var(--lime); color: var(--on-lime); }
+.btn-white { background: #FFFFFF; color: #0D0D0D; }
+/* Round 4 arrow: a small dark circle with the arrow inside */
+.arr-c { width: 24px; height: 24px; margin-right: -10px; border-radius: 999px; background: var(--on-lime); color: var(--lime); display: inline-flex; align-items: center; justify-content: center; }
+.arr-c svg { width: 13px; height: 13px; }
+.btn-green .arr-c { background: #FFFFFF; color: var(--action); }
+.btn-ghost { border: 1px solid rgba(255,255,255,0.30); color: #FFFFFF; font-weight: 600; }
+.btn-green { background: var(--action); color: #FFFFFF; }
+.btn-dark { background: var(--on-lime); color: #FFFFFF; }
+.btn-block { width: 100%; height: 42px; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.tag-lime { padding: 2px 8px; border-radius: 999px; background: var(--lime); color: var(--on-lime); font-size: 9px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
+
+/* The header sits on top of the dark page top (height 0, overflows down). */
+.stick { position: relative; height: 0; z-index: 6; }
+.demo .stick, .phone-in .stick { position: sticky; top: 0; }
+
+/* Header — one component; variant = v-pill / v-bar / v-split, state = is-solid */
+.hd { color: #FFFFFF; padding: 14px 22px; transition: padding 0.3s, background 0.3s, box-shadow 0.3s, border-color 0.3s; }
+.hd-in { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 14px; max-width: 1120px; margin: 0 auto; transition: padding 0.3s, background 0.3s, box-shadow 0.3s, border-color 0.3s; }
+.hd-logo { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; transition: background 0.3s; }
+.hd-logo i { font-style: normal; width: 28px; height: 28px; border-radius: 8px; background: var(--lime); color: var(--dark); display: inline-flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800; line-height: 1; letter-spacing: -0.04em; }
+.hd-links { display: none; align-items: center; gap: 2px; font-size: 12px; font-weight: 600; transition: background 0.3s; }
+.hd-links > span { display: inline-flex; align-items: center; gap: 4px; padding: 7px 10px; border-radius: 8px; color: rgba(255,255,255,0.86); white-space: nowrap; cursor: default; transition: background 0.2s, color 0.2s; }
+.hd-links > span:hover, .hd-links > span.open { background: rgba(255,255,255,0.09); color: #FFFFFF; }
+.hd-links > span.on { color: var(--lime); }
+.hd-links .car { display: inline-flex; font-size: 11px; transition: transform 0.2s; }
+.hd-links .open .car { transform: rotate(180deg); }
+.hd-act { display: flex; align-items: center; gap: 8px; }
+.hd-cta { display: none; }
+.hd-call, .hd-burger { width: 36px; height: 36px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; font-size: 17px; }
+.hd-call { background: var(--lime); color: var(--on-lime); }
+.pv .hd-burger { border: 1px solid rgba(255,255,255,0.26); background: rgba(6,48,29,0.5); color: #FFFFFF; }
+@container pv (min-width: 700px) {
+  .hd { padding: 14px 28px; }
+  .hd-links { display: flex; }
+  .hd-cta { display: inline-flex; }
+  .hd-call, .pv .hd-burger { display: none; }
+}
+/* No links in the bar: the menu icon stays on desktop so pages are still reachable */
+@container pv (min-width: 700px) { .hd.no-links .hd-burger { display: inline-flex; } }
+.hd.is-min .hd-links, .hd.is-min .hd-burger { display: none !important; }
+.hd.is-min .hd-cta { display: inline-flex; }
+.hd.is-min .hd-call { display: none; }
+
+/* At the top the header sits on the hero artwork (light sky), so every
+   variant keeps a dark, see-through backing for contrast. */
+/* A · floating pill */
+.v-pill { padding: 12px 14px; }
+.v-pill .hd-in { padding: 7px 7px 7px 12px; border-radius: 18px; background: rgba(6,48,29,0.82); border: 1px solid rgba(255,255,255,0.2); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.v-pill.is-solid { padding-top: 8px; padding-bottom: 8px; }
+.v-pill.is-solid .hd-in { background: rgba(6,48,29,0.97); border-color: rgba(190,247,10,0.20); box-shadow: 0 14px 34px -14px rgba(5,27,30,0.7); }
+@container pv (min-width: 700px) { .v-pill { padding: 14px 24px; } .v-pill.is-solid { padding-top: 10px; padding-bottom: 10px; } }
+
+/* B · full-width bar */
+.v-bar { background: rgba(6,48,29,0.8); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255,255,255,0.12); }
+.v-bar.is-solid { padding-top: 9px; padding-bottom: 9px; background: var(--grad-bar); border-bottom-color: transparent; box-shadow: 0 10px 26px -14px rgba(5,27,30,0.7); }
+
+/* C · separate islands (today's layout, new colours) */
+.v-split .hd-logo { padding: 4px 12px 4px 4px; border-radius: 12px; background: rgba(6,48,29,0.82); border: 1px solid rgba(255,255,255,0.2); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.v-split .hd-links { padding: 3px 5px; border-radius: 12px; background: rgba(6,48,29,0.82); border: 1px solid rgba(255,255,255,0.2); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.v-split.is-solid { padding-top: 9px; padding-bottom: 9px; background: var(--dark); box-shadow: 0 10px 26px -14px rgba(5,27,30,0.7); }
+.v-split.is-solid .hd-logo, .v-split.is-solid .hd-links { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.10); }
+
+/* Services menu: big panel under the header, or a short list under the link */
+.menu { display: none; position: absolute; z-index: 8; top: calc(100% + 10px); white-space: normal; color: var(--ink); background: #FFFFFF; border-radius: 18px; box-shadow: 0 24px 60px -18px rgba(5,27,30,0.45), 0 0 0 1px rgba(11,31,18,0.06); text-align: left; cursor: default; }
+.menu::before { content: ""; position: absolute; left: 0; right: 0; top: -18px; height: 18px; }
+.menu.show { display: block; }
+.demo .has-menu:hover .menu, .demo .has-menu:focus-within .menu { display: block; }
+.menu-mega { left: 50%; transform: translateX(-50%); width: min(640px, 100%); padding: 10px; }
+.dd-list .has-menu { position: relative; }
+.menu-list { left: -4px; width: 230px; padding: 8px; }
+.mm-grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 8px; }
+.mm-items { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; }
+.mm-item { display: flex; gap: 10px; align-items: flex-start; padding: 10px; border-radius: 12px; }
+.mm-item:hover { background: var(--canvas); }
+.mm-ic { width: 32px; height: 32px; flex-shrink: 0; border-radius: 9px; background: var(--tint); color: var(--action); display: inline-flex; align-items: center; justify-content: center; font-size: 16px; }
+.mm-item b { display: block; font-size: 12.5px; line-height: 1.25; letter-spacing: -0.015em; }
+.mm-item small { display: block; margin-top: 2px; font-size: 11px; line-height: 1.35; color: rgba(11,31,18,0.62); white-space: normal; }
+.mm-card { display: flex; flex-direction: column; gap: 6px; padding: 14px; border-radius: 14px; background: var(--grad-card); color: #FFFFFF; white-space: normal; }
+.mm-card .who { display: flex; align-items: center; gap: 8px; font-size: 11px; color: rgba(255,255,255,0.78); }
+.mm-card .who img { width: 24px; height: 24px; border-radius: 7px; }
+.mm-card b { font-size: 17px; line-height: 1.1; letter-spacing: -0.04em; }
+.mm-card b em { font-style: normal; color: var(--lime); }
+.mm-card .go { margin-top: auto; display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 700; color: var(--lime); }
+.mm-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; margin-top: 6px; padding: 10px 10px 4px; border-top: 1px solid rgba(11,31,18,0.08); font-size: 11px; color: rgba(11,31,18,0.62); white-space: normal; }
+.mm-foot b { display: inline-flex; align-items: center; gap: 5px; color: var(--action); }
+.ml-item { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 9px 10px; border-radius: 10px; font-size: 12.5px; font-weight: 600; }
+.ml-item:hover { background: var(--canvas); }
+.ml-item svg { color: rgba(11,31,18,0.35); }
+.ml-all { margin-top: 4px; padding-top: 10px; border-top: 1px solid rgba(11,31,18,0.08); border-radius: 0; color: var(--action); font-weight: 700; }
+.ml-all svg { color: var(--action); }
+
+/* Page pieces */
+/* Home hero = live-site layout (Round 3): artwork on top, header floats on it, copy below. */
+.hero { background: radial-gradient(130% 75% at 50% 72%, #0B561C 0%, #08461C 20%, #06301D 45%, #05211E 72%, #051B1E 100%); color: #FFFFFF; }
+.hero-art { height: clamp(190px, 34cqi, 440px); background: #37C4E7; -webkit-mask-image: linear-gradient(#000 68%, transparent); mask-image: linear-gradient(#000 68%, transparent); }
+.hero-art img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.hero-body { position: relative; max-width: 1120px; margin: -6px auto 0; padding: 0 22px 30px; }
+.hero.small { background: var(--grad); }
+.hero.small .hero-body { margin-top: 0; padding-top: 92px; }
+.pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.06); color: var(--lime); font-size: 9.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+.pill::before { content: ""; width: 6px; height: 6px; border-radius: 999px; background: var(--lime); }
+.h1 { margin-top: 12px !important; max-width: 15ch; font-size: clamp(30px, 6.4cqi, 58px); line-height: 0.94; letter-spacing: -0.055em; font-weight: 700; }
+.h1 em, .h2 em { font-style: normal; color: var(--lime); }
+.hero-copy { margin-top: 12px !important; max-width: 46ch; font-size: 13.5px; line-height: 1.55; color: rgba(255,255,255,0.86); }
+.hero.small .hero-body { padding-bottom: 36px; }
+
+.sec { padding: 28px 22px; }
+.sec-in { max-width: 1120px; margin: 0 auto; }
+.eb { font-size: 9.5px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--action); }
+.h2 { margin-top: 6px !important; max-width: 24ch; font-size: clamp(19px, 3.5cqi, 34px); line-height: 1.04; letter-spacing: -0.045em; font-weight: 700; }
+.cards3 { display: grid; gap: 10px; margin-top: 16px; }
+@container pv (min-width: 520px) { .cards3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.svc { display: flex; flex-direction: column; gap: 8px; padding: 14px; border-radius: 16px; background: #FFFFFF; border: 1px solid rgba(11,31,18,0.09); }
+.tile { width: 34px; height: 34px; border-radius: 10px; background: var(--tint); color: var(--action); display: inline-flex; align-items: center; justify-content: center; font-size: 17px; }
+.svc b { font-size: 13.5px; line-height: 1.25; letter-spacing: -0.02em; }
+.svc small { font-size: 11.5px; line-height: 1.45; color: rgba(11,31,18,0.66); }
+.svc .amt { display: flex; align-items: baseline; gap: 5px; font-size: 11px; color: rgba(11,31,18,0.66); }
+.svc .amt strong { font-size: 28px; line-height: 1; letter-spacing: -0.05em; color: var(--ink); }
+.svc.feature { background: var(--grad-card); border-color: transparent; color: #FFFFFF; }
+.svc.feature small, .svc.feature .amt { color: rgba(255,255,255,0.76); }
+.svc.feature .amt strong { color: var(--lime); }
+.svc.feature .tile { background: rgba(255,255,255,0.10); color: var(--lime); }
+.band { background: var(--grad-band); color: #FFFFFF; }
+.band .eb { color: var(--lime); }
+.bstats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 16px; }
+.bstats b { display: block; font-size: clamp(22px, 4.6cqi, 40px); line-height: 1; letter-spacing: -0.05em; color: var(--lime); }
+.bstats span { display: block; margin-top: 4px; font-size: 10.5px; color: rgba(255,255,255,0.76); }
+.cta { padding: 22px; border-radius: 18px; background: var(--lime); color: var(--on-lime); }
+.cta h4 { font-size: clamp(22px, 4.6cqi, 44px); line-height: 0.95; letter-spacing: -0.055em; font-weight: 700; }
+.cta p { margin-top: 8px !important; font-size: 12.5px; color: rgba(11,31,18,0.8); }
+.foot { background: var(--grad-foot); color: rgba(255,255,255,0.7); padding: 22px 22px 70px; font-size: 11px; }
+.foot .hd-logo { color: #FFFFFF; }
+.foot p { margin-top: 8px !important; max-width: 40ch; }
+.foot-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; margin-top: 14px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.12); }
+.after .sec { padding-top: 88px; }
+
+/* Mobile menus */
+.msheet { position: absolute; inset: 0; z-index: 9; display: flex; flex-direction: column; padding: 12px 14px 16px; background: var(--grad); color: #FFFFFF; font-family: var(--font-body); }
+.ms-top { display: flex; align-items: center; justify-content: space-between; padding: 7px 7px 7px 12px; }
+.ms-top .hd-logo { font-size: 14px; }
+.ms-x { width: 36px; height: 36px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.26); display: inline-flex; align-items: center; justify-content: center; font-size: 17px; cursor: pointer; }
+.ms-links { list-style: none; margin: 18px 0 0; padding: 0 6px; }
+.ms-links li { display: flex; justify-content: space-between; align-items: center; padding: 15px 6px; border-bottom: 1px solid rgba(255,255,255,0.12); font-size: 27px; line-height: 1.1; font-weight: 700; letter-spacing: -0.04em; }
+.ms-links li.on { color: var(--lime); }
+.ms-links li svg { width: 16px; height: 16px; color: rgba(255,255,255,0.6); }
+.ms-bottom { margin-top: auto; display: grid; gap: 8px; padding: 0 6px; }
+.ms-meta { margin: 4px 0 0; text-align: center; font-size: 10.5px; color: rgba(255,255,255,0.6); }
+.msheet .btn { font-size: 13px; }
+.msheet svg, .mdrawer svg, .mcard svg { width: 1em; height: 1em; }
+
+/* B · panel sliding in from the right, page dimmed behind it */
+.mdim { position: absolute; inset: 0; z-index: 8; background: rgba(5,27,30,0.5); }
+.mdrawer { position: absolute; top: 0; right: 0; bottom: 0; z-index: 9; width: 82%; display: flex; flex-direction: column; padding: 12px 12px 16px; border-radius: 22px 0 0 22px; background: var(--grad); color: #FFFFFF; box-shadow: -20px 0 50px -10px rgba(5,27,30,0.6); font-family: var(--font-body); }
+.mdrawer .ms-links li { font-size: 22px; padding: 13px 6px; }
+
+/* C · white card dropping from the header */
+.mcard { position: absolute; top: 8px; left: 8px; right: 8px; z-index: 9; padding: 6px 6px 14px; border-radius: 22px; background: #FFFFFF; color: var(--ink); box-shadow: 0 24px 60px -16px rgba(5,27,30,0.55); font-family: var(--font-body); }
+.mcard .ms-top { padding: 6px 6px 6px 10px; }
+.mcard .ms-x { border-color: rgba(11,31,18,0.14); }
+.mcard .ms-links { margin-top: 6px; }
+.mcard .ms-links li { font-size: 18px; padding: 12px 6px; border-bottom-color: rgba(11,31,18,0.08); }
+.mcard .ms-links li svg { color: rgba(11,31,18,0.35); }
+.mcard .ms-links li.on { color: var(--action); }
+.mcard .ms-bottom { margin-top: 14px; }
+
+/* Mini phones in the questions */
+.phones { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; padding: 16px 8px; border-radius: 16px; background: var(--lab-soft); }
+.phones figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.phones figcaption { font-size: 13px; font-weight: 700; color: var(--lab-muted); }
+/* Drawn at a real 375px phone width, then scaled into the 226px screen. */
+.mphone { width: 240px; padding: 7px; border-radius: 32px; background: #0D0D0D; }
+.mphone-in { position: relative; height: 488px; border-radius: 25px; overflow: hidden; background: var(--canvas); }
+.mscale { position: absolute; top: 0; left: 0; width: 375px; height: 810px; overflow: hidden; transform: scale(0.6027); transform-origin: 0 0; }
+h1,h2,h3{font-family:'Urbanist',system-ui,sans-serif !important;font-weight:800 !important}
+</style>
+</head>
+<body>
+<div id="lab">
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="/design-lab"><i>J</i>Jadeed <span>· Design lab</span></a>
+    <nav class="toplinks" aria-label="Design lab">
+      <a href="/design-lab">← Saare rounds</a>
+      <a href="/design-lab/round-2">Round 2</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="intro">
+    <div class="wrap">
+      <p class="eyebrow">Design lab · Header · Aap ka faisla</p>
+      <h1>Ek header. <em>Bilkul saaf.</em></h1>
+      <p class="lead">Aap ne chuna: poori chaurai wali patti, mobile par poora green page, aur koi dropdown nahi. Aap ko ultra minimal aur fully focused pasand hai, is liye main ne header aur halka kar diya. Bas 2 aakhri sawal hain.</p>
+      <ul class="done">
+        <li><b data-icon="check"></b>Rang: Round 1 wale (final)</li>
+        <li><b data-icon="check"></b>Font: DM Sans (Round 2, final)</li>
+        <li><b data-icon="check"></b>Pill buttons + live-site hero (Round 3, final)</li>
+        <li><b data-icon="check"></b>Gol mein teer, neeche 1 button (Round 4, final)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="answer" aria-labelledby="answer-h">
+    <div class="wrap">
+      <p class="eyebrow">Aap ka faisla</p>
+      <h2 id="answer-h">Poori chaurai wali patti, koi dropdown nahi</h2>
+      <p class="lead2">Poori site par yahi ek header hoga. Header mein sirf 3 cheezein hain: logo, kuch links, aur ek button. Ye tasveerein neeche ke sawalon ke saath badalti hain.</p>
+      <ul class="rules">
+        <li class="yes"><span data-icon="check"></span>Poori chaurai wali patti</li>
+        <li class="yes"><span data-icon="check"></span>Mobile: poora green page</li>
+        <li class="yes"><span data-icon="check"></span>Sirf 1 button</li>
+        <li class="no">✕ Dropdown ya bara menu</li>
+        <li class="no">✕ Call icon, search, doosra button</li>
+      </ul>
+      <div class="ans-grid" id="ans-grid"></div>
+
+      <p class="decided-h">Ultra minimal ke liye main ne ye decide kiya</p>
+      <ul class="decided">
+        <li><span data-icon="check"></span><span><b>Har page par ek hi header</b><small>Har jagah same pehchan (consistency)</small></span></li>
+        <li><span data-icon="check"></span><span><b>Scroll par upar chipka rahe</b><small>Button hamesha ek click door rehta hai</small></span></li>
+        <li><span data-icon="check"></span><span><b>Header ka peechha hamesha dark green</b><small>Tasveer ho ya green page, header har jagah saaf parha jaye</small></span></li>
+        <li><span data-icon="check"></span><span><b>Jis page par hon, wo link lime mein</b><small>Visitor ko pata rahe wo kahan hai</small></span></li>
+        <li><span data-icon="check"></span><span><b>Ek hi button, gol mein teer ke saath</b><small>“Free growth plan”. Round 4 wala teer.</small></span></li>
+        <li><span data-icon="check"></span><span><b>Links ke saath koi teer ya nishan nahi</b><small>Sirf saaf alfaaz</small></span></li>
+        <li><span data-icon="check"></span><span><b>Mobile par upar sirf logo + menu</b><small>WhatsApp neeche wale ek button mein hai (Round 4)</small></span></li>
+        <li><span data-icon="check"></span><span><b>Jo link header mein nahi, wo footer mein</b><small>Header halka rahe, koi page gum na ho</small></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <div id="questions-new"></div>
+
+  <section class="block" id="result" aria-labelledby="result-h">
+    <div class="wrap">
+      <p class="eyebrow">Live</p>
+      <h2 id="result-h">Khud chala kar dekhein</h2>
+      <p class="lead2">Ye bilkul asli jaisa chalta hai. Bade page ko scroll karein aur phone mein menu button dabayen. Upar jo chunenge wo yahan foran lag jayega.</p>
+      <div class="switch" role="group" aria-label="Page">
+        <button type="button" data-page="home" aria-pressed="true">Home page</button>
+        <button type="button" data-page="pricing" aria-pressed="false">Pricing page</button>
+      </div>
+      <div class="screens">
+        <div>
+          <div class="frame">
+            <div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i><span id="demo-url">jadeedsolutions.com</span></div>
+            <div class="demo pvw" id="demo"></div>
+          </div>
+          <p class="hint">Scroll karein: header upar chipak kar solid ho jata hai.</p>
+        </div>
+        <div>
+          <div class="phone">
+            <div class="phone-in pvw" id="phone"></div>
+            <div class="phone-over" id="phone-over"></div>
+          </div>
+          <p class="hint" style="text-align:center">Phone mein menu dabayen</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block earlier" aria-labelledby="earlier-h">
+    <div class="wrap">
+      <p class="eyebrow">Pehle ke sawal</p>
+      <h2 id="earlier-h">Aap ke jawab (Q01–Q04)</h2>
+      <p class="lead2">Ye aap pehle de chuke hain. Badalna ho to yahin badal sakte hain.</p>
+    </div>
+  </section>
+
+  <div id="questions"></div>
+
+  <section class="q" id="h-anything" aria-labelledby="h-anything-t">
+    <div class="wrap">
+      <div class="q-head"><span class="q-num">Q04</span><h2 id="h-anything-t">Kuch aur kehna hai?</h2></div>
+      <div class="q-note">
+        <label for="h-anything-note">Koi idea ya zaroori baat <span>(optional)</span></label>
+        <textarea id="h-anything-note" data-note="h-anything" rows="4" placeholder="Jo dil mein hai likh dein, English ya Roman Urdu mein"></textarea>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="bar-left">
+      <div class="progress" aria-hidden="true"><i id="progress"></i></div>
+      <p class="count" id="count" aria-live="polite">0 of 6 answered</p>
+    </div>
+    <div class="bar-right">
+      <p class="status" id="status" aria-live="polite"></p>
+      <a class="bar-btn" href="#result">Live dekhein</a>
+      <button class="bar-btn solid" type="button" id="copy">Copy answers</button>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+(() => {
+  const ROUND = "header";
+  const KEY = "jadeed-solutions-lab-header";
+  const $ = (s) => document.querySelector(s);
+
+  /* ── Icons ─────────────────────────────────────────────────────────── */
+  const svg = (d, w = 2) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+  const I = {
+    arrow: svg('<path d="M5 12h14M13 6l6 6-6 6"/>', 2.2),
+    check: svg('<path d="M5 12l5 5L20 7"/>', 2.8),
+    chev: svg('<path d="M6 9l6 6 6-6"/>', 2.4),
+    right: svg('<path d="M9 6l6 6-6 6"/>', 2.2),
+    phone: svg('<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/>', 2),
+    menu: svg('<path d="M4 7h16M4 12h16M4 17h10"/>', 2.2),
+    close: svg('<path d="M6 6l12 12M18 6L6 18"/>', 2.2),
+    search: svg('<circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>', 1.8),
+    code: svg('<path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/>', 1.8),
+    ads: svg('<path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z"/><path d="M15 9a4 4 0 0 1 0 6M18 6a8 8 0 0 1 0 12"/>', 1.8),
+    chart: svg('<path d="M5 20V11M12 20V5M19 20v-6"/>', 2),
+  };
+  const icons = (root) => root.querySelectorAll("[data-icon]").forEach((el) => { el.innerHTML = I[el.dataset.icon]; });
+
+  /* ── Header (one component) ────────────────────────────────────────── */
+  const LINK_SETS = {
+    three: ["Services", "Results", "Pricing"],
+    five: ["Services", "Results", "Pricing", "About", "Blog"],
+    zero: [],
+  };
+  let LINKS = LINK_SETS.three; // set from the picks in update()
+  const arrC = `<span class="arr-c">${I.arrow}</span>`;
+  const SERVICES = [
+    [I.search, "Local SEO &amp; Google Maps", "Show up when locals search"],
+    [I.code, "Conversion websites", "Fast sites that turn visits into calls"],
+    [I.ads, "Google &amp; Meta ads", "Paid leads, tracked to the booking"],
+    [I.chart, "Tracking &amp; reporting", "Plain-English monthly reports"],
+  ];
+  const menuPanel = (kind, open) => kind === "list" ? `
+    <div class="menu menu-list${open ? " show" : ""}">
+      ${SERVICES.map(([, t]) => `<span class="ml-item">${t}${I.right}</span>`).join("")}
+      <span class="ml-item ml-all">All services ${I.arrow}</span>
+    </div>` : `
+    <div class="menu menu-mega${open ? " show" : ""}">
+      <div class="mm-grid">
+        <div class="mm-items">${SERVICES.map(([ic, t, d]) => `<span class="mm-item"><span class="mm-ic">${ic}</span><span><b>${t}</b><small>${d}</small></span></span>`).join("")}</div>
+        <div class="mm-card">
+          <span class="who"><img src="/clients/alpha-movers.jpeg" alt="">Alpha Movers · London</span>
+          <span class="tag-lime" style="width:fit-content">Verified result</span>
+          <b><em>70+ booked jobs</em> in 3 months</b>
+          <span class="go">Read the case study ${I.arrow}</span>
+        </div>
+      </div>
+      <div class="mm-foot"><span>Movers · Cleaners · Plumbers · Contractors</span><b>All services ${I.arrow}</b></div>
+    </div>`;
+
+  // menu: "none" (owner's pick: plain links), "mega" or "list" (only drawn for the old Q03 previews)
+  const header = ({ v, solid = false, active = "", menu = "none", open = false, min = false, live = false, links = LINKS }) => {
+    const item = (l) => l === "Services" && menu !== "none"
+      ? `<span class="has-menu${open ? " open" : ""}${active === l ? " on" : ""}"${live ? ' tabindex="0"' : ""}>Services <span class="car">${I.chev}</span>${menuPanel(menu, open)}</span>`
+      : `<span class="${l === active ? "on" : ""}">${l}</span>`;
+    return `
+    <header class="hd v-${v}${solid ? " is-solid" : ""}${min ? " is-min" : ""}${links.length ? "" : " no-links"}">
+      <div class="hd-in dd-${menu}">
+        <span class="hd-logo"><i>J</i>Jadeed Solutions</span>
+        <nav class="hd-links">${links.map(item).join("")}</nav>
+        <span class="hd-act">
+          <span class="btn btn-lime hd-cta">Free growth plan ${arrC}</span>
+          ${live ? `<button type="button" class="hd-burger" data-act="burger" aria-label="Open menu">${I.menu}</button>` : `<span class="hd-burger">${I.menu}</span>`}
+        </span>
+      </div>
+    </header>`;
+  };
+  const stick = (h) => `<div class="stick">${h}</div>`;
+
+  /* ── Page pieces ───────────────────────────────────────────────────── */
+  const heroHome = () => `
+    <section class="hero">
+      <div class="hero-art"><img src="/performance-marketing-local-businesses.webp" alt="" loading="lazy"></div>
+      <div class="hero-body">
+        <span class="pill">Growth partner for local service businesses</span>
+        <h3 class="h1">More booked jobs.<br><em>One growth partner.</em></h3>
+        <p class="hero-copy">Local SEO, conversion websites and paid acquisition built as one measurable system.</p>
+        <div class="row"><span class="btn btn-white">Get a free growth plan ${arrC}</span><span class="btn btn-lime">See client results</span></div>
+      </div>
+    </section>`;
+  const heroPricing = () => `
+    <section class="hero small"><div class="hero-body">
+      <span class="pill">Pricing</span>
+      <h3 class="h1">Pay the way that <em>suits your business.</em></h3>
+      <p class="hero-copy">Fixed prices or pay-per-booking. Ad spend always stays separate.</p>
+    </div></section>`;
+  const services = () => `
+    <section class="sec"><div class="sec-in">
+      <p class="eb">One connected system</p><h4 class="h2">Four capabilities. One clear path to more booked work.</h4>
+      <div class="cards3">${SERVICES.slice(0, 3).map(([ic, t, d]) => `<div class="svc"><span class="tile">${ic}</span><b>${t}</b><small>${d}</small></div>`).join("")}</div>
+    </div></section>`;
+  const proof = () => `
+    <section class="sec band"><div class="sec-in">
+      <p class="eb">Verified result</p><h4 class="h2">Alpha Movers won <em>70+ booked jobs</em> in 3 months.</h4>
+      <div class="bstats"><div><b>70+</b><span>booked jobs</span></div><div><b>120+</b><span>enquiries</span></div><div><b>218K</b><span>impressions</span></div></div>
+    </div></section>`;
+  const prices = () => `
+    <section class="sec"><div class="sec-in">
+      <p class="eb">Plans</p><h4 class="h2">Three ways to work with us.</h4>
+      <div class="cards3">
+        <div class="svc"><b>Websites</b><span class="amt">From <strong>£199</strong> one-time</span><small>Mobile-first, fast, technical SEO.</small></div>
+        <div class="svc"><b>Local SEO</b><span class="amt">From <strong>£100</strong> / month</span><small>Business Profile, Maps, reports.</small></div>
+        <div class="svc feature"><b>Growth Partnership</b><span class="amt">Typically <strong>10%</strong> of bookings</span><small>Fees only on completed work.</small></div>
+      </div>
+    </div></section>`;
+  const cta = () => `
+    <section class="sec"><div class="sec-in"><div class="cta">
+      <h4>Ready for more booked jobs?</h4><p>Get a free growth plan. We review your visibility, website and competitors.</p>
+      <div class="row"><span class="btn btn-dark">Get a free growth plan ${I.arrow}</span></div>
+    </div></div></section>`;
+  const footer = () => `
+    <footer class="foot"><div class="sec-in">
+      <span class="hd-logo"><i>J</i>Jadeed Solutions</span>
+      <p>More booked jobs for local service businesses in the UK, US, Canada and UAE.</p>
+      <div class="foot-row"><span>© 2026 Jadeed Solutions</span><span>Privacy · Terms · Sitemap</span></div>
+    </div></footer>`;
+
+  /* ── Mobile menus ──────────────────────────────────────────────────── */
+  // The open mobile menu: full green page, side panel, or a white card.
+  // The bottom bar on phones is decided in Round 4, so it is left out here.
+  const menuInner = (active, light) => `
+      <div class="ms-top"><span class="hd-logo"${light ? ' style="color:var(--ink)"' : ""}><i>J</i>Jadeed Solutions</span><span class="ms-x" data-act="close" role="button" tabindex="0" aria-label="Close menu">${I.close}</span></div>
+      <ul class="ms-links">${(LINKS.length ? LINKS : LINK_SETS.five).map((l) => `<li class="${l === active ? "on" : ""}">${l}${I.right}</li>`).join("")}</ul>
+      <div class="ms-bottom">
+        <span class="btn ${light ? "btn-green" : "btn-lime"} btn-block">Get a free growth plan ${arrC}</span>
+      </div>`;
+  const overlays = (m, open, active) => {
+    if (!open) return "";
+    if (m === "drawer") return `<div class="mdim" data-act="close"></div><div class="mdrawer">${menuInner(active, false)}</div>`;
+    if (m === "card") return `<div class="mdim" data-act="close"></div><div class="mcard">${menuInner(active, true)}</div>`;
+    return `<div class="msheet">${menuInner(active, false)}</div>`;
+  };
+  const mobilePage = (v) => `<div class="pv">${stick(header({ v }))}${heroHome()}${services()}${proof()}${cta()}${footer()}</div>`;
+  const miniPhone = (v, m, open, cap) => `
+    <figure>
+      <div class="mphone"><div class="mphone-in"><div class="mscale"><div class="pvw">${mobilePage(v)}</div>${overlays(m, open, "")}</div></div></div>
+      ${cap ? `<figcaption>${cap}</figcaption>` : ""}
+    </figure>`;
+
+  // Desktop snapshots rendered at a fixed width and scaled to fit
+  const shot = (inner, w = 980, cls = "") => `<div class="shot${cls ? ` ${cls}` : ""}" data-fit="${w}"><div class="pvw">${inner}</div></div>`;
+  const shotTop = (v, w) => shot(`<div class="pv">${stick(header({ v }))}${heroHome()}</div>`, w);
+  const shotScrolled = (v, w) => shot(`<div class="pv after">${stick(header({ v, solid: true }))}${services()}</div>`, w);
+  const shotMenu = (v, menu) => shot(`<div class="pv after">${stick(header({ v, solid: true, menu, open: true, links: LINKS.length ? LINKS : LINK_SETS.three }))}<div style="min-height:${{ none: 0, list: 300, mega: 360 }[menu]}px">${services()}</div></div>`);
+  const shotLanding = (v, w) => shot(`<div class="pv">${stick(header({ v, min: true }))}<section class="hero small"><div class="hero-body"><span class="pill">Free growth plan</span><h3 class="h1">More booked jobs.<br><em>In 90 days.</em></h3></div></section></div>`, w);
+
+  /* ── Questions ───────────────────────────────────────────────────── */
+  const QUESTIONS = [
+    {
+      id: "h-style", title: "Header ka style (computer par)", wide: true,
+      help: "Har option mein 2 tasveerein hain: page ke bilkul upar, aur scroll karne ke baad.",
+      options: [
+        { id: "pill", label: "Floating pill", rec: "Recommended", note: "Sab kuch ek gol patti mein, tasveer ke upar tairti hui. Saaf aur modern." },
+        { id: "bar", label: "Poori chaurai wali patti", note: "Kinare se kinare tak. Classic aur seedha." },
+        { id: "split", label: "Alag alag dabbe (aaj jaisa)", note: "Logo, menu aur button alag dabbon mein, jaise aaj ki site aur Round 3 ke hero mein." },
+      ],
+      preview: (o) => `<div class="shots">
+        <div><p class="shot-cap">Page ke upar</p>${shotTop(o.id)}</div>
+        <div><p class="shot-cap">Scroll ke baad</p>${shotScrolled(o.id)}</div>
+      </div>`,
+    },
+    {
+      id: "h-mobile", title: "Mobile par menu button dabayen to kya khule?", wide: false,
+      help: "Har option mein 2 phone hain: menu band, aur menu khula. Neeche wala bar (bottom navigation) Round 4 mein tay ho raha hai, is liye yahan sirf upar wala menu hai.",
+      options: [
+        { id: "sheet", label: "Poora green page", rec: "Recommended", note: "Bade links, reference ke rang mein. Neeche bada lime button." },
+        { id: "drawer", label: "Side se aane wala panel", note: "Daayen se aadha panel aata hai, peeche page halka sa nazar aata rehta hai." },
+        { id: "card", label: "Header se safed card", note: "Upar ek safed card khulta hai. Halka aur tez." },
+      ],
+      preview: (o, r) => `<div class="phones">${miniPhone(r.style, o.id, false, "Menu band")}${miniPhone(r.style, o.id, true, "Menu khula")}</div>`,
+    },
+    {
+      id: "h-menu", title: "Services par mouse le jayen to kya khule?", wide: true,
+      help: "Computer par Services ke upar mouse le jane se ye menu khulega. Mobile par ye links menu ke andar hon ge.",
+      options: [
+        { id: "none", label: "Koi menu nahi", rec: "Aap ki note", note: "Services bas ek seedha link. “Just header pr jo he enough he.”" },
+        { id: "mega", label: "Bara menu (icon aur result ke sath)", note: "Har service ka icon aur ek line, saath mein Alpha Movers ka result." },
+        { id: "list", label: "Chhoti list", note: "Sirf services ke naam. Saada aur tez." },
+      ],
+      preview: (o, r) => shotMenu(r.style, o.id),
+    },
+  ];
+  const TEXT_Q = { id: "h-anything", title: "Kuch aur kehna hai?" };
+  // Second pass after the owner's answers: ultra minimal, fully focused.
+  const NEW_QUESTIONS = [
+    {
+      id: "h-links", title: "Header mein kitne links?", wide: true,
+      help: "Kam links = zyada focus. Jo link header mein nahi, wo footer mein hoga, aur mobile menu mein bhi.",
+      options: [
+        { id: "three", label: "3 links", rec: "Recommended", note: "Services, Results, Pricing. Har visitor ke 3 sawal: kya karte ho, kaam karta hai, kitne ka hai." },
+        { id: "five", label: "5 links", note: "Services, Results, Pricing, About, Blog. Pehle wala." },
+        { id: "zero", label: "Koi link nahi", note: "Sirf logo, button aur menu ka nishan. Sab se zyada focus, lekin pages dhoondhna thora mushkil." },
+      ],
+      preview: (o, r) => shot(`<div class="pv">${stick(header({ v: r.style, links: LINK_SETS[o.id] }))}${heroHome()}</div>`, 980, "crop"),
+    },
+    {
+      id: "h-final", title: "Header final hai?", wide: false,
+      help: "Upar wali tasveerein aur neeche live demo dekh lein. Phir bas ek click.",
+      options: [
+        { id: "yes", label: "Haan, final", note: "Asli site par yahi header lagega." },
+        { id: "change", label: "Kuch badalna hai", note: "Neeche likh dein kya badalna hai." },
+      ],
+    },
+  ];
+  const QUESTIONS_ALL = [...QUESTIONS, ...NEW_QUESTIONS];
+  const ALL = [...QUESTIONS, TEXT_Q, ...NEW_QUESTIONS];
+
+  const renderQs = (list, first) => list.map((q, i) => `
+    <section class="q" id="${q.id}" aria-labelledby="${q.id}-t">
+      <div class="wrap">
+        <div class="q-head"><span class="q-num">Q${String(first + i).padStart(2, "0")}</span><h2 id="${q.id}-t">${q.title}</h2></div>
+        <p class="q-help">${q.help}</p>
+        <div class="opts${q.wide ? "" : " two"}">${q.options.map((o, j) => `
+          <div class="opt" data-q="${q.id}" data-o="${o.id}">
+            <div class="opt-head">
+              <span class="letter" aria-hidden="true">${"ABCD"[j]}</span>
+              <div class="opt-text"><p class="opt-label">${o.label}${o.rec ? `<span class="rec">${o.rec}</span>` : ""}</p><p class="opt-note">${o.note}</p></div>
+              <button type="button" class="choose" data-q="${q.id}" data-o="${o.id}" aria-pressed="false" aria-label="Choose ${o.label}">Choose</button>
+            </div>
+            ${q.preview ? `<div class="preview" role="img" aria-label="Preview: ${o.label}"></div>` : ""}
+          </div>`).join("")}
+        </div>
+        <div class="q-note">
+          <label for="${q.id}-note">Kuch add karna hai? <span>(optional, English ya Roman Urdu)</span></label>
+          <textarea id="${q.id}-note" data-note="${q.id}" rows="2" placeholder="e.g. A pasand hai, lekin thora chhota"></textarea>
+        </div>
+      </div>
+    </section>`).join("");
+  $("#questions").innerHTML = renderQs(QUESTIONS, 1);
+  $("#questions-new").innerHTML = renderQs(NEW_QUESTIONS, 5);
+  icons(document);
+
+  /* ── Fit scaled snapshots ─────────────────────────────────────────── */
+  const fit = (box) => {
+    const inner = box.firstElementChild;
+    const dw = Number(box.dataset.fit);
+    const w = box.clientWidth;
+    if (!inner || !w) return;
+    if (w >= dw) { inner.style.width = ""; inner.style.transform = ""; box.style.height = ""; return; }
+    const k = w / dw;
+    inner.style.width = `${dw}px`;
+    inner.style.transform = `scale(${k})`;
+    box.style.height = `${Math.ceil(inner.offsetHeight * k)}px`;
+  };
+  const ro = new ResizeObserver((entries) => entries.forEach((e) => { const box = e.target.closest("[data-fit]"); if (box) fit(box); }));
+  const watchFits = (root) => root.querySelectorAll("[data-fit]").forEach((b) => { ro.observe(b); if (b.firstElementChild) ro.observe(b.firstElementChild); fit(b); });
+
+  /* ── State: this browser first, the project file as a fallback ────── */
+  let state = { answers: {}, notes: {} };
+  try { const raw = window.localStorage.getItem(KEY); if (raw) state = { answers: {}, notes: {}, ...JSON.parse(raw) }; } catch { /* Blocked storage: start empty. */ }
+  let dirty = false;
+  let timer = 0;
+  let page = "home";
+  let phoneOpen = false;
+
+  const pick = (qid) => (state.answers[qid] || [])[0];
+  // Fallbacks follow the owner's answers: bar + green page, and "no menu" from the Q03 note.
+  const resolved = () => ({ style: pick("h-style") || "bar", mobile: pick("h-mobile") || "sheet", menu: pick("h-menu") || "none", links: pick("h-links") || "three" });
+  let painted = "";
+
+  const paintAnswer = (r) => {
+    $("#ans-grid").innerHTML = `
+      <figure class="ans"><figcaption><span class="n">1</span><span><b>Page ke upar</b><span>Home par hero ki tasveer ke upar tairta hua (Round 3 wala hero). Baqi pages par dark green ke upar.</span></span></figcaption>${shotTop(r.style, 760)}</figure>
+      <figure class="ans"><figcaption><span class="n">2</span><span><b>Scroll karne par</b><span>Upar chipka rehta hai, thora patla aur solid ho jata hai. Button hamesha saamne.</span></span></figcaption>${shotScrolled(r.style, 760)}</figure>
+      <figure class="ans"><figcaption><span class="n">3</span><span><b>Mobile par</b><span>Upar sirf logo aur menu. Menu dabayen to poora green page. WhatsApp neeche wale ek button mein (Round 4).</span></span></figcaption><div class="stage"><div class="phones" style="background:none;padding:0">${miniPhone(r.style, r.mobile, false, "Band")}${miniPhone(r.style, r.mobile, true, "Menu khula")}</div></div></figure>
+      <figure class="ans later"><figcaption><span class="n">+</span><span><b>Sirf zaroorat par: ads ka landing page</b><span>Sirf logo aur button, menu nahi, taake visitor idhar udhar na jaye. Abhi nahi banayenge.</span></span></figcaption>${shotLanding(r.style, 760)}</figure>`;
+    watchFits($("#ans-grid"));
+  };
+
+  const paintPreviews = (r) => {
+    document.querySelectorAll(".opt").forEach((el) => {
+      const q = QUESTIONS_ALL.find((x) => x.id === el.dataset.q);
+      const o = q.options.find((x) => x.id === el.dataset.o);
+      if (q.preview) el.querySelector(".preview").innerHTML = q.preview(o, r);
+    });
+    watchFits($("#questions"));
+    watchFits($("#questions-new"));
+  };
+
+  const paintDemo = (r) => {
+    const demo = $("#demo");
+    const top = demo.scrollTop;
+    const active = page === "pricing" ? "Pricing" : "";
+    const body = page === "pricing"
+      ? `${heroPricing()}${prices()}${services()}${cta()}${footer()}`
+      : `${heroHome()}${services()}${proof()}${prices()}${cta()}${footer()}`;
+    demo.innerHTML = `<div class="pv">${stick(header({ v: r.style, menu: r.menu, active, live: true }))}${body}</div>`;
+    demo.scrollTop = top;
+    $("#demo-url").textContent = page === "pricing" ? "jadeedsolutions.com/pricing" : "jadeedsolutions.com";
+
+    const phone = $("#phone");
+    const ptop = phone.scrollTop;
+    phone.innerHTML = `<div class="pv">${stick(header({ v: r.style, live: true }))}${body}</div>`;
+    phone.scrollTop = ptop;
+    paintPhoneOver(r);
+    onScroll(demo);
+    onScroll(phone);
+  };
+  const paintPhoneOver = (r) => {
+    $("#phone-over").innerHTML = overlays(r.mobile, phoneOpen, page === "pricing" ? "Pricing" : "");
+  };
+  const onScroll = (el) => { const hd = el.querySelector(".hd"); if (hd) hd.classList.toggle("is-solid", el.scrollTop > 24); };
+  $("#demo").addEventListener("scroll", (e) => onScroll(e.target), { passive: true });
+  $("#phone").addEventListener("scroll", (e) => onScroll(e.target), { passive: true });
+
+  // A note alone counts as an answer (the owner answered Q03 with a note only).
+  const isAnswered = (q) => (state.answers[q.id] || []).length > 0 || !!(state.notes[q.id] || "").trim();
+  const update = () => {
+    const r = resolved();
+    const key = `${r.style}|${r.mobile}|${r.menu}|${r.links}`;
+    if (key !== painted) {
+      painted = key;
+      LINKS = LINK_SETS[r.links];
+      paintAnswer(r);
+      paintPreviews(r);
+      paintDemo(r);
+    }
+    document.querySelectorAll(".opt").forEach((el) => {
+      const on = (state.answers[el.dataset.q] || []).includes(el.dataset.o);
+      el.classList.toggle("is-chosen", on);
+      const b = el.querySelector(".choose");
+      b.setAttribute("aria-pressed", String(on));
+      b.innerHTML = on ? `${I.check}Your pick` : "Choose";
+    });
+    const done = ALL.filter(isAnswered).length;
+    $("#count").textContent = `${done} of ${ALL.length} answered`;
+    $("#progress").style.width = `${(done / ALL.length) * 100}%`;
+  };
+  const fillNotes = () => document.querySelectorAll("[data-note]").forEach((t) => { t.value = state.notes[t.dataset.note] || ""; });
+
+  const summary = () => {
+    const lines = ALL.map((q, i) => {
+      const head = `Q${String(i + 1).padStart(2, "0")} ${q.title}`;
+      const note = (state.notes[q.id] || "").trim();
+      if (!q.options) return `${head}: ${note || "—"}`;
+      const picks = (state.answers[q.id] || []).map((id) => q.options.find((o) => o.id === id)?.label || id);
+      const line = `${head}: ${picks.length ? picks.join(", ") : "—"}`;
+      return note ? `${line}\n    Note: ${note}` : line;
+    });
+    const r = resolved();
+    lines.push(`Header (unanswered = owner's earlier picks / recommended): one header site-wide, ultra minimal, desktop ${r.style}, mobile ${r.mobile}, services menu ${r.menu}, links ${r.links} (${LINK_SETS[r.links].join(", ") || "none, menu icon only"}), approved: ${pick("h-final") || "—"}`);
+    return lines.join("\n");
+  };
+
+  const status = (t) => { $("#status").textContent = t; };
+  async function save() {
+    if (!dirty) return;
+    status("Saving…");
+    const r = resolved();
+    try {
+      const res = await fetch("/api/design-lab", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          round: ROUND,
+          answers: Object.fromEntries(QUESTIONS_ALL.map((q) => [q.id, state.answers[q.id] || []])),
+          notes: state.notes,
+          summary: summary(),
+          palette: { headerStyle: r.style, mobileMenu: r.mobile, servicesMenu: r.menu, navLinks: r.links, approved: pick("h-final") || "" },
+        }),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      status(`Saved for Claude at ${new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`);
+    } catch {
+      status("Saved in this browser — use Copy answers");
+    }
+  }
+  const persist = () => {
+    try { window.localStorage.setItem(KEY, JSON.stringify(state)); } catch { /* The project file keeps the copy. */ }
+    dirty = true;
+    window.clearTimeout(timer);
+    timer = window.setTimeout(save, 900);
+  };
+
+  const act = (el) => {
+    phoneOpen = el.dataset.act === "burger";
+    paintPhoneOver(resolved());
+  };
+  document.addEventListener("click", (e) => {
+    const live = e.target.closest("#phone [data-act], #phone-over [data-act]");
+    if (live) { act(live); return; }
+    const pg = e.target.closest("[data-page]");
+    if (pg) {
+      page = pg.dataset.page;
+      phoneOpen = false;
+      document.querySelectorAll("[data-page]").forEach((b) => b.setAttribute("aria-pressed", String(b === pg)));
+      $("#demo").scrollTop = 0;
+      $("#phone").scrollTop = 0;
+      paintDemo(resolved());
+      return;
+    }
+    const b = e.target.closest(".choose");
+    if (!b) return;
+    const { q, o } = b.dataset;
+    const current = state.answers[q] || [];
+    state = { ...state, answers: { ...state.answers, [q]: current.includes(o) ? [] : [o] } };
+    phoneOpen = false;
+    persist();
+    update();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Enter" && e.key !== " ") return;
+    const live = e.target.closest && e.target.closest("#phone-over [data-act]");
+    if (live) { e.preventDefault(); act(live); }
+  });
+  document.addEventListener("input", (e) => {
+    const t = e.target.closest("[data-note]");
+    if (!t) return;
+    state = { ...state, notes: { ...state.notes, [t.dataset.note]: t.value } };
+    persist();
+    update();
+  });
+  $("#copy").addEventListener("click", async () => {
+    const btn = $("#copy");
+    try { await navigator.clipboard.writeText(`Design lab · header\n${summary()}`); btn.textContent = "Copied"; } catch { btn.textContent = "Copy failed"; }
+    window.setTimeout(() => { btn.textContent = "Copy answers"; }, 2000);
+  });
+
+  fillNotes();
+  update();
+
+  /* Opening the page never writes the file; an empty browser shows the
+     answers already saved in the project. */
+  const empty = !Object.values(state.answers).some((a) => a.length) && !Object.values(state.notes).some((n) => n.trim());
+  if (empty) {
+    fetch(`/api/design-lab?round=${ROUND}`, { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : {}))
+      .then((saved) => {
+        if (!saved || !saved.answers) return;
+        state = { answers: saved.answers, notes: saved.notes || {} };
+        fillNotes();
+        update();
+        status("Loaded your saved answers");
+      })
+      .catch(() => {});
+  }
+})();
+</script>
+</body>
+</html>

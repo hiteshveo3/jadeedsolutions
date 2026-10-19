@@ -19,9 +19,9 @@ function linkClass(variant: RichTextProps["variant"]) {
     return "font-semibold text-white underline decoration-white/50 underline-offset-2 hover:decoration-white";
   }
   if (variant === "onBrandInverse") {
-    return "font-semibold text-brand-500 underline decoration-brand-500/40 underline-offset-2 hover:decoration-brand-500";
+    return "font-semibold text-[#BEF70A] underline decoration-[#BEF70A]/40 underline-offset-2 hover:decoration-[#BEF70A]";
   }
-  return "font-semibold text-brand-500 underline decoration-brand-500/30 underline-offset-2 hover:decoration-brand-500";
+  return "font-semibold text-[#BEF70A] underline decoration-[#BEF70A]/30 underline-offset-2 hover:decoration-[#BEF70A]";
 }
 
 export function RichText({

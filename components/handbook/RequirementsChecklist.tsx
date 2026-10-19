@@ -11,12 +11,12 @@ function Status({ value }: { value: string }) {
   const label = LABELS[value] ?? value;
   const style =
     value === "R"
-      ? "bg-[#015f45] text-white"
+      ? "bg-transparent text-white"
       : value === "A"
-        ? "bg-[#dceee8] text-[#063d30]"
+        ? "bg-white/[0.07] text-white"
         : value === "N"
-          ? "bg-black/[0.05] text-black/45"
-          : "border border-black/15 text-black/70";
+          ? "bg-black/[0.05] text-white/53"
+          : "border border-white/[0.08] text-white/78";
   const wrap = value in LABELS ? "whitespace-nowrap rounded-full" : "max-w-[8.5rem] rounded-lg text-right leading-tight";
   return <span className={`inline-flex px-2.5 py-1 text-xs font-semibold ${wrap} ${style}`}>{label}</span>;
 }
@@ -43,20 +43,20 @@ export function RequirementsChecklist() {
               role="radio"
               aria-checked={checked}
               onClick={() => setView(option.key)}
-              className={`min-h-[40px] rounded-full border px-3.5 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#015f45] ${
-                checked ? "border-[#015f45] bg-[#015f45] text-white" : "border-black/15 bg-white text-black/70 hover:border-[#015f45]/50"
+              className={`min-h-[40px] rounded-full border px-3.5 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BEF70A] ${
+                checked ? "border-[#BEF70A] bg-[#BEF70A] text-[#0B1F12]" : "border-white/[0.08] bg-white/[0.05] text-white/78 hover:bg-white/[0.09]"
               }`}
             >
               {option.label}
-              {option.recommended && <span className={`ml-1.5 text-[10px] font-bold uppercase tracking-wide ${checked ? "text-[#eaf25a]" : "text-[#015f45]"}`}>Recommended</span>}
+              {option.recommended && <span className={`ml-1.5 text-[10px] font-bold uppercase tracking-wide ${checked ? "text-[#BEF70A]" : "text-[#BEF70A]"}`}>Recommended</span>}
             </button>
           );
         })}
       </div>
 
       {selected && counts && (
-        <p className="mt-4 text-sm text-black/60" aria-live="polite">
-          Structure {selected.letter}: <strong className="font-semibold text-black">{counts.R} required</strong>
+        <p className="mt-4 text-sm text-white/68" aria-live="polite">
+          Structure {selected.letter}: <strong className="font-semibold text-white">{counts.R} required</strong>
           {[
             [counts.A, "advised"],
             [counts.N, "not needed"],
@@ -69,10 +69,10 @@ export function RequirementsChecklist() {
         </p>
       )}
 
-      <div className="mt-5 overflow-x-auto rounded-2xl border border-black/10">
+      <div className="mt-5 overflow-x-auto rounded-2xl border border-white/[0.08]">
         <table className={`w-full border-collapse text-[15px] ${selected ? "" : "min-w-[760px]"}`}>
           <thead>
-            <tr className="bg-[#f3f1ec] text-left text-xs font-bold uppercase tracking-[.1em] text-black/60">
+            <tr className="bg-transparent text-left text-xs font-bold uppercase tracking-[.1em] text-white/68">
               <th scope="col" className="w-10 px-3 py-3 sm:px-4">#</th>
               <th scope="col" className="px-3 py-3 sm:px-4">Item</th>
               {selected ? (
@@ -88,14 +88,14 @@ export function RequirementsChecklist() {
           {checklistGroups.map((group) => (
             <tbody key={group.title}>
               <tr>
-                <th scope="colgroup" colSpan={selected ? 3 : 6} className="border-t border-black/10 bg-[#fafaf7] px-3 py-2 text-left text-xs font-extrabold uppercase tracking-[.12em] text-[#015f45] sm:px-4">{group.title}</th>
+                <th scope="colgroup" colSpan={selected ? 3 : 6} className="border-t border-white/[0.08] bg-transparent px-3 py-2 text-left text-xs font-extrabold uppercase tracking-[.12em] text-[#BEF70A] sm:px-4">{group.title}</th>
               </tr>
               {group.items.map((row) => {
                 n += 1;
                 return (
-                  <tr key={row.item} className="border-t border-black/10">
-                    <td className="px-3 py-2.5 tabular-nums text-black/40 sm:px-4">{n}</td>
-                    <th scope="row" className="px-3 py-2.5 text-left font-medium text-[#1d1d1b] sm:px-4">{row.item}</th>
+                  <tr key={row.item} className="border-t border-white/[0.08]">
+                    <td className="px-3 py-2.5 tabular-nums text-white/48 sm:px-4">{n}</td>
+                    <th scope="row" className="px-3 py-2.5 text-left font-medium text-white sm:px-4">{row.item}</th>
                     {selected ? (
                       <td className="w-px px-3 py-2.5 text-right sm:px-4"><Status value={row.req[index]} /></td>
                     ) : (

@@ -84,13 +84,13 @@ The [Alpha Movers case study](/case-studies/alpha-movers) shows the model in pra
       body: `
 Paying from results sounds like the obvious choice, but it asks more of you than a retainer does. Because our fee depends on your figures, a performance deal needs:
 
-- An agreed baseline and attribution method before work starts.
-- Access to booking or revenue records, usually read-only.
+- Attribution rules agreed in writing before work starts.
+- A shared record of each customer — lead, contacted, booked, completed, paid — that you keep up to date.
 - Response commitments, so enquiries are answered and followed up.
 - Enough capacity to serve the extra work.
-- An initial term of 12–24 months, and a short paid audit to set the baseline.
+- A 6-month initial term, then month to month with 30 days' notice. The audit is free and there is no setup fee.
 
-In return, a quiet month costs less, and both sides are paid for the same thing: booked work. Our [Profit-Share Handbook](/profit-share-handbook) sets out every requirement in detail. If you would rather keep your books private, a fixed-fee plan is a perfectly good choice — SEO plans start from £100 a month with a six-month minimum.
+In return, a quiet month costs less, and both sides are paid for the same thing: completed, paid work. Our [Profit-Share Handbook](/profit-share-handbook) sets out every requirement in detail. If you would rather keep your books private, a fixed-fee plan is a perfectly good choice — SEO plans start from £300 a month with a six-month minimum.
 `,
     },
     {

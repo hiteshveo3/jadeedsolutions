@@ -1,0 +1,21 @@
+{
+  "round": 2,
+  "savedAt": "2026-10-04T09:44:12.703Z",
+  "summary": "Q01 Bade headlines ka font: DM Sans (aaj wala)\nQ02 Ye font kahan kahan lage?: Sirf bade headlines aur posts\nQ03 Kuch aur kehna hai?: jo dosre fonts hein llike chewy wo kahi na kahi use ki j skta he\nFonts (unanswered = option A): headlines dmsans, used on big headlines + posts only, body DM Sans",
+  "palette": {
+    "headlineFont": "dmsans",
+    "headlineScope": "big",
+    "bodyFont": "dm-sans"
+  },
+  "answers": {
+    "r2-display": [
+      "dmsans"
+    ],
+    "r2-scope": [
+      "big"
+    ]
+  },
+  "notes": {
+    "r2-anything": "jo dosre fonts hein llike chewy wo kahi na kahi use ki j skta he"
+  }
+}

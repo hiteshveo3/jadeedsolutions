@@ -53,7 +53,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative isolate overflow-hidden bg-white">
+    <section className="relative isolate overflow-hidden bg-transparent">
       <HeroBackground />
 
       <div className="container relative z-10 flex flex-col items-center pb-8 pt-16 text-center lg:pb-10 lg:pt-24">
@@ -70,7 +70,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.05 }}
-          className="mt-6 max-w-4xl font-display text-4xl font-semibold leading-[1.1] tracking-tight text-ink sm:text-5xl lg:text-5xl xl:text-6xl"
+          className="mt-6 max-w-4xl font-display text-4xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-5xl xl:text-6xl"
         >
           Get more booked jobs with
           <span className="mt-2 flex min-h-[1.15em] items-start justify-center">
@@ -81,7 +81,7 @@ export function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: "-0.35em" }}
                 transition={{ duration: 0.35, ease: "easeOut" }}
-                className="text-brand-500"
+                className="text-[#BEF70A]"
               >
                 {rotatingWords[wordIndex]}
               </motion.span>
@@ -93,11 +93,11 @@ export function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.12 }}
-          className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600"
+          className="mt-6 max-w-2xl text-lg leading-relaxed text-white/72"
         >
           Jadeed Solutions helps plumbers, cleaners, movers and other local
           services show up on Google and turn visits into calls. Pay fixed fees —
-          or 10% of the bookings we generate.
+          or £0 upfront and 10% of paid jobs.
         </motion.p>
 
         <motion.div
@@ -119,7 +119,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.26 }}
-          className="mt-4 text-sm text-slate-500"
+          className="mt-4 text-sm text-white/62"
         >
           Free plan outline · No setup fee · We reply within 24 hours
         </motion.p>
@@ -132,10 +132,10 @@ export function Hero() {
         >
           {stats.map((s) => (
             <div key={s.label} className="text-center">
-              <p className="font-display text-2xl font-semibold text-ink sm:text-3xl">
+              <p className="font-display text-2xl font-semibold text-white sm:text-3xl">
                 <CountUp value={s.value} suffix={s.suffix} />
               </p>
-              <p className="mt-1 text-xs text-slate-500 sm:text-sm">{s.label}</p>
+              <p className="mt-1 text-xs text-white/62 sm:text-sm">{s.label}</p>
             </div>
           ))}
         </motion.div>

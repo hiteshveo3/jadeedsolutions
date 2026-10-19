@@ -88,13 +88,13 @@ On price per task, Fiverr is often cheaper. The fair comparison is cost per book
 
 | Cost | With several freelancers | With a growth partner |
 |---|---|---|
-| The work itself | Sum of individual gigs, plus marketplace fees | Plan fee, or a share of bookings generated |
+| The work itself | Sum of individual gigs, plus marketplace fees | Plan fee, or a share of paid jobs generated |
 | Your time | Briefing, checking and coordinating each gig | A monthly review call and approvals |
 | Rework | Common when separate pieces do not fit together | Handled inside the plan |
 | Wasted spend | Ads or content nobody is measuring | Tracked and adjusted monthly |
 | Switching later | Recovering accounts and rebuilding tracking | Accounts are already yours |
 
-Our fixed plans start from £100 a month for SEO (six-month minimum) and £199 for a starter website. Performance deals are typically around 10% of revenue from bookings we generate, on a 12–24 month term. See [pricing](/pricing) for detail, and the [Profit-Share Handbook](/profit-share-handbook) for how performance deals are set up.
+Our fixed plans start from £300 a month for SEO (six-month minimum) and £199 for a starter website. Performance deals are £0 upfront and typically 10% of the paid invoice for standard-ticket jobs, on a 6-month initial term, then month to month. See [pricing](/pricing) for detail, and the [Profit-Share Handbook](/profit-share-handbook) for how performance deals are set up.
 `,
     },
     {

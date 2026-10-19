@@ -15,7 +15,7 @@ export default function GuidesHubPage() {
     <>
       <PageHero
         eyebrow="Guides"
-        title={<>Growth guides for<span className="block text-[#eaf25a]">local service owners.</span></>}
+        title={<>Growth guides for<span className="block text-[#BEF70A]">local service owners.</span></>}
         lead="Plain-English playbooks covering your website, Google visibility, apps and ads — and how to choose the right package for your stage."
         actions={<ButtonLink href="/tools/growth-check">Take the free Growth Check</ButtonLink>}
       />
@@ -44,7 +44,7 @@ export default function GuidesHubPage() {
             items={[
               { href: "/blog", label: "Blog", description: "In-depth SEO, website and growth articles." },
               { href: "/industries", label: "Industries", description: "Playbooks and city pages for your trade." },
-              { href: "/pricing", label: "Pricing", description: "Fixed packages or 10% of bookings." },
+              { href: "/pricing", label: "Pricing", description: "Fixed packages or 10% of paid jobs." },
             ]}
           />
         </div>

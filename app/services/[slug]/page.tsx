@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { WhatsappBusinessIcon } from "@/components/icons";
+import { WhatsappIcon } from "@/components/icons";
 import { services, getService } from "@/lib/services";
 import { getCaseStudiesForService } from "@/lib/case-studies";
 import { getPost } from "@/lib/blog";
 import { getGuide } from "@/lib/guides";
 import { siteConfig } from "@/lib/site";
 import { AlphaProof } from "@/components/site/AlphaProof";
+import { AdsSimulator, DeviceFrames, EnquirySorter, SearchBeforeAfter, VisibilityGauge } from "@/components/jadeed/tools";
 import {
   ButtonLink,
   CheckList,
@@ -51,6 +52,29 @@ const related: Record<string, { posts: string[]; guides: string[] }> = {
   "digital-advertising": { posts: ["google-ads-roi-fundamentals", "local-seo-google-ads-service-business"], guides: ["how-cleaning-companies-get-more-bookings"] },
 };
 
+const tools: Record<string, { title: string; lead: string; panels: React.ReactNode[] }> = {
+  seo: {
+    title: "See what better visibility looks like",
+    lead: "Drag the dial, flip the switch. Your profile, pages and reviews are what move you up the map.",
+    panels: [<VisibilityGauge key="gauge" />, <SearchBeforeAfter key="search" />],
+  },
+  "digital-advertising": {
+    title: "What a month of ads could bring",
+    lead: "Move the budget, the price per click and the enquiry rate, and watch the numbers change.",
+    panels: [<AdsSimulator key="ads" />],
+  },
+  "web-development": {
+    title: "A website that sorts your enquiries",
+    lead: "Three short questions grade each enquiry, so your time goes to the jobs that are ready to book.",
+    panels: [<EnquirySorter key="sorter" />, <DeviceFrames key="frames" src="/case-studies/alpha-movers/homepage-oct-2026.webp" url="alphamovers.co.uk" alt="Alpha Movers website built by Jadeed Solutions" />],
+  },
+  "app-development": {
+    title: "Website and app, built as one system",
+    lead: "For Alpha Movers we built the website and proposed and shipped a mobile app alongside it.",
+    panels: [<DeviceFrames key="frames" src="/case-studies/alpha-movers/homepage-oct-2026.webp" url="alphamovers.co.uk" alt="Alpha Movers website and app by Jadeed Solutions" />],
+  },
+};
+
 export default async function ServiceSlugPage(props: { params: Promise<{ slug: string }> }) {
   const params = await props.params;
   const service = getService(params.slug);
@@ -86,7 +110,7 @@ export default async function ServiceSlugPage(props: { params: Promise<{ slug: s
         actions={
           <>
             <ButtonLink href="/contact">Get a free plan</ButtonLink>
-            <ButtonLink href={siteConfig.whatsappHref} variant="outlineLight" icon={WhatsappBusinessIcon}>WhatsApp us</ButtonLink>
+            <ButtonLink href={siteConfig.whatsappHref} variant="outlineLight" icon={WhatsappIcon}>WhatsApp us</ButtonLink>
           </>
         }
         aside={<FactRows title="At a glance" rows={service.atAGlance} />}
@@ -95,22 +119,34 @@ export default async function ServiceSlugPage(props: { params: Promise<{ slug: s
       <Section tone="cream" labelledBy="overview-heading">
         <SectionHeader id="overview-heading" eyebrow={service.tagline} title={service.overview.heading} />
         <div className="mt-8 grid gap-10 lg:mt-12 lg:grid-cols-[1.1fr_.9fr] lg:gap-16">
-          <div className="space-y-5 text-lg leading-8 text-black/70">
+          <div className="space-y-5 text-lg leading-8 text-white/78">
             {service.overview.paragraphs.map((paragraph) => <p key={paragraph.slice(0, 40)}>{paragraph}</p>)}
           </div>
           <StatRow items={service.stats} columns={2} />
         </div>
       </Section>
 
+      {/* See it working — interactive tools from the design lab, one set per service. */}
+      {service.slug in tools && (
+        <Section tone="green" labelledBy="see-heading">
+          <SectionHeader id="see-heading" tone="green" eyebrow="See it working" title={tools[service.slug].title} lead={tools[service.slug].lead} />
+          <div className="mt-10 grid gap-4 lg:grid-cols-2">
+            {tools[service.slug].panels.map((panel, i) => (
+              <div key={i} className={`rounded-[26px] border border-white/[0.08] bg-white/[0.05] p-6 sm:p-8 ${tools[service.slug].panels.length === 1 ? "lg:col-span-2" : ""}`}>{panel}</div>
+            ))}
+          </div>
+        </Section>
+      )}
+
       <Section tone="white" labelledBy="included-heading">
         <SectionHeader id="included-heading" eyebrow="The package" title="What's included — and who it's for" />
         <div className="mt-10 grid gap-10 lg:grid-cols-[1.25fr_.75fr] lg:gap-16">
           <div>
-            <p className="mb-3 text-xs font-extrabold uppercase tracking-[.15em] text-black/45">Included</p>
+            <p className="mb-3 text-xs font-extrabold uppercase tracking-[.15em] text-white/53">Included</p>
             <CheckList items={service.included} columns={2} />
           </div>
           <div>
-            <p className="mb-3 text-xs font-extrabold uppercase tracking-[.15em] text-black/45">Ideal for</p>
+            <p className="mb-3 text-xs font-extrabold uppercase tracking-[.15em] text-white/53">Ideal for</p>
             <CheckList items={service.idealFor} />
           </div>
         </div>
@@ -125,11 +161,11 @@ export default async function ServiceSlugPage(props: { params: Promise<{ slug: s
 
       <Section tone="cream" labelledBy="details-heading">
         <SectionHeader id="details-heading" eyebrow="The details" title="What we actually do" />
-        <div className="mt-10 border-t border-black/10 md:mt-14">
+        <div className="mt-10 border-t border-white/[0.08] md:mt-14">
           {service.sections.map((section) => (
-            <div key={section.id} id={section.id} className="grid scroll-mt-24 gap-3 border-b border-black/10 py-8 md:py-10 lg:grid-cols-[.8fr_1.2fr] lg:gap-16">
+            <div key={section.id} id={section.id} className="grid scroll-mt-24 gap-3 border-b border-white/[0.08] py-8 md:py-10 lg:grid-cols-[.8fr_1.2fr] lg:gap-16">
               <h3 className="text-2xl font-semibold tracking-[-.035em]">{section.heading}</h3>
-              <div className="space-y-4 leading-7 text-black/65">
+              <div className="space-y-4 leading-7 text-white/73">
                 {section.paragraphs.map((paragraph) => <p key={paragraph.slice(0, 40)}>{paragraph}</p>)}
               </div>
             </div>
@@ -142,10 +178,10 @@ export default async function ServiceSlugPage(props: { params: Promise<{ slug: s
           <div>
             <Eyebrow tone="mint">Pricing</Eyebrow>
             <h2 id="cost-heading" className="mt-3 font-sans text-[32px] font-semibold leading-[1.05] tracking-[-.045em] sm:text-5xl">What it costs</h2>
-            <div className="mt-6 space-y-4 leading-7 text-[#063d30]/80">
+            <div className="mt-6 space-y-4 leading-7 text-white/88">
               {service.cost.paragraphs.map((paragraph) => <p key={paragraph.slice(0, 40)}>{paragraph}</p>)}
             </div>
-            <p className="mt-6 border-l-2 border-[#015f45] pl-4 text-sm leading-6 text-[#063d30]/75">{service.cost.note}</p>
+            <p className="mt-6 rounded-[16px] bg-white/[0.06] px-4 py-3 text-sm leading-6 text-white/83">{service.cost.note}</p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:gap-6">
               <TextLink href="/pricing" tone="mint">Compare pricing models</TextLink>
               <TextLink href="/profit-share-handbook" tone="mint">How performance deals work</TextLink>
@@ -154,7 +190,7 @@ export default async function ServiceSlugPage(props: { params: Promise<{ slug: s
           <div className="space-y-10">
             <FactRows tone="mint" title="Price guide" rows={service.cost.rows} />
             <div>
-              <p className="mb-3 text-xs font-extrabold uppercase tracking-[.15em] text-[#015f45]">What affects the price</p>
+              <p className="mb-3 text-xs font-extrabold uppercase tracking-[.15em] text-[#BEF70A]">What affects the price</p>
               <CheckList tone="mint" items={service.priceFactors} />
             </div>
           </div>

@@ -11,15 +11,15 @@ type Variant =
 type Size = "sm" | "md" | "lg";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60";
+  "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BEF70A] focus-visible:ring-offset-2 focus-visible:ring-offset-[#06301D] disabled:cursor-not-allowed disabled:opacity-60";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-brand-500 text-white hover:opacity-90",
+  primary: "bg-[#BEF70A] text-[#0B1F12] hover:bg-[#ABDE09]",
   secondary:
-    "border border-slate-200 bg-slate-100 text-ink hover:bg-slate-200",
-  ghost: "text-ink hover:bg-slate-100",
-  white: "bg-white text-brand-500",
-  outlineWhite: "border border-white/60 text-white hover:bg-white/10",
+    "bg-white/[0.08] text-white hover:bg-white/[0.14]",
+  ghost: "text-white hover:bg-white/[0.08]",
+  white: "bg-white text-[#0B1F12] hover:bg-white/90",
+  outlineWhite: "bg-white/[0.08] text-white hover:bg-white/[0.14]",
   glass: "bg-white/15 text-white backdrop-blur-md hover:bg-white/25",
 };
 

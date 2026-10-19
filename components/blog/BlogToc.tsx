@@ -31,7 +31,7 @@ export function BlogToc({ items }: { items: TocItem[] }) {
   return (
     <nav
       aria-label="Table of contents"
-      className="sticky top-[70px] z-40 rounded-2xl border border-slate-200 bg-white p-5 shadow-soft lg:static lg:z-auto lg:shadow-none"
+      className="sticky top-[70px] z-40 rounded-2xl border border-white/[0.08] bg-white/[0.05] p-5 shadow-soft lg:static lg:z-auto lg:shadow-none"
     >
       <button
         type="button"
@@ -39,13 +39,13 @@ export function BlogToc({ items }: { items: TocItem[] }) {
         onClick={() => setOpen((v) => !v)}
         className="flex w-full items-center justify-between lg:cursor-default"
       >
-        <span className="text-xs font-bold uppercase tracking-wide text-slate-500">
+        <span className="text-xs font-bold uppercase tracking-wide text-white/62">
           On this page
         </span>
         <HugeiconsIcon
           icon={ArrowDownIcon}
           size={16}
-          className={`text-slate-500 transition-transform lg:hidden ${
+          className={`text-white/62 transition-transform lg:hidden ${
             open ? "rotate-180" : ""
           }`}
         />
@@ -60,13 +60,13 @@ export function BlogToc({ items }: { items: TocItem[] }) {
               href={`#${item.id}`}
               className={`flex gap-2 rounded-lg px-2 py-1.5 text-sm transition-colors ${
                 active === item.id
-                  ? "bg-brand-50 font-semibold text-brand-500"
-                  : "text-ink/80 hover:text-brand-500"
+                  ? "bg-white/[0.07] font-semibold text-[#BEF70A]"
+                  : "text-white/88 hover:text-[#BEF70A]"
               }`}
             >
               <span
                 className={`font-bold ${
-                  active === item.id ? "text-brand-500" : "text-brand-500/50"
+                  active === item.id ? "text-[#BEF70A]" : "text-brand-500/50"
                 }`}
               >
                 {i + 1}.

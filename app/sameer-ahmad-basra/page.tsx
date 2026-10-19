@@ -63,12 +63,12 @@ export default function SameerFounderStoryPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#111413] text-[#FAF9F6] selection:bg-[#cbd810] selection:text-[#111]">
+    <main className="min-h-screen bg-white/[0.05] text-[#FAF9F6] selection:bg-[#BEF70A] selection:text-[#0B1F12]">
       
       {/* SKIP LINK FOR ACCESSIBILITY */}
       <a
         href="#main-story-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-[#cbd810] focus:text-[#111] focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-[#ABDE09] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold"
       >
         Skip to main content
       </a>
@@ -76,9 +76,9 @@ export default function SameerFounderStoryPage() {
       {/* FLOATING INTERACTIVE TIMELINE SPINE (Desktop / Tablet) */}
       <aside
         aria-label="Story Timeline Navigation"
-        className="hidden lg:flex fixed left-6 top-1/2 -translate-y-1/2 z-40 flex-col items-start gap-4 p-3 rounded-2xl bg-[#161a18]/85 backdrop-blur-md border border-white/10"
+        className="hidden lg:flex fixed left-6 top-1/2 -translate-y-1/2 z-40 flex-col items-start gap-4 p-3 rounded-2xl bg-white/[0.05]/85 backdrop-blur-md border border-white/[0.08]"
       >
-        <span className="text-[10px] font-mono tracking-widest text-[#cbd810] uppercase px-2">Story Arc</span>
+        <span className="text-[10px] font-mono tracking-widest text-[#BEF70A] uppercase px-2">Story Arc</span>
         <div className="flex flex-col gap-2 relative">
           <div className="absolute left-[15px] top-3 bottom-3 w-[2px] bg-white/10 pointer-events-none" />
           {acts.map((act) => {
@@ -88,13 +88,13 @@ export default function SameerFounderStoryPage() {
                 key={act.id}
                 onClick={() => scrollToSection(act.id)}
                 aria-label={`Jump to ${act.name}`}
-                className="group relative flex items-center gap-3 px-2 py-1.5 rounded-xl transition-colors text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cbd810]"
+                className="group relative flex items-center gap-3 px-2 py-1.5 rounded-xl transition-colors text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#BEF70A]"
               >
                 <span
                   className={`relative z-10 flex items-center justify-center w-6 h-6 rounded-full text-[11px] font-bold font-mono transition-all duration-300 ${
                     isActive
-                      ? "bg-[#cbd810] text-[#111] scale-110"
-                      : "bg-[#222825] text-white/50 group-hover:text-white group-hover:bg-white/20"
+                      ? "bg-[#BEF70A] text-[#0B1F12] scale-110"
+                      : "bg-white/[0.05] text-white/50 group-hover:text-white group-hover:bg-white/20"
                   }`}
                 >
                   {act.number}
@@ -114,14 +114,14 @@ export default function SameerFounderStoryPage() {
       </aside>
 
       {/* MOBILE HORIZONTAL TIMELINE BAR (Sticky at Top) */}
-      <div className="lg:hidden sticky top-[68px] z-30 w-full bg-[#161a18]/95 backdrop-blur-md border-b border-white/10 px-4 py-2 flex items-center gap-2 overflow-x-auto no-scrollbar">
+      <div className="lg:hidden sticky top-[68px] z-30 w-full bg-white/[0.05]/95 backdrop-blur-md border-b border-white/[0.08] px-4 py-2 flex items-center gap-2 overflow-x-auto no-scrollbar">
         {acts.map((act) => (
           <button
             key={act.id}
             onClick={() => scrollToSection(act.id)}
             className={`whitespace-nowrap px-3 py-1 rounded-full text-xs font-bold transition-colors shrink-0 ${
               activeAct === act.id
-                ? "bg-[#cbd810] text-[#111]"
+                ? "bg-[#BEF70A] text-[#0B1F12]"
                 : "bg-white/10 text-white/70 hover:bg-white/15"
             }`}
           >
@@ -137,7 +137,7 @@ export default function SameerFounderStoryPage() {
         {/* ========================================================================= */}
         <section
           id="act-1"
-          className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#015f45] px-6 pt-[140px] pb-24 border-b border-white/10"
+          className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-transparent px-6 pt-[140px] pb-24 border-b border-white/[0.08]"
         >
           {/* Noise Texture Overlay */}
           <div
@@ -151,8 +151,8 @@ export default function SameerFounderStoryPage() {
           <div className="relative z-10 max-w-[1100px] mx-auto w-full flex flex-col items-center text-center">
 
             {/* Act Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#cbd810]/40 bg-[#014f39]/80 px-4 py-1 text-xs font-mono font-bold tracking-widest text-[#cbd810] uppercase mb-8">
-              <span className="w-2 h-2 rounded-full bg-[#cbd810] animate-pulse" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#BEF70A]/40 bg-[#06301D]/80 px-4 py-1 text-xs font-mono font-bold tracking-widest text-[#BEF70A] uppercase mb-8">
+              <span className="w-2 h-2 rounded-full bg-[#BEF70A] animate-pulse" />
               Act I · Positioning &amp; Authority
             </div>
 
@@ -161,10 +161,10 @@ export default function SameerFounderStoryPage() {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden border-4 border-white/20 mb-8 bg-[#f28a16] ring-8 ring-[#cbd810]/20"
+              className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden border-4 border-white/[0.08] mb-8 bg-[#c6e962] ring-8 ring-[#BEF70A]/20"
             >
               <Image
-                src="/sameer-ahmad-basra.jpg"
+                src="/team/sameer-ahmad-basra-2026.jpg"
                 alt="Sameer Ahmad Basra — Founder of Jadeed Solutions"
                 fill
                 priority
@@ -187,7 +187,7 @@ export default function SameerFounderStoryPage() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-[20px] sm:text-[24px] lg:text-[26px] font-medium text-[#eaf25a] max-w-[850px] leading-snug mb-6"
+              className="text-[20px] sm:text-[24px] lg:text-[26px] font-medium text-[#BEF70A] max-w-[850px] leading-snug mb-6"
             >
               I help local service businesses get booked when they get found.
             </motion.p>
@@ -206,18 +206,18 @@ export default function SameerFounderStoryPage() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="w-full max-w-[820px] grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12 p-4 rounded-2xl bg-[#014f39]/90 border border-white/15 backdrop-blur-md"
+              className="w-full max-w-[820px] grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12 p-4 rounded-2xl bg-[#06301D]/90 border border-white/[0.08] backdrop-blur-md"
             >
-              <div className="flex flex-col items-center text-center p-2 border-b sm:border-b-0 sm:border-r border-white/10">
-                <span className="text-2xl sm:text-3xl font-extrabold text-[#cbd810] font-mono">70+</span>
+              <div className="flex flex-col items-center text-center p-2 border-b sm:border-b-0 sm:border-r border-white/[0.08]">
+                <span className="text-2xl sm:text-3xl font-extrabold text-[#BEF70A] font-mono">90+</span>
                 <span className="text-xs text-white/70 font-medium">Booked Jobs for One Client in 3 Months</span>
               </div>
-              <div className="flex flex-col items-center text-center p-2 border-b sm:border-b-0 sm:border-r border-white/10">
+              <div className="flex flex-col items-center text-center p-2 border-b sm:border-b-0 sm:border-r border-white/[0.08]">
                 <span className="text-2xl sm:text-3xl font-extrabold text-white font-mono">Dec 2024</span>
                 <span className="text-xs text-white/70 font-medium">Founded in Narowal, Pakistan</span>
               </div>
               <div className="flex flex-col items-center text-center p-2">
-                <span className="text-2xl sm:text-3xl font-extrabold text-[#cbd810] font-mono">10%</span>
+                <span className="text-2xl sm:text-3xl font-extrabold text-[#BEF70A] font-mono">10%</span>
                 <span className="text-xs text-white/70 font-medium">Pay-After-Booking Option</span>
               </div>
             </motion.div>
@@ -231,20 +231,20 @@ export default function SameerFounderStoryPage() {
             >
               <Link
                 href="/contact"
-                className="group bg-[#cbd810] text-[#111] font-bold text-base h-14 px-8 rounded-xl flex items-center justify-center gap-3 transition-transform hover:scale-[1.02] active:scale-[0.98]"
+                className="group bg-[#BEF70A] text-[#0B1F12] font-bold text-base h-14 pl-7 pr-2 rounded-full flex items-center justify-center gap-3 transition-colors hover:bg-[#ABDE09]"
               >
                 Book a Growth Consultation
                 <HugeiconsIcon
                   icon={ArrowRightIcon}
                   size={18}
-                  className="transition-transform duration-300 group-hover:translate-x-1 text-[#111]"
+                  className="grid h-10 w-10 place-items-center rounded-full bg-[#0B1F12] p-[11px] text-[#BEF70A] transition-transform duration-300 group-hover:-rotate-45"
                 />
               </Link>
               <a
                 href="https://wa.me/923167669343"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white/10 hover:bg-white/20 border border-white/25 text-white font-semibold text-base h-14 px-7 rounded-xl flex items-center justify-center gap-2 transition-colors"
+                className="bg-white/[0.08] hover:bg-white/[0.14] text-white font-semibold text-base h-14 px-7 rounded-xl flex items-center justify-center gap-2 transition-colors"
               >
                 WhatsApp Directly
               </a>
@@ -258,7 +258,7 @@ export default function SameerFounderStoryPage() {
         {/* ========================================================================= */}
         <section
           id="act-2"
-          className="relative py-28 px-6 bg-[#1a1e1c] text-[#e0e0e0] border-b border-white/10 overflow-hidden"
+          className="relative py-28 px-6 bg-white/[0.05] text-[#e0e0e0] border-b border-white/[0.08] overflow-hidden"
         >
           <div className="max-w-[800px] mx-auto">
 
@@ -281,7 +281,7 @@ export default function SameerFounderStoryPage() {
               </p>
 
               {/* The Tension Pull Quote */}
-              <div className="my-10 p-6 sm:p-8 rounded-2xl bg-[#222825] border-l-4 border-[#ff5252] border-y border-r border-white/5 relative">
+              <div className="my-10 p-6 sm:p-8 rounded-2xl bg-[#ff5252]/[0.08] relative">
                 <p className="text-[19px] sm:text-[22px] font-medium text-white leading-snug">
                   &ldquo;Between platform commissions and payment-withdrawal fees, 20–25% of every project&apos;s value effectively disappeared before it reached me.&rdquo;
                 </p>
@@ -303,7 +303,7 @@ export default function SameerFounderStoryPage() {
         {/* ========================================================================= */}
         <section
           id="act-3"
-          className="relative py-32 px-6 bg-gradient-to-b from-[#1a1e1c] via-[#014f39] to-[#015f45] text-white border-b border-white/10 overflow-hidden"
+          className="relative py-32 px-6 bg-gradient-to-b from-[#1a1e1c] via-[#06301D] to-[#06301D] text-white border-b border-white/[0.08] overflow-hidden"
         >
           <div
             className="absolute inset-0 z-0 pointer-events-none opacity-25 mix-blend-overlay"
@@ -315,8 +315,8 @@ export default function SameerFounderStoryPage() {
 
           <div className="relative z-10 max-w-[960px] mx-auto text-center flex flex-col items-center">
             
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#cbd810]/50 bg-[#cbd810]/10 px-5 py-1.5 text-xs font-mono font-bold tracking-widest text-[#cbd810] uppercase mb-8">
-              <HugeiconsIcon icon={SparklesIcon} size={14} className="text-[#cbd810]" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#BEF70A]/50 bg-[#BEF70A]/10 px-5 py-1.5 text-xs font-mono font-bold tracking-widest text-[#BEF70A] uppercase mb-8">
+              <HugeiconsIcon icon={SparklesIcon} size={14} className="text-[#BEF70A]" />
               Act III · The Climax
             </div>
 
@@ -328,10 +328,10 @@ export default function SameerFounderStoryPage() {
               transition={{ duration: 0.8 }}
               className="font-sans text-[48px] sm:text-[68px] lg:text-[84px] font-bold tracking-[-.04em] text-white leading-none mb-8"
             >
-              I Continued<span className="text-[#cbd810]">.</span>
+              I Continued<span className="text-[#BEF70A]">.</span>
             </motion.h2>
 
-            <div className="w-24 h-1.5 bg-[#cbd810] rounded-full mb-12" />
+            <div className="w-24 h-1.5 bg-[#BEF70A] rounded-full mb-12" />
 
             {/* 3 Punchy Narrative Paragraphs */}
             <div className="space-y-8 text-[18px] sm:text-[21px] leading-[1.7] text-white/90 font-normal max-w-[820px] text-left sm:text-center">
@@ -343,14 +343,14 @@ export default function SameerFounderStoryPage() {
                 At first, several friends joined the conversation. We created a group and talked about building something together. Some stayed briefly, but gradually their interest faded. They moved on. The momentum evaporated.
               </p>
 
-              <p className="text-white font-medium text-[20px] sm:text-[23px] bg-black/20 p-6 sm:p-8 rounded-2xl border border-white/15">
+              <p className="text-white font-medium text-[20px] sm:text-[23px] bg-black/40 p-6 sm:p-8 rounded-2xl border border-white/[0.08]">
                 <strong>I continued.</strong> That single decision became the defining moment. Not because everything was easy, but because I chose consistency over comfort. Ideas are common. Everyone has them. Showing up when others quit — that is what creates the difference.
               </p>
             </div>
 
             {/* Standalone Memorable Quote Callout */}
-            <div className="mt-14 inline-block p-6 sm:p-8 rounded-3xl bg-[#014f39]/90 border-2 border-[#cbd810]/40">
-              <blockquote className="text-[22px] sm:text-[28px] font-bold text-[#eaf25a] tracking-tight">
+            <div className="mt-14 inline-block p-6 sm:p-8 rounded-3xl bg-[#06301D]/90 border-2 border-[#BEF70A]/40">
+              <blockquote className="text-[22px] sm:text-[28px] font-bold text-[#BEF70A] tracking-tight">
                 &ldquo;Consistency is what creates the difference.&rdquo;
               </blockquote>
               <span className="block mt-2 text-xs font-mono text-white/60 uppercase tracking-widest">
@@ -366,19 +366,19 @@ export default function SameerFounderStoryPage() {
         {/* ========================================================================= */}
         <section
           id="act-4"
-          className="relative py-28 px-6 bg-[#FAF9F6] text-[#151515] border-b border-black/10 overflow-hidden"
+          className="relative py-28 px-6 bg-transparent text-white border-b border-white/[0.08] overflow-hidden"
         >
           <div className="max-w-[1140px] mx-auto">
             
             <div className="flex flex-col items-center text-center mb-16">
-              <div className="inline-flex items-center gap-2 font-mono text-xs font-bold text-[#015f45] uppercase tracking-widest mb-3">
+              <div className="inline-flex items-center gap-2 font-mono text-xs font-bold text-[#BEF70A] uppercase tracking-widest mb-3">
                 <HugeiconsIcon icon={RocketIcon} size={16} />
                 Act IV · Vision Realized &amp; Proof Systems
               </div>
-              <h2 className="font-sans text-[32px] sm:text-[44px] font-semibold tracking-[-.04em] text-[#151515] mb-4">
+              <h2 className="font-sans text-[32px] sm:text-[44px] font-semibold tracking-[-.04em] text-white mb-4">
                 Where Engineering &amp; Search Deliver Measurable Bookings
               </h2>
-              <p className="text-[17px] text-black/65 max-w-[720px] leading-relaxed">
+              <p className="text-[17px] text-white/73 max-w-[720px] leading-relaxed">
                 SEO is not abstract marketing. It is software engineering connected to human search intent.
               </p>
             </div>
@@ -387,23 +387,23 @@ export default function SameerFounderStoryPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
               
               {/* CARD 1: Just Shine Cleaning Services */}
-              <div className="bg-white border border-black/10 rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
+              <div className="bg-white/[0.05] border border-white/[0.08] rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between gap-4 mb-6">
                     <div>
-                      <span className="text-[11px] font-mono uppercase tracking-widest text-[#015f45] font-extrabold block">
+                      <span className="text-[11px] font-mono uppercase tracking-widest text-[#BEF70A] font-extrabold block">
                         Abu Dhabi, UAE · Cleaning Industry
                       </span>
-                      <h3 className="text-[22px] sm:text-[24px] font-bold text-[#151515]">
+                      <h3 className="text-[22px] sm:text-[24px] font-bold text-white">
                         Just Shine Cleaning Services
                       </h3>
                     </div>
                     {/* Toggle Button */}
-                    <div className="flex items-center rounded-xl bg-black/5 p-1 text-xs font-bold">
+                    <div className="flex items-center rounded-xl bg-black/25 p-1 text-xs font-bold">
                       <button
                         onClick={() => setJustShineTab("before")}
                         className={`px-3 py-1.5 rounded-lg transition-all ${
-                          justShineTab === "before" ? "bg-[#151515] text-white" : "text-black/60 hover:text-black"
+                          justShineTab === "before" ? "bg-white/[0.05] text-white" : "text-white/68 hover:text-white"
                         }`}
                       >
                         Before
@@ -411,7 +411,7 @@ export default function SameerFounderStoryPage() {
                       <button
                         onClick={() => setJustShineTab("after")}
                         className={`px-3 py-1.5 rounded-lg transition-all ${
-                          justShineTab === "after" ? "bg-[#015f45] text-white" : "text-black/60 hover:text-black"
+                          justShineTab === "after" ? "bg-white/[0.05] text-white" : "text-white/68 hover:text-white"
                         }`}
                       >
                         After SEO
@@ -426,7 +426,7 @@ export default function SameerFounderStoryPage() {
                         initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -8 }}
-                        className="space-y-4 text-sm text-black/75"
+                        className="space-y-4 text-sm text-white/83"
                       >
                         <div className="p-4 rounded-xl bg-rose-50/80 border border-rose-200">
                           <span className="font-bold text-rose-900 block mb-1">The Challenge:</span>
@@ -442,20 +442,20 @@ export default function SameerFounderStoryPage() {
                         initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -8 }}
-                        className="space-y-4 text-sm text-black/75"
+                        className="space-y-4 text-sm text-white/83"
                       >
-                        <div className="p-4 rounded-xl bg-emerald-50/80 border border-emerald-200">
-                          <span className="font-bold text-[#015f45] block mb-1">The Breakthrough:</span>
+                        <div className="p-4 rounded-xl bg-white/[0.06] border border-white/[0.08]">
+                          <span className="font-bold text-[#BEF70A] block mb-1">The Breakthrough:</span>
                           Deep technical audit, local service-area architecture, and commercial keyword alignment.
                         </div>
                         <div className="grid grid-cols-2 gap-3 pt-2">
-                          <div className="p-3 rounded-xl bg-[#015f45]/5 border border-[#015f45]/10 text-center">
-                            <div className="text-xl font-bold text-[#015f45] font-mono">Page 1</div>
-                            <div className="text-[11px] text-black/60 font-medium">Abu Dhabi Google results (client’s Trustpilot review)</div>
+                          <div className="p-3 rounded-xl bg-[#06301D]/5 border border-[#BEF70A]/10 text-center">
+                            <div className="text-xl font-bold text-[#BEF70A] font-mono">Page 1</div>
+                            <div className="text-[11px] text-white/68 font-medium">Abu Dhabi Google results (client’s Trustpilot review)</div>
                           </div>
-                          <div className="p-3 rounded-xl bg-[#015f45]/5 border border-[#015f45]/10 text-center">
-                            <div className="text-xl font-bold text-[#015f45] font-mono">Web + SEO + Social</div>
-                            <div className="text-[11px] text-black/60 font-medium">Delivered as one package</div>
+                          <div className="p-3 rounded-xl bg-[#06301D]/5 border border-[#BEF70A]/10 text-center">
+                            <div className="text-xl font-bold text-[#BEF70A] font-mono">Web + SEO + Social</div>
+                            <div className="text-[11px] text-white/68 font-medium">Delivered as one package</div>
                           </div>
                         </div>
                       </motion.div>
@@ -463,9 +463,9 @@ export default function SameerFounderStoryPage() {
                   </AnimatePresence>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-black/5 flex items-center justify-between text-xs text-black/50 font-medium">
+                <div className="mt-8 pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs text-white/58 font-medium">
                   <span>Verified 5.0 Trustpilot Review</span>
-                  <Link href="/blog/local-seo-google-ads-service-business" className="group inline-flex items-center gap-1.5 text-[#015f45] font-bold">
+                  <Link href="/blog/local-seo-google-ads-service-business" className="group inline-flex items-center gap-1.5 text-[#BEF70A] font-bold">
                     Read strategy
                     <HugeiconsIcon icon={ArrowRightIcon} size={14} className="transition-transform group-hover:translate-x-1" />
                   </Link>
@@ -473,23 +473,23 @@ export default function SameerFounderStoryPage() {
               </div>
 
               {/* CARD 2: Alpha Movers */}
-              <div className="bg-white border border-black/10 rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
+              <div className="bg-white/[0.05] border border-white/[0.08] rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between gap-4 mb-6">
                     <div>
-                      <span className="text-[11px] font-mono uppercase tracking-widest text-[#015f45] font-extrabold block">
+                      <span className="text-[11px] font-mono uppercase tracking-widest text-[#BEF70A] font-extrabold block">
                         London, UK · Moving &amp; Removals
                       </span>
-                      <h3 className="text-[22px] sm:text-[24px] font-bold text-[#151515]">
+                      <h3 className="text-[22px] sm:text-[24px] font-bold text-white">
                         Alpha Movers London
                       </h3>
                     </div>
                     {/* Toggle Button */}
-                    <div className="flex items-center rounded-xl bg-black/5 p-1 text-xs font-bold">
+                    <div className="flex items-center rounded-xl bg-black/25 p-1 text-xs font-bold">
                       <button
                         onClick={() => setAlphaMoversTab("before")}
                         className={`px-3 py-1.5 rounded-lg transition-all ${
-                          alphaMoversTab === "before" ? "bg-[#151515] text-white" : "text-black/60 hover:text-black"
+                          alphaMoversTab === "before" ? "bg-white/[0.05] text-white" : "text-white/68 hover:text-white"
                         }`}
                       >
                         Before
@@ -497,7 +497,7 @@ export default function SameerFounderStoryPage() {
                       <button
                         onClick={() => setAlphaMoversTab("after")}
                         className={`px-3 py-1.5 rounded-lg transition-all ${
-                          alphaMoversTab === "after" ? "bg-[#015f45] text-white" : "text-black/60 hover:text-black"
+                          alphaMoversTab === "after" ? "bg-white/[0.05] text-white" : "text-white/68 hover:text-white"
                         }`}
                       >
                         After Next.js
@@ -512,7 +512,7 @@ export default function SameerFounderStoryPage() {
                         initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -8 }}
-                        className="space-y-4 text-sm text-black/75"
+                        className="space-y-4 text-sm text-white/83"
                       >
                         <div className="p-4 rounded-xl bg-rose-50/80 border border-rose-200">
                           <span className="font-bold text-rose-900 block mb-1">The Bottleneck:</span>
@@ -528,20 +528,20 @@ export default function SameerFounderStoryPage() {
                         initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -8 }}
-                        className="space-y-4 text-sm text-black/75"
+                        className="space-y-4 text-sm text-white/83"
                       >
-                        <div className="p-4 rounded-xl bg-emerald-50/80 border border-emerald-200">
-                          <span className="font-bold text-[#015f45] block mb-1">Next.js &amp; AI Overhaul:</span>
+                        <div className="p-4 rounded-xl bg-white/[0.06] border border-white/[0.08]">
+                          <span className="font-bold text-[#BEF70A] block mb-1">Next.js &amp; AI Overhaul:</span>
                           Rebuilt from the ground up in Next.js with an AI-assisted content pipeline and fast Core Web Vitals.
                         </div>
                         <div className="grid grid-cols-2 gap-3 pt-2">
-                          <div className="p-3 rounded-xl bg-[#015f45]/5 border border-[#015f45]/10 text-center">
-                            <div className="text-xl font-bold text-[#015f45] font-mono">218K</div>
-                            <div className="text-[11px] text-black/60 font-medium">Search Impressions (GSC, 3 mo)</div>
+                          <div className="p-3 rounded-xl bg-[#06301D]/5 border border-[#BEF70A]/10 text-center">
+                            <div className="text-xl font-bold text-[#BEF70A] font-mono">273K</div>
+                            <div className="text-[11px] text-white/68 font-medium">Search Impressions (GSC, 3 mo)</div>
                           </div>
-                          <div className="p-3 rounded-xl bg-[#015f45]/5 border border-[#015f45]/10 text-center">
-                            <div className="text-xl font-bold text-[#015f45] font-mono">70+</div>
-                            <div className="text-[11px] text-black/60 font-medium">Booked Jobs (3 mo)</div>
+                          <div className="p-3 rounded-xl bg-[#06301D]/5 border border-[#BEF70A]/10 text-center">
+                            <div className="text-xl font-bold text-[#BEF70A] font-mono">90+</div>
+                            <div className="text-[11px] text-white/68 font-medium">Booked Jobs (3 mo)</div>
                           </div>
                         </div>
                       </motion.div>
@@ -549,9 +549,9 @@ export default function SameerFounderStoryPage() {
                   </AnimatePresence>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-black/5 flex items-center justify-between text-xs text-black/50 font-medium">
+                <div className="mt-8 pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs text-white/58 font-medium">
                   <span>Google Search Console Verified</span>
-                  <Link href="/portfolio" className="group inline-flex items-center gap-1.5 text-[#015f45] font-bold">
+                  <Link href="/portfolio" className="group inline-flex items-center gap-1.5 text-[#BEF70A] font-bold">
                     View full case study
                     <HugeiconsIcon icon={ArrowRightIcon} size={14} className="transition-transform group-hover:translate-x-1" />
                   </Link>
@@ -561,25 +561,25 @@ export default function SameerFounderStoryPage() {
             </div>
 
             {/* SKILLS & CAPABILITY TREE */}
-            <div className="bg-white border border-black/10 rounded-3xl p-8 sm:p-12">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-10 pb-6 border-b border-black/10">
+            <div className="bg-white/[0.05] border border-white/[0.08] rounded-3xl p-8 sm:p-12">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-10 pb-6 border-b border-white/[0.08]">
                 <div>
-                  <span className="text-xs font-mono uppercase tracking-widest text-[#015f45] font-extrabold block mb-1">
+                  <span className="text-xs font-mono uppercase tracking-widest text-[#BEF70A] font-extrabold block mb-1">
                     System Architecture
                   </span>
-                  <h3 className="font-sans text-[24px] sm:text-[28px] font-semibold tracking-[-.03em] text-[#151515]">
+                  <h3 className="font-sans text-[24px] sm:text-[28px] font-semibold tracking-[-.03em] text-white">
                     Full-Stack Systems: Where Technology Serves Outcomes
                   </h3>
                 </div>
 
                 {/* Category Filter Pills */}
-                <div className="flex items-center gap-2 bg-black/5 p-1 rounded-xl self-start sm:self-auto">
+                <div className="flex items-center gap-2 bg-black/25 p-1 rounded-xl self-start sm:self-auto">
                   <button
                     onClick={() => setActiveSkillCategory("frameworks")}
                     className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
                       activeSkillCategory === "frameworks"
-                        ? "bg-[#015f45] text-white"
-                        : "text-black/60 hover:text-black"
+                        ? "bg-[#BEF70A] text-[#0B1F12]"
+                        : "text-white/68 hover:text-white"
                     }`}
                   >
                     Frameworks
@@ -588,8 +588,8 @@ export default function SameerFounderStoryPage() {
                     onClick={() => setActiveSkillCategory("ai")}
                     className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
                       activeSkillCategory === "ai"
-                        ? "bg-[#015f45] text-white"
-                        : "text-black/60 hover:text-black"
+                        ? "bg-[#BEF70A] text-[#0B1F12]"
+                        : "text-white/68 hover:text-white"
                     }`}
                   >
                     AI &amp; Automation
@@ -598,8 +598,8 @@ export default function SameerFounderStoryPage() {
                     onClick={() => setActiveSkillCategory("growth")}
                     className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
                       activeSkillCategory === "growth"
-                        ? "bg-[#015f45] text-white"
-                        : "text-black/60 hover:text-black"
+                        ? "bg-[#BEF70A] text-[#0B1F12]"
+                        : "text-white/68 hover:text-white"
                     }`}
                   >
                     SEO &amp; Growth
@@ -672,20 +672,20 @@ export default function SameerFounderStoryPage() {
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.2 }}
-                      className="p-5 rounded-2xl bg-[#FAF9F6] border border-black/5 hover:border-[#015f45]/30 transition-all group"
+                      className="p-5 rounded-2xl bg-white/[0.05] border border-white/[0.08] hover:bg-white/[0.09] transition-all group"
                     >
-                      <div className="w-10 h-10 rounded-xl bg-[#015f45]/10 text-[#015f45] flex items-center justify-center mb-4 group-hover:bg-[#015f45] group-hover:text-white transition-colors">
+                      <div className="w-10 h-10 rounded-xl bg-[#06301D]/10 text-[#BEF70A] flex items-center justify-center mb-4 group-hover:bg-white/10 group-hover:text-white transition-colors">
                         <HugeiconsIcon icon={skill.icon} size={20} />
                       </div>
-                      <h4 className="text-[17px] font-bold text-[#151515] mb-2">{skill.title}</h4>
-                      <p className="text-xs text-black/65 leading-relaxed">{skill.desc}</p>
+                      <h4 className="text-[17px] font-bold text-white mb-2">{skill.title}</h4>
+                      <p className="text-xs text-white/73 leading-relaxed">{skill.desc}</p>
                     </motion.div>
                   ))}
               </div>
 
               {/* Meta Commentary Box */}
-              <div className="mt-10 p-6 rounded-2xl bg-[#015f45]/5 border border-[#015f45]/15 text-center">
-                <p className="text-[16px] sm:text-[17px] font-medium text-[#015f45] italic leading-relaxed">
+              <div className="mt-10 p-6 rounded-2xl bg-[#06301D]/5 border border-[#BEF70A]/15 text-center">
+                <p className="text-[16px] sm:text-[17px] font-medium text-[#BEF70A] italic leading-relaxed">
                   &ldquo;This is where I learned that SEO isn&apos;t marketing — it&apos;s engineering. And engineering without business outcomes is just code.&rdquo;
                 </p>
               </div>
@@ -699,22 +699,22 @@ export default function SameerFounderStoryPage() {
         {/* ========================================================================= */}
         <section
           id="act-5"
-          className="relative py-32 px-6 bg-gradient-to-br from-[#015f45] via-[#014f39] to-[#111614] text-white border-b border-white/10 overflow-hidden"
+          className="relative py-32 px-6 bg-gradient-to-br from-[#06301D] via-[#06301D] to-[#111614] text-white border-b border-white/[0.08] overflow-hidden"
         >
           <div className="max-w-[920px] mx-auto text-center flex flex-col items-center">
 
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#cbd810]/40 bg-[#cbd810]/10 px-4 py-1.5 text-xs font-mono font-bold tracking-widest text-[#cbd810] uppercase mb-8">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#BEF70A]/40 bg-[#BEF70A]/10 px-4 py-1.5 text-xs font-mono font-bold tracking-widest text-[#BEF70A] uppercase mb-8">
               Act V · Future &amp; Commercial Alignment
             </div>
 
             <h2 className="font-sans text-[36px] sm:text-[50px] lg:text-[58px] font-semibold tracking-[-.04em] text-white leading-[1.12] mb-6">
               We Don&apos;t Charge for Activity.<br />
-              <span className="text-[#cbd810]">We Charge for Results.</span>
+              <span className="text-[#BEF70A]">We Charge for Results.</span>
             </h2>
 
             <div className="space-y-6 text-[17px] sm:text-[19px] leading-relaxed text-white/90 max-w-[780px] font-normal mb-12">
               <p>
-                Performance-aligned pricing (such as 5% to 10% per booking or verified growth milestones) means I only win when you win. No retainers. No vague promises. Just real bookings and measurable business growth.
+                Performance-aligned pricing (such as 5% to 10% of each paid job, with £0 upfront) means I only win when you win. No retainers. No vague promises. Just real bookings and measurable business growth.
               </p>
               <p className="text-white/70 text-base">
                 I am not interested in agencies that operate at a distant, detached level. I remain hands-on, directly invested in your growth because my commercial model connects our outcomes.
@@ -722,12 +722,12 @@ export default function SameerFounderStoryPage() {
             </div>
 
             {/* Team Integration Badge */}
-            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md mb-14 text-sm text-white/90">
+            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-2xl bg-white/10 border border-white/[0.08] backdrop-blur-md mb-14 text-sm text-white/90">
               <div className="flex -space-x-2">
-                <div className="w-8 h-8 rounded-full bg-[#cbd810] text-[#111] font-bold text-xs flex items-center justify-center border-2 border-[#014f39]">
+                <div className="w-8 h-8 rounded-full bg-[#BEF70A] text-[#0B1F12] font-bold text-xs flex items-center justify-center border-2 border-[#BEF70A]">
                   SB
                 </div>
-                <div className="w-8 h-8 rounded-full bg-white text-[#111] font-bold text-xs flex items-center justify-center border-2 border-[#014f39]">
+                <div className="w-8 h-8 rounded-full bg-white text-[#0B1F12] font-bold text-xs flex items-center justify-center border-2 border-[#BEF70A]">
                   AW
                 </div>
               </div>
@@ -737,8 +737,8 @@ export default function SameerFounderStoryPage() {
             </div>
 
             {/* Final Emotional Call to Action */}
-            <div className="w-full bg-[#111614]/90 border border-white/15 rounded-3xl p-8 sm:p-12 flex flex-col items-center">
-              <span className="text-xs font-mono uppercase tracking-widest text-[#cbd810] font-bold mb-3">
+            <div className="w-full bg-white/[0.05]/90 border border-white/[0.08] rounded-3xl p-8 sm:p-12 flex flex-col items-center">
+              <span className="text-xs font-mono uppercase tracking-widest text-[#BEF70A] font-bold mb-3">
                 Your Next Chapter
               </span>
               <h3 className="font-sans text-[28px] sm:text-[36px] font-semibold tracking-[-.03em] text-white mb-4">
@@ -751,7 +751,7 @@ export default function SameerFounderStoryPage() {
               <div className="flex flex-wrap items-center justify-center gap-4 w-full sm:w-auto">
                 <Link
                   href="/contact"
-                  className="group bg-[#cbd810] text-[#111] font-bold text-base h-14 px-8 rounded-xl flex items-center justify-center gap-3 transition-transform hover:scale-[1.02] w-full sm:w-auto"
+                  className="group bg-[#BEF70A] text-[#0B1F12] font-bold text-base h-14 px-8 rounded-xl flex items-center justify-center gap-3 transition-transform hover:scale-[1.02] w-full sm:w-auto"
                 >
                   Book a Consultation
                   <HugeiconsIcon
@@ -762,7 +762,7 @@ export default function SameerFounderStoryPage() {
                 </Link>
                 <a
                   href="mailto:info@jadeedsolutions.com"
-                  className="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold text-base h-14 px-6 rounded-xl flex items-center justify-center gap-2 transition-colors w-full sm:w-auto"
+                  className="bg-white/[0.08] hover:bg-white/[0.14] text-white font-semibold text-base h-14 px-6 rounded-xl flex items-center justify-center gap-2 transition-colors w-full sm:w-auto"
                 >
                   info@jadeedsolutions.com
                 </a>

@@ -1,0 +1,252 @@
+/* V Chauffeurs concept mockups, ultra-minimal: few elements, large type, lots of air,
+   so each screen is readable at a glance (owner, 19 Oct 2026). Every size is in em; each
+   device sizes itself from its own width (phone = 20em wide, browser = 48em wide).
+   Colours are site tokens; the V Chauffeurs brand is still to be approved. */
+
+.m {
+  --m-text: #eef2e7;
+  --m-muted: rgba(238, 242, 231, 0.62);
+  --m-line: rgba(238, 242, 231, 0.1);
+  --m-panel: rgba(238, 242, 231, 0.07);
+  --m-lime: #bef70a;
+  --m-on-lime: #0b1f12;
+  --m-screen: #071f1c;
+  --m-deep: #04161a;
+  color: var(--m-text);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  line-height: 1.25;
+  -webkit-font-smoothing: antialiased;
+}
+.m * {
+  box-sizing: border-box;
+}
+.m .disp {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+.m .mut {
+  color: var(--m-muted);
+}
+
+.m-dev {
+  container-type: inline-size;
+}
+
+/* ───────── Phone ───────── */
+.m-dev > .m-phone {
+  font-size: calc(100cqw / 20);
+}
+.m-phone {
+  position: relative;
+  border-radius: 3.3em;
+  padding: 0.5em;
+  background: #111a17;
+  box-shadow:
+    inset 0 0 0 0.09em rgba(255, 255, 255, 0.16),
+    0 2.6em 5em -1.6em rgba(0, 0, 0, 0.65);
+}
+.m-screen {
+  position: relative;
+  aspect-ratio: 9 / 19.5;
+  border-radius: 2.85em;
+  overflow: hidden;
+  background: var(--m-screen);
+  display: flex;
+  flex-direction: column;
+}
+.m-island {
+  position: absolute;
+  z-index: 3;
+  top: 0.7em;
+  left: 50%;
+  width: 5.8em;
+  height: 1.7em;
+  transform: translateX(-50%);
+  border-radius: 1em;
+  background: #000;
+}
+.m-status {
+  flex: none;
+  height: 3.1em;
+  padding: 0 1.7em 0 2.1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8em;
+  font-weight: 700;
+}
+.m-status i {
+  width: 1.7em;
+  height: 0.8em;
+  border-radius: 0.25em;
+  border: 0.12em solid currentColor;
+  opacity: 0.8;
+}
+.m-home {
+  position: absolute;
+  bottom: 0.5em;
+  left: 50%;
+  width: 6.5em;
+  height: 0.28em;
+  transform: translateX(-50%);
+  border-radius: 1em;
+  background: rgba(238, 242, 231, 0.5);
+}
+.m-app {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1em 1.3em 2.2em;
+  gap: 1.1em;
+}
+
+/* ───────── Browser ───────── */
+.m-dev > .m-browser {
+  font-size: calc(100cqw / 48);
+}
+.m-browser {
+  border-radius: 1em;
+  overflow: hidden;
+  background: var(--m-screen);
+  box-shadow:
+    inset 0 0 0 0.08em rgba(255, 255, 255, 0.1),
+    0 2.6em 5em -1.8em rgba(0, 0, 0, 0.6);
+}
+.m-chrome {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  height: 2.3em;
+  padding: 0 1em;
+  background: var(--m-deep);
+}
+.m-chrome i {
+  width: 0.65em;
+  height: 0.65em;
+  border-radius: 50%;
+  background: rgba(238, 242, 231, 0.18);
+}
+
+/* ───────── Shared pieces ───────── */
+.m-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  font-weight: 700;
+}
+.m-logo i {
+  display: grid;
+  place-items: center;
+  width: 1.6em;
+  height: 1.6em;
+  border-radius: 0.5em;
+  background: var(--m-lime);
+  color: var(--m-on-lime);
+  font-style: normal;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 700;
+}
+.m-card {
+  border-radius: 1.1em;
+  background: var(--m-panel);
+  padding: 1em 1.1em;
+}
+.m-stop {
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+}
+.m-stop + .m-stop {
+  margin-top: 0.9em;
+}
+.m-stop .k {
+  display: block;
+  font-size: 0.72em;
+  color: var(--m-muted);
+}
+.m-stop .v {
+  display: block;
+  font-weight: 700;
+}
+.m-dot {
+  flex: none;
+  width: 0.8em;
+  height: 0.8em;
+  border-radius: 50%;
+  border: 0.2em solid var(--m-lime);
+}
+.m-dot.sq {
+  border-radius: 0.2em;
+  border-color: var(--m-text);
+}
+.m-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3em;
+  border-radius: 2em;
+  background: var(--m-lime);
+  color: var(--m-on-lime);
+  font-weight: 700;
+}
+.m-chip {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.75em;
+  font-weight: 700;
+  padding: 0.35em 0.85em;
+  border-radius: 1em;
+  background: rgba(190, 247, 10, 0.14);
+  color: var(--m-lime);
+  white-space: nowrap;
+}
+.m-chip.on {
+  background: var(--m-lime);
+  color: var(--m-on-lime);
+}
+.m-chip.mute {
+  background: var(--m-panel);
+  color: var(--m-muted);
+}
+.m-row {
+  display: flex;
+  align-items: center;
+  gap: 0.9em;
+}
+.m-row > .grow {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ───────── Website ───────── */
+.m-site {
+  padding: 1.4em 2.2em 2.6em;
+  background: radial-gradient(120% 100% at 50% 0%, #0b561c 0%, #06301d 60%, #071f1c 100%);
+}
+.m-site .grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 2.4em;
+  align-items: center;
+  margin-top: 2.6em;
+}
+
+/* ───────── Admin ───────── */
+.m-admin {
+  padding: 1.6em 2em 2em;
+}
+.m-list {
+  margin-top: 1.2em;
+  display: grid;
+  gap: 0.6em;
+}
+.m-list .m-row {
+  padding: 0.9em 1.1em;
+  border-radius: 0.9em;
+  background: var(--m-panel);
+}
+.m-list .t {
+  width: 3.4em;
+  font-weight: 700;
+}

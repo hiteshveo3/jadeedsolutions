@@ -16,7 +16,7 @@ export function HeroBackground() {
         className="absolute inset-0"
         style={{
           background:
-            "repeating-conic-gradient(from 90deg at 50% -12%, rgba(1,95,69,0.06) 0deg 5deg, transparent 5deg 15deg)",
+            "repeating-conic-gradient(from 90deg at 50% -12%, rgba(255,255,255,0.035) 0deg 5deg, transparent 5deg 15deg)",
           maskImage: "linear-gradient(to bottom, #000 5%, transparent 65%)",
           WebkitMaskImage: "linear-gradient(to bottom, #000 5%, transparent 65%)",
         }}
@@ -26,8 +26,8 @@ export function HeroBackground() {
         className="absolute inset-x-0 bottom-0 h-2/3"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(1,95,69,0.16) 1px, transparent 1px)," +
-            "linear-gradient(90deg, rgba(1,95,69,0.16) 1px, transparent 1px)",
+            "linear-gradient(rgba(190,247,10,0.10) 1px, transparent 1px)," +
+            "linear-gradient(90deg, rgba(190,247,10,0.10) 1px, transparent 1px)",
           backgroundSize: "44px 44px",
           transform: "perspective(320px) rotateX(62deg)",
           transformOrigin: "bottom center",
@@ -40,7 +40,7 @@ export function HeroBackground() {
         className="absolute inset-x-0 bottom-0 h-1/2"
         style={{
           background:
-            "radial-gradient(60% 80% at 50% 100%, rgba(203,216,16,0.18), transparent 70%)",
+            "radial-gradient(60% 80% at 50% 100%, rgba(190,247,10,0.14), transparent 70%)",
         }}
       />
     </div>

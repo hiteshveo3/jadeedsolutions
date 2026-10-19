@@ -9,7 +9,7 @@ import { defaultAuthorSlug, getAuthor } from "@/lib/authors";
 import { formatDate } from "@/lib/blog";
 import { getGuide, guides, guideWordCount } from "@/lib/guides";
 import { siteConfig } from "@/lib/site";
-import { LinkRows } from "@/components/site/ui";
+import { FaqCards, LinkRows } from "@/components/site/ui";
 
 export function generateStaticParams() {
   return guides.map((g) => ({ slug: g.slug }));
@@ -113,14 +113,7 @@ export default async function GuidePage(props: { params: Promise<{ slug: string 
         ))}
 
         <LongformSection id="faqs" label="FAQs" title="Frequently asked questions">
-          <dl className="divide-y divide-black/10 border-y border-black/10">
-            {guide.faqs.map((faq) => (
-              <div key={faq.question} className="py-6">
-                <dt className="text-[18px] font-bold tracking-[-.015em]">{faq.question}</dt>
-                <dd className="mt-2.5 text-[17px] leading-[1.75] text-[#1d1d1b]/80"><InlineMarkdown>{faq.answer}</InlineMarkdown></dd>
-              </div>
-            ))}
-          </dl>
+          <FaqCards items={guide.faqs.map((faq) => ({ question: faq.question, answer: <InlineMarkdown>{faq.answer}</InlineMarkdown> }))} />
         </LongformSection>
 
         <AskPanel
@@ -134,7 +127,7 @@ export default async function GuidePage(props: { params: Promise<{ slug: string 
 
         {others.length > 0 && (
           <div className="mt-12">
-            <p className="mb-4 text-xs font-extrabold uppercase tracking-[.15em] text-[#015f45]">More guides</p>
+            <p className="mb-4 text-xs font-extrabold uppercase tracking-[.15em] text-[#BEF70A]">More guides</p>
             <LinkRows items={others.map((g) => ({ href: `/guides/${g.slug}`, label: g.title, meta: g.eyebrow }))} />
           </div>
         )}

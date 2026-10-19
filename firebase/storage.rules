@@ -1,0 +1,12 @@
+rules_version = '2';
+
+// Jadeed Solutions — Storage rules. Browsers get no direct access: portal files are
+// uploaded and downloaded only through the Next.js server (/api/files), which checks who
+// may see each file. The Admin SDK bypasses these rules.
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

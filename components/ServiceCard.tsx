@@ -6,7 +6,7 @@ export function ServiceCard({ service }: { service: Service }) {
   return (
     <Link
       href={`/services/${service.slug}`}
-      className="group flex flex-col rounded-2xl bg-brand-500 p-7 text-white transition-opacity duration-200 hover:opacity-95"
+      className="group flex flex-col rounded-2xl bg-white/[0.05] p-7 text-white transition-opacity duration-200 hover:opacity-95"
     >
       <span className="grid h-12 w-12 place-items-center rounded-xl bg-white/15 text-white ring-1 ring-white/20 backdrop-blur-md">
         <HugeiconsIcon icon={service.icon} size={24} />

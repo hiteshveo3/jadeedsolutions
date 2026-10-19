@@ -18,7 +18,7 @@ export const handbookMeta = {
   seoDescription:
     "A working guide for business owners considering a performance-based partnership: the four deal structures, what counts as profit, attribution, the documents we need, cross-border payment and how disputes resolve.",
   published: "2026-09-29",
-  updated: "2026-09-29",
+  updated: "2026-10-04",
   disclaimer:
     "General information only · not legal, tax or accounting advice · verify every figure with a qualified professional in the relevant jurisdiction",
 } as const;
@@ -53,6 +53,10 @@ One more thing before we start. Most of what follows protects both sides. A badl
 > **A note on where we are**
 >
 > We are based in Pakistan. Most of our partners are not — they are in Canada, the United Kingdom, the United States and the UAE. That cross-border element changes several things in this document: how money moves, which country's law governs the agreement, what happens if we disagree, and what tax each side has to account for. Those sections are marked **Cross-border** and worth reading closely even if you skim the rest.
+
+> **Our standard Growth Partnership is lighter than this**
+>
+> Most partners never need the heavy documents below. Our standard deal — Structure C in [Section 3](#section-3) — is £0 upfront: no setup fee, no retainer, no minimum spend, and the audit is free. The fee is 10% of the full customer invoice after it is paid, only for customers who first reached you through the channels we built and run. Day-to-day reporting runs on trust: you mark what happened with each customer in a shared record, and we ask for evidence only if one entry is ever in question. We never ask for bank statements as routine. The deeper financial checks in this handbook apply when a fee is calculated from profit or total revenue (Structures A, B and D), because then our payment depends on figures inside your accounts.
 `,
   },
   {
@@ -129,9 +133,9 @@ Ten percent of net profit and ten percent of revenue are wildly different amount
 
 > **How this maps to our pricing page**
 >
-> Our [pricing page](/pricing) uses shorter names for the same ideas. **Performance** is Structure C: a percentage — typically around 10% for standard-ticket jobs — of revenue that can be traced to the work. **Tiered** is also Structure C, priced as a fixed fee per completed job instead of a percentage, which suits high-ticket and variable-ticket work. **Flat fee** is not a profit share at all: a fixed monthly or milestone price, so most of this document does not apply to it. Structures A, B and D are available when a business needs them, with D as the fallback when attribution is not possible.
+> Our [pricing page](/pricing) uses shorter names for the same ideas. **Performance** is Structure C: a percentage — typically 10% of the paid invoice for standard-ticket jobs — of revenue that can be traced to the work, with £0 upfront and no retainer. **Tiered** is also Structure C, priced as a fixed fee per completed job instead of a percentage, which suits high-ticket and variable-ticket work. **Flat fee** is not a profit share at all: a fixed monthly or milestone price, so most of this document does not apply to it. Structures A, B and D are available when a business needs them, with D as the fallback when attribution is not possible.
 >
-> Performance and tiered deals run for an initial term of twelve to twenty-four months ([Section 12.3](#section-12-3)). Fixed-fee SEO plans have a six-month minimum.
+> Performance and tiered deals run for a six-month initial term, then month to month; either side can end them with 30 days' written notice after the initial term ([Section 12.3](#section-12-3)). Fixed-fee SEO plans have a six-month minimum.
 `,
   },
   {
@@ -312,7 +316,7 @@ Nothing here is unusual. Any bank extending credit, any investor writing a chequ
     body: `
 This is the section owners find most uncomfortable, so it is worth repeating why it exists: our fee is a function of your financial statements. We are not auditing you out of curiosity.
 
-The depth required depends entirely on the structure chosen in [Section 3](#section-3). Structure B needs the least. Structure A needs the most.
+The depth required depends entirely on the structure chosen in [Section 3](#section-3). Our standard Structure C, on paid invoices from customers we brought in, needs none of 7.1: reporting runs on trust, through a shared record of each customer, and evidence is requested only for a disputed entry. Among the profit and revenue structures, Structure B needs the least and Structure A needs the most.
 
 ### 7.1 Historic records
 
@@ -562,7 +566,7 @@ What we will do, in specific terms. Equally important, what we will not do — a
 
 ### 12.3 Term and exclusivity
 
-The initial term, which for a percentage deal should be long enough for the work to produce results — typically twelve to twenty-four months. Whether it renews automatically. Whether either side is exclusive, and in what field and territory.
+The initial term, which for a percentage deal should be long enough for the work to produce results. Ours is six months, then month to month, with 30 days' written notice to end it after the initial term; the agreement covers early termination for breach. Whether either side is exclusive, and in what field and territory. During an active exclusive partnership we generally don't work with a competing business in the same agreed territory — a service radius, a cluster of postcodes or ZIP codes, or a city boundary — defined in writing when we sign. Not every city is automatically exclusive.
 
 ### 12.4 The calculation
 
@@ -586,7 +590,7 @@ Amount, currency, due date, and method. Which party bears bank charges and inter
 
 Two optional protections worth discussing:
 
-**A floor** guarantees the agency a minimum monthly amount regardless of performance, which reduces the agency's risk and usually buys you a lower percentage.
+**A floor** guarantees the agency a minimum monthly amount regardless of performance, which reduces the agency's risk and usually buys you a lower percentage. Our standard Growth Partnership has no floor: no retainer and no monthly minimum.
 
 **A cap** limits the total percentage payable in a period. Owners like caps. Agencies dislike them, because the upside is what compensates for the downside. If a cap is agreed, it should be generous enough that hitting it is a good year, not a normal one.
 
@@ -876,15 +880,15 @@ This call is free, and so is the short growth plan that comes out of it: a revie
     phase: 1,
     title: "Confidentiality and first documents",
     when: "Week 1",
-    body: "A mutual confidentiality agreement, signed before anything sensitive is exchanged. Then registration documents, identification, and twelve months of bank statements.",
+    body: "A mutual confidentiality agreement, signed before anything sensitive is exchanged. Then registration documents and identification. Twelve months of bank statements only where the fee is calculated from profit or total revenue — never for the standard Growth Partnership.",
   },
   {
     phase: 2,
-    title: "Paid audit",
-    when: "Weeks 2 to 3 · percentage deals only",
-    body: `This is the deep version of the free growth plan, and it applies to percentage deals only. The growth plan tells you whether there is an opportunity; the audit measures it precisely enough to put money against. We review the accounts, the current marketing, the analytics, the competitive position and the capacity constraints, and produce a written assessment: what the opportunity actually is, what structure suits it, what baseline we would propose, and what needs to be fixed first.
+    title: "Deep audit",
+    when: "Weeks 2 to 3 · free",
+    body: `This is the deep version of the free growth plan. The growth plan tells you whether there is an opportunity; the audit measures it precisely enough to put money against. We review the current marketing, the analytics, the competitive position and the capacity constraints — and, only for profit or revenue structures, the accounts — and produce a written assessment: what the opportunity actually is, what structure suits it, what we would track, and what needs to be fixed first.
 
-This phase is paid, and it should be. A partner willing to do this work free has either not done it properly or intends to recover it elsewhere. Paying for it also means the assessment is yours: if you decide not to proceed, you keep a document worth having.`,
+Like everything before launch, it costs you nothing: the Growth Partnership is £0 upfront, and we earn only after your customers pay. The assessment is yours either way: if you decide not to proceed, you keep a document worth having.`,
   },
   {
     phase: 3,
@@ -932,13 +936,13 @@ export const checklistGroups: { title: string; items: { item: string; req: [Requ
   {
     title: "Financial visibility",
     items: [
-      { item: "Bank statements", req: ["24 months", "12 months", "24 months", "12 months"] },
-      { item: "Filed financial statements, 2–3 years", req: ["R", "A", "R", "A"] },
-      { item: "Filed tax returns", req: ["R", "N", "A", "N"] },
-      { item: "Payment processor statements", req: ["R", "R", "R", "A"] },
-      { item: "Read-only accounting system access", req: ["R", "N", "A", "N"] },
-      { item: "Chart of accounts", req: ["R", "N", "A", "N"] },
-      { item: "Accountant contact and written consent", req: ["R", "A", "R", "A"] },
+      { item: "Bank statements", req: ["24 months", "12 months", "N", "12 months"] },
+      { item: "Filed financial statements, 2–3 years", req: ["R", "A", "N", "A"] },
+      { item: "Filed tax returns", req: ["R", "N", "N", "N"] },
+      { item: "Payment processor statements", req: ["R", "R", "On a disputed entry", "A"] },
+      { item: "Read-only accounting system access", req: ["R", "N", "N", "N"] },
+      { item: "Chart of accounts", req: ["R", "N", "N", "N"] },
+      { item: "Accountant contact and written consent", req: ["R", "A", "N", "A"] },
       { item: "Separate business bank account", req: ["R", "R", "R", "R"] },
     ],
   },
@@ -1020,7 +1024,7 @@ export const handbookFaqs: { question: string; answer: string }[] = [
   {
     question: "Do you work with businesses that have never advertised?",
     answer:
-      "Yes, and often they are the best fit, because the baseline is clean and improvement is easy to see. But the first months are slower and a retainer element is usually sensible.",
+      "Yes, and often they are the best fit, because the baseline is clean and improvement is easy to see. The first months are slower, which is what the six-month initial term is for. There is still no retainer: the standard Growth Partnership is £0 upfront.",
   },
   {
     question: "Do I have to use your systems?",

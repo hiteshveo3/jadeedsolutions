@@ -17,7 +17,7 @@ export const authors: Record<string, Author> = {
     slug: "sameer-ahmad-basra",
     name: "Sameer Ahmad Basra",
     role: "Founder & Lead Architect, Jadeed Solutions",
-    avatar: "/team/sameer-ahmad-basra.jpg",
+    avatar: "/team/sameer-ahmad-basra-2026.jpg",
     location: "Narowal, Punjab, Pakistan",
     address: "House No. 5, Street No. 1, New Lahore Road, Pejowali Kalan, Narowal, 51600, Pakistan",
     bio: "Founder of Jadeed Solutions, helping local service-based businesses generate more bookings by combining high-performing websites, SEO, software, AI, and custom-built automation — including a performance model where fees follow the bookings the work generates.",

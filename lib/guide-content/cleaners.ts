@@ -164,8 +164,8 @@ These are exactly the areas our [Profit-Share Handbook](/profit-share-handbook) 
       body: `
 Cleaning businesses often have tight margins and uneven cash flow, so the commercial model matters.
 
-- **Fixed-fee plans** — SEO from £100 a month with a six-month minimum, websites from £199 — suit businesses that want a predictable monthly cost.
-- **Performance deals** tie fees to the revenue from bookings the work generates, typically around 10%, on a 12–24 month term. They need reliable booking records and tracking.
+- **Fixed-fee plans** — SEO from £300 a month with a six-month minimum, websites from £199 — suit businesses that want a predictable monthly cost.
+- **Performance deals** tie fees to the paid jobs the work generates — typically 10% of the paid invoice, £0 upfront, on a 6-month initial term, then month to month. They need reliable booking records and tracking.
 - **Tiered deals** charge a fixed amount per completed job, which can suit high-value or commercial cleans.
 
 Read the [Profit-Share Handbook](/profit-share-handbook) before choosing a percentage deal, or see [pricing](/pricing) and the [cleaning industry page](/industries/seo-for-cleaners).

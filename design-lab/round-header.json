@@ -1,0 +1,23 @@
+{
+  "round": "header",
+  "savedAt": "2026-10-04T10:44:01.689Z",
+  "summary": "Q01 Header ka style (computer par): Poori chaurai wali patti\nQ02 Mobile par menu button dabayen to kya khule?: Poora green page\nQ03 Services par mouse le jayen to kya khule?: —\n    Note: no mega menu or menu at all, just header pr jo he enough he\nQ04 Kuch aur kehna hai?: i love ultra minimalism and fully focused\nHeader (unanswered = option A): one header site-wide, desktop bar, mobile sheet, services menu mega",
+  "palette": {
+    "headerStyle": "bar",
+    "mobileMenu": "sheet",
+    "servicesMenu": "mega"
+  },
+  "answers": {
+    "h-style": [
+      "bar"
+    ],
+    "h-mobile": [
+      "sheet"
+    ],
+    "h-menu": []
+  },
+  "notes": {
+    "h-menu": "no mega menu or menu at all, just header pr jo he enough he",
+    "h-anything": "i love ultra minimalism and fully focused"
+  }
+}

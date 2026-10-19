@@ -11,7 +11,7 @@ export const testimonials: Testimonial[] = [
       "Monthly SEO fees were hard for us. Paying 10% after bookings made sense — and Jadeed built the website, app, SEO and ads as one team.",
     name: "Abdullah Bin Mustafa",
     role: "Alpha Movers · London",
-    avatar: "/case-studies/alpha-movers/logo-alpha.png",
+    avatar: "",
   },
   {
     quote:
@@ -36,7 +36,7 @@ export const whyUs: WhyUsItem[] = [
   {
     title: "Website, Google, apps & ads together",
     description:
-      "One team builds what you need. You can buy SEO, a website or an app on their own — or grow on 10% of bookings.",
+      "One team builds what you need. You can buy SEO, a website or an app on their own — or grow on 10% of paid jobs.",
   },
   {
     title: "Straight talk",
@@ -46,7 +46,7 @@ export const whyUs: WhyUsItem[] = [
   {
     title: "Fair pricing",
     description:
-      "No setup fee. Fixed plans from £100/mo SEO — or pay 10% only on bookings we generate. Six-month minimum.",
+      "No setup fee. Fixed plans from £300/mo SEO — or pay 10% only on paid jobs we generate. Six-month minimum.",
   },
 ];
 

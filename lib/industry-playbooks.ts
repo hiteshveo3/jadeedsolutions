@@ -174,7 +174,7 @@ Every quote request, call and WhatsApp message is tracked, so we can see which s
     {
       title: "Paying for it",
       body: `
-Removals suits a performance model well: job values are fairly consistent and bookings are easy to track — which is why Alpha Movers chose to pay 10% after bookings. You can also choose a fixed SEO plan from £100 a month with a six-month minimum, or a tiered fee per completed move.
+Removals suits a performance model well: job values are fairly consistent and bookings are easy to track — which is why Alpha Movers chose to pay 10% after bookings. You can also choose a fixed SEO plan from £300 a month with a six-month minimum, or a tiered fee per completed move.
 
 Before choosing a percentage deal, read our [Profit-Share Handbook](/profit-share-handbook), or compare the models on the [pricing page](/pricing).
 `,
@@ -223,7 +223,7 @@ And behind the site: Google Business Profile optimisation, a review request afte
       body: `
 A percentage fee can be a poor fit for high-ticket projects with big material and labour costs — 10% of a roof replacement is very different from 10% of a call-out. For those businesses we usually recommend a **lower percentage or a tiered model**: a fixed fee per completed job, set by job type or value, agreed before work starts.
 
-Fixed-fee plans are always available too — SEO from £100 a month with a six-month minimum, and websites from £199. The [pricing page](/pricing) compares the models, and the [Profit-Share Handbook](/profit-share-handbook) explains what a performance or tiered deal needs from you.
+Fixed-fee plans are always available too — SEO from £300 a month with a six-month minimum, and websites from £199. The [pricing page](/pricing) compares the models, and the [Profit-Share Handbook](/profit-share-handbook) explains what a performance or tiered deal needs from you.
 `,
     },
     {

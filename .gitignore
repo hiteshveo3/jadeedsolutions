@@ -8,6 +8,8 @@
 
 # next.js
 /.next/
+/.next-verify/
+/.next-dash/
 /out/
 
 # production
@@ -34,3 +36,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .env*
+
+# Firebase emulators (local data and logs)
+/firebase/emulator-data/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log

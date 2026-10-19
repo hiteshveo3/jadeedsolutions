@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { WhatsappBusinessIcon } from "@/components/icons";
+import { WhatsappIcon } from "@/components/icons";
 import { niches } from "@/lib/niches";
 import { intentPages } from "@/lib/intent-pages";
 import { citiesByCountry, cities } from "@/lib/cities";
 import { siteConfig } from "@/lib/site";
 import { AlphaProof } from "@/components/site/AlphaProof";
+import { CityChips, TradeSearch } from "@/components/jadeed/industries";
+import { TradesMarquee } from "@/components/jadeed/blocks";
 import {
   ButtonLink,
   Eyebrow,
@@ -19,7 +21,7 @@ import {
 export const metadata: Metadata = {
   title: "Industries — Local Service Businesses We Help Grow",
   description:
-    "SEO, websites and apps for plumbers, movers, cleaners and other local service businesses across 100 UK & USA cities. From £100/mo or 10% of bookings.",
+    "SEO, websites and apps for plumbers, movers, cleaners and other local service businesses across 100 UK & USA cities. From £300/mo or 10% of paid jobs.",
   alternates: { canonical: `${siteConfig.url}/industries` },
 };
 
@@ -31,7 +33,7 @@ export default function IndustriesHubPage() {
     <>
       <PageHero
         eyebrow="Industries"
-        title={<>Built for local<span className="block text-[#eaf25a]">service businesses.</span></>}
+        title={<>Built for local<span className="block text-[#BEF70A]">service businesses.</span></>}
         lead="Plumbers, cleaners, movers and other local services across the UK and USA — solo operators through multi-crew firms. One goal: more bookings from Google and your website."
         actions={
           <>
@@ -50,6 +52,20 @@ export default function IndustriesHubPage() {
           />
         }
       />
+
+      {/* Find your trade: a search that types its own hint (idea 037) + a moving strip of trades (005). */}
+      <section aria-labelledby="find-trade-heading" className="py-14 md:py-20">
+        <div className="container max-w-[1200px] text-center">
+          <h2 id="find-trade-heading" className="text-[34px] leading-[1.02] tracking-[-.04em] sm:text-5xl">Find your trade</h2>
+          <p className="mx-auto mt-4 max-w-xl text-white/70">Type what you do — we'll take you to the right playbook.</p>
+          <div className="mt-8">
+            <TradeSearch />
+          </div>
+        </div>
+        <div className="mt-12 border-y border-white/[0.08] py-5">
+          <TradesMarquee items={["Plumbers", "Cleaners", "Removals", "Electricians", "Roofers", "HVAC & AC", "Landscapers", "Pest control", "Handymen", "Locksmiths"]} />
+        </div>
+      </section>
 
       <Section tone="cream" labelledBy="trades-heading">
         <SectionHeader id="trades-heading" eyebrow="Trades we serve" title="Start with your trade" lead="Each playbook covers what we do for that trade, how we work and city pages across both markets." />
@@ -76,20 +92,8 @@ export default function IndustriesHubPage() {
 
       <Section tone="green" labelledBy="cities-heading">
         <SectionHeader id="cities-heading" tone="green" eyebrow="City coverage" title={`${cities.length} cities across the UK and USA`} lead="Choose your trade above to see the page for your city." />
-        <div className="mt-10 grid gap-10 md:grid-cols-2 md:gap-16">
-          {[
-            { label: "United Kingdom", list: uk },
-            { label: "United States", list: usa },
-          ].map((group) => (
-            <div key={group.label}>
-              <p className="mb-4 text-xs font-extrabold uppercase tracking-[.15em] text-[#eaf25a]">{group.label}</p>
-              <ul className="columns-2 gap-x-6 border-t border-white/15 text-sm text-white/80 sm:columns-3">
-                {group.list.map((city) => (
-                  <li key={city.slug} className="break-inside-avoid border-b border-white/10 py-2.5">{city.name}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
+        <div className="mt-10">
+          <CityChips groups={[{ label: "United Kingdom", cities: uk.map((c) => c.name) }, { label: "United States", cities: usa.map((c) => c.name) }]} />
         </div>
       </Section>
 
@@ -100,10 +104,10 @@ export default function IndustriesHubPage() {
           <div>
             <Eyebrow tone="mint">Other trades</Eyebrow>
             <h2 id="trade-cta-heading" className="mt-3 font-sans text-[32px] font-semibold leading-[1.05] tracking-[-.045em] sm:text-5xl">Don&apos;t see your trade yet?</h2>
-            <p className="mt-5 max-w-xl leading-7 text-[#063d30]/75">Tell us your city and service. If you sell local jobs, we can help you win more of them.</p>
+            <p className="mt-5 max-w-xl leading-7 text-white/83">Tell us your city and service. If you sell local jobs, we can help you win more of them.</p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
-            <ButtonLink href={siteConfig.whatsappHref} variant="green" icon={WhatsappBusinessIcon}>WhatsApp us</ButtonLink>
+            <ButtonLink href={siteConfig.whatsappHref} variant="green" icon={WhatsappIcon}>WhatsApp us</ButtonLink>
             <ButtonLink href="/pricing" variant="outlineDark">See pricing</ButtonLink>
           </div>
         </div>

@@ -78,7 +78,7 @@ type ServiceCard = {
 const servicesList: ServiceCard[] = [
   {
     name: "SEO",
-    price: <Price gbp={100} period="/mo" periodClassName="text-slate-500 text-base" />,
+    price: <Price gbp={300} period="/mo" periodClassName="text-white/62 text-base" />,
     tag: "6-month minimum",
     features: [
       "Technical & on-page SEO",
@@ -91,7 +91,7 @@ const servicesList: ServiceCard[] = [
   {
     name: "Business Website",
     price: (
-      <Price gbp={199} period="one-time" periodClassName="text-slate-500 text-base" />
+      <Price gbp={199} period="one-time" periodClassName="text-white/62 text-base" />
     ),
     tag: "Starting from",
     features: [
@@ -130,7 +130,7 @@ const servicesList: ServiceCard[] = [
 
 function Yes() {
   return (
-    <span className="inline-flex items-center gap-1.5 font-semibold text-brand-500">
+    <span className="inline-flex items-center gap-1.5 font-semibold text-[#BEF70A]">
       <HugeiconsIcon icon={CheckIcon} size={16} strokeWidth={2.4} />
       Yes
     </span>
@@ -139,7 +139,7 @@ function Yes() {
 
 function No() {
   return (
-    <span className="inline-flex items-center gap-1.5 text-slate-400">
+    <span className="inline-flex items-center gap-1.5 text-white/52">
       <HugeiconsIcon icon={CloseIcon} size={14} />—
     </span>
   );
@@ -159,7 +159,7 @@ const faqs: { q: string; a: string }[] = [
     a: "Yes. SEO, business websites, Google Ads management and mobile apps are all available individually if you prefer fixed pricing rather than the partnership model.",
   },
   {
-    q: "What's included in the £100/mo SEO plan?",
+    q: "What's included in the £300/mo SEO plan?",
     a: "Technical and on-page SEO, content optimization, local SEO and monthly reporting. We ask for a 6-month minimum because SEO results compound over time.",
   },
   {
@@ -229,19 +229,19 @@ export function PricingContent() {
   return (
     <CurrencyProvider>
       {/* Hero */}
-      <main className="bg-white">
-      <section className="bg-white">
+      <main className="bg-transparent">
+      <section className="bg-transparent">
         <div className="container py-20 sm:py-28 lg:py-32">
           <Reveal className="grid items-end gap-10 lg:grid-cols-[1fr_0.8fr]">
             <div>
-            <span className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-500">Pricing</span>
-            <h1 className="mt-5 max-w-3xl font-display text-5xl font-semibold tracking-[-0.055em] text-ink sm:text-6xl lg:text-7xl">
+            <span className="text-sm font-semibold uppercase tracking-[0.18em] text-[#BEF70A]">Pricing</span>
+            <h1 className="mt-5 max-w-3xl font-display text-5xl font-semibold tracking-[-0.055em] text-white sm:text-6xl lg:text-7xl">
               Pay 10% of bookings — or pick a fixed plan
             </h1>
             </div>
-            <p className="max-w-xl text-lg leading-relaxed text-slate-600 lg:pb-2">
+            <p className="max-w-xl text-lg leading-relaxed text-white/72 lg:pb-2">
               Our main model is simple: we only win when you win. Pay just{" "}
-              <span className="font-semibold text-brand-500">
+              <span className="font-semibold text-[#BEF70A]">
                 10% of the bookings we generate
               </span>{" "}
               — no setup fees and no monthly retainers. Fixed SEO has a
@@ -254,53 +254,53 @@ export function PricingContent() {
       </section>
 
       {/* Flagship — Growth Partnership */}
-      <section className="bg-white pb-24 sm:pb-32">
+      <section className="bg-transparent pb-24 sm:pb-32">
         <div className="container">
           <div className="mb-8 flex justify-end">
-            <div className="flex items-center gap-3 rounded-xl border border-[#deded8] bg-[#f7f7f3] px-4 py-2.5">
-              <span className="hidden text-xs font-semibold uppercase tracking-wider text-slate-500 sm:inline">
+            <div className="flex items-center gap-3 rounded-xl border border-white/[0.08] bg-white/[0.05] px-4 py-2.5">
+              <span className="hidden text-xs font-semibold uppercase tracking-wider text-white/62 sm:inline">
                 Currency
               </span>
               <CurrencySwitcher />
             </div>
           </div>
-          <Reveal className="overflow-hidden rounded-[28px] border border-[#deded8] bg-[#f7f7f3] shadow-[0_16px_50px_rgba(20,20,20,0.06)]">
+          <Reveal className="overflow-hidden rounded-[28px] border border-white/[0.08] bg-white/[0.05] shadow-[0_16px_50px_rgba(20,20,20,0.06)]">
             <div className="grid lg:grid-cols-[1.6fr_1fr]">
               <div className="p-8 sm:p-10 lg:p-12">
-                <span className="inline-flex items-center gap-2 rounded-full bg-[#cbd810] px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#063d30]">
+                <span className="inline-flex items-center gap-2 rounded-full bg-[#BEF70A] px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#0B1F12]">
                   Most popular · Growth Partnership
                 </span>
-                <h2 className="mt-4 font-display text-2xl font-semibold text-ink sm:text-3xl">
+                <h2 className="mt-4 font-display text-2xl font-semibold text-white sm:text-3xl">
                   Growth Partnership
                 </h2>
                 <div className="mt-4 flex flex-wrap items-baseline gap-x-3">
-                  <span className="font-display text-6xl font-semibold tracking-[-0.05em] text-brand-500">
+                  <span className="font-display text-6xl font-semibold tracking-[-0.05em] text-[#BEF70A]">
                     10%
                   </span>
-                  <span className="text-lg text-slate-600">
+                  <span className="text-lg text-white/72">
                     of the bookings we generate
                   </span>
                 </div>
-                <p className="mt-4 max-w-xl leading-relaxed text-slate-600">
+                <p className="mt-4 max-w-xl leading-relaxed text-white/72">
                   One team handles your marketing — SEO, Google Ads, your
                   website, content and more. Apps are available when your
                   business needs them. You only pay 10% when we bring you real
                   bookings.
                 </p>
 
-                <p className="mt-8 text-sm font-bold uppercase tracking-wider text-slate-500">
+                <p className="mt-8 text-sm font-bold uppercase tracking-wider text-white/62">
                   Everything included
                 </p>
                 <ul className="mt-4 grid gap-3 sm:grid-cols-2">
                   {included.map((item) => (
                     <li
                       key={item}
-                      className="flex items-start gap-2.5 text-sm text-slate-700"
+                      className="flex items-start gap-2.5 text-sm text-white/80"
                     >
                       <HugeiconsIcon
                         icon={CheckCircleIcon}
                         size={18}
-                        className="mt-0.5 shrink-0 text-brand-500"
+                        className="mt-0.5 shrink-0 text-[#BEF70A]"
                       />
                       {item}
                     </li>
@@ -308,7 +308,7 @@ export function PricingContent() {
                 </ul>
               </div>
 
-              <div className="flex flex-col justify-center gap-6 bg-brand-500 p-8 text-white sm:p-10 lg:p-12">
+              <div className="flex flex-col justify-center gap-6 bg-transparent p-8 text-white sm:p-10 lg:p-12">
                 <div>
                   <h3 className="font-display text-lg font-semibold">
                     Why it works
@@ -344,12 +344,12 @@ export function PricingContent() {
             </div>
 
             {/* AI note */}
-            <div className="flex flex-col gap-3 border-t border-[#deded8] bg-white p-6 sm:flex-row sm:items-start">
-              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-brand-500 text-white">
+            <div className="flex flex-col gap-3 border-t border-white/[0.08] bg-transparent p-6 sm:flex-row sm:items-start">
+              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/[0.05] text-white">
                 <HugeiconsIcon icon={VideoIcon} size={20} />
               </span>
-              <p className="text-sm leading-relaxed text-slate-700">
-                <span className="font-bold text-ink">
+              <p className="text-sm leading-relaxed text-white/80">
+                <span className="font-bold text-white">
                   About AI images &amp; videos:
                 </span>{" "}
                 AI-generated marketing images are always included. Our core
@@ -362,11 +362,11 @@ export function PricingContent() {
 
           <div className="mt-10">
             <PartnershipCalculator />
-            <p className="mt-6 text-center text-sm text-slate-500">
+            <p className="mt-6 text-center text-sm text-white/62">
               Not sure what you need?{" "}
               <a
                 href="/tools/growth-check"
-                className="font-semibold text-brand-500 hover:underline"
+                className="font-semibold text-[#BEF70A] hover:underline"
               >
                 Take the free Growth Check
               </a>{" "}
@@ -377,7 +377,7 @@ export function PricingContent() {
       </section>
 
       {/* How the 10% works */}
-      <section className="section bg-white">
+      <section className="section bg-transparent">
         <div className="container">
           <SectionHeading
             eyebrow="How it works"
@@ -387,19 +387,19 @@ export function PricingContent() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, i) => (
               <Reveal key={step.title} delay={i * 0.08}>
-                <div className="h-full rounded-[22px] border border-[#deded8] bg-[#f7f7f3] p-6">
+                <div className="h-full rounded-[22px] border border-white/[0.08] bg-white/[0.05] p-6">
                   <div className="flex items-center justify-between">
-                    <span className="grid h-12 w-12 place-items-center rounded-xl bg-brand-500 text-white">
+                    <span className="grid h-12 w-12 place-items-center rounded-xl bg-white/[0.05] text-white">
                       <HugeiconsIcon icon={step.icon} size={24} />
                     </span>
                     <span className="font-display text-2xl font-semibold text-slate-200">
                       0{i + 1}
                     </span>
                   </div>
-                  <h3 className="mt-4 font-display text-lg font-semibold text-ink">
+                  <h3 className="mt-4 font-display text-lg font-semibold text-white">
                     {step.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                  <p className="mt-2 text-sm leading-relaxed text-white/72">
                     {step.text}
                   </p>
                 </div>
@@ -410,7 +410,7 @@ export function PricingContent() {
       </section>
 
       {/* Individual services */}
-      <section className="section bg-white">
+      <section className="section bg-transparent">
         <div className="container">
           <SectionHeading
             eyebrow="À la carte"
@@ -420,29 +420,29 @@ export function PricingContent() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {servicesList.map((service, i) => (
               <Reveal key={service.name} delay={(i % 4) * 0.08}>
-                <div className="flex h-full flex-col rounded-[22px] border border-[#deded8] bg-[#f7f7f3] p-6 transition-transform duration-300 hover:-translate-y-1">
+                <div className="flex h-full flex-col rounded-[22px] border border-white/[0.08] bg-white/[0.05] p-6 transition-transform duration-300 hover:-translate-y-1">
                   {service.tag && (
-                    <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-white/62">
                       {service.tag}
                     </span>
                   )}
-                  <h3 className="mt-1 font-display text-lg font-semibold text-ink">
+                  <h3 className="mt-1 font-display text-lg font-semibold text-white">
                     {service.name}
                   </h3>
-                  <div className="mt-3 font-display text-3xl font-semibold text-ink">
+                  <div className="mt-3 font-display text-3xl font-semibold text-white">
                     {service.price}
                   </div>
                   <ul className="mt-5 flex-1 space-y-2.5">
                     {service.features.map((f) => (
                       <li
                         key={f}
-                        className="flex items-start gap-2.5 text-sm text-slate-700"
+                        className="flex items-start gap-2.5 text-sm text-white/80"
                       >
                         <HugeiconsIcon
                           icon={CheckIcon}
                           size={16}
                           strokeWidth={2.4}
-                          className="mt-0.5 shrink-0 text-brand-500"
+                          className="mt-0.5 shrink-0 text-[#BEF70A]"
                         />
                         {f}
                       </li>
@@ -459,7 +459,7 @@ export function PricingContent() {
               </Reveal>
             ))}
           </div>
-          <p className="mx-auto mt-6 max-w-2xl text-center text-sm text-slate-500">
+          <p className="mx-auto mt-6 max-w-2xl text-center text-sm text-white/62">
             All prices are in GBP (£) and shown in your selected currency using
             live exchange rates. Final billing is in GBP or an agreed currency.
           </p>
@@ -467,18 +467,18 @@ export function PricingContent() {
       </section>
 
       {/* Comparison */}
-      <section className="section bg-white">
+      <section className="section bg-transparent">
         <div className="container">
           <SectionHeading
             eyebrow="Compare"
             title="Partnership vs individual services"
             description="Both work — it depends on whether you want the full partnership or one fixed service."
           />
-          <Reveal className="mx-auto mt-12 max-w-5xl overflow-hidden rounded-[24px] border border-[#deded8] bg-[#f7f7f3]">
+          <Reveal className="mx-auto mt-12 max-w-5xl overflow-hidden rounded-[24px] border border-white/[0.08] bg-white/[0.05]">
             <div className="overflow-x-auto">
               <table className="w-full border-collapse text-left text-sm">
                 <thead>
-                  <tr className="bg-[#063d30] text-white">
+                  <tr className="bg-transparent text-white">
                     <th className="px-4 py-4 font-bold">Feature</th>
                     <th className="px-4 py-4 text-center font-bold">
                       Growth Partnership
@@ -492,15 +492,15 @@ export function PricingContent() {
                   {comparisonRows.map((row, i) => (
                     <tr
                       key={row.feature}
-                      className={i % 2 === 0 ? "bg-white" : "bg-[#f7f7f3]"}
+                      className={i % 2 === 0 ? "bg-transparent" : "bg-transparent"}
                     >
-                      <td className="border-t border-slate-200 px-4 py-3 font-semibold text-ink">
+                      <td className="border-t border-white/[0.08] px-4 py-3 font-semibold text-white">
                         {row.feature}
                       </td>
-                      <td className="border-t border-slate-200 px-4 py-3 text-center text-slate-700">
+                      <td className="border-t border-white/[0.08] px-4 py-3 text-center text-white/80">
                         {row.partnership}
                       </td>
-                      <td className="border-t border-slate-200 px-4 py-3 text-center text-slate-700">
+                      <td className="border-t border-white/[0.08] px-4 py-3 text-center text-white/80">
                         {row.individual}
                       </td>
                     </tr>
@@ -509,7 +509,7 @@ export function PricingContent() {
               </table>
             </div>
           </Reveal>
-          <p className="mx-auto mt-4 max-w-4xl text-center text-xs text-slate-500">
+          <p className="mx-auto mt-4 max-w-4xl text-center text-xs text-white/62">
             *AI videos: images are always included; a steady stream of AI videos
             requires a client-funded AI tool subscription.
           </p>
@@ -517,7 +517,7 @@ export function PricingContent() {
       </section>
 
       {/* FAQ */}
-      <section className="section bg-white">
+      <section className="section bg-transparent">
         <div className="container">
           <SectionHeading
             eyebrow="FAQ"

@@ -47,15 +47,15 @@ export function LocalSeoAuditCalculator() {
     if (score >= 80) {
       return {
         label: "Elite Local Leader",
-        color: "text-emerald-600 bg-emerald-50 border-emerald-200",
-        barColor: "bg-emerald-500",
+        color: "text-[#BEF70A] bg-white/[0.07] border-white/[0.08]",
+        barColor: "bg-[#BEF70A]",
         message: "Excellent foundation! Your website and GBP ecosystem are primed to dominate Google Local Pack & organic search.",
       };
     }
     if (score >= 50) {
       return {
         label: "Growing Contender",
-        color: "text-amber-600 bg-amber-50 border-amber-200",
+        color: "text-amber-300 bg-white/[0.06] border-white/[0.08]",
         barColor: "bg-amber-500",
         message: "Solid start, but critical gaps in structured data, location pages, or conversion tracking are costing you calls.",
       };
@@ -71,28 +71,28 @@ export function LocalSeoAuditCalculator() {
   const tier = getTier(totalScore);
 
   return (
-    <div className="my-8 overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50/50 to-indigo-50/30 p-6 shadow-sm md:p-8">
+    <div className="my-8 overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-br from-[#06301D] via-[#06301D]/50 to-indigo-50/30 p-6 shadow-sm md:p-8">
       <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
         <div>
-          <div className="inline-flex items-center gap-2 rounded-full bg-indigo-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-indigo-700">
+          <div className="inline-flex items-center gap-2 rounded-full bg-white/[0.06] px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
             <HugeiconsIcon icon={SparklesIcon} size={14} />
             Interactive Audit Tool
           </div>
-          <h3 className="mt-2 font-display text-2xl font-bold tracking-tight text-ink">
+          <h3 className="mt-2 font-display text-2xl font-bold tracking-tight text-white">
             Check Your Local SEO Readiness Score
           </h3>
-          <p className="mt-1 text-sm text-slate-600">
+          <p className="mt-1 text-sm text-white/72">
             Tick the items you currently have in place to instantly calculate your local search strength.
           </p>
         </div>
 
         {/* Live Score Gauge */}
-        <div className="flex shrink-0 items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+        <div className="flex shrink-0 items-center gap-4 rounded-2xl border border-white/[0.08] bg-white/[0.05] p-4 shadow-sm">
           <div className="text-center">
-            <span className="font-display text-3xl font-extrabold text-ink">{totalScore}%</span>
-            <span className="block text-[11px] font-semibold uppercase tracking-wider text-slate-400">Score</span>
+            <span className="font-display text-3xl font-extrabold text-white">{totalScore}%</span>
+            <span className="block text-[11px] font-semibold uppercase tracking-wider text-white/52">Score</span>
           </div>
-          <div className="h-10 w-px bg-slate-200" />
+          <div className="h-10 w-px bg-white/15" />
           <div>
             <span className={`inline-block rounded-full border px-2.5 py-0.5 text-xs font-bold ${tier.color}`}>
               {tier.label}
@@ -102,14 +102,14 @@ export function LocalSeoAuditCalculator() {
       </div>
 
       {/* Progress Bar */}
-      <div className="mt-5 h-2.5 w-full overflow-hidden rounded-full bg-slate-200">
+      <div className="mt-5 h-2.5 w-full overflow-hidden rounded-full bg-white/15">
         <div
           className={`h-full transition-all duration-500 ease-out ${tier.barColor}`}
           style={{ width: `${totalScore}%` }}
         />
       </div>
 
-      <p className="mt-3 text-xs font-medium text-slate-500">
+      <p className="mt-3 text-xs font-medium text-white/62">
         {tier.message}
       </p>
 
@@ -124,24 +124,24 @@ export function LocalSeoAuditCalculator() {
               onClick={() => toggle(item.id)}
               className={`flex items-start gap-3 rounded-2xl border p-3.5 text-left transition-all ${
                 isChecked
-                  ? "border-emerald-200 bg-emerald-50/60 shadow-xs"
-                  : "border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50/80"
+                  ? "border-white/[0.08] bg-white/[0.06] shadow-xs"
+                  : "border-white/[0.08] bg-white/[0.05] hover:bg-white/[0.06]"
               }`}
             >
               <span
                 className={`grid h-5 w-5 shrink-0 place-items-center rounded-md border transition-colors ${
                   isChecked
-                    ? "border-emerald-500 bg-emerald-500 text-white"
-                    : "border-slate-300 bg-white"
+                    ? "border-[#BEF70A] bg-[#BEF70A] text-[#0B1F12]"
+                    : "border-white/[0.08] bg-white/[0.05]"
                 }`}
               >
                 {isChecked && <HugeiconsIcon icon={CheckIcon} size={12} strokeWidth={3} />}
               </span>
               <div className="flex-1">
-                <span className="block text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                <span className="block text-xs font-semibold text-white/52 uppercase tracking-wider">
                   {item.category}
                 </span>
-                <span className={`mt-0.5 block text-xs font-medium ${isChecked ? "text-slate-900" : "text-slate-700"}`}>
+                <span className={`mt-0.5 block text-xs font-medium ${isChecked ? "text-white" : "text-white/80"}`}>
                   {item.label}
                 </span>
               </div>

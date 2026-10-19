@@ -17,29 +17,29 @@ export default function BlogArchiveIndexPage() {
 
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-white pb-10 pt-32">
+      <section className="relative isolate overflow-hidden bg-transparent pb-10 pt-32">
         <HeroBackground />
         <div className="container relative z-10 max-w-5xl">
-          <nav className="text-xs text-slate-500">
-            <Link href="/blog" className="hover:text-brand-500">
+          <nav className="text-xs text-white/62">
+            <Link href="/blog" className="hover:text-[#BEF70A]">
               Blog
             </Link>
             <span className="mx-1.5">/</span>
-            <span className="text-ink">Archive</span>
+            <span className="text-white">Archive</span>
           </nav>
           <div className="mt-4 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
-              <h1 className="font-display text-3xl font-semibold tracking-tight text-ink md:text-5xl">
+              <h1 className="font-display text-3xl font-semibold tracking-tight text-white md:text-5xl">
                 Archive by date
               </h1>
-              <p className="mt-3 text-base leading-relaxed text-slate-600 md:text-lg">
+              <p className="mt-3 text-base leading-relaxed text-white/72 md:text-lg">
                 Explore every article in a timeline, month heatmap or searchable
                 list — jump by year, filter by topic, expand months for previews.
               </p>
             </div>
             <Link
               href="/blog"
-              className="shrink-0 text-sm font-semibold text-brand-500 hover:underline"
+              className="shrink-0 text-sm font-semibold text-[#BEF70A] hover:underline"
             >
               ← Back to blog
             </Link>
@@ -47,7 +47,7 @@ export default function BlogArchiveIndexPage() {
         </div>
       </section>
 
-      <section className="bg-slate-50 py-10 md:py-14">
+      <section className="bg-transparent py-10 md:py-14">
         <div className="container max-w-5xl">
           <BlogArchiveExplorer archive={archive} stats={stats} />
         </div>

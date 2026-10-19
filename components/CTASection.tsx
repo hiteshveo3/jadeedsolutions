@@ -22,20 +22,20 @@ export function CTASection({
 }) {
   if (variant === "landscape") {
     return (
-      <section className="overflow-hidden bg-white pt-16 sm:pt-24">
+      <section className="overflow-hidden bg-transparent pt-16 sm:pt-24">
         <Reveal className="relative text-center">
           <div className="relative z-10 mx-auto max-w-3xl px-6 pb-10 sm:pb-14">
-            <h2 className="font-display text-4xl font-semibold tracking-[-0.045em] text-ink sm:text-5xl lg:text-6xl">
+            <h2 className="font-display text-4xl font-semibold tracking-[-0.045em] text-white sm:text-5xl lg:text-6xl">
               {title}
             </h2>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/72 sm:text-lg">
               {description}
             </p>
             <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <LinkButton
                 href={primaryHref}
                 size="lg"
-                className="w-full bg-black text-white hover:bg-brand-500 sm:w-auto"
+                className="w-full bg-[#BEF70A] text-[#0B1F12] hover:bg-[#ABDE09] sm:w-auto"
               >
                 {primaryLabel}
               </LinkButton>
@@ -43,7 +43,7 @@ export function CTASection({
                 href={secondaryHref}
                 size="lg"
                 variant="secondary"
-                className="w-full border-ink bg-white text-ink sm:w-auto"
+                className="w-full sm:w-auto"
               >
                 {secondaryLabel}
               </LinkButton>
@@ -66,7 +66,7 @@ export function CTASection({
   return (
     <section className="section">
       <div className="container">
-        <Reveal className="relative overflow-hidden rounded-3xl bg-brand-500 px-6 py-16 text-center sm:px-12 sm:py-20">
+        <Reveal className="relative overflow-hidden rounded-3xl bg-white/[0.05] px-6 py-16 text-center sm:px-12 sm:py-20">
           <div className="relative mx-auto max-w-2xl">
             <h2 className="font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">
               {title}

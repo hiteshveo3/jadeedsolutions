@@ -20,7 +20,7 @@ export function ContentPlaceholder({
   parentLabel = "Return Home",
 }: PlaceholderProps) {
   return (
-    <main className="min-h-screen bg-[#f9f9f9] flex flex-col justify-between">
+    <main className="min-h-screen bg-transparent flex flex-col justify-between">
       <section className="relative w-full pt-[160px] pb-24 px-6 flex items-center justify-center">
         {/* Subtle Noise Texture */}
         <div
@@ -33,29 +33,29 @@ export function ContentPlaceholder({
         />
 
         <div className="max-w-[800px] w-full mx-auto text-center flex flex-col items-center relative z-10">
-          <span className="inline-flex items-center justify-center bg-[#cbd810]/25 text-[#015f45] border border-[#cbd810]/50 text-[12px] font-bold px-4 py-1.5 rounded-xl uppercase tracking-[0.12em] mb-7">
+          <span className="inline-flex items-center justify-center bg-[#BEF70A]/25 text-[#BEF70A] border border-[#BEF70A]/50 text-[12px] font-bold px-4 py-1.5 rounded-xl uppercase tracking-[0.12em] mb-7">
             {badge}
           </span>
 
-          <span className="text-[14px] font-semibold text-[#015f45] uppercase tracking-widest mb-3">
+          <span className="text-[14px] font-semibold text-[#BEF70A] uppercase tracking-widest mb-3">
             {category}
           </span>
 
-          <h1 className="text-[36px] md:text-[48px] lg:text-[54px] font-semibold text-[#151515] leading-[1.15] tracking-tight mb-6 max-w-[700px]">
+          <h1 className="text-[36px] md:text-[48px] lg:text-[54px] font-semibold text-white leading-[1.15] tracking-tight mb-6 max-w-[700px]">
             {title}
           </h1>
 
-          <div className="bg-white border border-black/10 rounded-2xl p-8 w-full my-6 text-left">
+          <div className="bg-white/[0.05] border border-white/[0.08] rounded-2xl p-8 w-full my-6 text-left">
             <div className="flex items-center gap-3 mb-4">
-              <span className="w-3 h-3 rounded-full bg-[#cbd810] animate-pulse" />
-              <span className="text-[13px] font-bold text-black/60 uppercase tracking-wider">
+              <span className="w-3 h-3 rounded-full bg-[#BEF70A] animate-pulse" />
+              <span className="text-[13px] font-bold text-white/68 uppercase tracking-wider">
                 Status: In Editorial & Technical Review
               </span>
             </div>
-            <p className="text-[17px] text-black/75 leading-relaxed font-normal mb-6">
+            <p className="text-[17px] text-white/83 leading-relaxed font-normal mb-6">
               {subtitle}
             </p>
-            <p className="text-[15px] text-black/60 leading-relaxed font-normal">
+            <p className="text-[15px] text-white/68 leading-relaxed font-normal">
               Content is currently being prepared & updated for 2026. For immediate inquiries or specific project requirements, please contact our team directly.
             </p>
           </div>
@@ -63,20 +63,20 @@ export function ContentPlaceholder({
           <div className="flex flex-wrap items-center justify-center gap-4 mt-6">
             <Link
               href={parentPath}
-              className="group bg-[#151515] text-white font-semibold px-6 py-3.5 rounded-xl hover:bg-black/85 transition-colors text-[15px] flex items-center gap-2"
+              className="group bg-[#BEF70A] text-[#0B1F12] font-semibold px-6 py-3.5 rounded-xl hover:bg-black/70 transition-colors text-[15px] flex items-center gap-2"
             >
               <HugeiconsIcon icon={ArrowLeftIcon} size={16} className="transition-transform group-hover:-translate-x-1" />
               {parentLabel}
             </Link>
             <Link
               href="/contact"
-              className="bg-[#015f45] text-white font-semibold px-6 py-3.5 rounded-xl hover:bg-[#015f45]/90 transition-all text-[15px]"
+              className="bg-[#BEF70A] text-[#0B1F12] font-semibold px-6 py-3.5 rounded-xl hover:bg-[#06301D]/90 transition-all text-[15px]"
             >
               Contact Team Jadeed
             </Link>
             <Link
               href="/blog"
-              className="bg-white border border-black/10 text-black font-semibold px-6 py-3.5 rounded-xl hover:bg-black/5 transition-all text-[15px]"
+              className="bg-white border border-white/[0.08] text-[#0B1F12] font-semibold px-6 py-3.5 rounded-xl hover:bg-black/25 transition-all text-[15px]"
             >
               Read Latest Blog
             </Link>
