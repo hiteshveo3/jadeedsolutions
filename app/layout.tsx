@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Caveat, Chewy, DM_Sans, Urbanist } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -9,34 +9,38 @@ import { SiteChrome } from "@/components/site/SiteChrome";
 import { searchItems } from "@/lib/ai/knowledge";
 import { siteConfig } from "@/lib/site";
 
-const dmSans = DM_Sans({
-  subsets: ["latin"],
+// Fonts are self-hosted from app/fonts (latin subset, downloaded from Google Fonts)
+// so a build never depends on Google Fonts: on 2026-10-19 Vercel's build failed in
+// next/font/google while the same build passed locally.
+const dmSans = localFont({
+  src: "./fonts/dm-sans-latin-var.woff2",
+  weight: "100 1000",
   variable: "--font-sans",
   display: "swap",
 });
 
 // FINAL heading font (2026-10-04): Urbanist. Body stays DM Sans.
-// Headings render at 600 (readability fix, 2026-10-19); 700/800 stay loaded for the
+// Headings render at 600 (readability fix, 2026-10-19); 700/800 stay available for the
 // few bold display accents.
-const urbanist = Urbanist({
-  subsets: ["latin"],
-  weight: ["600", "700", "800"],
+const urbanist = localFont({
+  src: "./fonts/urbanist-latin-var.woff2",
+  weight: "600 800",
   variable: "--font-display",
   display: "swap",
 });
 
 // Small handwritten accents (≤10% of a page, Round 2).
-const caveat = Caveat({
-  subsets: ["latin"],
-  weight: ["600", "700"],
+const caveat = localFont({
+  src: "./fonts/caveat-latin-var.woff2",
+  weight: "600 700",
   variable: "--font-hand",
   display: "swap",
 });
 
 // Sticker font, used rarely (1–2 stickers on the site, Round 2).
-const chewy = Chewy({
-  subsets: ["latin"],
-  weight: ["400"],
+const chewy = localFont({
+  src: "./fonts/chewy-latin-400.woff2",
+  weight: "400",
   variable: "--font-sticker",
   display: "swap",
 });
